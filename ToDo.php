@@ -3,6 +3,7 @@ Bygga databasen
 dbconnection.php
 Footer.php
 Header.php
+config.php
 
 Börja med produktdelen - Admin
     Lista alla produkterna
