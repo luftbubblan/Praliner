@@ -1,5 +1,5 @@
 <?php
-
+qwe
 $host 	  = 'localhost';
 $database = 'praliner';
 $user     = 'root';
