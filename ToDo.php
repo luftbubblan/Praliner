@@ -1,13 +1,14 @@
-Bygga databasen
+Malin klart??? Bygga databasen
 
 
-dbconnection.php
-Footer.php
-Header.php
-config.php
+DONE - dbconnection.php
+DONE - Footer.php
+DONE - Header.php
+DONE - config.php
+
 
 Börja med produktdelen - Admin
-    Lista alla produkterna
+    DONE - Lista alla produkterna
     Skapa nya produkter
     Deleta produkter
     Uppdatera produkter

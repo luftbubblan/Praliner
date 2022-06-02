@@ -1,0 +1,11 @@
+#products-tbl { 
+	border-collapse: collapse; 
+	margin-bottom: 40px
+}
+
+#products-tbl tr,
+#products-tbl td,
+#products-tbl th {
+	border: 1px solid black;
+	padding: 10px;
+}
