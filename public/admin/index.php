@@ -1,6 +1,9 @@
 <?php
 	$pageTitle = "Admin page";
 
+	// echo dirname(dirname(dirname(__FILE__))) . '/src/config.php';
+	// require('dirname(dirname(dirname(__FILE__))) . /src/config.php');
+	require('../../src/config.php');
 	include('layout/header.php');
 ?>
 
