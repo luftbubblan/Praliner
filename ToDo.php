@@ -9,9 +9,9 @@ DONE - config.php
 
 Börja med produktdelen - Admin
     DONE - Lista alla produkterna
-    Skapa nya produkter
-    Deleta produkter
-    Uppdatera produkter
+    DONE - Skapa nya produkter
+    DONE - Deleta produkter
+    DONE - Uppdatera produkter
  
 Skapa validering av alla fälten
  

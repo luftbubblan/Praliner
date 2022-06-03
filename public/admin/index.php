@@ -3,6 +3,38 @@
 
 	require('../../src/config.php');
 
+	echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
+
+	// DELETE
+    if (isset($_POST['deleteProductBtn'])) {
+        $sql = "
+        DELETE FROM products
+        WHERE id = :id
+        ";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(":id", $_POST['id']);
+        $stmt->execute();
+        header('Location: index.php?deleted');
+        exit;
+    }
+
+	if (isset($_GET['deleted'])) {
+        $message = '
+            <div class="">
+                Product successfully deleted.
+            </div>
+        ';
+    }
+	if (isset($_GET['updated'])) {
+        $message = '
+            <div class="">
+                Product successfully updated.
+            </div>
+        ';
+    }
+
 	// READ
     $stmt = $pdo->query("
         SELECT *
@@ -22,6 +54,8 @@
 	<input type="submit" value="Create new product">
 </form>
 
+<?=$message?>
+
 <table id="products-tbl">
 	<thead>
 		<tr>
@@ -31,6 +65,7 @@
 			<th>Price</th>
 			<th>Stock</th>
 			<th>Img</th>
+			<th>Action</th>
 		</tr>
 	</thead>
 
@@ -43,6 +78,19 @@
 				<td><?=htmlentities($product['price'])?></td>      
 				<td><?=htmlentities($product['stock'])?></td>
 				<td><?=htmlentities($product['img_url'])?></td>
+				<td>
+                    <!-- Edit -->
+                    <form action="edit.php" method="POST">
+                        <input type="hidden" name="id" value="<?= htmlentities($product['id']) ?>">
+                        <input type="submit" value="Edit">
+                    </form>
+
+                    <!-- Delete -->
+                    <form action="" method="POST" id="deleteBtn">
+                        <input type="hidden" name="id" value="<?= htmlentities($product['id']) ?>">
+                        <input type="submit" name="deleteProductBtn" value="Delete">
+                    </form>
+                </td>
 			</tr>
 		</tbody>
 	<?php } ?>

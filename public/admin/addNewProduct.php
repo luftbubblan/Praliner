@@ -20,8 +20,8 @@
 		$stmt->bindParam(':stock', $_POST['stock']);
 		$stmt->bindParam(':img_url', $_POST['img_url']);
 		$stmt->execute();
-        // header('Location: index.php');
-        // exit;
+        header('Location: index.php');
+        exit;
 	  }
 
 	include('layout/header.php');
@@ -35,8 +35,8 @@
 <form action="" method="POST">
     <input type="text" name="title" placeholder="Title" value="<?=$_POST['title']?>">
     <textarea name="description" placeholder="Description"><?=$_POST['description']?></textarea>
-    <input type="text" name="price" placeholder="Price" value="<?=$_POST['price']?>">
-    <input type="text" name="stock" placeholder="Stock" value="<?=$_POST['stock']?>">
+    <input type="number" name="price" placeholder="Price" value="<?=$_POST['price']?>">
+    <input type="number" name="stock" placeholder="Stock" value="<?=$_POST['stock']?>">
     <input type="text" name="img_url" placeholder="Image" value="<?=$_POST['img_url']?>">
     <input type="submit" name="createProductBtn" value="List Product">
 </form>
