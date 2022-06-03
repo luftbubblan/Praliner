@@ -81,13 +81,18 @@
 				<td>
                     <!-- Edit -->
                     <form action="edit.php" method="POST">
-                        <input type="hidden" name="id" value="<?= htmlentities($product['id']) ?>">
+                        <input type="hidden" name="id" value="<?=$product['id'] ?>">
+                        <input type="hidden" name="title" value="<?=$product['title'] ?>">
+                        <input type="hidden" name="description" value="<?=$product['description'] ?>">
+                        <input type="hidden" name="price" value="<?=$product['price'] ?>">
+                        <input type="hidden" name="stock" value="<?=$product['stock'] ?>">
+                        <input type="hidden" name="img_url" value="<?=$product['img_url'] ?>">
                         <input type="submit" value="Edit">
                     </form>
 
                     <!-- Delete -->
                     <form action="" method="POST" id="deleteBtn">
-                        <input type="hidden" name="id" value="<?= htmlentities($product['id']) ?>">
+                        <input type="hidden" name="id" value="<?=$product['id'] ?>">
                         <input type="submit" name="deleteProductBtn" value="Delete">
                     </form>
                 </td>

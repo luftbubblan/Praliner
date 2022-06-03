@@ -13,7 +13,7 @@ Börja med produktdelen - Admin
     DONE - Deleta produkter
     DONE - Uppdatera produkter
  
-Skapa validering av alla fälten
+DONE - Skapa validering av alla fälten
  
  
 produktdelen - Shop
