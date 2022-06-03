@@ -10,14 +10,22 @@
 	// DELETE
     if (isset($_POST['deleteProductBtn'])) {
         $sql = "
-        DELETE FROM products
-        WHERE id = :id
+            DELETE FROM products
+            WHERE id = :id
         ";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(":id", $_POST['id']);
         $stmt->execute();
         header('Location: index.php?deleted');
         exit;
+    }
+
+	if (isset($_GET['added'])) {
+        $message = '
+            <div class="">
+                Product successfully created.
+            </div>
+        ';
     }
 
 	if (isset($_GET['deleted'])) {
@@ -27,6 +35,7 @@
             </div>
         ';
     }
+
 	if (isset($_GET['updated'])) {
         $message = '
             <div class="">
@@ -49,6 +58,7 @@
 
 <h1>Admin page</h1>
 <a href="http://localhost/Praliner/public/index.php">Shop</a>
+<a href="http://localhost/Praliner/public/admin/users.php">Användare Admin</a>
 
 <form action="addNewProduct.php">
 	<input type="submit" value="Create new product">
@@ -70,8 +80,8 @@
 		</tr>
 	</thead>
 
-	<?php foreach($products as $product) { ?>
-		<tbody>
+    <tbody>
+	    <?php foreach($products as $product) { ?>
 			<tr>
 				<td><?=htmlentities($product['id'])?></td>
 				<td><?=htmlentities($product['title'])?></td>
@@ -94,14 +104,14 @@
                     </form>
 
                     <!-- Delete -->
-                    <form action="" method="POST" id="deleteBtn">
+                    <form action="" method="POST">
                         <input type="hidden" name="id" value="<?=$product['id'] ?>">
                         <input type="submit" name="deleteProductBtn" value="Delete">
                     </form>
                 </td>
 			</tr>
-		</tbody>
-	<?php } ?>
+        <?php } ?>
+	</tbody>
 </table>
 
 

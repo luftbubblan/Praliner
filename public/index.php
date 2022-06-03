@@ -5,9 +5,9 @@
 
 	// READ
     $stmt = $pdo->query("
-	SELECT * 
-	FROM products 
-	ORDER BY id DESC
+		SELECT * 
+		FROM products 
+		ORDER BY id DESC
     ");
     $products = $stmt->fetchAll();
 	

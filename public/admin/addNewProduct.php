@@ -104,7 +104,7 @@
 			$stmt->bindParam(':stock', $stock);
 			$stmt->bindParam(':img_url', $img_url);
 			$stmt->execute();
-			header('Location: index.php');
+			header('Location: index.php?added');
 			exit;
 		}
 	}
