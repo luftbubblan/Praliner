@@ -10,6 +10,7 @@
 	// UPDATE
     $message = "";
 	$title = "";
+	$flavour = "";
 	$description = "";
 	$price = "";
 	$stock = "";
@@ -17,6 +18,7 @@
 	$empty = "not empty";
     if (isset($_POST['updateProductBtn'])) {
         $title = trim($_POST['title']);
+        $flavour = trim($_POST['flavour']);
 		$description = trim($_POST['description']);
 		$price = trim($_POST['price']);
 		$stock = trim($_POST['stock']);
@@ -26,6 +28,14 @@
 			$message .= '
                 <div class="">
                     Title must not be empty.
+                </div>
+            ';
+			$empty = "empty";
+		}
+        if (empty($flavour)) {
+			$message .= '
+                <div class="">
+                    Flavour must not be empty.
                 </div>
             ';
 			$empty = "empty";
@@ -72,6 +82,7 @@
                 UPDATE products
                 SET
                     title = :title,
+                    flavour = :flavour,
                     description = :description,
                     price = :price,
                     stock = :stock,
@@ -81,6 +92,7 @@
             
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(":title", $_POST['title']);
+            $stmt->bindParam(":flavour", $_POST['flavour']);
             $stmt->bindParam(":description", $_POST['description']);
             $stmt->bindParam(":price", $_POST['price']);
             $stmt->bindParam(":stock", $_POST['stock']);
@@ -106,6 +118,7 @@
 <div>
     <form action="" method="POST">
         <input type="text" name="title" placeholder="Title" value="<?=$_POST['title']?>">
+        <input type="text" name="flavour" placeholder="Flavour" value="<?=$_POST['flavour']?>">
         <textarea name="description" placeholder="Description"><?=$_POST['description']?></textarea>
         <input type="number" name="price" placeholder="Price" value="<?=$_POST['price']?>">
         <input type="number" name="stock" placeholder="Stock" value="<?=$_POST['stock']?>">

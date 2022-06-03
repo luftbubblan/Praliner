@@ -31,7 +31,8 @@
 
 <div>
     <h3><?= htmlentities($product['title']) ?></h3>
-    <img src='img_url' alt="Pralin!!!" width="500" height="500">
+    <img src='img_url' alt="Pralin!!!" width="300" height="300">
+    <p><?= htmlentities($product['flavour']) ?></p>
     <p><?= htmlentities($product['description']) ?></p>
     <p><?= htmlentities($product['price']) ?>kr</p>
     <p>stock: <?= htmlentities($product['stock']) ?></p>

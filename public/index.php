@@ -21,12 +21,14 @@
 
 <h1>Shop page</h1>
 <a href="http://localhost/Praliner/public/admin">Admin</a>
+<hr>
 
 <?php foreach ($products as $product) { ?>
-	<h3><?= htmlentities($product['title']) ?></h3>
 	<a href="product.php?product=<?=$product['id']?>">
 		<img src='img_url' alt="Pralin!!!" width="100" height="100">
 	</a>
+	<h3><?= htmlentities($product['title']) ?></h3>
+	<p><?= htmlentities($product['flavour']) ?></p>
 	
 	<p><?= htmlentities($product['price']) ?>kr</p>
 	<p>stock: <?= htmlentities($product['stock']) ?></p>

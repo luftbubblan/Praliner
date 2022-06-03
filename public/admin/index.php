@@ -61,6 +61,7 @@
 		<tr>
 			<th>Id</th>
 			<th>Title</th>
+			<th>Flavour</th>
 			<th>Description</th>
 			<th>Price</th>
 			<th>Stock</th>
@@ -74,6 +75,7 @@
 			<tr>
 				<td><?=htmlentities($product['id'])?></td>
 				<td><?=htmlentities($product['title'])?></td>
+				<td><?=htmlentities($product['flavour'])?></td>
 				<td><?=htmlentities($product['description'])?></td>
 				<td><?=htmlentities($product['price'])?></td>      
 				<td><?=htmlentities($product['stock'])?></td>
@@ -83,6 +85,7 @@
                     <form action="edit.php" method="POST">
                         <input type="hidden" name="id" value="<?=$product['id'] ?>">
                         <input type="hidden" name="title" value="<?=$product['title'] ?>">
+                        <input type="hidden" name="flavour" value="<?=$product['flavour'] ?>">
                         <input type="hidden" name="description" value="<?=$product['description'] ?>">
                         <input type="hidden" name="price" value="<?=$product['price'] ?>">
                         <input type="hidden" name="stock" value="<?=$product['stock'] ?>">
