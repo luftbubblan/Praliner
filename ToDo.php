@@ -8,6 +8,7 @@ DONE - dbconnection.php
 DONE - Footer.php
 DONE - Header.php
 DONE - config.php
+DONE - gitignore
 
 
 DONE - Börja med produktdelen - Admin
@@ -42,6 +43,9 @@ Användare - Shop (Oscar tar den)
     Kunna uppdatera sina uppgifter (UPDATE)
     Kunna radera sitt konto (DELETE)
     Kunna logga ut
+
+    
+Design, CSS till en början iaf (Anna tar den)
 
 
 Gör köpprocessen (TSM)
