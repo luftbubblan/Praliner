@@ -48,7 +48,7 @@
 
 
 <h1>Admin page</h1>
-<a href="http://localhost/Praliner/public">Shop</a>
+<a href="http://localhost/Praliner/public/index.php">Shop</a>
 
 <form action="addNewProduct.php">
 	<input type="submit" value="Create new product">

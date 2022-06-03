@@ -7,19 +7,20 @@ DONE - Header.php
 DONE - config.php
 
 
-Börja med produktdelen - Admin
+DONE - Börja med produktdelen - Admin
     DONE - Lista alla produkterna
     DONE - Skapa nya produkter
     DONE - Deleta produkter
     DONE - Uppdatera produkter
+    DONE - Skapa validering av alla fälten
  
-DONE - Skapa validering av alla fälten
  
  
 produktdelen - Shop
-    Skapa huvudmeny mellan Admin och shop
-    Lista alla produkterna - Home page
-    Kunna klicka på enskild prdukt och visa den
+    DONE - Skapa huvudmeny mellan Admin och shop - 
+        ta sedan bort de då det inte ska finnas vid inlämmning
+    DONE - Lista alla produkterna - Home page
+    DONE - Kunna klicka på enskild prdukt och visa den
  
  
 Användardelen - Admin
