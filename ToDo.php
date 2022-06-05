@@ -35,7 +35,7 @@ Användardelen - Admin (Malin tar den)
 
 
 Användare - Shop (Oscar tar den)
-        När användaren går in första g ången finns Registrera sig och logga in, när den är inloggad finns mina sidor och logga ut
+        När användaren går in första gången finns Registrera sig och logga in, när den är inloggad finns mina sidor och logga ut
     Kunna registrera sig (CREATE)
     Kunna gå till "mina sidor" som är lösenordsskyddad (READ)
     Kunna logga in (READ)

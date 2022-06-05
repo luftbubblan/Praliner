@@ -37,4 +37,4 @@
 	
 
 
-<?php include('layouts/footer.php') ?>
+<?php include('layout/footer.php') ?> 
