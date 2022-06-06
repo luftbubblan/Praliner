@@ -19,7 +19,7 @@
     $city = "";
     $country = "";
 	$empty = "not empty";
-	if (isset($_POST['createProductBtn'])) {
+	if (isset($_POST['addNewUserBtn'])) {
 		$firstName = trim($_POST['first_name']);
 		$lastName = trim($_POST['last_name']);
 		$email = trim($_POST['email']);
@@ -148,7 +148,7 @@
             $stmt->bindParam(':city', $city);
             $stmt->bindParam(':country', $country);
 			$stmt->execute();
-			header('Location: users.php');
+			header('Location:users.php');
 			exit;
 		}
 	}
@@ -158,7 +158,7 @@
 
 
 <h1>Add new user</h1>
-<a href="index.php">Admin</a>
+<a href="users.php">Admin</a>
 
 <?=$message?>
 

@@ -75,6 +75,7 @@
             <td><?=htmlentities($user['id']) ?></td>
             <td><?=htmlentities($user['first_name']) ?></td>
             <td><?=htmlentities($user['last_name']) ?></td>
+            <td><?=htmlentities($user['email']) ?></td>
             <td><?=htmlentities($user['password']) ?></td>
             <td><?=htmlentities($user['phone']) ?></td>
             <td><?=htmlentities($user['street']) ?></td>
@@ -84,7 +85,7 @@
             <td><?=htmlentities($user['create_date']) ?></td>
             <td>
                     
-<form action="update-user.php" method="GET">
+<form action="updateNewUser.php" method="GET">
         <input type="hidden" name="userId" value="<?=htmlentities($user['id']) ?>">
         <input type="submit" value="Updatera">
 </form>
@@ -105,5 +106,7 @@
         <hr>
     </article>
 </div>
+
+
 
 <?php include('layout/footer.php') ?>
