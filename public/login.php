@@ -3,13 +3,13 @@
 
 	require('../src/config.php');
 
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($_POST);
+    // echo "</pre>";
 
     if (isset($_GET['mustLogin'])) {
         $message = '
-            <div class="error_msg">
+            <div class="">
                 You need to login to access this.
             </div>
         ';
@@ -54,7 +54,7 @@
 
 
 <h1>Login</h1>
-<a href="index.php">Shop</a>
+<!-- <a href="index.php">Shop</a> -->
 <hr>
 
 <?=$message?>
@@ -66,4 +66,4 @@
 </form>
 
 
-<?php include('layouts/footer.php') ?>
+<?php include('layout/footer.php') ?>

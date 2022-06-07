@@ -36,13 +36,16 @@ Användardelen - Admin (Malin tar den)
 
 Användare - Shop (Oscar tar den)
         När användaren går in första gången finns Registrera sig och logga in, när den är inloggad finns mina sidor och logga ut
-    Kunna registrera sig (CREATE)
-    Kunna gå till "mina sidor" som är lösenordsskyddad (READ)
-    Kunna logga in (READ)
-    Kunna se sina uppgifter på "mina sidor" (READ)
-    Kunna uppdatera sina uppgifter (UPDATE)
-    Kunna radera sitt konto (DELETE)
-    Kunna logga ut
+    DONE - Registrera sig (CREATE)
+    DONE - Gå till "mina sidor" som är lösenordsskyddad (READ)
+    DONE - Logga in (READ)
+    Se sina uppgifter på "mina sidor" (READ)
+    Uppdatera sina uppgifter (UPDATE)
+    Radera sitt konto (DELETE)
+    DONE - Kunna logga ut
+
+
+Kunna ladda upp bild till produkter och uppdatera bilden
 
     
 Design, CSS till en början iaf (Anna tar den)

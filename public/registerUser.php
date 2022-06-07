@@ -3,9 +3,9 @@
 
 	require('../src/config.php');
 
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($_POST);
+    // echo "</pre>";
 
     //CREATE
     $message = "";
@@ -23,7 +23,6 @@
     $country = "";
     $registerUserBtn = "";
 
-    $empty = "not empty";
     if(isset($_POST['registerUserBtn'])) {
         $firstName = trim($_POST['firstName']);
         $lastName = trim($_POST['lastName']);
@@ -42,7 +41,6 @@
                     Firstname must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
         
         if (empty($lastName)) {
@@ -51,7 +49,6 @@
                     Lastname must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
         
         if (empty($email)) {
@@ -60,16 +57,14 @@
                     E-mail must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
         if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
             $message .= '
                 <div class="">
-                E-mail must be a valid e-mail.
+                    E-mail must be a valid e-mail.
                 </div>
             ';
-            $empty = "empty";
         }
         
         if (empty($password)) {
@@ -78,7 +73,6 @@
                     Password must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
         
         if (empty($confirmedPassword)) {
@@ -87,7 +81,6 @@
                     Confirm password must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
         if (!empty($confirmedPassword) && !empty($password) && $password !== $confirmedPassword) {
@@ -96,7 +89,6 @@
                     "Password" and "Confirm password" must match.
                 </div>
             ';
-            $empty = "empty";
         } else {
             $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
         }
@@ -107,16 +99,14 @@
                     Phone must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
         
         if (empty($street)) {
 			$message .= '
                 <div class="">
-                    Address must not be empty.
+                    Street must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
         
         if (empty($postalCode)) {
@@ -125,7 +115,6 @@
                     Postal code must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
         
         if (empty($city)) {
@@ -134,7 +123,6 @@
                     City must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
         if (empty($country)) {
@@ -143,33 +131,32 @@
                     Country must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
-        if ($empty == "not empty") {
+        if (empty($message)) {
             try {
                 $sql = "
-				INSERT INTO users (
-					first_name,
-					last_name,
-					email,
-					password,
-					phone,
-					street,
-					postal_code,
-					city,
-                    country)
-				VALUES (
-					:firstName,
-					:lastName,
-					:email,
-					:encryptedPassword,
-					:phone,
-					:street,
-					:postalCode,
-					:city,
-					:country)
-                ";
+                    INSERT INTO users (
+                        first_name,
+                        last_name,
+                        email,
+                        password,
+                        phone,
+                        street,
+                        postal_code,
+                        city,
+                        country)
+                    VALUES (
+                        :firstName,
+                        :lastName,
+                        :email,
+                        :encryptedPassword,
+                        :phone,
+                        :street,
+                        :postalCode,
+                        :city,
+                        :country)
+                    ";
             
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindParam(':firstName', $firstName);
@@ -204,7 +191,6 @@
 
 
 <h1>Register User</h1>
-<a href="index.php">Shop</a>
 <hr>
 
 <?=$message?>
@@ -216,7 +202,7 @@
     <input type="text" name="password" placeholder="Password" value="<?=$_POST['password']?>">
     <input type="text" name="confirmedPassword" placeholder="Confirm password" value="<?=$_POST['confirmedPassword']?>"><br>
     <input type="text" name="phone" placeholder="Phone" value="<?=$_POST['phone']?>"><br>
-    <input type="text" name="street" placeholder="Address" value="<?=$_POST['street']?>">
+    <input type="text" name="street" placeholder="Street" value="<?=$_POST['street']?>">
     <input type="text" name="postalCode" placeholder="Postal code" value="<?=$_POST['postalCode']?>">
     <input type="text" name="city" placeholder="City" value="<?=$_POST['city']?>">
     <input type="text" name="country" placeholder="Country" value="<?=$_POST['country']?>">
@@ -226,4 +212,4 @@
 
 
 
-<?php include('layouts/footer.php') ?>
+<?php include('layout/footer.php') ?>

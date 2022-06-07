@@ -87,7 +87,7 @@
                     
 <form action="updateNewUser.php" method="GET">
         <input type="hidden" name="userId" value="<?=htmlentities($user['id']) ?>">
-        <input type="submit" value="Updatera">
+        <input type="submit" value="Uppdatera">
 </form>
 
 <form action="" method="POST">

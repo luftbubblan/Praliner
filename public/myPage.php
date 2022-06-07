@@ -20,18 +20,19 @@
     $user = $stmt->fetch();
     
     
-    echo "<pre>";
-    print_r($user);
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($user);
+    // echo "</pre>";
 
 	include('layout/header.php');
 ?>
 
 
 <h1>My Page</h1>
-<a href="index.php">Shop</a>
+<!-- <a href="index.php">Shop</a> -->
+<!-- <a href='logout.php'>Logout</a> -->
 
 <p>Welcome <?=$user['first_name']?></p>
 
 
-<?php include('layouts/footer.php') ?>
+<?php include('layout/footer.php') ?>

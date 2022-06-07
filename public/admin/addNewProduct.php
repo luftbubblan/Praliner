@@ -15,7 +15,7 @@
 	$price = "";
 	$stock = "";
 	$img_url = "";
-	$empty = "not empty";
+
 	if (isset($_POST['createProductBtn'])) {
 		$title = trim($_POST['title']);
 		$flavour = trim($_POST['flavour']);
@@ -30,7 +30,6 @@
                     Title must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
 		if (empty($flavour)) {
@@ -39,7 +38,6 @@
                     Flavour must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
 		if (empty($description)) {
@@ -48,7 +46,6 @@
                     Description must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
 		if (empty($price)) {
@@ -57,7 +54,6 @@
                     Price must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
 		if (empty($stock)) {
@@ -66,7 +62,6 @@
                     Stock must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
 		if (empty($img_url)) {
@@ -75,10 +70,9 @@
                     Img must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
-		if ($empty == "not empty") {
+		if (empty($message)) {
 			$sql = "
 				INSERT INTO products (
 					title,

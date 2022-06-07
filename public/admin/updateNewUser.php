@@ -28,24 +28,19 @@
         $city = trim($_POST['city']);
         $country = trim($_POST['country']);
 
-       /*  if ($password !== $confirmPassword) {
-            $message = '
-                <div class="error_msg">
-                    Confirmed password incorrect!
-                </div>
-            '; */
+    
         } else {
             $sql = "
                 UPDATE users
                 SET 
-                first_name = :first_name,
-                last_name = :last_name,
-                email = :email,
-                password = :password,
-                phone = :phone,
-                postal_code = :postal_code,
-                city = :city,
-                country = :country,
+                    first_name = :first_name,
+                    last_name = :last_name,
+                    email = :email,
+                    password = :password,
+                    phone = :phone,
+                    postal_code = :postal_code,
+                    city = :city,
+                    country = :country,
                 WHERE id = :id
             ";
 

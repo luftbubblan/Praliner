@@ -11,19 +11,19 @@
     ");
     $products = $stmt->fetchAll();
 	
-	echo "<pre>";
-    print_r($products);
-    echo "</pre>";
+	// echo "<pre>";
+    // print_r($products);
+    // echo "</pre>";
 
 	include('layout/header.php');
 ?>
 
 
 <h1>Shop page</h1>
-<a href="http://localhost/Praliner/public/admin">Admin</a>
-<a href="myPage.php">My page</a>
+<!-- <a href="http://localhost/Praliner/public/admin">Admin</a> -->
+<!-- <a href="myPage.php">My page</a>
 <a href="registerUser.php">Register</a>
-<a href="login.php">Log in</a>
+<a href="login.php">Log in</a> -->
 <hr>
 
 <?php foreach ($products as $product) { ?>

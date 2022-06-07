@@ -9,121 +9,113 @@
 
 	//CREATE
 	$message = "";
+
 	$firstName = "";
 	$lastName = "";
 	$email = "";
 	$password = "";
+    $encryptedPassword = "";
 	$phone = "";
 	$street = "";
     $postalCode = "";
     $city = "";
     $country = "";
-	$empty = "not empty";
+	
 	if (isset($_POST['addNewUserBtn'])) {
-		$firstName = trim($_POST['first_name']);
-		$lastName = trim($_POST['last_name']);
+		$firstName = trim($_POST['firstName']);
+		$lastName = trim($_POST['lastName']);
 		$email = trim($_POST['email']);
 		$password = trim($_POST['password']);
 		$phone = trim($_POST['phone']);
-		$postalCode = trim($_POST['postal_code']);
+		$street = trim($_POST['street']);
+		$postalCode = trim($_POST['postalCode']);
         $city = trim($_POST['city']);
         $country = trim($_POST['country']);
 
 		if (empty($firstName)) {
 			$message .= '
                 <div class="">
-                    Title must not be empty.
+                    Firstname must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
 		if (empty($lastName)) {
 			$message .= '
                 <div class="">
-                    Flavour must not be empty.
+                    Lastname must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
 		if (empty($email)) {
 			$message .= '
                 <div class="">
-                    Description must not be empty.
+                    E-mail must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
 		if (empty($password)) {
 			$message .= '
                 <div class="">
-                    Price must not be empty.
+                    Password must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
 		if (empty($phone)) {
 			$message .= '
                 <div class="">
-                    Stock must not be empty.
+                    Phone must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
 		if (empty($street)) {
 			$message .= '
                 <div class="">
-                    Img must not be empty.
+                    Street must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
         if (empty($postalCode)) {
 			$message .= '
                 <div class="">
-                    Img must not be empty.
+                    Postalcode must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
         if (empty($city)) {
 			$message .= '
                 <div class="">
-                    Img must not be empty.
+                    City must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
         if (empty($country)) {
 			$message .= '
                 <div class="">
-                    Img must not be empty.
+                    Country must not be empty.
                 </div>
             ';
-			$empty = "empty";
 		}
 
-
-
-		if ($empty == "not empty") {
+		if (empty($message)) {
 			$sql = "
 				INSERT INTO users (
-				first_name,
-	            last_name,
-	            email,
-	            password,
-	            phone,
-	            street,
-                postal_code,
-                city,
-                country,
+					first_name,
+					last_name,
+					email,
+					password,
+					phone,
+					street,
+					postal_code,
+					city,
+					country)
 				VALUES (
 					:first_name,
 					:last_name,
@@ -135,7 +127,7 @@
                     :city,
                     :country)
                     
-			";
+				";
 		
 			$stmt = $pdo->prepare($sql);
 			$stmt->bindParam(':first_name', $firstName);
@@ -144,7 +136,7 @@
 			$stmt->bindParam(':password', $password);
 			$stmt->bindParam(':phone', $phone);
 			$stmt->bindParam(':street', $street);
-            $stmt->bindParam(':postal_code', $postal_code);
+            $stmt->bindParam(':postal_code', $postalCode);
             $stmt->bindParam(':city', $city);
             $stmt->bindParam(':country', $country);
 			$stmt->execute();
@@ -172,7 +164,7 @@
     <input type="number" name="postalCode" placeholder="Postal code" value="<?=$_POST['postal_code']?>">
     <input type="text" name="city" placeholder="City" value="<?=$_POST['city']?>">
     <input type="text" name="country" placeholder="Country" value="<?=$_POST['country']?>">
-    <input type="submit" name="createNewUserBtn" value="Add new user">
+    <input type="submit" name="addNewUserBtn" value="Add new user">
 </form>
 
 

@@ -8,3 +8,16 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+
+    <?php
+        if (isset($_SESSION['id'])) {
+            $menu = '<a href="myPage.php">My page</a> | <a href="logout.php">Logout</a>';
+        } else {
+            $menu = '<a href="registerUser.php">Register</a> | <a href="login.php">Log in</a>';
+        }
+    ?>
+    <div>
+        <a href="http://localhost/Praliner/public">Shop</a> |
+        <a href="http://localhost/Praliner/public/admin">Admin</a> |
+        <?= $menu ?>
+    </div>
