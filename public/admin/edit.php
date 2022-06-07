@@ -105,7 +105,7 @@
 
 
 <h1>Edit product</h1>
-<a href="index.php">Admin</a>
+<!-- <a href="index.php">Admin</a> -->
 
 <?=$message?>
 

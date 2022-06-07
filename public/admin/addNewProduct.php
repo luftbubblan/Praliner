@@ -108,7 +108,7 @@
 
 
 <h1>Add new product</h1>
-<a href="index.php">Admin</a>
+<!-- <a href="index.php">Admin</a> -->
 
 <?=$message?>
 
