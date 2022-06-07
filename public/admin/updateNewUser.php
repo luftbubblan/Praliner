@@ -6,10 +6,10 @@
 
 /* To check if the user exists in DB */
 
-    if (!isset($_GET['userId']) || !is_numeric($_GET['userId'])) {
+   /*  if (!isset($_GET['userId']) || !is_numeric($_GET['userId'])) {
         header('Location: users.php?invalidUser');
         exit;
-    }
+    } */
 
 
 
@@ -50,13 +50,13 @@
             ";
 
             $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':id', $_GET['userId']);
-            $stmt->bindParam(':first_name', $first_name);
-            $stmt->bindParam(':last_name', $last_name);
+            $stmt->bindParam(':id', $_GET['id']);
+            $stmt->bindParam(':first_name', $firstName);
+            $stmt->bindParam(':last_name', $lastName);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password', $password);
             $stmt->bindParam(':phone', $phone);
-            $stmt->bindParam(':postal_code', $postal_code);
+            $stmt->bindParam(':postal_code', $postalCode);
             $stmt->bindParam(':city', $city);
             $stmt->bindParam(':country', $country);
             $stmt->execute();
@@ -67,14 +67,14 @@
     /**
      * Fetch user
      */
-    $sql = "
+   /*  $sql = "
         SELECT * FROM users
         WHERE id = :id
     ";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id', $_GET['userId']);
     $stmt->execute();
-    $user = $stmt->fetch();
+    $user = $stmt->fetch(); */
 
     // echo 'User';
     // echo "<pre>";
