@@ -56,12 +56,22 @@
             ';
 		}
 
+		if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+            $message .= '
+                <div class="">
+                    E-mail must be a valid e-mail.
+                </div>
+            ';
+        }
+
 		if (empty($password)) {
 			$message .= '
                 <div class="">
                     Password must not be empty.
                 </div>
             ';
+		} else {
+			$encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
 		}
 
 		if (empty($phone)) {
@@ -105,43 +115,55 @@
 		}
 
 		if (empty($message)) {
-			$sql = "
-				INSERT INTO users (
-					first_name,
-					last_name,
-					email,
-					password,
-					phone,
-					street,
-					postal_code,
-					city,
-					country)
-				VALUES (
-					:first_name,
-					:last_name,
-					:email,
-					:password,
-					:phone,
-                    :street,
-                    :postal_code,
-                    :city,
-                    :country)
-                    
-				";
-		
-			$stmt = $pdo->prepare($sql);
-			$stmt->bindParam(':first_name', $firstName);
-			$stmt->bindParam(':last_name', $lastName);
-			$stmt->bindParam(':email', $email);
-			$stmt->bindParam(':password', $password);
-			$stmt->bindParam(':phone', $phone);
-			$stmt->bindParam(':street', $street);
-            $stmt->bindParam(':postal_code', $postalCode);
-            $stmt->bindParam(':city', $city);
-            $stmt->bindParam(':country', $country);
-			$stmt->execute();
-			header('Location:users.php');
-			exit;
+			try {
+				$sql = "
+					INSERT INTO users (
+						first_name,
+						last_name,
+						email,
+						password,
+						phone,
+						street,
+						postal_code,
+						city,
+						country)
+					VALUES (
+						:first_name,
+						:last_name,
+						:email,
+						:password,
+						:phone,
+						:street,
+						:postal_code,
+						:city,
+						:country)
+						
+					";
+			
+				$stmt = $pdo->prepare($sql);
+				$stmt->bindParam(':first_name', $firstName);
+				$stmt->bindParam(':last_name', $lastName);
+				$stmt->bindParam(':email', $email);
+				$stmt->bindParam(':password', $encryptedPassword);
+				$stmt->bindParam(':phone', $phone);
+				$stmt->bindParam(':street', $street);
+				$stmt->bindParam(':postal_code', $postalCode);
+				$stmt->bindParam(':city', $city);
+				$stmt->bindParam(':country', $country);
+				$stmt->execute();
+				header('Location:users.php');
+				exit;
+			} catch (\PDOException $e) {
+                if ((int) $e->getCode() === 23000) {
+                    $message .= '
+                        <div class="">
+                            E-mail is already taked, please use another e-mail.
+                        </div>
+                    ';
+                } else {
+                    throw new \PDOException($e->getMessage(), (int) $e->getCode());
+                }
+            } 
 		}
 	}
 
@@ -150,7 +172,7 @@
 
 
 <h1>Add new user</h1>
-<a href="users.php">Admin</a>
+<!-- <a href="users.php">Admin</a> -->
 
 <?=$message?>
 

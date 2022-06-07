@@ -47,7 +47,7 @@
 
        <!--  <?=$message ?> -->
 
-    <form action="addNewUser.php" method="GET">
+    <form action="addNewUser.php">
         <input type="submit" value="Ny användare">
     </form>
 
