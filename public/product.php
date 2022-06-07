@@ -27,7 +27,7 @@
 
 
 <h1>Single product page</h1>
-<a href="http://localhost/Praliner/public/index.php">Shop</a>
+<a href="index.php">Shop</a>
 
 <div>
     <h3><?= htmlentities($product['title']) ?></h3>
