@@ -64,3 +64,6 @@ Ordrar
     Admin ska kunna se alla ordrar som är lagda
     Admin ska kunna markera ordrar som skickade
     Admin ska kunna deleta ordrar
+
+
+Skriva om koden till klasser och metoder
