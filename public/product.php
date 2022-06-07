@@ -3,9 +3,9 @@
 
 	require('../src/config.php');
 
-	echo "<pre>";
-    print_r($_GET);
-    echo "</pre>";
+	// echo "<pre>";
+    // print_r($_GET);
+    // echo "</pre>";
 
 	// READ
     $sql = "
@@ -18,16 +18,16 @@
     $stmt->execute();
     $product = $stmt->fetch();
 	
-	echo "<pre>";
-    print_r($product);
-    echo "</pre>";
+	// echo "<pre>";
+    // print_r($product);
+    // echo "</pre>";
 
 	include('layout/header.php');
 ?>
 
 
 <h1>Single product page</h1>
-<a href="index.php">Shop</a>
+<!-- <a href="index.php">Shop</a> -->
 
 <div>
     <h3><?= htmlentities($product['title']) ?></h3>
