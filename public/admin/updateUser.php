@@ -1,5 +1,5 @@
 <?php
-	$pageTitle = "Update new user";
+	$pageTitle = "Update user";
 
 	require('../../src/config.php');
 
@@ -24,6 +24,7 @@
 		$email = trim($_POST['email']);
 		$password = trim($_POST['password']);
 		$phone = trim($_POST['phone']);
+        $street = trim($_POST['street']);
 		$postalCode = trim($_POST['postal_code']);
         $city = trim($_POST['city']);
         $country = trim($_POST['country']);
@@ -38,6 +39,7 @@
                     email = :email,
                     password = :password,
                     phone = :phone,
+                    street = :street,
                     postal_code = :postal_code,
                     city = :city,
                     country = :country,
@@ -45,16 +47,17 @@
             ";
 
             $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':id', $_GET['id']);
+            $stmt->bindParam(':id', $_POST['id']);
             $stmt->bindParam(':first_name', $firstName);
             $stmt->bindParam(':last_name', $lastName);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password', $password);
             $stmt->bindParam(':phone', $phone);
+            $stmt->bindParam(':street', $street);
             $stmt->bindParam(':postal_code', $postalCode);
             $stmt->bindParam(':city', $city);
             $stmt->bindParam(':country', $country);
-            $stmt->execute();
+           /*  $stmt->execute(); */
         }
     
 
@@ -62,14 +65,14 @@
     /**
      * Fetch user
      */
-   /*  $sql = "
+   $sql = "
         SELECT * FROM users
         WHERE id = :id
     ";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id', $_GET['userId']);
     $stmt->execute();
-    $user = $stmt->fetch(); */
+    $user = $stmt->fetch(); 
 
     // echo 'User';
     // echo "<pre>";
@@ -114,17 +117,22 @@
                     </p>
 
                     <p>
-                        <label for="input5">Phone:</label> <br>
+                        <label for="input5">Street:</label> <br>
+                        <input type="number" class="street" name="street" value="<?=htmlentities($user['street']) ?>">
+                    </p>
+
+                    <p>
+                        <label for="input6">Postal code:</label> <br>
                         <input type="number" class="postal_code" name="postal_code" value="<?=htmlentities($user['postal_code']) ?>">
                     </p>
 
                     <p>
-                        <label for="input6">Email:</label> <br>
+                        <label for="input7">City:</label> <br>
                         <input type="text" class="city" name="city" value="<?=htmlentities($user['city']) ?>">
                     </p>
 
                     <p>
-                        <label for="input6">Email:</label> <br>
+                        <label for="input8">Country:</label> <br>
                         <input type="text" class="country" name="country" value="<?=htmlentities($user['country']) ?>">
                     </p>
 

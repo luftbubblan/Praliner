@@ -295,7 +295,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-primary" name="updateEmailBtn" value="Uppdate">
+                        <input type="submit" class="btn btn-primary" name="updateEmailBtn" value="Update">
                     </div>
                 </form>
             </div>

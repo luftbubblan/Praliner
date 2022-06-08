@@ -85,7 +85,7 @@
             <td><?=htmlentities($user['create_date']) ?></td>
             <td>
                     
-<form action="updateNewUser.php" method="GET">
+<form action="updateUser.php" method="GET">
         <input type="hidden" name="userId" value="<?=htmlentities($user['id']) ?>">
         <input type="submit" value="Uppdatera">
 </form>
