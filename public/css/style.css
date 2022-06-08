@@ -1,0 +1,47 @@
+#header-container {
+    height: 40vh;
+}
+#nav-1 {
+    display: flex;
+    background-color: #ffcad495;
+    height: 5vh;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+#nav-1 a {
+    text-decoration: none;
+    color: #4f4b54;
+    margin: 0px 0.2em;
+}
+#nav-1 a:hover {
+    color: #6d6875;
+}
+
+#logo-con {
+    display: flex;
+    background-color: white;
+    height: 25vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#nav-2 {
+    display: flex;
+    background-color: #d8e2dc;
+    height: 10vh;
+    width: 100%;
+    align-items: center;
+}
+
+#nav-2 a {
+    text-decoration: none;
+    color: #004349;
+    margin: 0px 1em;
+}
+#nav-2 a:hover {
+    color: #006d77;
+}
+

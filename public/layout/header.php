@@ -8,16 +8,32 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+        
+        <?php
+            if (isset($_SESSION['id'])) {
+                $menu = '<a href="myPage.php">My page</a> | <a href="logout.php">Logout</a>';
+            } else {
+                $menu = '<a href="registerUser.php">Register</a> | <a href="login.php">Log in</a>';
+            }
+        ?>
 
-    <?php
-        if (isset($_SESSION['id'])) {
-            $menu = '<a href="myPage.php">My page</a> | <a href="logout.php">Logout</a>';
-        } else {
-            $menu = '<a href="registerUser.php">Register</a> | <a href="login.php">Log in</a>';
-        }
-    ?>
-    <div>
-        <a href="http://localhost/Praliner/public">Shop</a> |
-        <a href="http://localhost/Praliner/public/admin">Admin</a> |
-        <?= $menu ?>
+
+<div id="header-container">
+
+        <div id="nav-1">
+            <a href="http://localhost/Praliner/public/index.php">Shop</a>
+            <a href="http://localhost/Praliner/public/admin">Admin</a>
+            <?= $menu ?>
+        </div>
+
+        <div id="logo-con">
+            <h3>LOGO</h3>
+        </div>
+
+        <div id="nav-2">
+        <a href="http://localhost:8888/public/">Shop</a> 
+        <a href="http://localhost/Praliner/public/about">Om</a>
+        <a href="http://localhost/Praliner/public/about">Hitta hit</a>
+        </div>
+
     </div>
