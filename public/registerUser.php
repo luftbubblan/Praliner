@@ -201,9 +201,9 @@
     <input type="text" name="email" placeholder="E-mail" value="<?=$_POST['email']?>"><br>
     <input type="text" name="password" placeholder="Password" value="<?=$_POST['password']?>">
     <input type="text" name="confirmedPassword" placeholder="Confirm password" value="<?=$_POST['confirmedPassword']?>"><br>
-    <input type="text" name="phone" placeholder="Phone" value="<?=$_POST['phone']?>"><br>
+    <input type="number" name="phone" placeholder="Phone" value="<?=$_POST['phone']?>"><br>
     <input type="text" name="street" placeholder="Street" value="<?=$_POST['street']?>">
-    <input type="text" name="postalCode" placeholder="Postal code" value="<?=$_POST['postalCode']?>">
+    <input type="number" name="postalCode" placeholder="Postal code" value="<?=$_POST['postalCode']?>">
     <input type="text" name="city" placeholder="City" value="<?=$_POST['city']?>">
     <input type="text" name="country" placeholder="Country" value="<?=$_POST['country']?>">
     <input type="submit" name="registerUserBtn" value="Register User">
