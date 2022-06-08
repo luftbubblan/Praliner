@@ -169,6 +169,24 @@
                 $stmt->bindParam(':city', $city);
                 $stmt->bindParam(':country', $country);
                 $stmt->execute();
+
+                $sql = "
+                    SELECT id FROM users
+                    WHERE email = :email
+                ";
+
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(':email', $email);
+                $stmt->execute();
+                $user = $stmt->fetch();
+
+                $_SESSION['id'] = $user['id'];
+
+                // echo "<pre>";
+                // print_r($user);
+                // print_r($_SESSION);
+                // echo "</pre>";
+
                 header('Location: myPage.php');
                 exit;
             } catch (\PDOException $e) {

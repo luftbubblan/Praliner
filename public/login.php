@@ -20,7 +20,7 @@
         $password = trim($_POST['password']);
 
         $sql = "
-            SELECT * FROM users
+            SELECT id, password FROM users
             WHERE email = :email
         ";
 
@@ -29,9 +29,9 @@
         $stmt->execute();
         $user = $stmt->fetch();
 
-        echo "<pre>";
-        print_r($user);
-        echo "</pre>";
+        // echo "<pre>";
+        // print_r($user);
+        // echo "</pre>";
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['id'] = $user['id'];
             header('Location: myPage.php');
