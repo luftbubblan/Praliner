@@ -45,3 +45,45 @@
     color: #006d77;
 }
 
+
+#homepage-con {
+    height: 100%;
+}
+
+#front-info {
+    display: flex;
+    background-color: #d8e2dc65;
+    height: 40vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#front-info h2, p {
+    color: #004349;
+}
+
+#shop-con {
+    flex-wrap: wrap;
+    display: flex;
+    border: lightgrey solid 2px;
+    height: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+    align-items: center;
+
+}
+#single-con {
+    display: flex;
+    background-color: beige;
+    margin: 10px;
+    width: 20em;
+    height: 20em;
+    justify-content: center;
+}
+
+#single {
+    align-content: center;
+    align-self: center;
+}
