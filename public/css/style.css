@@ -33,12 +33,12 @@
     align-items: center;
 }
 
-#nav-2 a {
+#nav-2 a, #backto-a {
     text-decoration: none;
     color: #004349;
     margin: 0px 1em;
 }
-#nav-2 a:hover {
+#nav-2 a:hover, #backto-a:hover {
     color: #006d77;
 }
 
@@ -90,4 +90,35 @@
     /* margin-top: auto; */
 }
 
+#title {
+    padding: 2em 2em;
+    margin: 0;
+    background-color: #004349;
+    color: #d8e2dc;
+}
 
+#product-con {
+    display: flex;
+    padding: 4em 0;
+}
+
+#img-con {
+    border: #004349 solid 1px;
+    margin: auto;
+
+}
+#about-con {
+    display: flex;
+    flex-direction: column;
+    border: #004349 solid 1px;
+    margin: auto;
+    height: 30em;
+    width: 20em;
+    justify-content: center;
+
+}
+#buy-sec {
+    display: flex;
+    justify-content: space-evenly;
+}
+    
