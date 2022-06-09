@@ -5,7 +5,6 @@
     display: flex;
     background-color: #ffcad495;
     height: 5vh;
-    width: 100%;
     justify-content: flex-end;
     align-items: center;
 }
@@ -22,7 +21,6 @@
     display: flex;
     background-color: white;
     height: 25vh;
-    width: 100%;
     justify-content: center;
     align-items: center;
 }
@@ -32,7 +30,6 @@
     display: flex;
     background-color: #d8e2dc;
     height: 10vh;
-    width: 100%;
     align-items: center;
 }
 
@@ -54,7 +51,7 @@
     display: flex;
     background-color: #d8e2dc65;
     height: 40vh;
-    width: 100%;
+    padding: 0 3%;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -69,21 +66,28 @@
     display: flex;
     border: lightgrey solid 2px;
     height: 100%;
-    margin-left: 10%;
-    margin-right: 10%;
-    align-items: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    /* align-items: center; */
+    justify-content: center;
 
 }
 #single-con {
     display: flex;
+    /* flex: 1 20%; */
+    padding: 0 1.5em;
     background-color: beige;
-    margin: 10px;
+    /* margin: 0 auto; */
+    margin: 0.5em 1em;
     width: 20em;
     height: 20em;
     justify-content: center;
 }
 
+
 #single {
-    align-content: center;
     align-self: center;
+    /* margin-top: auto; */
 }
+
+
