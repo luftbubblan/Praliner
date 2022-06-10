@@ -8,26 +8,14 @@
         header('Location: login.php?mustLogin');
     }
 
+    $message = "";
     //UPDATE NAME
     if(isset($_POST['updateNameBtn'])) {
         $firstName = ucfirst(trim($_POST['firstName']));
-        $lastName = ucfirst(trim($_POST['lastName']));
+        $lastName =  ucfirst(trim($_POST['lastName']));
 
-        if (empty($firstName)) {
-			$message .= '
-                <div class="">
-                    Firstname must not be empty.
-                </div>
-            ';
-		}
-        
-        if (empty($lastName)) {
-			$message .= '
-                <div class="">
-                    Lastname must not be empty.
-                </div>
-            ';
-		}
+        $message .= ifEmptyGenerateMessage($firstName, "Firstname must not be empty.");
+        $message .= ifEmptyGenerateMessage($lastName, "Lastname must not be empty.");
 
         if (empty($message)) {
             $sql = "
@@ -44,7 +32,7 @@
             $stmt->bindParam(':id', $_SESSION['id']);
             $stmt->execute();
 
-            $message .= '
+            $message = '
                 <div class="">
                     Name has been updated.
                 </div>
@@ -56,13 +44,7 @@
     if(isset($_POST['updateEmailBtn'])) {
         $email = trim($_POST['email']);
 
-        if (empty($email)) {
-			$message .= '
-                <div class="">
-                    E-mail must not be empty.
-                </div>
-            ';
-		}
+        $message .= ifEmptyGenerateMessage($email, "E-mail must not be empty.");
 
         if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
             $message .= '
@@ -107,8 +89,8 @@
 
     //UPDATE PASSWORD
     if(isset($_POST['changePasswordBtn'])) {
-        $oldpassword = trim($_POST['oldpassword']);
-        $newpassword = trim($_POST['newpassword']);
+        $oldpassword =        trim($_POST['oldpassword']);
+        $newpassword =        trim($_POST['newpassword']);
         $confirmnewpassword = trim($_POST['confirmnewpassword']);
 
         $sql = "
@@ -128,21 +110,8 @@
                 </div>
             ';
         } else {
-            if (empty($newpassword)) {
-                $message .= '
-                    <div class="">
-                        New password must not be empty.
-                    </div>
-                ';
-            }
-            
-            if (empty($confirmnewpassword)) {
-                $message .= '
-                    <div class="">
-                        Confirm new password must not be empty.
-                    </div>
-                ';
-            }
+            $message .= ifEmptyGenerateMessage($newpassword, "New password must not be empty.");
+            $message .= ifEmptyGenerateMessage($confirmnewpassword, "Confirm new password must not be empty.");
     
             if (!empty($confirmnewpassword) && !empty($newpassword) && $newpassword !== $confirmnewpassword) {
                 $message .= '
@@ -178,51 +147,17 @@
 
     //UPDATE INFORMATION
     if(isset($_POST['updateInformationBtn'])) {
-        $phone = trim($_POST['phone']);
-        $street = ucfirst(trim($_POST['street']));
-        $postalCode = trim($_POST['postalCode']);
-        $city = ucfirst(trim($_POST['city']));
+        $phone =           trim($_POST['phone']);
+        $street =  ucfirst(trim($_POST['street']));
+        $postalCode =      trim($_POST['postalCode']);
+        $city =    ucfirst(trim($_POST['city']));
         $country = ucfirst(trim($_POST['country']));
 
-        if (empty($phone)) {
-			$message .= '
-                <div class="">
-                    Phone must not be empty.
-                </div>
-            ';
-		}
-        
-        if (empty($street)) {
-			$message .= '
-                <div class="">
-                    Street must not be empty.
-                </div>
-            ';
-		}
-
-        if (empty($postalCode)) {
-			$message .= '
-                <div class="">
-                    Postal code must not be empty.
-                </div>
-            ';
-		}
-
-        if (empty($city)) {
-			$message .= '
-                <div class="">
-                    City must not be empty.
-                </div>
-            ';
-		}
-
-        if (empty($country)) {
-			$message .= '
-                <div class="">
-                    Country must not be empty.
-                </div>
-            ';
-		}
+        $message .= ifEmptyGenerateMessage($phone, "Phone must not be empty.");
+        $message .= ifEmptyGenerateMessage($street, "Street must not be empty.");
+        $message .= ifEmptyGenerateMessage($postalCode, "Postal code must not be empty.");
+        $message .= ifEmptyGenerateMessage($city, "City must not be empty.");
+        $message .= ifEmptyGenerateMessage($country, "Country must not be empty.");
 
         if (empty($message)) {
             $sql = "
