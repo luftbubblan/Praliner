@@ -10,7 +10,6 @@
 
     //CREATE
     $message = "";
-
     $firstName = "";
     $lastName = "";
     $email = "";
@@ -25,64 +24,35 @@
     $registerUserBtn = "";
 
     if(isset($_POST['registerUserBtn'])) {
-        $firstName = ucfirst(trim($_POST['firstName']));
-        $lastName = ucfirst(trim($_POST['lastName']));
-        $email = trim($_POST['email']);
-        $password = trim($_POST['password']);
-        $confirmedPassword = trim($_POST['confirmedPassword']);
-        $phone = trim($_POST['phone']);
-        $street = ucfirst(trim($_POST['street']));
-        $postalCode = trim($_POST['postalCode']);
-        $city = ucfirst(trim($_POST['city']));
-        $country = ucfirst(trim($_POST['country']));
+        $firstName =  ucfirst(trim($_POST['firstName']));
+        $lastName =   ucfirst(trim($_POST['lastName']));
+        $email =              trim($_POST['email']);
+        $password =           trim($_POST['password']);
+        $confirmedPassword =  trim($_POST['confirmedPassword']);
+        $phone =              trim($_POST['phone']);
+        $street =     ucfirst(trim($_POST['street']));
+        $postalCode =         trim($_POST['postalCode']);
+        $city =       ucfirst(trim($_POST['city']));
+        $country =    ucfirst(trim($_POST['country']));
 
-        if (empty($firstName)) {
-			$message .= '
-                <div class="">
-                    Firstname must not be empty.
-                </div>
-            ';
-		}
-        
-        if (empty($lastName)) {
-			$message .= '
-                <div class="">
-                    Lastname must not be empty.
-                </div>
-            ';
-		}
-        
-        if (empty($email)) {
-			$message .= '
-                <div class="">
-                    E-mail must not be empty.
-                </div>
-            ';
-		}
+        $message .= ifEmptyGenerateMessage($firstName, "Firstname must not be empty.");
+        $message .= ifEmptyGenerateMessage($lastName, "Lastname must not be empty.");
+        $message .= ifEmptyGenerateMessage($email, "E-mail must not be empty.");
+        $message .= ifEmptyGenerateMessage($password, "Password must not be empty.");
+        $message .= ifEmptyGenerateMessage($confirmedPassword, "Confirm password must not be empty.");
+        $message .= ifEmptyGenerateMessage($phone, "Phone must not be empty.");
+        $message .= ifEmptyGenerateMessage($street, "Street must not be empty.");
+        $message .= ifEmptyGenerateMessage($postalCode, "Postal code must not be empty.");
+        $message .= ifEmptyGenerateMessage($city, "City must not be empty.");
+        $message .= ifEmptyGenerateMessage($country, "Country must not be empty.");
 
         if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
             $message .= '
-                <div class="">
-                    E-mail must be a valid e-mail.
-                </div>
+            <div class="">
+                E-mail must be a valid e-mail.
+            </div>
             ';
         }
-        
-        if (empty($password)) {
-			$message .= '
-                <div class="">
-                    Password must not be empty.
-                </div>
-            ';
-		}
-        
-        if (empty($confirmedPassword)) {
-			$message .= '
-                <div class="">
-                    Confirm password must not be empty.
-                </div>
-            ';
-		}
 
         if (!empty($confirmedPassword) && !empty($password) && $password !== $confirmedPassword) {
             $message .= '
@@ -93,46 +63,6 @@
         } else {
             $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
         }
-        
-        if (empty($phone)) {
-			$message .= '
-                <div class="">
-                    Phone must not be empty.
-                </div>
-            ';
-		}
-        
-        if (empty($street)) {
-			$message .= '
-                <div class="">
-                    Street must not be empty.
-                </div>
-            ';
-		}
-        
-        if (empty($postalCode)) {
-			$message .= '
-                <div class="">
-                    Postal code must not be empty.
-                </div>
-            ';
-		}
-        
-        if (empty($city)) {
-			$message .= '
-                <div class="">
-                    City must not be empty.
-                </div>
-            ';
-		}
-
-        if (empty($country)) {
-			$message .= '
-                <div class="">
-                    Country must not be empty.
-                </div>
-            ';
-		}
 
         if (empty($message)) {
             try {

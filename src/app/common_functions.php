@@ -8,3 +8,12 @@
         }
     }
 </script>
+
+<?php
+    function ifEmptyGenerateMessage ($variableToCheck, $message) {
+        if (empty($variableToCheck)) {
+			$output = '<div class="">' . $message . '</div>';
+            return $output;
+		}
+    }
+?>
