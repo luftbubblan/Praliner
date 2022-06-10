@@ -2,6 +2,7 @@
 	$pageTitle = "Login";
 
 	require('../src/config.php');
+    require('../src/app/common_functions.php');
 
     // echo "<pre>";
     // print_r($_POST);
@@ -54,14 +55,14 @@
 
 
 <h1>Login</h1>
-<!-- <a href="index.php">Shop</a> -->
 <hr>
 
 <?=$message?>
 
 <form action="" method="POST">
     <input type="text" name="email" placeholder="E-mail">
-    <input type="password" name="password" placeholder="Password"><br>
+    <input type="password" name="password" placeholder="Password">
+    <input type="checkbox" onclick="showHidePassword(this)">Show Password<br>
     <input type="submit" name="loginBtn" value="Login">
 </form>
 

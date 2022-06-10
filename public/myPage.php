@@ -2,6 +2,7 @@
     $pageTitle = "My Page";
 
     require('../src/config.php');
+    require('../src/app/common_functions.php');
 
     if (!isset($_SESSION['id'])) {
         header('Location: login.php?mustLogin');
@@ -359,14 +360,17 @@
                     <div class="form-group">
                         <label for="oldpassword" class="col-form-label">Old password:</label>
                         <input type="password" class="form-control" name="oldpassword">
+                        <input type="checkbox" onclick="showHidePassword(this)">Show Password
                     </div>
                     <div class="form-group">
                         <label for="newpassword" class="col-form-label">New password:</label>
                         <input type="password" class="form-control" name="newpassword">
+                        <input type="checkbox" onclick="showHidePassword(this)">Show Password
                     </div>
                     <div class="form-group">
                         <label for="confirmnewpassword" class="col-form-label">Confirm new password:</label>
                         <input type="password" class="form-control" name="confirmnewpassword">
+                        <input type="checkbox" onclick="showHidePassword(this)">Show Password
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -2,6 +2,7 @@
 	$pageTitle = "Register User";
 
 	require('../src/config.php');
+    require('../src/app/common_functions.php');
 
     // echo "<pre>";
     // print_r($_POST);
@@ -214,16 +215,18 @@
 <?=$message?>
 
 <form action="" method="POST">
-    <input type="text" name="firstName" placeholder="Firstname" value="<?=$_POST['firstName']?>">
+    <input type="text" name="firstName" placeholder="Firstname" value="<?=$_POST['firstName']?>"><br>
     <input type="text" name="lastName" placeholder="Lastname" value="<?=$_POST['lastName']?>"><br>
     <input type="text" name="email" placeholder="E-mail" value="<?=$_POST['email']?>"><br>
     <input type="password" name="password" placeholder="Password" value="<?=$_POST['password']?>">
-    <input type="password" name="confirmedPassword" placeholder="Confirm password" value="<?=$_POST['confirmedPassword']?>"><br>
+    <input type="checkbox" onclick="showHidePassword(this)">Show Password<br>
+    <input type="password" name="confirmedPassword" placeholder="Confirm password" value="<?=$_POST['confirmedPassword']?>">
+    <input type="checkbox" onclick="showHidePassword(this)">Show Password<br>
     <input type="number" name="phone" placeholder="Phone" value="<?=$_POST['phone']?>"><br>
-    <input type="text" name="street" placeholder="Street" value="<?=$_POST['street']?>">
-    <input type="number" name="postalCode" placeholder="Postal code" value="<?=$_POST['postalCode']?>">
-    <input type="text" name="city" placeholder="City" value="<?=$_POST['city']?>">
-    <input type="text" name="country" placeholder="Country" value="<?=$_POST['country']?>">
+    <input type="text" name="street" placeholder="Street" value="<?=$_POST['street']?>"><br>
+    <input type="number" name="postalCode" placeholder="Postal code" value="<?=$_POST['postalCode']?>"><br>
+    <input type="text" name="city" placeholder="City" value="<?=$_POST['city']?>"><br>
+    <input type="text" name="country" placeholder="Country" value="<?=$_POST['country']?>"><br>
     <input type="submit" name="registerUserBtn" value="Register User">
 </form>
 
