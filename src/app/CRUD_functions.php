@@ -110,6 +110,42 @@ class CRUDFunctions {
             }
         } 
     }
+
+    public function updateInformation($phone, $street, $postalCode, $city, $country, $sessionId) {
+        $sql = "
+            UPDATE users
+            SET
+                phone = :phone,
+                street = :street,
+                postal_code = :postal_code,
+                city = :city,
+                country = :country
+            WHERE id = :id
+        ";
+        
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':phone', $phone);
+        $stmt->bindParam(':street', $street);
+        $stmt->bindParam(':postal_code', $postalCode);
+        $stmt->bindParam(':city', $city);
+        $stmt->bindParam(':country', $country);
+        $stmt->bindParam(':id', $_SESSION['id']);
+        $stmt->execute();
+
+        $message = '<div class=""> Information has been updated.</div>';
+        return $message;
+    }
+
+    public function fetchUserById($sessionId) {
+        $sql = "
+            SELECT * FROM users
+            WHERE id = :id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':id', $sessionId);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }
 
 $crudFunctions = new CRUDFunctions($pdo);

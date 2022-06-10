@@ -109,43 +109,12 @@
         $message .= ifEmptyGenerateMessage($country, "Country must not be empty.");
 
         if (empty($message)) {
-            $sql = "
-                UPDATE users
-                SET
-                    phone = :phone,
-                    street = :street,
-                    postal_code = :postal_code,
-                    city = :city,
-                    country = :country
-                WHERE id = :id
-            ";
-        
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':phone', $phone);
-            $stmt->bindParam(':street', $street);
-            $stmt->bindParam(':postal_code', $postalCode);
-            $stmt->bindParam(':city', $city);
-            $stmt->bindParam(':country', $country);
-            $stmt->bindParam(':id', $_SESSION['id']);
-            $stmt->execute();
-
-            $message .= '
-                <div class="">
-                    Information has been updated.
-                </div>
-            ';
+            $message = $crudFunctions->updateInformation($phone, $street, $postalCode, $city, $country, $_SESSION['id']);
         }
     }
 
     //READ
-    $sql = "
-        SELECT * FROM users
-        WHERE id = :id
-    ";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':id', $_SESSION['id']);
-    $stmt->execute();
-    $user = $stmt->fetch();
+    $user = $crudFunctions->fetchUserById($_SESSION['id']);
 
 	include('layout/header.php');
 ?>
