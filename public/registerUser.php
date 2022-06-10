@@ -25,16 +25,16 @@
     $registerUserBtn = "";
 
     if(isset($_POST['registerUserBtn'])) {
-        $firstName = trim($_POST['firstName']);
-        $lastName = trim($_POST['lastName']);
+        $firstName = ucfirst(trim($_POST['firstName']));
+        $lastName = ucfirst(trim($_POST['lastName']));
         $email = trim($_POST['email']);
         $password = trim($_POST['password']);
         $confirmedPassword = trim($_POST['confirmedPassword']);
         $phone = trim($_POST['phone']);
-        $street = trim($_POST['street']);
+        $street = ucfirst(trim($_POST['street']));
         $postalCode = trim($_POST['postalCode']);
-        $city = trim($_POST['city']);
-        $country = trim($_POST['country']);
+        $city = ucfirst(trim($_POST['city']));
+        $country = ucfirst(trim($_POST['country']));
 
         if (empty($firstName)) {
 			$message .= '

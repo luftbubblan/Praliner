@@ -10,8 +10,8 @@
 
     //UPDATE NAME
     if(isset($_POST['updateNameBtn'])) {
-        $firstName = trim($_POST['firstName']);
-        $lastName = trim($_POST['lastName']);
+        $firstName = ucfirst(trim($_POST['firstName']));
+        $lastName = ucfirst(trim($_POST['lastName']));
 
         if (empty($firstName)) {
 			$message .= '
@@ -179,10 +179,10 @@
     //UPDATE INFORMATION
     if(isset($_POST['updateInformationBtn'])) {
         $phone = trim($_POST['phone']);
-        $street = trim($_POST['street']);
+        $street = ucfirst(trim($_POST['street']));
         $postalCode = trim($_POST['postalCode']);
-        $city = trim($_POST['city']);
-        $country = trim($_POST['country']);
+        $city = ucfirst(trim($_POST['city']));
+        $country = ucfirst(trim($_POST['country']));
 
         if (empty($phone)) {
 			$message .= '
