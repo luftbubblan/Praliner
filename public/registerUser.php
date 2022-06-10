@@ -57,7 +57,7 @@
         }
 
         if (empty($message)) {
-            $crudFunctions->registerUser($firstName, $lastName, $email, $encryptedPassword, $phone, $street, $postalCode, $city, $country);
+            $message .= $crudFunctions->registerUser($firstName, $lastName, $email, $encryptedPassword, $phone, $street, $postalCode, $city, $country);
         }
     }
 

@@ -58,15 +58,57 @@ class CRUDFunctions {
             exit;
         } catch (\PDOException $e) {
             if ((int) $e->getCode() === 23000) {
-                $message .= '
-                    <div class="">
-                        E-mail is already taked, please use another e-mail.
-                    </div>
-                ';
+                $message = '<div class="">E-mail is already taked, please use another e-mail.</div>';
+                return $message;
             } else {
                 throw new \PDOException($e->getMessage(), (int) $e->getCode());
             }
         }
+    }
+
+    public function updateName($firstName, $lastName, $sessionId) {
+        $sql = "
+            UPDATE users
+            SET
+                first_name = :firstName,
+                last_name = :lastName
+            WHERE id = :id
+        ";
+        
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':firstName', $firstName);
+        $stmt->bindParam(':lastName', $lastName);
+        $stmt->bindParam(':id', $sessionId);
+        $stmt->execute();
+
+        $message = '<div class="">Name has been updated.</div>';
+        return $message;
+    }
+
+    public function updateEmail($email, $sessionId) {
+        try {
+            $sql = "
+                UPDATE users
+                SET
+                    email = :email
+                WHERE id = :id
+            ";
+        
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':id', $sessionId);
+            $stmt->execute();
+
+            $message = '<div class="">E-mail has been updated.</div>';
+            return $message;
+        } catch (\PDOException $e) {
+            if ((int) $e->getCode() === 23000) {
+                $message = '<div class="">E-mail is already taked, please use another e-mail.</div>';
+                return $message;
+            } else {
+                throw new \PDOException($e->getMessage(), (int) $e->getCode());
+            }
+        } 
     }
 }
 

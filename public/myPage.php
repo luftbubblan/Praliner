@@ -3,6 +3,7 @@
 
     require('../src/config.php');
     require('../src/app/common_functions.php');
+    require('../src/app/CRUD_functions.php');
 
     if (!isset($_SESSION['id'])) {
         header('Location: login.php?mustLogin');
@@ -18,25 +19,7 @@
         $message .= ifEmptyGenerateMessage($lastName, "Lastname must not be empty.");
 
         if (empty($message)) {
-            $sql = "
-                UPDATE users
-                SET
-                    first_name = :firstName,
-                    last_name = :lastName
-                WHERE id = :id
-            ";
-        
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':firstName', $firstName);
-            $stmt->bindParam(':lastName', $lastName);
-            $stmt->bindParam(':id', $_SESSION['id']);
-            $stmt->execute();
-
-            $message = '
-                <div class="">
-                    Name has been updated.
-                </div>
-            ';
+            $message = $crudFunctions->updateName($firstName, $lastName, $_SESSION['id']);
         }
     }
 
@@ -46,44 +29,10 @@
 
         $message .= ifEmptyGenerateMessage($email, "E-mail must not be empty.");
 
-        if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-            $message .= '
-                <div class="">
-                    E-mail must be a valid e-mail.
-                </div>
-            ';
-        }
+        $message .= checkIfEmailIsValid($email);
 
         if (empty($message)) {
-            try {
-                $sql = "
-                    UPDATE users
-                    SET
-                        email = :email
-                    WHERE id = :id
-                ";
-            
-                $stmt = $pdo->prepare($sql);
-                $stmt->bindParam(':email', $email);
-                $stmt->bindParam(':id', $_SESSION['id']);
-                $stmt->execute();
-
-                $message .= '
-                    <div class="">
-                        E-mail has been updated.
-                    </div>
-                ';
-            } catch (\PDOException $e) {
-                if ((int) $e->getCode() === 23000) {
-                    $message .= '
-                        <div class="">
-                            E-mail is already taked, please use another e-mail.
-                        </div>
-                    ';
-                } else {
-                    throw new \PDOException($e->getMessage(), (int) $e->getCode());
-                }
-            } 
+            $message = $crudFunctions->updateEmail($email, $_SESSION['id']);
         }
     }
 
