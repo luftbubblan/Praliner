@@ -18,26 +18,37 @@
 	include('layout/header.php');
 ?>
 
+<div id="homepage-con">
 
-<h1>Shop page</h1>
-<!-- <a href="http://localhost/Praliner/public/admin">Admin</a> -->
-<!-- <a href="myPage.php">My page</a>
-<a href="registerUser.php">Register</a>
-<a href="login.php">Log in</a> -->
-<hr>
+	<div id="front-info">
+	<h2>Pralinerpralinerpraliner</h2>
+		<p>
+		Välkommen till Marias Söta i Vejbystrand. 
+		Jag bakar med smakrikedom och blomsterpilleri, där ögat får sitt innan smaken tar vid.
+		</p>
+	</div>
 
-<?php foreach ($products as $product) { ?>
-	<a href="product.php?product=<?=$product['id']?>">
-		<img src='img_url' alt="Pralin!!!" width="100" height="100">
-	</a>
-	<h3><?= htmlentities($product['title']) ?></h3>
-	<p><?= htmlentities($product['flavour']) ?></p>
-	
-	<p><?= htmlentities($product['price']) ?>kr</p>
-	<p>stock: <?= htmlentities($product['stock']) ?></p>
-	<hr>
-<?php }?>
-	
+	<div id="shop-con">
+	<?php foreach ($products as $product) { ?>
+			<div id="single-con">
+				<div id="single">
 
+				<a href="product.php?product=<?=$product['id']?>">
+					<img src='img_url' alt="Pralin!!!" width="100" height="100">
+				</a>
+				<h3><?= htmlentities($product['title']) ?></h3>
+				<p><?= htmlentities($product['flavour']) ?></p>
+				
+				<p><?= htmlentities($product['price']) ?>kr</p>
+				<p>stock: <?= htmlentities($product['stock']) ?></p>
+				<button id="buy-btn">Lägg till i varukorg</button>
+				
+				</div>
+			</div>
+
+			<?php }?>
+		</div>
+
+</div>
 
 <?php include('layout/footer.php') ?> 
