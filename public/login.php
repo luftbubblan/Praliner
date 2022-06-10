@@ -61,7 +61,7 @@
 
 <form action="" method="POST">
     <input type="text" name="email" placeholder="E-mail">
-    <input type="text" name="password" placeholder="Password"><br>
+    <input type="password" name="password" placeholder="Password"><br>
     <input type="submit" name="loginBtn" value="Login">
 </form>
 
