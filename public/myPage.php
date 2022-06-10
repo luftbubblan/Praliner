@@ -62,34 +62,12 @@
             $message .= ifEmptyGenerateMessage($newpassword, "New password must not be empty.");
             $message .= ifEmptyGenerateMessage($confirmnewpassword, "Confirm new password must not be empty.");
     
-            if (!empty($confirmnewpassword) && !empty($newpassword) && $newpassword !== $confirmnewpassword) {
-                $message .= '
-                    <div class="">
-                        "Password" and "Confirm password" must match.
-                    </div>
-                ';
-            } 
+            $message .= checkIfPasswordsMatch($newpassword, $confirmnewpassword); 
             
             if (empty($message)) {
-                $encryptedPassword = password_hash($newpassword, PASSWORD_BCRYPT, ['cost' => 12]);
-
-                $sql = "
-                    UPDATE users
-                    SET
-                        password = :password
-                    WHERE id = :id
-                ";
-            
-                $stmt = $pdo->prepare($sql);
-                $stmt->bindParam(":password", $encryptedPassword);
-                $stmt->bindParam(':id', $_SESSION['id']);
-                $stmt->execute();
-
-                $message .= '
-                    <div class="">
-                        Password has been updated.
-                    </div>
-                ';
+                $encryptedPassword = encryptPassword($newpassword);
+                
+                $message = $crudFunctions->updatePassword($encryptedPassword, $_SESSION['id']);
             }
         }
     }

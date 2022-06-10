@@ -45,18 +45,11 @@
 
         $message .= checkIfEmailIsValid($email);
 
-        if (!empty($confirmedPassword) && !empty($password) && $password !== $confirmedPassword) {
-            $message .= '
-                <div class="">
-                    "Password" and "Confirm password" must match.
-                </div>
-            ';
-        } else {
-            $encryptedPassword =  encryptPassword($password);
-            
-        }
-
+        $message .= checkIfPasswordsMatch($password, $confirmedPassword);
+        
         if (empty($message)) {
+            $encryptedPassword = encryptPassword($password);
+
             $message .= $crudFunctions->registerUser($firstName, $lastName, $email, $encryptedPassword, $phone, $street, $postalCode, $city, $country);
         }
     }

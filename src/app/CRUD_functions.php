@@ -111,6 +111,23 @@ class CRUDFunctions {
         } 
     }
 
+    public function updatePassword($encryptedPassword, $sessionId) {
+        $sql = "
+            UPDATE users
+            SET
+                password = :password
+            WHERE id = :id
+        ";
+    
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(":password", $encryptedPassword);
+        $stmt->bindParam(':id', $sessionId);
+        $stmt->execute();
+        
+        $message = '<div class="">Password has been updated.</div>';
+        return $message;
+    }
+
     public function updateInformation($phone, $street, $postalCode, $city, $country, $sessionId) {
         $sql = "
             UPDATE users
@@ -129,7 +146,7 @@ class CRUDFunctions {
         $stmt->bindParam(':postal_code', $postalCode);
         $stmt->bindParam(':city', $city);
         $stmt->bindParam(':country', $country);
-        $stmt->bindParam(':id', $_SESSION['id']);
+        $stmt->bindParam(':id', $sessionId);
         $stmt->execute();
 
         $message = '<div class=""> Information has been updated.</div>';

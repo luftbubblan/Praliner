@@ -25,6 +25,13 @@
         return "";
     }
 
+    function checkIfPasswordsMatch($password, $confirmedPassword) {
+        if (!empty($confirmedPassword) && !empty($password) && $password !== $confirmedPassword) {
+            $message = '<div class="">"Password" and "Confirm password" must match.</div>';
+            return $message;
+        }
+    }
+
     function encryptPassword($password) {
         return password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
     }
