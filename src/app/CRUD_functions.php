@@ -201,6 +201,15 @@ class CRUDFunctions {
         $stmt->execute();
         return $stmt->fetch();
     }
+
+    public function fetchAllProductsDESC() {
+		$stmt = $this->pdo->query("
+            SELECT * 
+            FROM products 
+            ORDER BY id DESC
+        ");
+        return $stmt->fetchAll();
+	}
 }
 
 $crudFunctions = new CRUDFunctions($pdo);

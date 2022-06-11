@@ -2,18 +2,9 @@
 	$pageTitle = "Shop page";
 
 	require('../src/config.php');
+	require('../src/app/CRUD_functions.php');
 
-	// READ
-    $stmt = $pdo->query("
-		SELECT * 
-		FROM products 
-		ORDER BY id DESC
-    ");
-    $products = $stmt->fetchAll();
-	
-	// echo "<pre>";
-    // print_r($products);
-    // echo "</pre>";
+	$products = $crudFunctions->fetchAllProductsDESC();
 
 	include('layout/header.php');
 ?>
