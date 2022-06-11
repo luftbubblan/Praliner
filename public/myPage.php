@@ -61,9 +61,11 @@
         $city =    ucfirst(trim($_POST['city']));
         $country = ucfirst(trim($_POST['country']));
 
-        $message .= ifEmptyGenerateMessage($phone, "Phone must not be empty.");
+        // $message .= ifEmptyGenerateMessage($phone, "Phone must not be empty.");
+        $message .= phoneNumberMustBeTenDigits($phone);
         $message .= ifEmptyGenerateMessage($street, "Street must not be empty.");
-        $message .= ifEmptyGenerateMessage($postalCode, "Postal code must not be empty.");
+        // $message .= ifEmptyGenerateMessage($postalCode, "Postal code must not be empty.");
+        $message .= postalCodeMustBeFiveDigits($postalCode);
         $message .= ifEmptyGenerateMessage($city, "City must not be empty.");
         $message .= ifEmptyGenerateMessage($country, "Country must not be empty.");
 
