@@ -10,7 +10,7 @@
     }
 
     $message = "";
-    //UPDATE NAME
+
     if(isset($_POST['updateNameBtn'])) {
         $firstName = ucfirst(trim($_POST['firstName']));
         $lastName =  ucfirst(trim($_POST['lastName']));
@@ -21,7 +21,6 @@
         $message .= $crudFunctions->updateName($message, $firstName, $lastName, $_SESSION['id']);
     }
 
-    //UPDATE EMAIL
     if(isset($_POST['updateEmailBtn'])) {
         $email = trim($_POST['email']);
 
@@ -32,7 +31,6 @@
         $message .= $crudFunctions->updateEmail($message, $email, $_SESSION['id']);
     }
 
-    //UPDATE PASSWORD
     if(isset($_POST['changePasswordBtn'])) {
         $oldpassword =        trim($_POST['oldpassword']);
         $newpassword =        trim($_POST['newpassword']);
@@ -56,7 +54,6 @@
         }
     }
 
-    //UPDATE INFORMATION
     if(isset($_POST['updateInformationBtn'])) {
         $phone =           trim($_POST['phone']);
         $street =  ucfirst(trim($_POST['street']));
@@ -73,7 +70,6 @@
         $message .= $crudFunctions->updateInformation($message, $phone, $street, $postalCode, $city, $country, $_SESSION['id']);
     }
 
-    //READ
     $user = $crudFunctions->fetchUserById($_SESSION['id']);
 
 	include('layout/header.php');

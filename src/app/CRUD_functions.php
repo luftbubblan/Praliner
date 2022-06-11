@@ -210,6 +210,18 @@ class CRUDFunctions {
         ");
         return $stmt->fetchAll();
 	}
+
+    public function fetchProductById($id) {
+        $sql = "
+            SELECT * 
+            FROM products 
+            WHERE id = :id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }
 
 $crudFunctions = new CRUDFunctions($pdo);
