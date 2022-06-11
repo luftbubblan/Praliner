@@ -18,9 +18,7 @@
         $message .= ifEmptyGenerateMessage($firstName, "Firstname must not be empty.");
         $message .= ifEmptyGenerateMessage($lastName, "Lastname must not be empty.");
 
-        if (empty($message)) {
-            $message = $crudFunctions->updateName($firstName, $lastName, $_SESSION['id']);
-        }
+        $message .= $crudFunctions->updateName($message, $firstName, $lastName, $_SESSION['id']);
     }
 
     //UPDATE EMAIL
@@ -31,9 +29,7 @@
 
         $message .= checkIfEmailIsValid($email);
 
-        if (empty($message)) {
-            $message = $crudFunctions->updateEmail($email, $_SESSION['id']);
-        }
+        $message .= $crudFunctions->updateEmail($message, $email, $_SESSION['id']);
     }
 
     //UPDATE PASSWORD
@@ -42,33 +38,21 @@
         $newpassword =        trim($_POST['newpassword']);
         $confirmnewpassword = trim($_POST['confirmnewpassword']);
 
-        $sql = "
-            SELECT password FROM users
-            WHERE id = :id
-        ";
+        $userspassword = $crudFunctions->fetchPasswordById($_SESSION['id']);
 
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':id', $_SESSION['id']);
-        $stmt->execute();
-        $userspassword = $stmt->fetch();
-
-        if ( !password_verify($oldpassword, $userspassword['password']) ) {
+        if (checkIfOldPasswordIsCorrect($oldpassword, $userspassword['password'])) {
+            $message .= ifEmptyGenerateMessage($newpassword, "New password must not be empty.");
+            $message .= ifEmptyGenerateMessage($confirmnewpassword, "Confirm new password must not be empty.");
+    
+            $message .= checkIfPasswordsMatch($newpassword, $confirmnewpassword); 
+                
+            $message .= $crudFunctions->updatePassword($message, $newpassword, $_SESSION['id']);
+        } else {
             $message = '
                 <div class="">
                     The old password is incorrect.
                 </div>
             ';
-        } else {
-            $message .= ifEmptyGenerateMessage($newpassword, "New password must not be empty.");
-            $message .= ifEmptyGenerateMessage($confirmnewpassword, "Confirm new password must not be empty.");
-    
-            $message .= checkIfPasswordsMatch($newpassword, $confirmnewpassword); 
-            
-            if (empty($message)) {
-                $encryptedPassword = encryptPassword($newpassword);
-                
-                $message = $crudFunctions->updatePassword($encryptedPassword, $_SESSION['id']);
-            }
         }
     }
 
@@ -86,9 +70,7 @@
         $message .= ifEmptyGenerateMessage($city, "City must not be empty.");
         $message .= ifEmptyGenerateMessage($country, "Country must not be empty.");
 
-        if (empty($message)) {
-            $message = $crudFunctions->updateInformation($phone, $street, $postalCode, $city, $country, $_SESSION['id']);
-        }
+        $message .= $crudFunctions->updateInformation($message, $phone, $street, $postalCode, $city, $country, $_SESSION['id']);
     }
 
     //READ

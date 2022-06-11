@@ -4,10 +4,6 @@
 	require('../src/config.php');
     require('../src/app/common_functions.php');
 
-    // echo "<pre>";
-    // print_r($_POST);
-    // echo "</pre>";
-
     if (isset($_GET['mustLogin'])) {
         $message = '
             <div class="">
@@ -30,9 +26,6 @@
         $stmt->execute();
         $user = $stmt->fetch();
 
-        // echo "<pre>";
-        // print_r($user);
-        // echo "</pre>";
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['id'] = $user['id'];
             header('Location: myPage.php');

@@ -46,12 +46,8 @@
         $message .= checkIfEmailIsValid($email);
 
         $message .= checkIfPasswordsMatch($password, $confirmedPassword);
-        
-        if (empty($message)) {
-            $encryptedPassword = encryptPassword($password);
 
-            $message .= $crudFunctions->registerUser($firstName, $lastName, $email, $encryptedPassword, $phone, $street, $postalCode, $city, $country);
-        }
+        $message .= $crudFunctions->registerUser($message, $firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country);
     }
 
 

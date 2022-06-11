@@ -35,4 +35,11 @@
     function encryptPassword($password) {
         return password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
     }
+
+    function checkIfOldPasswordIsCorrect($passwordToCheck, $encryptedPasswordToCheckAgainst) {
+        if(password_verify($passwordToCheck, $encryptedPasswordToCheckAgainst)) {
+            return true;
+        }
+        return false;
+    }
 ?>
