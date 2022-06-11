@@ -119,18 +119,6 @@ class CRUDFunctions {
         }
     }
 
-    public function fetchPasswordById($sessionId) {
-        $sql = "
-            SELECT password FROM users
-            WHERE id = :id
-        ";
-
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(':id', $sessionId);
-        $stmt->execute();
-        return $stmt->fetch();
-    }
-
     public function updatePassword($message, $newpassword, $sessionId) {
         if (empty($message)) {
             $encryptedPassword = encryptPassword($newpassword);
@@ -186,6 +174,30 @@ class CRUDFunctions {
         ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $sessionId);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    public function fetchPasswordById($sessionId) {
+        $sql = "
+            SELECT password FROM users
+            WHERE id = :id
+        ";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':id', $sessionId);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    public function fetchPasswordAndIdByEmail($email) {
+        $sql = "
+            SELECT id, password FROM users
+            WHERE email = :email
+        ";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':email', $email);
         $stmt->execute();
         return $stmt->fetch();
     }

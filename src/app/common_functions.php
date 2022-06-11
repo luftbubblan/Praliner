@@ -36,10 +36,14 @@
         return password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
     }
 
-    function checkIfOldPasswordIsCorrect($passwordToCheck, $encryptedPasswordToCheckAgainst) {
+    function checkIfPasswordIsCorrect($passwordToCheck, $encryptedPasswordToCheckAgainst) {
         if(password_verify($passwordToCheck, $encryptedPasswordToCheckAgainst)) {
             return true;
         }
         return false;
+    }
+
+    function setLoginSession($id) {
+        $_SESSION['id'] = $id;
     }
 ?>
