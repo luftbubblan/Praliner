@@ -3,6 +3,7 @@
 
 	require('../src/config.php');
     require('../src/app/common_functions.php');
+    require('../src/app/CRUD_functions.php');
 
     if (isset($_GET['mustLogin'])) {
         $message = '
@@ -16,18 +17,10 @@
         $email    = trim($_POST['email']);
         $password = trim($_POST['password']);
 
-        $sql = "
-            SELECT id, password FROM users
-            WHERE email = :email
-        ";
+        $userData = $crudFunctions->fetchPasswordAndIdByEmail($email);
 
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
-        $user = $stmt->fetch();
-
-        if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['id'] = $user['id'];
+        if ($userData && checkIfPasswordIsCorrect($password, $userData['password'])) {
+            setLoginSession($userData['id']);
             header('Location: myPage.php');
             exit;
         } else {
@@ -37,11 +30,7 @@
                 </div>
             ';
         }
-
-
     }
-
-
 
 	include('layout/header.php');
 ?>

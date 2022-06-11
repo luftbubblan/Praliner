@@ -40,7 +40,7 @@
 
         $userspassword = $crudFunctions->fetchPasswordById($_SESSION['id']);
 
-        if (checkIfOldPasswordIsCorrect($oldpassword, $userspassword['password'])) {
+        if (checkIfPasswordIsCorrect($oldpassword, $userspassword['password'])) {
             $message .= ifEmptyGenerateMessage($newpassword, "New password must not be empty.");
             $message .= ifEmptyGenerateMessage($confirmnewpassword, "Confirm new password must not be empty.");
     
