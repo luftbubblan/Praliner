@@ -3,6 +3,7 @@
 
     require('../src/config.php');
     require('../src/app/common_functions.php');
+    require('../src/app/CRUD_functions.php');
 
     if (!isset($_SESSION['id'])) {
         header('Location: login.php?mustLogin');
@@ -17,27 +18,7 @@
         $message .= ifEmptyGenerateMessage($firstName, "Firstname must not be empty.");
         $message .= ifEmptyGenerateMessage($lastName, "Lastname must not be empty.");
 
-        if (empty($message)) {
-            $sql = "
-                UPDATE users
-                SET
-                    first_name = :firstName,
-                    last_name = :lastName
-                WHERE id = :id
-            ";
-        
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':firstName', $firstName);
-            $stmt->bindParam(':lastName', $lastName);
-            $stmt->bindParam(':id', $_SESSION['id']);
-            $stmt->execute();
-
-            $message = '
-                <div class="">
-                    Name has been updated.
-                </div>
-            ';
-        }
+        $message .= $crudFunctions->updateName($message, $firstName, $lastName, $_SESSION['id']);
     }
 
     //UPDATE EMAIL
@@ -46,45 +27,9 @@
 
         $message .= ifEmptyGenerateMessage($email, "E-mail must not be empty.");
 
-        if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-            $message .= '
-                <div class="">
-                    E-mail must be a valid e-mail.
-                </div>
-            ';
-        }
+        $message .= checkIfEmailIsValid($email);
 
-        if (empty($message)) {
-            try {
-                $sql = "
-                    UPDATE users
-                    SET
-                        email = :email
-                    WHERE id = :id
-                ";
-            
-                $stmt = $pdo->prepare($sql);
-                $stmt->bindParam(':email', $email);
-                $stmt->bindParam(':id', $_SESSION['id']);
-                $stmt->execute();
-
-                $message .= '
-                    <div class="">
-                        E-mail has been updated.
-                    </div>
-                ';
-            } catch (\PDOException $e) {
-                if ((int) $e->getCode() === 23000) {
-                    $message .= '
-                        <div class="">
-                            E-mail is already taked, please use another e-mail.
-                        </div>
-                    ';
-                } else {
-                    throw new \PDOException($e->getMessage(), (int) $e->getCode());
-                }
-            } 
-        }
+        $message .= $crudFunctions->updateEmail($message, $email, $_SESSION['id']);
     }
 
     //UPDATE PASSWORD
@@ -93,55 +38,21 @@
         $newpassword =        trim($_POST['newpassword']);
         $confirmnewpassword = trim($_POST['confirmnewpassword']);
 
-        $sql = "
-            SELECT password FROM users
-            WHERE id = :id
-        ";
+        $userspassword = $crudFunctions->fetchPasswordById($_SESSION['id']);
 
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':id', $_SESSION['id']);
-        $stmt->execute();
-        $userspassword = $stmt->fetch();
-
-        if ( !password_verify($oldpassword, $userspassword['password']) ) {
+        if (checkIfOldPasswordIsCorrect($oldpassword, $userspassword['password'])) {
+            $message .= ifEmptyGenerateMessage($newpassword, "New password must not be empty.");
+            $message .= ifEmptyGenerateMessage($confirmnewpassword, "Confirm new password must not be empty.");
+    
+            $message .= checkIfPasswordsMatch($newpassword, $confirmnewpassword); 
+                
+            $message .= $crudFunctions->updatePassword($message, $newpassword, $_SESSION['id']);
+        } else {
             $message = '
                 <div class="">
                     The old password is incorrect.
                 </div>
             ';
-        } else {
-            $message .= ifEmptyGenerateMessage($newpassword, "New password must not be empty.");
-            $message .= ifEmptyGenerateMessage($confirmnewpassword, "Confirm new password must not be empty.");
-    
-            if (!empty($confirmnewpassword) && !empty($newpassword) && $newpassword !== $confirmnewpassword) {
-                $message .= '
-                    <div class="">
-                        "Password" and "Confirm password" must match.
-                    </div>
-                ';
-            } 
-            
-            if (empty($message)) {
-                $encryptedPassword = password_hash($newpassword, PASSWORD_BCRYPT, ['cost' => 12]);
-
-                $sql = "
-                    UPDATE users
-                    SET
-                        password = :password
-                    WHERE id = :id
-                ";
-            
-                $stmt = $pdo->prepare($sql);
-                $stmt->bindParam(":password", $encryptedPassword);
-                $stmt->bindParam(':id', $_SESSION['id']);
-                $stmt->execute();
-
-                $message .= '
-                    <div class="">
-                        Password has been updated.
-                    </div>
-                ';
-            }
         }
     }
 
@@ -159,44 +70,11 @@
         $message .= ifEmptyGenerateMessage($city, "City must not be empty.");
         $message .= ifEmptyGenerateMessage($country, "Country must not be empty.");
 
-        if (empty($message)) {
-            $sql = "
-                UPDATE users
-                SET
-                    phone = :phone,
-                    street = :street,
-                    postal_code = :postal_code,
-                    city = :city,
-                    country = :country
-                WHERE id = :id
-            ";
-        
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':phone', $phone);
-            $stmt->bindParam(':street', $street);
-            $stmt->bindParam(':postal_code', $postalCode);
-            $stmt->bindParam(':city', $city);
-            $stmt->bindParam(':country', $country);
-            $stmt->bindParam(':id', $_SESSION['id']);
-            $stmt->execute();
-
-            $message .= '
-                <div class="">
-                    Information has been updated.
-                </div>
-            ';
-        }
+        $message .= $crudFunctions->updateInformation($message, $phone, $street, $postalCode, $city, $country, $_SESSION['id']);
     }
 
     //READ
-    $sql = "
-        SELECT * FROM users
-        WHERE id = :id
-    ";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':id', $_SESSION['id']);
-    $stmt->execute();
-    $user = $stmt->fetch();
+    $user = $crudFunctions->fetchUserById($_SESSION['id']);
 
 	include('layout/header.php');
 ?>

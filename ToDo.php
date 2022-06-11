@@ -43,6 +43,7 @@ Användare - Shop (Oscar tar den)
     Uppdatera sina uppgifter (UPDATE)
     Radera sitt konto (DELETE)
     DONE - Kunna logga ut
+    Validera postkod och telefonnummer, antalet nummer
 
 
 Kunna ladda upp bild till produkter och uppdatera bilden
