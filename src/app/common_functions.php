@@ -16,6 +16,20 @@
             return $output;
 		}
     }
+
+    function phoneNumberMustBeTenDigits($phone) {
+        if (strlen((string)$phone) != 10) {
+            $message .= '<div class="">Phone number must be 10 digits.</div>';
+            return $message;
+        }
+    }
+
+    function postalCodeMustBeFiveDigits($postalCode) {
+        if (strlen((string)$postalCode) != 5) {
+            $message .= '<div class="">Postal code must be 5 digits.</div>';
+            return $message;
+        }
+    }
     
     function checkIfEmailIsValid($email) {
         if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) === false) {

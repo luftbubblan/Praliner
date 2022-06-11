@@ -2,33 +2,14 @@
 	$pageTitle = "Shop page";
 
 	require('../src/config.php');
+    require('../src/app/CRUD_functions.php');
 
-	// echo "<pre>";
-    // print_r($_GET);
-    // echo "</pre>";
-
-	// READ
-    $sql = "
-        SELECT * 
-        FROM products 
-        WHERE id = :id
-    ";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(":id", $_GET['product']);
-    $stmt->execute();
-    $product = $stmt->fetch();
-	
-	// echo "<pre>";
-    // print_r($product);
-    // echo "</pre>";
+    $product =$crudFunctions->fetchProductById($_GET['product']);
 
 	include('layout/header.php');
 ?>
 
-
-
 <div id="title">
-    <!-- <a href="index.php" id="backto-a">Back to shop</a> -->
     <h3><?= htmlentities($product['title']) ?></h3>
 </div>
 
@@ -48,13 +29,6 @@
             <button id="buy-btn">Lägg till i varukorg</button>
             </div>
     </div>
-
-
 </div>
-
-
-
-	
-
 
 <?php include('layout/footer.php') ?>
