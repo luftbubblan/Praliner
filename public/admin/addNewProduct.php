@@ -52,7 +52,7 @@
             ';
 		}
 
-		if (empty($stock) && !$stock == 0) {
+		if (empty($stock) && $stock != 0) {
 			$message .= '
                 <div class="">
                     Stock must not be empty.
