@@ -1,14 +1,10 @@
-Malin tills på tisdag
-Bygga databasen, i products lägg till column "flavour" mellan title och description, VARCHAR(90)
-
-
-
-Malin klar??? Bygga databasen, lägg till column "flavour" mellan title och description, VARCHAR(90)
+DONE - Bygga databasen, lägg till column "flavour" mellan title och description, VARCHAR(90)
 DONE - dbconnection.php
 DONE - Footer.php
 DONE - Header.php
 DONE - config.php
 DONE - gitignore
+DONE - Ta bort Gitignore
 
 
 DONE - Börja med produktdelen - Admin
@@ -39,11 +35,11 @@ Användare - Shop (Oscar tar den)
     DONE - Registrera sig (CREATE)
     DONE - Gå till "mina sidor" som är lösenordsskyddad (READ)
     DONE - Logga in (READ)
-    Se sina uppgifter på "mina sidor" (READ)
-    Uppdatera sina uppgifter (UPDATE)
+    DONE - Se sina uppgifter på "mina sidor" (READ)
+    DONE - Uppdatera sina uppgifter (UPDATE)
     Radera sitt konto (DELETE)
     DONE - Kunna logga ut
-    Validera postkod och telefonnummer, antalet nummer
+    DONE - Validera postkod och telefonnummer, antalet nummer
 
 
 Kunna ladda upp bild till produkter och uppdatera bilden

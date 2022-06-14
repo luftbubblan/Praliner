@@ -3,10 +3,6 @@
 
 	require('../../src/config.php');
 
-    // echo "<pre>";
-    // print_r($_POST);
-    // echo "</pre>";
-
 	//CREATE
 	$message = "";
 	$title = "";
@@ -56,7 +52,7 @@
             ';
 		}
 
-		if (empty($stock)) {
+		if (empty($stock) && !$stock == 0) {
 			$message .= '
                 <div class="">
                     Stock must not be empty.
@@ -117,7 +113,7 @@
     <input type="text" name="flavour" placeholder="Flavour" value="<?=$_POST['flavour']?>">
     <textarea name="description" placeholder="Description"><?=$_POST['description']?></textarea>
     <input type="number" name="price" placeholder="Price" value="<?=$_POST['price']?>">
-    <input type="number" name="stock" placeholder="Stock" value="<?=$_POST['stock']?>">
+    <input type="number" name="stock" placeholder="Stock" value="<?=$_POST['stock']?>" min="0">
     <input type="text" name="img_url" placeholder="Image" value="<?=$_POST['img_url']?>">
     <input type="submit" name="createProductBtn" value="List Product">
 </form>

@@ -3,10 +3,6 @@
 
 	require('../../src/config.php');
 
-	// echo "<pre>";
-    // print_r($_POST);
-    // echo "</pre>";
-
 	// DELETE
     if (isset($_POST['deleteProductBtn'])) {
         $sql = "
@@ -57,8 +53,6 @@
 
 
 <h1>Product admin page</h1>
-<!-- <a href="http://localhost/Praliner/public/index.php">Shop</a>
-<a href="http://localhost/Praliner/public/admin/users.php">Användare Admin</a> -->
 
 <form action="addNewProduct.php">
 	<input type="submit" value="Create new product">

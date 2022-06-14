@@ -24,10 +24,10 @@
         <p><?= htmlentities($product['price']) ?>kr</p>
         <p>stock: <?= htmlentities($product['stock']) ?></p>
         <p><?= htmlentities($product['description']) ?></p>
-            <div id="buy-sec">
-                <input type="number" value="1" min="1" max="<?= htmlentities($product['stock']) ?>">
+        <div id="buy-sec">
+            <input type="number" value="1" min="1" max="<?= htmlentities($product['stock']) ?>">
             <button id="buy-btn">Lägg till i varukorg</button>
-            </div>
+        </div>
     </div>
 </div>
 
