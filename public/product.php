@@ -16,7 +16,7 @@
 <div id="product-con">
 
     <div id="img-con">
-        <img src="admin/<?= $product['img_url']?>" alt="Pralin!!!" width="300" height="300">
+        <img src="<?=$product['img_url']?>" alt="Picture of pralin" width="300" height="300">
     </div>
     
     <div id="about-con">

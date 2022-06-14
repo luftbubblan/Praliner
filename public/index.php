@@ -25,7 +25,7 @@
 				<div id="single">
 				
 				<a href="product.php?product=<?=$product['id']?>">
-					<img src="admin/<?= $product['img_url']?>" alt="Pralin!!!" width="100" height="100">
+					<img src="<?= $product['img_url']?>" alt="Picture of pralin" width="100" height="100">
 				</a>
 				<h3><?= htmlentities($product['title']) ?></h3>
 				<p><?= htmlentities($product['flavour']) ?></p>
