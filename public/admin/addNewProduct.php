@@ -3,6 +3,14 @@
 
 	require('../../src/config.php');
 
+	echo "<pre>";
+	print_r($_POST);
+	echo "</pre>";
+
+	echo "<pre>";
+	print_r($_FILES['img_url']);
+	echo "</pre>";
+
 	//CREATE
 	$message = "";
 	$title = "";
@@ -18,7 +26,7 @@
 		$description = trim($_POST['description']);
 		$price = trim($_POST['price']);
 		$stock = trim($_POST['stock']);
-		$img_url = trim($_POST['img_url']);
+		// $img_url = trim($_POST['img_url']);
 
 		if (empty($title)) {
 			$message .= '
@@ -60,15 +68,40 @@
             ';
 		}
 
-		if (empty($img_url)) {
+		// if (empty($img_url)) {
+		// 	$message .= '
+        //         <div class="">
+        //             Img must not be empty.
+        //         </div>
+        //     ';
+		// }
+
+		if(!is_uploaded_file($_FILES['img_url']['tmp_name'])) {
 			$message .= '
                 <div class="">
-                    Img must not be empty.
+                    Picture must be chosen.
                 </div>
             ';
+		} else {
+			$fileName 	    = $_FILES['img_url']['name'];
+			$fileType 	    = $_FILES['img_url']['type'];
+			$fileTempPath   = $_FILES['img_url']['tmp_name'];
+			$path 		    = "img/";
+
+			$newFilePath = $path . $fileName; 
 		}
 
 		if (empty($message)) {
+			$isTheFileUploaded = move_uploaded_file($fileTempPath, $newFilePath);
+	
+			if ($isTheFileUploaded) {
+				// Success the file is uploaded
+				$imgUrl = $newFilePath;
+			} else {
+				// Could not upload the file
+				$error = "Could not upload the file";
+			}
+
 			$sql = "
 				INSERT INTO products (
 					title,
@@ -92,10 +125,10 @@
 			$stmt->bindParam(':description', $description);
 			$stmt->bindParam(':price', $price);
 			$stmt->bindParam(':stock', $stock);
-			$stmt->bindParam(':img_url', $img_url);
+			$stmt->bindParam(':img_url', $imgUrl);
 			$stmt->execute();
-			header('Location: index.php?added');
-			exit;
+			// header('Location: index.php?added');
+			// exit;
 		}
 	}
 
@@ -104,17 +137,17 @@
 
 
 <h1>Add new product</h1>
-<!-- <a href="index.php">Admin</a> -->
 
 <?=$message?>
 
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
     <input type="text" name="title" placeholder="Title" value="<?=$_POST['title']?>">
     <input type="text" name="flavour" placeholder="Flavour" value="<?=$_POST['flavour']?>">
     <textarea name="description" placeholder="Description"><?=$_POST['description']?></textarea>
     <input type="number" name="price" placeholder="Price" value="<?=$_POST['price']?>">
     <input type="number" name="stock" placeholder="Stock" value="<?=$_POST['stock']?>" min="0">
-    <input type="text" name="img_url" placeholder="Image" value="<?=$_POST['img_url']?>">
+    <lable>Picture:</lable>
+	<input type="file" name="img_url" placeholder="Image" value="<?=$_POST['img_url']?>">
     <input type="submit" name="createProductBtn" value="List Product">
 </form>
 
