@@ -22,7 +22,7 @@ DONE - Produktdelen - Shop
     DONE - Kunna klicka på enskild produkt och visa den
 
 
-Användardelen - Admin (Malin tar den)
+Användardelen - Admin (MALIN)
     Skapa meny för användardelen/produktdelen
     Lista alla användare (READ)
     Skapa nya användare (CREATE)
@@ -30,8 +30,8 @@ Användardelen - Admin (Malin tar den)
     Uppdatera användare (UPDATE)
 
 
-Användare - Shop (Oscar tar den)
-        När användaren går in första gången finns Registrera sig och logga in, när den är inloggad finns mina sidor och logga ut
+Användare - Shop (OSCAR)
+    DONE - När användaren går in första gången finns Registrera sig och logga in, när den är inloggad finns mina sidor och logga ut
     DONE - Registrera sig (CREATE)
     DONE - Gå till "mina sidor" som är lösenordsskyddad (READ)
     DONE - Logga in (READ)
@@ -42,10 +42,10 @@ Användare - Shop (Oscar tar den)
     DONE - Validera postkod och telefonnummer, antalet nummer
 
 
-Kunna ladda upp bild till produkter och uppdatera bilden
+Kunna ladda upp bild till produkter och uppdatera bilden (OSCAR)
 
     
-Design, CSS till en början iaf (Anna tar den)
+Design, CSS till en början iaf (ANNA)
 
 
 Gör köpprocessen (TSM)
@@ -54,7 +54,7 @@ Gör köpprocessen (TSM)
     Hantera ordrar - Tar vi senare
 
 
-Ordrar
+Ordrar (WAIT)
     Skapa databas för ordrar
     Användare ska kunna lägga en order på varor
     Användaren ska kunna se sina ordrar
@@ -64,3 +64,17 @@ Ordrar
 
 
 Skriva om koden till klasser och metoder
+    PUBLIC
+        ANNA - Login.php
+        WAIT tills AJAX e klart - myPage.php
+    ADMIN
+        ANNA - addNewProduct.php
+        MALIN - addNewUser.php
+        ANNA - edit.php
+        ANNA - index.php
+        MALIN - updateUser.php
+        MALIN - users.php
+
+Gör om Mypage till AJAX (TSM)
+
+Lägger in bilder som filer i IMG (MALIN)
