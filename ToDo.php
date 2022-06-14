@@ -75,6 +75,6 @@ Skriva om koden till klasser och metoder
         MALIN - updateUser.php
         MALIN - users.php
 
-Gör om Mypage till AJAX (TSM)
+Gör om Mypage till AJAX (OSCAR & ANNA, kl 9, 15/6)
 
 Lägger in bilder som filer i IMG (MALIN)
