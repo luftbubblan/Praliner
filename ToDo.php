@@ -24,10 +24,10 @@ DONE - Produktdelen - Shop
 
 Användardelen - Admin (MALIN)
     Skapa meny för användardelen/produktdelen
-    Lista alla användare (READ)
-    Skapa nya användare (CREATE)
-    Deleta användare (DELETE)
-    Uppdatera användare (UPDATE)
+    DONE Lista alla användare (READ)
+    DONE Skapa nya användare (CREATE)
+    DONE Deleta användare (DELETE)
+    Uppdatera användare (UPDATE) - rad 32....vad skulle jag göra...minns inte....
 
 
 Användare - Shop (OSCAR)
@@ -77,6 +77,6 @@ Skriva om koden till klasser och metoder
 
 Gör om Mypage till AJAX (OSCAR & ANNA, kl 9, 15/6)
 
-Lägger in bilder som filer i IMG (MALIN)
+DONE Lägger in bilder som filer i IMG (MALIN)
 
 testing

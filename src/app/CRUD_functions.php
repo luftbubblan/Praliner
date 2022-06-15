@@ -224,6 +224,49 @@ class CRUDFunctions {
     }
 }
 
+function addNewUser($firstName, $lastName, $email,$password, $phone, $street, $postalCode, $city, $country) {
+    global $pdo;
+    $sql = "
+    INSERT INTO users (first_name, last_name, email, password, phone, street, postal_code, city, country)
+    VALUES (:first_name, :last_name, :email, :password, :phone, :street, :postal_code, :city, :country)
+    ";
+    $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':first_name', $firstName);
+    $stmt->bindParam(':last_name', $lastName);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':password', $encryptedPassword);
+    $stmt->bindParam(':phone', $phone);
+    $stmt->bindParam(':street', $street);
+    $stmt->bindParam(':postal_code', $postalCode);
+    $stmt->bindParam(':city', $city);
+    $stmt->bindParam(':country', $country);
+    $stmt->execute();
+   
+
+}
+
+function addUser($username, $email, $password) {
+    global $pdo;
+
+    $sql = "
+        INSERT INTO users (username, email, password)
+        VALUES (:username, :email, :password);
+    ";
+
+    $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':password', $encryptedPassword);
+    $stmt->execute();
+}
+
+
+
+
+
+
 $crudFunctions = new CRUDFunctions($pdo);
 
 ?>
