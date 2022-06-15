@@ -172,7 +172,7 @@
                 }
             } 
 		}
-	}
+	
 
 	include('layout/header.php');
 ?>
