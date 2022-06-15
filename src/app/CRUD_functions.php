@@ -86,7 +86,7 @@ class CRUDFunctions {
             $stmt->bindParam(':id', $sessionId);
             $stmt->execute();
 
-            $message = '<div class="">Name has been updated.</div>';
+            $message = '<div class="alert alert-success">Name has been updated.</div>';
             return $message;
         }
     }

@@ -1,5 +1,6 @@
 <?php
 require('../config.php');
+require('common_functions.php');
 require('CRUD_functions.php');
 
 // echo "<pre>";
@@ -12,14 +13,10 @@ if(isset($_POST['updateNameBtn'])) {
     $firstName = ucfirst(trim($_POST['firstName']));
     $lastName =  ucfirst(trim($_POST['lastName']));
 
-    if (empty($firstName)) {
-        $message .= '<div class="">Firstname must not be empty.</div>';
-    }
-    if (empty($lastName)) {
-        $message .= '<div class="">Lastname must not be empty.</div>';
-    }
+    $message .= ifEmptyGenerateMessage($firstName, "First name must not be empty.");
+    $message .= ifEmptyGenerateMessage($lastName, "Last name must not be empty.");
 
-    $message = $crudFunctions->updateName($message, $firstName, $lastName, $_SESSION['id']);
+    $message .= $crudFunctions->updateName($message, $firstName, $lastName, $_SESSION['id']);
 }
 
 $user = $crudFunctions->fetchUserById($_SESSION['id']);
@@ -28,6 +25,5 @@ $data = [
     'message' => $message,
     'user'    => $user
 ];
-
 
 echo json_encode($data);

@@ -4,10 +4,7 @@ async function updateName(e) {
     e.preventDefault();
 
     const formData = new FormData(e.target);
-    // console.log(formData.get('firstname'));
-    // console.log(formData.get('lastname'));
     formData.set('updateNameBtn', true);
-    // console.log(formData);
 
     try {
         const response = await fetch('../src/app/nameAPI.php', {
@@ -18,10 +15,12 @@ async function updateName(e) {
 
         const data = await response.json();
 
-        console.log(data);
+        if(data['message'].includes("success")) {
+            window.location.replace("myPage.php?nameUpdated");
+        } else {
+            $('.formMessage').html(data['message']);
+        }
         
-    //     $('#form-message').html(data['message']);
-    //     appendPunList(data['puns']);
 } catch(error) {
         console.log(error);
     }

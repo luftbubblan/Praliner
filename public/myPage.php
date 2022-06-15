@@ -5,10 +5,10 @@
     require('../src/app/common_functions.php');
     require('../src/app/CRUD_functions.php');
 
-    echo "<pre>";
-    print_r($_SESSION);
-    print_r($_POST);
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($_SESSION);
+    // print_r($_POST);
+    // echo "</pre>";
 
     if (!isset($_SESSION['id'])) {
         header('Location: login.php?mustLogin=true');
@@ -18,7 +18,7 @@
 
     if (isset($_GET['nameUpdated'])) {
         $message = '
-            <div class="">
+            <div class="alert alert-success">
                 Name has been updated.
             </div>
         ';
@@ -388,8 +388,14 @@
 
 <div>
     <b>Firstname:</b> <?=$user['first_name']?> |
-    <b>Lastname:</b> <?=$user['last_name']?> <br>
+    <b>Lastname:</b> <?=$user['last_name']?><br>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nameModal" data-firstname="<?=$user['first_name']?>" data-lastname="<?=$user['last_name']?>">Update Name</button>
+</div>
+
+<div>
+    <b>Email:</b> <?=$user['email']?><br>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#emailModal" data-email="<?=$user['email']?>">Update Email</button>
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#passwordModal">Update Password</button> -->
 </div>
 
 
@@ -398,7 +404,7 @@
 
 
 
-
+<!-- NAMEMODAL -->
 <div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -410,18 +416,46 @@
             </div>
             <form id="updateNameForm" action="../src/app/nameAPI.php" method="POST">
                 <div class="modal-body">
+                    <div class="formMessage"></div>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">First name:</label>
+                        <label for="firstName" class="col-form-label">First name:</label>
                         <input type="text" class="form-control" name ="firstName">
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="col-form-label">Last name:</label>
+                        <label for="lastName" class="col-form-label">Last name:</label>
                         <input type="text" class="form-control" name ="lastName">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" name ="updateNameBtn" class="btn btn-primary" value="update">
+                    <input type="submit" name ="updateNameBtn" class="btn btn-primary" value="Update">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- EMAILMODAL -->
+<div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update email</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="updateEmaileForm" action="../src/app/emailAPI.php" method="POST">
+                <div class="modal-body">
+                    <div class="formMessage"></div>
+                    <div class="form-group">
+                        <label for="email" class="col-form-label">Email:</label>
+                        <input type="text" class="form-control" name ="email">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" name ="updateEmailBtn" class="btn btn-primary" value="Update">
                 </div>
             </form>
         </div>
@@ -433,6 +467,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+<!-- MODALS -->
 <script>
     $('#nameModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
@@ -440,9 +475,16 @@
         var lastName = button.data('lastname');
 
         var modal = $(this);
-        modal.find('.modal-title').text('Update name');
         modal.find('.modal-body input[name="firstName"]').val(firstName);
         modal.find('.modal-body input[name="lastName"]').val(lastName);
+    })
+
+    $('#emailModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var email = button.data('email');
+
+        var modal = $(this);
+        modal.find('.modal-body input[name="email"]').val(email);
     })
 </script>
 

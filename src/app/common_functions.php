@@ -1,7 +1,7 @@
 <?php
     function ifEmptyGenerateMessage($variableToCheck, $message) {
         if (empty($variableToCheck)) {
-			$output = '<div class="">' . $message . '</div>';
+			$output = '<div class="alert alert-danger">' . $message . '</div>';
             return $output;
 		}
     }
