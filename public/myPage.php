@@ -16,80 +16,88 @@
 
     $message = "";
 
-    if(isset($_POST['updateNameBtn'])) {
-        $firstName = ucfirst(trim($_POST['firstName']));
-        $lastName =  ucfirst(trim($_POST['lastName']));
-
-        $message .= ifEmptyGenerateMessage($firstName, "Firstname must not be empty.");
-        $message .= ifEmptyGenerateMessage($lastName, "Lastname must not be empty.");
-
-        $message .= $crudFunctions->updateName($message, $firstName, $lastName, $_SESSION['id']);
+    if (isset($_GET['nameUpdated'])) {
+        $message = '
+            <div class="">
+                Name has been updated.
+            </div>
+        ';
     }
 
-    if(isset($_POST['updateEmailBtn'])) {
-        $email = trim($_POST['email']);
+    // if(isset($_POST['updateNameBtn'])) {
+    //     $firstName = ucfirst(trim($_POST['firstName']));
+    //     $lastName =  ucfirst(trim($_POST['lastName']));
 
-        $message .= ifEmptyGenerateMessage($email, "E-mail must not be empty.");
+    //     $message .= ifEmptyGenerateMessage($firstName, "Firstname must not be empty.");
+    //     $message .= ifEmptyGenerateMessage($lastName, "Lastname must not be empty.");
 
-        $message .= checkIfEmailIsValid($email);
+    //     $message .= $crudFunctions->updateName($message, $firstName, $lastName, $_SESSION['id']);
+    // }
 
-        $message .= $crudFunctions->updateEmail($message, $email, $_SESSION['id']);
-    }
+    // if(isset($_POST['updateEmailBtn'])) {
+    //     $email = trim($_POST['email']);
 
-    if(isset($_POST['changePasswordBtn'])) {
-        $oldpassword =        trim($_POST['oldpassword']);
-        $newpassword =        trim($_POST['newpassword']);
-        $confirmnewpassword = trim($_POST['confirmnewpassword']);
+    //     $message .= ifEmptyGenerateMessage($email, "E-mail must not be empty.");
 
-        $userspassword = $crudFunctions->fetchPasswordById($_SESSION['id']);
+    //     $message .= checkIfEmailIsValid($email);
 
-        if (checkIfPasswordIsCorrect($oldpassword, $userspassword['password'])) {
-            $message .= ifEmptyGenerateMessage($newpassword, "New password must not be empty.");
-            $message .= ifEmptyGenerateMessage($confirmnewpassword, "Confirm new password must not be empty.");
+    //     $message .= $crudFunctions->updateEmail($message, $email, $_SESSION['id']);
+    // }
+
+    // if(isset($_POST['changePasswordBtn'])) {
+    //     $oldpassword =        trim($_POST['oldpassword']);
+    //     $newpassword =        trim($_POST['newpassword']);
+    //     $confirmnewpassword = trim($_POST['confirmnewpassword']);
+
+    //     $userspassword = $crudFunctions->fetchPasswordById($_SESSION['id']);
+
+    //     if (checkIfPasswordIsCorrect($oldpassword, $userspassword['password'])) {
+    //         $message .= ifEmptyGenerateMessage($newpassword, "New password must not be empty.");
+    //         $message .= ifEmptyGenerateMessage($confirmnewpassword, "Confirm new password must not be empty.");
     
-            $message .= checkIfPasswordsMatch($newpassword, $confirmnewpassword); 
+    //         $message .= checkIfPasswordsMatch($newpassword, $confirmnewpassword); 
                 
-            $message .= $crudFunctions->updatePassword($message, $newpassword, $_SESSION['id']);
-        } else {
-            $message = '
-                <div class="">
-                    The old password is incorrect.
-                </div>
-            ';
-        }
-    }
+    //         $message .= $crudFunctions->updatePassword($message, $newpassword, $_SESSION['id']);
+    //     } else {
+    //         $message = '
+    //             <div class="">
+    //                 The old password is incorrect.
+    //             </div>
+    //         ';
+    //     }
+    // }
 
-    if(isset($_POST['updateInformationBtn'])) {
-        $phone =           trim($_POST['phone']);
-        $street =  ucfirst(trim($_POST['street']));
-        $postalCode =      trim($_POST['postalCode']);
-        $city =    ucfirst(trim($_POST['city']));
-        $country = ucfirst(trim($_POST['country']));
+    // if(isset($_POST['updateInformationBtn'])) {
+    //     $phone =           trim($_POST['phone']);
+    //     $street =  ucfirst(trim($_POST['street']));
+    //     $postalCode =      trim($_POST['postalCode']);
+    //     $city =    ucfirst(trim($_POST['city']));
+    //     $country = ucfirst(trim($_POST['country']));
 
-        $message .= phoneNumberMustBeTenDigits($phone);
-        $message .= ifEmptyGenerateMessage($street, "Street must not be empty.");
-        $message .= postalCodeMustBeFiveDigits($postalCode);
-        $message .= ifEmptyGenerateMessage($city, "City must not be empty.");
-        $message .= ifEmptyGenerateMessage($country, "Country must not be empty.");
+    //     $message .= phoneNumberMustBeTenDigits($phone);
+    //     $message .= ifEmptyGenerateMessage($street, "Street must not be empty.");
+    //     $message .= postalCodeMustBeFiveDigits($postalCode);
+    //     $message .= ifEmptyGenerateMessage($city, "City must not be empty.");
+    //     $message .= ifEmptyGenerateMessage($country, "Country must not be empty.");
 
-        $message .= $crudFunctions->updateInformation($message, $phone, $street, $postalCode, $city, $country, $_SESSION['id']);
-    }
+    //     $message .= $crudFunctions->updateInformation($message, $phone, $street, $postalCode, $city, $country, $_SESSION['id']);
+    // }
 
-    if(isset($_POST['deleteAccountBtn'])) {
-        $sql = "
-            DELETE FROM users
-            WHERE id = :id
-        ";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(":id", $_SESSION['id']);
-        $stmt->execute();
+    // if(isset($_POST['deleteAccountBtn'])) {
+    //     $sql = "
+    //         DELETE FROM users
+    //         WHERE id = :id
+    //     ";
+    //     $stmt = $pdo->prepare($sql);
+    //     $stmt->bindParam(":id", $_SESSION['id']);
+    //     $stmt->execute();
 
-        $_SESSION = [];
-        session_destroy();
+    //     $_SESSION = [];
+    //     session_destroy();
         
-        header('Location: login.php?deleted=true');
-        exit;
-    }
+    //     header('Location: login.php?deleted=true');
+    //     exit;
+    // }
 
     $user = $crudFunctions->fetchUserById($_SESSION['id']);
 
@@ -100,13 +108,13 @@
 
 <?=$message?>
 <hr>
-
+<!-- 
 <div>
     <b>Firstname:</b> <?=$user['first_name']?> |
     <b>Lastname:</b> <?=$user['last_name']?> <br>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nameModal">Update Name</button>
-</div>
-<div>
+</div> -->
+<!-- <div>
     <b>E-mail:</b> <?=$user['email']?> <br>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#emailModal">Update E-mail</button> <br>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#passwordModal">Change password</button>
@@ -122,11 +130,11 @@
 
 <form action="" method="POST">
     <input type="submit" name="deleteAccountBtn" value="Delete your account">
-</form>
+</form> -->
 
 
 <!-- MODALS -->
-<div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -255,11 +263,190 @@
             </div>
         </div>
     </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+    <b>Firstname:</b> <?=$user['first_name']?> |
+    <b>Lastname:</b> <?=$user['last_name']?> <br>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nameModal" data-firstname="<?=$user['first_name']?>" data-lastname="<?=$user['last_name']?>">Update Name</button>
+</div>
+
+
+
+
+
+
+
+
+<div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update name</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="updateNameForm" action="../src/app/nameAPI.php" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">First name:</label>
+                        <input type="text" class="form-control" name ="firstName">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Last name:</label>
+                        <input type="text" class="form-control" name ="lastName">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" name ="updateNameBtn" class="btn btn-primary" value="update">
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 <!-- JQUERY AND BOOTSTRAP -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+    $('#nameModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var firstName = button.data('firstname');
+        var lastName = button.data('lastname');
+
+        var modal = $(this);
+        modal.find('.modal-title').text('Update name');
+        modal.find('.modal-body input[name="firstName"]').val(firstName);
+        modal.find('.modal-body input[name="lastName"]').val(lastName);
+    })
+</script>
+
+<!-- CUSTOM JavaScript -->
+<script src="../src/app/AJAX.js"></script>
 
 <?php include('layout/footer.php') ?>

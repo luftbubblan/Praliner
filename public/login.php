@@ -4,6 +4,7 @@
 	require('../src/config.php');
     require('../src/app/common_functions.php');
     require('../src/app/CRUD_functions.php');
+
     
     $message .= isSuperGlobalSet($_GET['mustLogin'], "You need to login to access this.");
     $message .= isSuperGlobalSet($_GET['deleted'], "Your account has successfully been deleted.");
