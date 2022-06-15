@@ -83,6 +83,8 @@
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(":id", $_SESSION['id']);
         $stmt->execute();
+        $_SESSION = [];
+        session_destroy();
         header('Location: login.php?deleted');
         exit;
     }
