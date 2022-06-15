@@ -448,5 +448,6 @@
 
 <!-- CUSTOM JavaScript -->
 <script src="../src/app/AJAX.js"></script>
+<script src="../src/app/showHidePass.js"></script>
 
 <?php include('layout/footer.php') ?>
