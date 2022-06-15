@@ -4,22 +4,9 @@
 	require('../src/config.php');
     require('../src/app/common_functions.php');
     require('../src/app/CRUD_functions.php');
-
-    if (isset($_GET['mustLogin'])) {
-        $message = '
-            <div class="">
-                You need to login to access this.
-            </div>
-        ';
-    }
-
-    if (isset($_GET['deleted'])) {
-        $message = '
-            <div class="">
-                You has successfully been deleted.
-            </div>
-        ';
-    }
+    
+    $message .= isSuperGlobalSet($_GET['mustLogin'], "You need to login to access this.");
+    $message .= isSuperGlobalSet($_GET['deleted'], "Your account has successfully been deleted.");
 
     if (isset($_POST['loginBtn'])) {
         $email    = trim($_POST['email']);

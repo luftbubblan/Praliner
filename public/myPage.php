@@ -11,7 +11,7 @@
     echo "</pre>";
 
     if (!isset($_SESSION['id'])) {
-        header('Location: login.php?mustLogin');
+        header('Location: login.php?mustLogin=true');
     }
 
     $message = "";
@@ -87,7 +87,7 @@
         $_SESSION = [];
         session_destroy();
         
-        header('Location: login.php?deleted');
+        header('Location: login.php?deleted=true');
         exit;
     }
 

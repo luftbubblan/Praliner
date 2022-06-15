@@ -60,4 +60,12 @@
     function setLoginSession($id) {
         $_SESSION['id'] = $id;
     }
+
+    function isSuperGlobalSet($superGlobal, $message) {
+        if ($superGlobal == true) {
+            $output = '<div class="">' . $message . '</div>';
+            return $output;
+		}
+        
+    }
 ?>
