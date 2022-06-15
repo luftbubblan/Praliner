@@ -13,6 +13,14 @@
         ';
     }
 
+    if (isset($_GET['deleted'])) {
+        $message = '
+            <div class="">
+                You has successfully been deleted.
+            </div>
+        ';
+    }
+
     if (isset($_POST['loginBtn'])) {
         $email    = trim($_POST['email']);
         $password = trim($_POST['password']);

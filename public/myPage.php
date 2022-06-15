@@ -5,6 +5,11 @@
     require('../src/app/common_functions.php');
     require('../src/app/CRUD_functions.php');
 
+    echo "<pre>";
+    print_r($_SESSION);
+    print_r($_POST);
+    echo "</pre>";
+
     if (!isset($_SESSION['id'])) {
         header('Location: login.php?mustLogin');
     }
@@ -70,6 +75,18 @@
         $message .= $crudFunctions->updateInformation($message, $phone, $street, $postalCode, $city, $country, $_SESSION['id']);
     }
 
+    if(isset($_POST['deleteAccountBtn'])) {
+        $sql = "
+            DELETE FROM users
+            WHERE id = :id
+        ";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(":id", $_SESSION['id']);
+        $stmt->execute();
+        header('Location: login.php?deleted');
+        exit;
+    }
+
     $user = $crudFunctions->fetchUserById($_SESSION['id']);
 
 	include('layout/header.php');
@@ -98,6 +115,10 @@
     <b>Country:</b> <?=$user['country']?> <br>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#informationModal">Update information</button>
 </div>
+
+<form action="" method="POST">
+    <input type="submit" name="deleteAccountBtn" value="Delete your account">
+</form>
 
 
 <!-- MODALS -->

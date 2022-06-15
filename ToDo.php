@@ -42,7 +42,7 @@ Användare - Shop (OSCAR)
     DONE - Validera postkod och telefonnummer, antalet nummer
 
 
-Kunna ladda upp bild till produkten man skapar (OSCAR)
+DONE - Kunna ladda upp bild till produkten man skapar (OSCAR)
 
     
 Design, CSS till en början iaf (ANNA)
