@@ -78,3 +78,5 @@ Skriva om koden till klasser och metoder
 Gör om Mypage till AJAX (OSCAR & ANNA, kl 9, 15/6)
 
 Lägger in bilder som filer i IMG (MALIN)
+
+testing
