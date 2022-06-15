@@ -37,7 +37,7 @@ Användare - Shop (OSCAR)
     DONE - Logga in (READ)
     DONE - Se sina uppgifter på "mina sidor" (READ)
     DONE - Uppdatera sina uppgifter (UPDATE)
-    Radera sitt konto (DELETE)
+    DONE - Radera sitt konto (DELETE)
     DONE - Kunna logga ut
     DONE - Validera postkod och telefonnummer, antalet nummer
 
