@@ -99,12 +99,12 @@
             	';
 			}
 
-			$img_size = getimagesize($fileTempPath);
-			$img_aspect_ratio = $img_size[0] / $img_size[1];
+			// $img_size = getimagesize($fileTempPath);
+			// $img_aspect_ratio = $img_size[0] / $img_size[1];
 
-			if ($img_aspect_ratio != 1) {
-				$message .= "Image must have a 1:1 aspect ratio. (Same height and with)";
-			}
+			// if ($img_aspect_ratio != 1) {
+			// 	$message .= "Image must have a 1:1 aspect ratio. (Same height and with)";
+			// }
 		}
 		
 		
