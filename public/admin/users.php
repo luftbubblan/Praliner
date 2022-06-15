@@ -59,7 +59,6 @@
 	            <th>First_name</th>
                 <th>Last_name</th>
 	            <th>email</th>
-                <th>Password</th>
 	            <th>Phone</th>
 	            <th>Street</th>
                 <th>Postal_code</th>
@@ -76,7 +75,6 @@
             <td><?=htmlentities($user['first_name']) ?></td>
             <td><?=htmlentities($user['last_name']) ?></td>
             <td><?=htmlentities($user['email']) ?></td>
-            <td><?=htmlentities($user['password']) ?></td>
             <td><?=htmlentities($user['phone']) ?></td>
             <td><?=htmlentities($user['street']) ?></td>
             <td><?=htmlentities($user['postal_code']) ?></td>
