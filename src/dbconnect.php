@@ -3,7 +3,7 @@
 $host 	  = 'localhost';
 $database = 'praliner';
 $user     = 'root';
-$password = 'root';
+$password = 'mysql';
 $charset  = 'utf8mb4';
 
 $dns 	  = "mysql:host={$host};dbname={$database};charset={$charset}";
@@ -33,6 +33,4 @@ try {
 	// echo $e->getMessage();
 	// echo $e->getCode();
 	throw new \PDOException($e->getMessage(), (int) $e->getCode());
-
-	//Comment
 }
