@@ -20,7 +20,7 @@
 	</div>
 
 	<div id="shop-con">
-	<?php foreach ($products as $product) { ?>
+		<?php foreach ($products as $product) { ?>
 			<div id="single-con">
 				<div id="single">
 				
@@ -36,10 +36,8 @@
 				
 				</div>
 			</div>
-
-			<?php }?>
-		</div>
-
+		<?php }?>
+	</div>
 </div>
 
 <?php include('layout/footer.php') ?> 
