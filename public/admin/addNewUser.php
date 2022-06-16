@@ -157,6 +157,7 @@
 			} */ 
 			else {
 				addUser($firstName, $lastName, $email,$password, $phone, $street, $postalCode, $city, $country);
+				header('Location:users.php');
 			}
 			
 			
