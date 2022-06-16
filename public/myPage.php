@@ -24,6 +24,22 @@
         ';
     }
 
+    if (isset($_GET['emailUpdated'])) {
+        $message = '
+            <div class="alert alert-success">
+                Email has been updated.
+            </div>
+        ';
+    }
+
+    if (isset($_GET['passwordUpdated'])) {
+        $message = '
+            <div class="alert alert-success">
+                Password has been updated.
+            </div>
+        ';
+    }
+
     // if(isset($_POST['updateNameBtn'])) {
     //     $firstName = ucfirst(trim($_POST['firstName']));
     //     $lastName =  ucfirst(trim($_POST['lastName']));
@@ -35,13 +51,13 @@
     // }
 
     // if(isset($_POST['updateEmailBtn'])) {
-    //     $email = trim($_POST['email']);
+        // $email = trim($_POST['email']);
 
-    //     $message .= ifEmptyGenerateMessage($email, "E-mail must not be empty.");
+        // $message .= ifEmptyGenerateMessage($email, "E-mail must not be empty.");
 
-    //     $message .= checkIfEmailIsValid($email);
+        // $message .= checkIfEmailIsValid($email);
 
-    //     $message .= $crudFunctions->updateEmail($message, $email, $_SESSION['id']);
+        // $message .= $crudFunctions->updateEmail($message, $email, $_SESSION['id']);
     // }
 
     // if(isset($_POST['changePasswordBtn'])) {
@@ -395,7 +411,7 @@
 <div>
     <b>Email:</b> <?=$user['email']?><br>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#emailModal" data-email="<?=$user['email']?>">Update Email</button>
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#passwordModal">Update Password</button> -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#passwordModal">Update Password</button>
 </div>
 
 
@@ -414,7 +430,7 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="updateNameForm" action="../src/app/nameAPI.php" method="POST">
+            <form id="updateNameForm" action="../src/app/API.php" method="POST">
                 <div class="modal-body">
                     <div class="formMessage"></div>
                     <div class="form-group">
@@ -445,7 +461,7 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="updateEmaileForm" action="../src/app/emailAPI.php" method="POST">
+            <form id="updateEmailForm" action="../src/app/API.php" method="POST">
                 <div class="modal-body">
                     <div class="formMessage"></div>
                     <div class="form-group">
@@ -462,6 +478,42 @@
     </div>
 </div>
 
+<!-- PASSWORDMODAL -->
+<div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="updatePasswordForm" action="../src/app/API.php" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="oldpassword" class="col-form-label">Old password:</label>
+                        <input type="password" class="form-control" name="oldpassword">
+                        <input type="checkbox" onclick="showHidePassword(this)">Show Password
+                    </div>
+                    <div class="form-group">
+                        <label for="newpassword" class="col-form-label">New password:</label>
+                        <input type="password" class="form-control" name="newpassword">
+                        <input type="checkbox" onclick="showHidePassword(this)">Show Password
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmnewpassword" class="col-form-label">Confirm new password:</label>
+                        <input type="password" class="form-control" name="confirmnewpassword">
+                        <input type="checkbox" onclick="showHidePassword(this)">Show Password
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-primary" name="updatePasswordBtn" value="Update">
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!-- JQUERY AND BOOTSTRAP -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -470,21 +522,27 @@
 <!-- MODALS -->
 <script>
     $('#nameModal').on('show.bs.modal', function (event) {
+        $('.formMessage').html("");
         var button = $(event.relatedTarget);
         var firstName = button.data('firstname');
         var lastName = button.data('lastname');
-
+        
         var modal = $(this);
         modal.find('.modal-body input[name="firstName"]').val(firstName);
         modal.find('.modal-body input[name="lastName"]').val(lastName);
     })
-
+    
     $('#emailModal').on('show.bs.modal', function (event) {
+        $('.formMessage').html("");
         var button = $(event.relatedTarget);
         var email = button.data('email');
 
         var modal = $(this);
         modal.find('.modal-body input[name="email"]').val(email);
+    })
+
+    $('#passwordModal').on('show.bs.modal', function (event) {
+        $('.formMessage').html("");
     })
 </script>
 
