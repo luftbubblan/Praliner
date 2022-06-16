@@ -48,7 +48,7 @@ if(isset($_POST['updatePasswordBtn'])) {
 
     $userspassword = $crudFunctions->fetchPasswordById($_SESSION['id']);
 
-    if (checkIfPasswordIsCorrect($oldpassword, $userspassword['password'])) {
+    if(checkIfPasswordIsCorrect($oldpassword, $userspassword['password'])) {
         $message .= ifEmptyGenerateMessage($newpassword, "New password must not be empty.");
         $message .= ifEmptyGenerateMessage($confirmnewpassword, "Confirm new password must not be empty.");
 
@@ -60,6 +60,28 @@ if(isset($_POST['updatePasswordBtn'])) {
     else {
         $message .= '<div class="alert alert-danger">The old password is incorrect.</div>';
     }
+
+    $data = [
+        'message' => $message,
+        'user'    => $user
+    ];
+}
+
+if(isset($_POST['updateInformationBtn'])) {
+    $phone =           trim($_POST['phone']);
+    $street =  ucfirst(trim($_POST['street']));
+    $postalCode =      trim($_POST['postalcode']);
+    $city =    ucfirst(trim($_POST['city']));
+    $country = ucfirst(trim($_POST['country']));
+
+    $message .= phoneNumberMustBeTenDigits($phone);
+    $message .= ifEmptyGenerateMessage($street, "Street must not be empty.");
+    $message .= postalCodeMustBeFiveDigits($postalCode);
+    $message .= ifEmptyGenerateMessage($city, "City must not be empty.");
+    $message .= ifEmptyGenerateMessage($country, "Country must not be empty.");
+
+    $message .= $crudFunctions->updateInformation($message, $phone, $street, $postalCode, $city, $country, $_SESSION['id']);
+
     $data = [
         'message' => $message,
         'user'    => $user

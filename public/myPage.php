@@ -40,6 +40,14 @@
         ';
     }
 
+    if (isset($_GET['informationUpdated'])) {
+        $message = '
+            <div class="alert alert-success">
+                Information has been updated.
+            </div>
+        ';
+    }
+
     // if(isset($_POST['updateNameBtn'])) {
     //     $firstName = ucfirst(trim($_POST['firstName']));
     //     $lastName =  ucfirst(trim($_POST['lastName']));
@@ -125,16 +133,7 @@
 <?=$message?>
 <hr>
 <!-- 
-<div>
-    <b>Firstname:</b> <?=$user['first_name']?> |
-    <b>Lastname:</b> <?=$user['last_name']?> <br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nameModal">Update Name</button>
-</div> -->
-<!-- <div>
-    <b>E-mail:</b> <?=$user['email']?> <br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#emailModal">Update E-mail</button> <br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#passwordModal">Change password</button>
-</div>
+
 <div>
     <b>Phone:</b> <?=$user['phone']?> |
     <b>Street:</b> <?=$user['street']?> |
@@ -148,99 +147,7 @@
     <input type="submit" name="deleteAccountBtn" value="Delete your account">
 </form> -->
 
-
-<!-- MODALS -->
-<!-- <div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update Name</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="" method="POST">
-                    <div class="form-group">
-                        <label for="firstName" class="col-form-label">Firstname:</label>
-                        <input type="text" class="form-control" name="firstName" value="<?=$user['first_name']?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName" class="col-form-label">Lastname:</label>
-                        <input type="text" class="form-control" name="lastName" value="<?=$user['last_name']?>">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-primary" name="updateNameBtn" value="Update">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update E-mail</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="" method="POST">
-                    <div class="form-group">
-                        <label for="email" class="col-form-label">E-mail:</label>
-                        <input type="text" class="form-control" name="email" value="<?=$user['email']?>">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-primary" name="updateEmailBtn" value="Update">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Change password</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="" method="POST">
-                    <div class="form-group">
-                        <label for="oldpassword" class="col-form-label">Old password:</label>
-                        <input type="password" class="form-control" name="oldpassword">
-                        <input type="checkbox" onclick="showHidePassword(this)">Show Password
-                    </div>
-                    <div class="form-group">
-                        <label for="newpassword" class="col-form-label">New password:</label>
-                        <input type="password" class="form-control" name="newpassword">
-                        <input type="checkbox" onclick="showHidePassword(this)">Show Password
-                    </div>
-                    <div class="form-group">
-                        <label for="confirmnewpassword" class="col-form-label">Confirm new password:</label>
-                        <input type="password" class="form-control" name="confirmnewpassword">
-                        <input type="checkbox" onclick="showHidePassword(this)">Show Password
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-primary" name="changePasswordBtn" value="Update">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="informationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="informationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -414,6 +321,15 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#passwordModal">Update Password</button>
 </div>
 
+<div>
+    <b>Phone:</b> <?=$user['phone']?> |
+    <b>Street:</b> <?=$user['street']?> |
+    <b>Postal code:</b> <?=$user['postal_code']?> |
+    <b>City:</b> <?=$user['city']?> |
+    <b>Country:</b> <?=$user['country']?> <br>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#informationModal" data-phone="<?=$user['phone']?>" data-street="<?=$user['street']?>" data-postalcode="<?=$user['postal_code']?>" data-city="<?=$user['city']?>" data-country="<?=$user['country']?>">Update information </button>
+</div>
+
 
 
 
@@ -426,9 +342,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Update name</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
             </div>
             <form id="updateNameForm" action="../src/app/API.php" method="POST">
                 <div class="modal-body">
@@ -457,9 +370,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Update email</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
             </div>
             <form id="updateEmailForm" action="../src/app/API.php" method="POST">
                 <div class="modal-body">
@@ -484,12 +394,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Update password</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
             </div>
             <form id="updatePasswordForm" action="../src/app/API.php" method="POST">
                 <div class="modal-body">
+                    <div class="formMessage"></div>
                     <div class="form-group">
                         <label for="oldpassword" class="col-form-label">Old password:</label>
                         <input type="password" class="form-control" name="oldpassword">
@@ -505,10 +413,51 @@
                         <input type="password" class="form-control" name="confirmnewpassword">
                         <input type="checkbox" onclick="showHidePassword(this)">Show Password
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-primary" name="updatePasswordBtn" value="Update">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" name="updatePasswordBtn" value="Update">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- INFORMATIONMODAL -->
+<div class="modal fade" id="informationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update password</h5>
+            </div>
+            <form id="updateInformationForm" action="../src/app/API.php" method="POST">
+                <div class="modal-body">
+                    <div class="formMessage"></div>
+                    <div class="form-group">
+                        <label for="phone" class="col-form-label">Phone:</label>
+                        <input type="text" class="form-control" name ="phone">
                     </div>
+                    <div class="form-group">
+                        <label for="street" class="col-form-label">Street:</label>
+                        <input type="text" class="form-control" name ="street">
+                    </div>
+                    <div class="form-group">
+                        <label for="postalcode" class="col-form-label">Postal code:</label>
+                        <input type="text" class="form-control" name ="postalcode">
+                    </div>
+                    <div class="form-group">
+                        <label for="city" class="col-form-label">City:</label>
+                        <input type="text" class="form-control" name ="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="country" class="col-form-label">Country:</label>
+                        <input type="text" class="form-control" name ="country">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" name="updateInformationBtn" value="Update">
+                </div>
             </form>
         </div>
     </div>
@@ -543,6 +492,23 @@
 
     $('#passwordModal').on('show.bs.modal', function (event) {
         $('.formMessage').html("");
+    })
+
+    $('#informationModal').on('show.bs.modal', function (event) {
+        $('.formMessage').html("");
+        var button = $(event.relatedTarget);
+        var phone = button.data('phone');
+        var street = button.data('street');
+        var postalcode = button.data('postalcode');
+        var city = button.data('city');
+        var country = button.data('country');
+
+        var modal = $(this);
+        modal.find('.modal-body input[name="phone"]').val(phone);
+        modal.find('.modal-body input[name="street"]').val(street);
+        modal.find('.modal-body input[name="postalcode"]').val(postalcode);
+        modal.find('.modal-body input[name="city"]').val(city);
+        modal.find('.modal-body input[name="country"]').val(country);
     })
 </script>
 
