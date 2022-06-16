@@ -222,8 +222,12 @@ class CRUDFunctions {
         $stmt->execute();
         return $stmt->fetch();
     }
-
-    function addNewUser($firstName, $lastName, $email,$password, $phone, $street, $postalCode, $city, $country) {
+    
+    function addNewUser($firstName, $lastName, $email,$password, $phone, $street, $postalCode, $city, $country, $message) {
+       
+        if (empty($message)) {
+            try {
+       
         $sql = "
             INSERT INTO users (first_name, last_name, email, password, phone, street, postal_code, city, country)
             VALUES (:first_name, :last_name, :email, :password, :phone, :street, :postal_code, :city, :country)
@@ -240,11 +244,26 @@ class CRUDFunctions {
         $stmt->bindParam(':city', $city);
         $stmt->bindParam(':country', $country);
         $stmt->execute();
+
+        header('Location:users.php');
+        exit;
+
+    } catch (\PDOException $e) {
+        if ((int) $e->getCode() === 23000) {
+            $message .= '
+                <div class="">
+                    E-mail is already taked, please use another e-mail.
+                </div>
+            ';
+            return $message;
+        } else {
+            throw new \PDOException($e->getMessage(), (int) $e->getCode());
+        }
+    } 
+    
+    }
     }
 }
-
-
-
 
 $crudFunctions = new CRUDFunctions($pdo);
 
