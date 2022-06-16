@@ -38,6 +38,14 @@
         }
     }
 
+    if (isset($_GET['deleted'])) {
+        $message = '
+            <div class="alert alert-warning">
+                Your account has successfully been deleted.
+            </div>
+        ';
+    }
+
 	include('layout/header.php');
 ?>
 
@@ -54,5 +62,6 @@
     <input type="submit" name="loginBtn" value="Login">
 </form>
 
+<script src="../src/app/showHidePass.js"></script>
 
 <?php include('layout/footer.php') ?>

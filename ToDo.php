@@ -85,11 +85,6 @@ DONE Lägger in bilder som filer i IMG (MALIN)
 
 
 
-
-
-
-
-
 Bildtexter:
 citron-lakrits:
 Smakerna av citron och lakrits möts i en vacker gul pralin. 
