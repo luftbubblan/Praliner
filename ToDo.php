@@ -75,11 +75,17 @@ Skriva om koden till klasser och metoder
         MALIN - updateUser.php
         MALIN - users.php
 
-Gör om Mypage till AJAX (OSCAR & ANNA, kl 9, 15/6)
+Gör om Mypage till AJAX (OSCAR)
 
 DONE Lägger in bilder som filer i IMG (MALIN)
 
-testing
+
+
+
+
+
+
+
 
 
 
@@ -105,12 +111,3 @@ Prinsesstårta i prinsesskostym:
 Text om min syster:
 
 Köpvillkor:
-
-
-
-
-
-test
-test malin test
-
-tets
