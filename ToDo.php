@@ -79,6 +79,8 @@ DONE - Gör om Mypage till AJAX (OSCAR)
 
 DONE Lägger in bilder som filer i IMG (MALIN)
 
+sökfunktion bland alla produkterna, ska vi göra det med AJAX??
+
 
 
 
