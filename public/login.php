@@ -5,7 +5,6 @@
     require('../src/app/common_functions.php');
     require('../src/app/CRUD_functions.php');
 
-    
     $message .= isSuperGlobalSet($_GET['mustLogin'], "You need to login to access this.");
     $message .= isSuperGlobalSet($_GET['deleted'], "Your account has successfully been deleted.");
 
@@ -20,21 +19,7 @@
             header('Location: myPage.php');
             exit;
         } else {
-
-    // function errorMessage($message) {
-
-    //     $output = '<div class="">' . $message . '</div>';
-    //     return $output;
-
-    // }
-
-    // errorMessage();
-
-            $message = '
-                <div class="">
-                    Invalid login credentials. Please try again.
-                </div>
-            ';
+        $message .= errorMessage("Invalid login credentials. Please try again.");
         }
     }
 

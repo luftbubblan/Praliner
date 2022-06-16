@@ -51,11 +51,7 @@
                 
             $message .= $crudFunctions->updatePassword($message, $newpassword, $_SESSION['id']);
         } else {
-            $message = '
-                <div class="">
-                    The old password is incorrect.
-                </div>
-            ';
+            $message .= errorMessage("The old password is incorrect.");
         }
     }
 
