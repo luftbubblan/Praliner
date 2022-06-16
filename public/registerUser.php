@@ -78,6 +78,6 @@
 </form>
 
 
-
+<script src="../src/app/showHidePass.js"></script>
 
 <?php include('layout/footer.php') ?>

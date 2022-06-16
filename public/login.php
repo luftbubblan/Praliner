@@ -5,8 +5,17 @@
     require('../src/app/common_functions.php');
     require('../src/app/CRUD_functions.php');
 
+    echo "<pre>";
+    print_r($_SESSION);
+    echo "</pre>";
+    
     $message .= isSuperGlobalSet($_GET['mustLogin'], "You need to login to access this.");
     $message .= isSuperGlobalSet($_GET['deleted'], "Your account has successfully been deleted.");
+
+    if(isset($_SESSION['id'])) {
+        header('Location: myPage.php');
+        exit;
+    }
 
     if (isset($_POST['loginBtn'])) {
         $email    = trim($_POST['email']);
@@ -21,6 +30,14 @@
         } else {
         $message .= errorMessage("Invalid login credentials. Please try again.");
         }
+    }
+
+    if (isset($_GET['deleted'])) {
+        $message = '
+            <div class="alert alert-warning">
+                Your account has successfully been deleted.
+            </div>
+        ';
     }
 
 	include('layout/header.php');
@@ -39,5 +56,6 @@
     <input type="submit" name="loginBtn" value="Login">
 </form>
 
+<script src="../src/app/showHidePass.js"></script>
 
 <?php include('layout/footer.php') ?>

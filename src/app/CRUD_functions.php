@@ -61,7 +61,7 @@ class CRUDFunctions {
                 exit;
             } catch (\PDOException $e) {
                 if ((int) $e->getCode() === 23000) {
-                    $message = '<div class="">E-mail is already taked, please use another e-mail.</div>';
+                    $message = '<div class="alert alert-danger">E-mail is already taked, please use another e-mail.</div>';
                     return $message;
                 } else {
                     throw new \PDOException($e->getMessage(), (int) $e->getCode());
@@ -86,7 +86,7 @@ class CRUDFunctions {
             $stmt->bindParam(':id', $sessionId);
             $stmt->execute();
 
-            $message = '<div class="">Name has been updated.</div>';
+            $message = '<div class="alert alert-success">Name has been updated.</div>';
             return $message;
         }
     }
@@ -106,11 +106,11 @@ class CRUDFunctions {
                 $stmt->bindParam(':id', $sessionId);
                 $stmt->execute();
 
-                $message = '<div class="">E-mail has been updated.</div>';
+                $message = '<div class="alert alert-success">E-mail has been updated.</div>';
                 return $message;
             } catch (\PDOException $e) {
                 if ((int) $e->getCode() === 23000) {
-                    $message = '<div class="">E-mail is already taked, please use another e-mail.</div>';
+                    $message = '<div class="alert alert-danger">E-mail is already taked, please use another e-mail.</div>';
                     return $message;
                 } else {
                     throw new \PDOException($e->getMessage(), (int) $e->getCode());
@@ -135,7 +135,7 @@ class CRUDFunctions {
             $stmt->bindParam(':id', $sessionId);
             $stmt->execute();
             
-            $message = '<div class="">Password has been updated.</div>';
+            $message = '<div class="alert alert-success">Password has been updated.</div>';
             return $message;
         }
     }
@@ -162,7 +162,7 @@ class CRUDFunctions {
             $stmt->bindParam(':id', $sessionId);
             $stmt->execute();
 
-            $message = '<div class=""> Information has been updated.</div>';
+            $message = '<div class="alert alert-success"> Information has been updated.</div>';
             return $message;
         }
     }
@@ -222,8 +222,12 @@ class CRUDFunctions {
         $stmt->execute();
         return $stmt->fetch();
     }
-
-    function addNewUser($firstName, $lastName, $email,$password, $phone, $street, $postalCode, $city, $country) {
+    
+    function addNewUser($firstName, $lastName, $email,$password, $phone, $street, $postalCode, $city, $country, $message) {
+       
+        if (empty($message)) {
+            try {
+       
         $sql = "
             INSERT INTO users (first_name, last_name, email, password, phone, street, postal_code, city, country)
             VALUES (:first_name, :last_name, :email, :password, :phone, :street, :postal_code, :city, :country)
@@ -240,11 +244,26 @@ class CRUDFunctions {
         $stmt->bindParam(':city', $city);
         $stmt->bindParam(':country', $country);
         $stmt->execute();
+
+        header('Location:users.php');
+        exit;
+
+    } catch (\PDOException $e) {
+        if ((int) $e->getCode() === 23000) {
+            $message .= '
+                <div class="">
+                    E-mail is already taked, please use another e-mail.
+                </div>
+            ';
+            return $message;
+        } else {
+            throw new \PDOException($e->getMessage(), (int) $e->getCode());
+        }
+    } 
+    
+    }
     }
 }
-
-
-
 
 $crudFunctions = new CRUDFunctions($pdo);
 

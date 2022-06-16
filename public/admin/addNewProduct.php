@@ -150,11 +150,11 @@
 <?=$message?>
 
 <form action="" method="POST" enctype="multipart/form-data">
-    <input type="text" name="title" placeholder="Title" value="<?=$_POST['title']?>">
-    <input type="text" name="flavour" placeholder="Flavour" value="<?=$_POST['flavour']?>">
-    <textarea name="description" placeholder="Description"><?=$_POST['description']?></textarea>
-    <input type="number" name="price" placeholder="Price" value="<?=$_POST['price']?>">
-    <input type="number" name="stock" placeholder="Stock" value="<?=$_POST['stock']?>" min="0">
+    <input type="text" name="title" placeholder="Title" value="<?=$_POST['title'] ?? "" ?>">
+    <input type="text" name="flavour" placeholder="Flavour" value="<?=$_POST['flavour'] ?? "" ?>">
+    <textarea name="description" placeholder="Description"><?=$_POST['description'] ?? "" ?></textarea>
+    <input type="number" name="price" placeholder="Price" value="<?=$_POST['price'] ?? "" ?>">
+    <input type="number" name="stock" placeholder="Stock" value="<?=$_POST['stock'] ?? "" ?>" min="0">
     <lable>Picture:</lable>
 	<input type="file" name="img_url">
     <input type="submit" name="createProductBtn" value="List Product">
