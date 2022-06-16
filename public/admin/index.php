@@ -2,7 +2,9 @@
 	$pageTitle = "Product admin page";
 
 	require('../../src/config.php');
+	require('../../src/app/common_functions.php');
 
+    $message = "";
 	// DELETE
     if (isset($_POST['deleteProductBtn'])) {
         $sql = "

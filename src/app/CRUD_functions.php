@@ -263,6 +263,35 @@ class CRUDFunctions {
     
     }
     }
+
+    function updateProduct($message, $title, $flavour, $description, $price, $stock) {
+        if (empty($message)) {
+            $sql = "
+            UPDATE products
+            SET
+                title = :title,
+                flavour = :flavour,
+                description = :description,
+                price = :price,
+                stock = :stock
+
+                WHERE id = :id
+            ";
+            
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(":title", $_POST['title']);
+            $stmt->bindParam(":flavour", $_POST['flavour']);
+            $stmt->bindParam(":description", $_POST['description']);
+            $stmt->bindParam(":price", $_POST['price']);
+            $stmt->bindParam(":stock", $_POST['stock']);
+            $stmt->bindParam(":id", $_POST['id']);
+            $stmt->execute();
+            header('Location: index.php?updated');
+            exit;
+
+
+        }
+    }
 }
 
 $crudFunctions = new CRUDFunctions($pdo);

@@ -2,6 +2,7 @@
 	$pageTitle = "Edit product";
 
 	require('../../src/config.php');
+    require('../../src/app/CRUD_functions.php');
 
 	// echo "<pre>";
     // print_r($_POST);
@@ -14,7 +15,6 @@
 	$description = "";
 	$price = "";
 	$stock = "";
-	$img_url = "";
     
     if (isset($_POST['updateProductBtn'])) {
         $title = trim($_POST['title']);
@@ -22,7 +22,6 @@
 		$description = trim($_POST['description']);
 		$price = trim($_POST['price']);
 		$stock = trim($_POST['stock']);
-		$img_url = trim($_POST['img_url']);
 
         if (empty($title)) {
 			$message .= '
@@ -62,40 +61,9 @@
                 </div>
             ';
 		}
-
-		if (empty($img_url)) {
-			$message .= '
-                <div class="">
-                    Img must not be empty.
-                </div>
-            ';
-        }
         
-        if (empty($message)) {
-            $sql = "
-                UPDATE products
-                SET
-                    title = :title,
-                    flavour = :flavour,
-                    description = :description,
-                    price = :price,
-                    stock = :stock,
-                    img_url = :img_url
-                WHERE id = :id
-            ";
-            
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(":title", $_POST['title']);
-            $stmt->bindParam(":flavour", $_POST['flavour']);
-            $stmt->bindParam(":description", $_POST['description']);
-            $stmt->bindParam(":price", $_POST['price']);
-            $stmt->bindParam(":stock", $_POST['stock']);
-            $stmt->bindParam(":img_url", $_POST['img_url']);
-            $stmt->bindParam(":id", $_POST['id']);
-            $stmt->execute();
-            header('Location: index.php?updated');
-            exit;
-        }
+        $crudFunctions->updateProduct($message, $title, $flavour, $description, $price, $stock);
+    
     }
 
 
@@ -116,7 +84,6 @@
         <textarea name="description" placeholder="Description"><?=$_POST['description']?></textarea>
         <input type="number" name="price" placeholder="Price" value="<?=$_POST['price']?>">
         <input type="number" name="stock" placeholder="Stock" value="<?=$_POST['stock']?>">
-        <input type="text" name="img_url" placeholder="Image" value="<?=$_POST['img_url']?>">
         <input type="hidden" name="id" value="<?=$_POST['id'] ?>">
         <input type="submit" name="updateProductBtn" value="Update Product">
     </form>
