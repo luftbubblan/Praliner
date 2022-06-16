@@ -1,11 +1,11 @@
 <?php
 
 class CRUDFunctions {
-    public function __construct($pdo) {
+    function __construct($pdo) {
         $this->pdo = $pdo;
     }
 
-    public function registerUser($message, $firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country) {
+    function registerUser($message, $firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country) {
         if (empty($message)) {
             $encryptedPassword = encryptPassword($password);
 
@@ -70,7 +70,7 @@ class CRUDFunctions {
         }
     }
 
-    public function updateName($message, $firstName, $lastName, $sessionId) {
+    function updateName($message, $firstName, $lastName, $sessionId) {
         if (empty($message)) {
             $sql = "
                 UPDATE users
@@ -91,7 +91,7 @@ class CRUDFunctions {
         }
     }
 
-    public function updateEmail($message, $email, $sessionId) {
+    function updateEmail($message, $email, $sessionId) {
         if (empty($message)) {
             try {
                 $sql = "
@@ -119,7 +119,7 @@ class CRUDFunctions {
         }
     }
 
-    public function updatePassword($message, $newpassword, $sessionId) {
+    function updatePassword($message, $newpassword, $sessionId) {
         if (empty($message)) {
             $encryptedPassword = encryptPassword($newpassword);
 
@@ -140,7 +140,7 @@ class CRUDFunctions {
         }
     }
 
-    public function updateInformation($message, $phone, $street, $postalCode, $city, $country, $sessionId) {
+    function updateInformation($message, $phone, $street, $postalCode, $city, $country, $sessionId) {
         if (empty($message)) {
             $sql = "
                 UPDATE users
@@ -167,7 +167,7 @@ class CRUDFunctions {
         }
     }
 
-    public function fetchUserById($sessionId) {
+    function fetchUserById($sessionId) {
         $sql = "
             SELECT * FROM users
             WHERE id = :id
@@ -178,7 +178,7 @@ class CRUDFunctions {
         return $stmt->fetch();
     }
 
-    public function fetchPasswordById($sessionId) {
+    function fetchPasswordById($sessionId) {
         $sql = "
             SELECT password FROM users
             WHERE id = :id
@@ -190,7 +190,7 @@ class CRUDFunctions {
         return $stmt->fetch();
     }
 
-    public function fetchPasswordAndIdByEmail($email) {
+    function fetchPasswordAndIdByEmail($email) {
         $sql = "
             SELECT id, password FROM users
             WHERE email = :email
@@ -202,7 +202,7 @@ class CRUDFunctions {
         return $stmt->fetch();
     }
 
-    public function fetchAllProductsDESC() {
+    function fetchAllProductsDESC() {
 		$stmt = $this->pdo->query("
             SELECT * 
             FROM products 
@@ -211,7 +211,7 @@ class CRUDFunctions {
         return $stmt->fetchAll();
 	}
 
-    public function fetchProductById($id) {
+    function fetchProductById($id) {
         $sql = "
             SELECT * 
             FROM products 
@@ -223,13 +223,13 @@ class CRUDFunctions {
         return $stmt->fetch();
     }
 
-    public function addNewUser($firstName, $lastName, $email,$password, $phone, $street, $postalCode, $city, $country) {
+    function addNewUser($firstName, $lastName, $email,$password, $phone, $street, $postalCode, $city, $country) {
         $sql = "
             INSERT INTO users (first_name, last_name, email, password, phone, street, postal_code, city, country)
             VALUES (:first_name, :last_name, :email, :password, :phone, :street, :postal_code, :city, :country)
         ";
         $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-        $stmt = $pdo->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':first_name', $firstName);
         $stmt->bindParam(':last_name', $lastName);
         $stmt->bindParam(':email', $email);
@@ -242,6 +242,9 @@ class CRUDFunctions {
         $stmt->execute();
     }
 }
+
+
+
 
 $crudFunctions = new CRUDFunctions($pdo);
 

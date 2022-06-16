@@ -3,7 +3,7 @@
 $host 	  = 'localhost';
 $database = 'praliner';
 $user     = 'root';
-$password = 'mysql';
+$password = 'root';
 $charset  = 'utf8mb4';
 
 $dns 	  = "mysql:host={$host};dbname={$database};charset={$charset}";

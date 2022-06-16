@@ -134,7 +134,7 @@
             } 
 		}
 	
-
+    }
 	include('layout/header.php');
 ?>
 
