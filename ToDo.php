@@ -75,7 +75,7 @@ Skriva om koden till klasser och metoder
         MALIN - updateUser.php
         MALIN - users.php
 
-Gör om Mypage till AJAX (OSCAR)
+DONE - Gör om Mypage till AJAX (OSCAR)
 
 DONE Lägger in bilder som filer i IMG (MALIN)
 
