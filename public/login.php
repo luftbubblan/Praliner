@@ -5,6 +5,10 @@
     require('../src/app/common_functions.php');
     require('../src/app/CRUD_functions.php');
 
+    // function mustLogin(){
+        
+    // }
+    
     if (isset($_GET['mustLogin'])) {
         $message = '
             <div class="">
@@ -12,6 +16,8 @@
             </div>
         ';
     }
+    // mustLogin();
+
 
     if (isset($_POST['loginBtn'])) {
         $email    = trim($_POST['email']);
