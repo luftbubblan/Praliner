@@ -2,6 +2,8 @@ $('#updateNameForm').on('submit', updateName);
 $('#updateEmailForm').on('submit', updateEmail);
 $('#updatePasswordForm').on('submit', updatePassword);
 $('#updateInformationForm').on('submit', updateInformation);
+$('#deleteForm').on('submit', deleteAccount);
+
 $('form button').on('click', close)
 
 async function updateName(e) {
@@ -106,6 +108,26 @@ async function updateInformation(e) {
 } catch(error) {
         console.log(error);
     }
+}
+
+async function deleteAccount(e) {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    formData.set('deleteBtn', true);
+
+    try {
+        await fetch('../src/app/API.php', {
+            method: 'POST',
+            
+            body: formData
+        });
+
+        window.location.replace("login.php?deleted");
+        
+    } catch(error) {
+            console.log(error);
+        }
 }
 
 function close() {

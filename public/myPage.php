@@ -48,81 +48,6 @@
         ';
     }
 
-    // if(isset($_POST['updateNameBtn'])) {
-    //     $firstName = ucfirst(trim($_POST['firstName']));
-    //     $lastName =  ucfirst(trim($_POST['lastName']));
-
-    //     $message .= ifEmptyGenerateMessage($firstName, "Firstname must not be empty.");
-    //     $message .= ifEmptyGenerateMessage($lastName, "Lastname must not be empty.");
-
-    //     $message .= $crudFunctions->updateName($message, $firstName, $lastName, $_SESSION['id']);
-    // }
-
-    // if(isset($_POST['updateEmailBtn'])) {
-        // $email = trim($_POST['email']);
-
-        // $message .= ifEmptyGenerateMessage($email, "E-mail must not be empty.");
-
-        // $message .= checkIfEmailIsValid($email);
-
-        // $message .= $crudFunctions->updateEmail($message, $email, $_SESSION['id']);
-    // }
-
-    // if(isset($_POST['changePasswordBtn'])) {
-    //     $oldpassword =        trim($_POST['oldpassword']);
-    //     $newpassword =        trim($_POST['newpassword']);
-    //     $confirmnewpassword = trim($_POST['confirmnewpassword']);
-
-    //     $userspassword = $crudFunctions->fetchPasswordById($_SESSION['id']);
-
-    //     if (checkIfPasswordIsCorrect($oldpassword, $userspassword['password'])) {
-    //         $message .= ifEmptyGenerateMessage($newpassword, "New password must not be empty.");
-    //         $message .= ifEmptyGenerateMessage($confirmnewpassword, "Confirm new password must not be empty.");
-    
-    //         $message .= checkIfPasswordsMatch($newpassword, $confirmnewpassword); 
-                
-    //         $message .= $crudFunctions->updatePassword($message, $newpassword, $_SESSION['id']);
-    //     } else {
-    //         $message = '
-    //             <div class="">
-    //                 The old password is incorrect.
-    //             </div>
-    //         ';
-    //     }
-    // }
-
-    // if(isset($_POST['updateInformationBtn'])) {
-    //     $phone =           trim($_POST['phone']);
-    //     $street =  ucfirst(trim($_POST['street']));
-    //     $postalCode =      trim($_POST['postalCode']);
-    //     $city =    ucfirst(trim($_POST['city']));
-    //     $country = ucfirst(trim($_POST['country']));
-
-    //     $message .= phoneNumberMustBeTenDigits($phone);
-    //     $message .= ifEmptyGenerateMessage($street, "Street must not be empty.");
-    //     $message .= postalCodeMustBeFiveDigits($postalCode);
-    //     $message .= ifEmptyGenerateMessage($city, "City must not be empty.");
-    //     $message .= ifEmptyGenerateMessage($country, "Country must not be empty.");
-
-    //     $message .= $crudFunctions->updateInformation($message, $phone, $street, $postalCode, $city, $country, $_SESSION['id']);
-    // }
-
-    // if(isset($_POST['deleteAccountBtn'])) {
-    //     $sql = "
-    //         DELETE FROM users
-    //         WHERE id = :id
-    //     ";
-    //     $stmt = $pdo->prepare($sql);
-    //     $stmt->bindParam(":id", $_SESSION['id']);
-    //     $stmt->execute();
-
-    //     $_SESSION = [];
-    //     session_destroy();
-        
-    //     header('Location: login.php?deleted=true');
-    //     exit;
-    // }
-
     $user = $crudFunctions->fetchUserById($_SESSION['id']);
 
 	include('layout/header.php');
@@ -132,193 +57,17 @@
 
 <?=$message?>
 <hr>
-<!-- 
-
-<div>
-    <b>Phone:</b> <?=$user['phone']?> |
-    <b>Street:</b> <?=$user['street']?> |
-    <b>Postal code:</b> <?=$user['postal_code']?> |
-    <b>City:</b> <?=$user['city']?> |
-    <b>Country:</b> <?=$user['country']?> <br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#informationModal">Update information</button>
-</div>
-
-<form action="" method="POST">
-    <input type="submit" name="deleteAccountBtn" value="Delete your account">
-</form> -->
-
-<!-- <div class="modal fade" id="informationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update Information</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="" method="POST">
-                    <div class="form-group">
-                        <label for="phone" class="col-form-label">Phone:</label>
-                        <input type="text" class="form-control" name="phone" value="<?=$user['phone']?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="street" class="col-form-label">Street:</label>
-                        <input type="text" class="form-control" name="street" value="<?=$user['street']?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="postalCode" class="col-form-label">Postal code:</label>
-                        <input type="text" class="form-control" name="postalCode" value="<?=$user['postal_code']?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="city" class="col-form-label">City:</label>
-                        <input type="text" class="form-control" name="city" value="<?=$user['city']?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="country" class="col-form-label">Country:</label>
-                        <input type="text" class="form-control" name="country" value="<?=$user['country']?>">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-primary" name="updateInformationBtn" value="Update">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <div>
     <b>Firstname:</b> <?=$user['first_name']?> |
     <b>Lastname:</b> <?=$user['last_name']?><br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nameModal" data-firstname="<?=$user['first_name']?>" data-lastname="<?=$user['last_name']?>">Update Name</button>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#nameModal" data-firstname="<?=$user['first_name']?>" data-lastname="<?=$user['last_name']?>">Update Name</button>
 </div>
 
 <div>
     <b>Email:</b> <?=$user['email']?><br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#emailModal" data-email="<?=$user['email']?>">Update Email</button>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#passwordModal">Update Password</button>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#emailModal" data-email="<?=$user['email']?>">Update Email</button>
+    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#passwordModal">Update Password</button>
 </div>
 
 <div>
@@ -327,14 +76,12 @@
     <b>Postal code:</b> <?=$user['postal_code']?> |
     <b>City:</b> <?=$user['city']?> |
     <b>Country:</b> <?=$user['country']?> <br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#informationModal" data-phone="<?=$user['phone']?>" data-street="<?=$user['street']?>" data-postalcode="<?=$user['postal_code']?>" data-city="<?=$user['city']?>" data-country="<?=$user['country']?>">Update information </button>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#informationModal" data-phone="<?=$user['phone']?>" data-street="<?=$user['street']?>" data-postalcode="<?=$user['postal_code']?>" data-city="<?=$user['city']?>" data-country="<?=$user['country']?>">Update information </button>
 </div>
 
-
-
-
-
-
+<div>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete your account</button>
+</div>
 
 <!-- NAMEMODAL -->
 <div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -356,8 +103,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" name ="updateNameBtn" class="btn btn-primary" value="Update">
+                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+                    <input type="submit" name ="updateNameBtn" class="btn btn-success" value="Update">
                 </div>
             </form>
         </div>
@@ -380,8 +127,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" name ="updateEmailBtn" class="btn btn-primary" value="Update">
+                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+                    <input type="submit" name ="updateEmailBtn" class="btn btn-success" value="Update">
                 </div>
             </form>
         </div>
@@ -415,8 +162,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" name="updatePasswordBtn" value="Update">
+                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-success" name="updatePasswordBtn" value="Update">
                 </div>
             </form>
         </div>
@@ -455,8 +202,31 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" name="updateInformationBtn" value="Update">
+                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-success" name="updateInformationBtn" value="Update">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- DELETEMODAL -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete account</h5>
+            </div>
+            <form id="deleteForm" action="../src/app/API.php" method="POST">
+                <div class="modal-body">
+                    <div class="formMessage"></div>
+                    <div class="alert alert-danger" role="alert">
+                        Are you sure you want to delete your account. After accepting it can not be reverted
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-danger" name="deleteBtn" value="Delete">
                 </div>
             </form>
         </div>

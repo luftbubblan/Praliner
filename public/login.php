@@ -28,6 +28,14 @@
         }
     }
 
+    if (isset($_GET['deleted'])) {
+        $message = '
+            <div class="alert alert-warning">
+                Your account has successfully been deleted.
+            </div>
+        ';
+    }
+
 	include('layout/header.php');
 ?>
 

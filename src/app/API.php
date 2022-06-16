@@ -88,4 +88,17 @@ if(isset($_POST['updateInformationBtn'])) {
     ];
 }
 
+if(isset($_POST['deleteBtn'])) {
+    $sql = "
+        DELETE FROM users
+        WHERE id = :id
+    ";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(":id", $_SESSION['id']);
+    $stmt->execute();
+
+    $_SESSION = [];
+    session_destroy();
+}
+
 echo json_encode($data);
