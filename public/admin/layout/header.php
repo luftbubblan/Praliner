@@ -11,7 +11,7 @@
 <body>
 
     <div>
-        <a href="http://localhost/Praliner/public/index.php">Shop</a> |
+        <a href="../index.php">Shop</a> |
         <a href="index.php">Produkter Admin</a> |
         <a href="users.php">Användare Admin</a>
     </div>

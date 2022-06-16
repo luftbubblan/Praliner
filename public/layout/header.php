@@ -22,8 +22,8 @@
 <div id="header-container">
 
         <div id="nav-1">
-            <a href="http://localhost/Praliner/public/index.php">Shop</a>
-            <a href="http://localhost/Praliner/public/admin">Admin</a>
+            <a href="index.php">Shop</a>
+            <a href="admin">Admin</a>
             <?= $menu ?>
         </div>
 
@@ -32,9 +32,9 @@
         </div>
 
         <div id="nav-2">
-        <a href="http://localhost/Praliner/public/index.php">Shop</a> 
-        <a href="http://localhost/Praliner/public/about">Om</a>
-        <a href="http://localhost/Praliner/public/about">Hitta hit</a>
+        <a href="index.php">Shop</a> 
+        <a href="about">Om</a>
+        <a href="about">Hitta hit</a>
         </div>
 
     </div>
