@@ -68,4 +68,16 @@
 		}
         
     }
+    function errorMessage($message) {
+
+        $output = '<div class="alert alert-danger">' . $message . '</div>';
+        return $output;
+
+    }
+    function successMessage($message) {
+
+        $output = '<div class="alert alert-success">' . $message . '</div>';
+        return $output;
+
+    }
 ?>
