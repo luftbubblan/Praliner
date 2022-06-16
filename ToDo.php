@@ -24,10 +24,10 @@ DONE - Produktdelen - Shop
 
 Användardelen - Admin (MALIN)
     Skapa meny för användardelen/produktdelen
-    Lista alla användare (READ)
-    Skapa nya användare (CREATE)
-    Deleta användare (DELETE)
-    Uppdatera användare (UPDATE)
+    DONE Lista alla användare (READ)
+    DONE Skapa nya användare (CREATE)
+    DONE Deleta användare (DELETE)
+    Uppdatera användare (UPDATE) - rad 32....vad skulle jag göra...minns inte....
 
 
 Användare - Shop (OSCAR)
@@ -77,6 +77,36 @@ Skriva om koden till klasser och metoder
 
 Gör om Mypage till AJAX (OSCAR & ANNA, kl 9, 15/6)
 
-Lägger in bilder som filer i IMG (MALIN)
+DONE Lägger in bilder som filer i IMG (MALIN)
 
 testing
+
+
+
+
+Bildtexter:
+citron-lakrits:
+Smakerna av citron och lakrits möts i en vacker gul pralin. 
+
+jordgubb-citron:
+Små blå blommor lockar ögat och visst är den vacker. Smaken av jordgubb och citron påminner om en varm sommardag. 
+
+jordgubbspralin:
+Söta jordgubbspraliner med en underbar sötma, presenteras med en ätbar liten blomma av socker. 
+
+Kaffe och baileys:
+Bjud på en kopp kaffe med baileys efter maten. Vacker liten kopp men en mjuk baileys fyllning. Kan bara älskas. 
+
+Ljus choklad fylld med mjölkchokladkräm med krispkex och på toppen en ganache av Callebauts golden choklad med smak av len härlig kola. Vinnare av Callbauts golden choklad månliga tävling!
+
+Prinsesstårta i prinsesskostym:
+
+
+Text om min syster:
+
+Köpvillkor:
+
+
+
+
+

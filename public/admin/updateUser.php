@@ -29,10 +29,10 @@
         $city = trim($_POST['city']);
         $country = trim($_POST['country']);
 
-    if {
+  /*   if {
 
         
-    }
+    } */
        
             $sql = "
                 UPDATE users

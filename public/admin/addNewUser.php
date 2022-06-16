@@ -2,6 +2,7 @@
 	$pageTitle = "Add new user";
 
 	require('../../src/config.php');
+	require('../../src/app/CRUD_functions.php');
 
     echo "<pre>";
     print_r($_POST);
@@ -114,9 +115,9 @@
             ';
 		}
 
-		if (empty($message)) {
+		/* if (empty($message)) {
 			try {
-				$sql = "
+				 $sql = "
 					INSERT INTO users (
 						first_name,
 						last_name,
@@ -151,9 +152,16 @@
 				$stmt->bindParam(':city', $city);
 				$stmt->bindParam(':country', $country);
 				$stmt->execute();
-				header('Location:users.php');
+				header('Location:users.php'); 
 				exit;
-			} catch (\PDOException $e) {
+			} */ 
+			else {
+				addUser($firstName, $lastName, $email,$password, $phone, $street, $postalCode, $city, $country);
+				header('Location:users.php');
+			}
+			
+			
+			catch (\PDOException $e) {
                 if ((int) $e->getCode() === 23000) {
                     $message .= '
                         <div class="">
@@ -165,7 +173,7 @@
                 }
             } 
 		}
-	}
+	
 
 	include('layout/header.php');
 ?>
