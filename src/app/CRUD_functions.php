@@ -70,7 +70,7 @@ class CRUDFunctions {
         }
     }
 
-    function updateName($message, $firstName, $lastName, $sessionId) {
+    function updateName($message, $firstName, $lastName, $id) {
         if (empty($message)) {
             $sql = "
                 UPDATE users
@@ -83,7 +83,7 @@ class CRUDFunctions {
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindParam(':firstName', $firstName);
             $stmt->bindParam(':lastName', $lastName);
-            $stmt->bindParam(':id', $sessionId);
+            $stmt->bindParam(':id', $id);
             $stmt->execute();
 
             $message = successMessage("Name has been updated.");
@@ -91,7 +91,7 @@ class CRUDFunctions {
         }
     }
 
-    function updateEmail($message, $email, $sessionId) {
+    function updateEmail($message, $email, $id) {
         if (empty($message)) {
             try {
                 $sql = "
@@ -103,7 +103,7 @@ class CRUDFunctions {
             
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':email', $email);
-                $stmt->bindParam(':id', $sessionId);
+                $stmt->bindParam(':id', $id);
                 $stmt->execute();
 
                 $message = successMessage("E-mail has been updated.");
@@ -119,7 +119,7 @@ class CRUDFunctions {
         }
     }
 
-    function updatePassword($message, $newpassword, $sessionId) {
+    function updatePassword($message, $newpassword, $id) {
         if (empty($message)) {
             $encryptedPassword = encryptPassword($newpassword);
 
@@ -132,7 +132,7 @@ class CRUDFunctions {
         
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindParam(":password", $encryptedPassword);
-            $stmt->bindParam(':id', $sessionId);
+            $stmt->bindParam(':id', $id);
             $stmt->execute();
             
             $message = successMessage("Password has been updated.");
@@ -140,7 +140,7 @@ class CRUDFunctions {
         }
     }
 
-    function updateInformation($message, $phone, $street, $postalCode, $city, $country, $sessionId) {
+    function updateInformation($message, $phone, $street, $postalCode, $city, $country, $id) {
         if (empty($message)) {
             $sql = "
                 UPDATE users
@@ -159,7 +159,7 @@ class CRUDFunctions {
             $stmt->bindParam(':postal_code', $postalCode);
             $stmt->bindParam(':city', $city);
             $stmt->bindParam(':country', $country);
-            $stmt->bindParam(':id', $sessionId);
+            $stmt->bindParam(':id', $id);
             $stmt->execute();
 
             $message = successMessage("Information has been updated.");
@@ -282,7 +282,7 @@ class CRUDFunctions {
         }    
     }
 
-    function updateUser($firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country, $message) {
+    function updateUser($firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country, $message, $id) {
         if (empty($message)) {
             try {
                 $sql = "
@@ -309,7 +309,7 @@ class CRUDFunctions {
                     $stmt->bindParam(':password', $encryptedPassword);
                 }
 
-                $stmt->bindParam(':id', $_GET['userId']);
+                $stmt->bindParam(':id', $id);
                 $stmt->bindParam(':first_name', $firstName);
                 $stmt->bindParam(':last_name', $lastName);
                 $stmt->bindParam(':email', $email);
@@ -335,7 +335,7 @@ class CRUDFunctions {
         }
     }
 
-    function updateProduct($message, $title, $flavour, $description, $price, $stock) {
+    function updateProduct($message, $title, $flavour, $description, $price, $stock, $id) {
         if (empty($message)) {
             $sql = "
                 UPDATE products
@@ -349,12 +349,12 @@ class CRUDFunctions {
             ";
             
             $stmt = $this->pdo->prepare($sql);
-            $stmt->bindParam(":title", $_POST['title']);
-            $stmt->bindParam(":flavour", $_POST['flavour']);
-            $stmt->bindParam(":description", $_POST['description']);
-            $stmt->bindParam(":price", $_POST['price']);
-            $stmt->bindParam(":stock", $_POST['stock']);
-            $stmt->bindParam(":id", $_POST['id']);
+            $stmt->bindParam(":title", $title);
+            $stmt->bindParam(":flavour", $flavour);
+            $stmt->bindParam(":description", $description);
+            $stmt->bindParam(":price", $price);
+            $stmt->bindParam(":stock", $stock);
+            $stmt->bindParam(":id", $id);
             $stmt->execute();
             header('Location: index.php?updated');
             exit;

@@ -50,14 +50,6 @@
         $_SESSION['id'] = $id;
     }
 
-    // function isSuperGlobalSet($superGlobal, $message) {
-    //     if (isset($superGlobal)) {
-    //         $output = errorMessage($message);
-    //         return $output;
-	// 	}
-        
-    // }
-
     function errorMessage($message) {
         $output = '<div class="alert alert-danger">' . $message . '</div>';
         return $output;

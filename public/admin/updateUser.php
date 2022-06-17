@@ -31,9 +31,9 @@
         $message .= checkIfEmailIsValid($email);
 
         if(empty($password)) {
-            $message .= $crudFunctions->updateUser($firstName, $lastName, $email, $user['password'], $phone, $street, $postalCode, $city, $country, $message);
+            $message .= $crudFunctions->updateUser($firstName, $lastName, $email, $user['password'], $phone, $street, $postalCode, $city, $country, $message, $_GET['userId']);
         } else {
-            $message .= $crudFunctions->updateUser($firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country, $message);
+            $message .= $crudFunctions->updateUser($firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country, $message, $_GET['userId']);
         }
     }
 
