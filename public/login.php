@@ -21,15 +21,9 @@
         $email    = trim($_POST['email']);
         $password = trim($_POST['password']);
 
-        $userData = $crudFunctions->fetchPasswordAndIdByEmail($email);
+        $userPasswordAndId = $crudFunctions->fetchPasswordAndIdByEmail($email);
 
-        if ($userData && checkIfPasswordIsCorrect($password, $userData['password'])) {
-            setLoginSession($userData['id']);
-            header('Location: myPage.php');
-            exit;
-        } else {
-            $message .= errorMessage("Invalid login credentials. Please try again.");
-        }
+        $message = checkIfPasswordIsCorrect($password, $userPasswordAndId);
     }
 
 	include('layout/header.php');
