@@ -80,9 +80,12 @@ Skriva om koden till klasser och metoder
 
 DONE - Gör om Mypage till AJAX (OSCAR)
 
+
 DONE Lägger in bilder som filer i IMG (MALIN)
 
+
 skriva om hur products visas med AJAX. skapa sökfunktion alla produkterna (OSCAR)
+
 
 DONE - ta bort pilar upp och ner i telefon och postal code fält (OSCAR)
     DONE - admin - ny användare
