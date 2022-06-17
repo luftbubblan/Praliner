@@ -10,17 +10,16 @@
 </head>
 <body>
         
-        <?php
-            if (isset($_SESSION['id'])) {
-                $menu = '<a href="myPage.php">My page</a> | <a href="logout.php">Logout</a>';
-            } else {
-                $menu = '<a href="registerUser.php">Register</a> | <a href="login.php">Log in</a>';
-            }
-        ?>
+    <?php
+        if (isset($_SESSION['id'])) {
+            $menu = '<a href="myPage.php">My page</a> | <a href="logout.php">Logout</a>';
+        } else {
+            $menu = '<a href="registerUser.php">Register</a> | <a href="login.php">Log in</a>';
+        }
+    ?>
 
 
-<div id="header-container">
-
+    <div id="header-container">
         <div id="nav-1">
             <a href="index.php">Shop</a>
             <a href="admin">Admin</a>
@@ -36,5 +35,4 @@
         <a href="about">Om</a>
         <a href="about">Hitta hit</a>
         </div>
-
     </div>
