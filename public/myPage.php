@@ -166,7 +166,7 @@
                     <div class="formMessage"></div>
                     <div class="form-group">
                         <label for="phone" class="col-form-label">Phone:</label>
-                        <input type="text" class="form-control" name ="phone">
+                        <input type="number" class="form-control" name ="phone">
                     </div>
                     <div class="form-group">
                         <label for="street" class="col-form-label">Street:</label>
@@ -174,7 +174,7 @@
                     </div>
                     <div class="form-group">
                         <label for="postalcode" class="col-form-label">Postal code:</label>
-                        <input type="text" class="form-control" name ="postalcode">
+                        <input type="number" class="form-control" name ="postalcode">
                     </div>
                     <div class="form-group">
                         <label for="city" class="col-form-label">City:</label>

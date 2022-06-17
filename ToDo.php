@@ -83,11 +83,11 @@ DONE Lägger in bilder som filer i IMG (MALIN)
 
 skriva om hur products visas med AJAX. skapa sökfunktion alla produkterna (OSCAR)
 
-ta bort pilar upp och ner i telefon och postal code fält (OSCAR)
-    admin - ny användare
-    admin - uppdatera användare
-    shop - registrea användare
-    shop - mypage - update information, make number field
+DONE - ta bort pilar upp och ner i telefon och postal code fält (OSCAR)
+    DONE - admin - ny användare
+    DONE - admin - uppdatera användare
+    DONE - shop - registrea användare
+    DONE - shop - mypage - update information, make number field
 
 
 
