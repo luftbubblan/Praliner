@@ -2,6 +2,8 @@
 	$pageTitle = "Update user";
 
 	require('../../src/config.php');
+	require('../../src/app/common_functions.php');
+	require('../../src/app/CRUD_functions.php');
 
 
 /* To check if the user exists in DB */
@@ -19,65 +21,40 @@
 
 	$message = "";
     if (isset($_POST['updateUserBtn'])) {
-        $firstName = trim($_POST['first_name']);
-		$lastName = trim($_POST['last_name']);
-		$email = trim($_POST['email']);
-		$password = trim($_POST['password']);
-		$phone = trim($_POST['phone']);
-        $street = trim($_POST['street']);
-		$postalCode = trim($_POST['postal_code']);
-        $city = trim($_POST['city']);
-        $country = trim($_POST['country']);
+        $firstName =  ucfirst(trim($_POST['first_name']));
+        $lastName =   ucfirst(trim($_POST['last_name']));
+        $email =              trim($_POST['email']);
+		$password =           trim($_POST['password']);
+        $phone =              trim($_POST['phone']);
+        $street =     ucfirst(trim($_POST['street']));
+        $postalCode =         trim($_POST['postal_code']);
+        $city =       ucfirst(trim($_POST['city']));
+        $country =    ucfirst(trim($_POST['country']));
 
-  /*   if {
+        $message .= ifEmptyGenerateMessage($firstName, "Firstname must not be empty.");
+        $message .= ifEmptyGenerateMessage($lastName, "Lastname must not be empty.");
+        $message .= ifEmptyGenerateMessage($email, "E-mail must not be empty.");
+        $message .= ifEmptyGenerateMessage($password, "Password must not be empty.");
+        $message .= phoneNumberMustBeTenDigits($phone);
+        $message .= ifEmptyGenerateMessage($street, "Street must not be empty.");
+        $message .= postalCodeMustBeFiveDigits($postalCode);
+        $message .= ifEmptyGenerateMessage($city, "City must not be empty.");
+        $message .= ifEmptyGenerateMessage($country, "Country must not be empty.");
 
-        
-    } */
-       
-            $sql = "
-                UPDATE users
-                SET 
-                    first_name = :first_name,
-                    last_name = :last_name,
-                    email = :email,
-                    password = :password,
-                    phone = :phone,
-                    street = :street,
-                    postal_code = :postal_code,
-                    city = :city,
-                    country = :country
-                WHERE id = :id
-            ";
+        $message .= checkIfEmailIsValid($email);
 
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':id', $_GET['userId']);
-            $stmt->bindParam(':first_name', $firstName);
-            $stmt->bindParam(':last_name', $lastName);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':password', $password);
-            $stmt->bindParam(':phone', $phone);
-            $stmt->bindParam(':street', $street);
-            $stmt->bindParam(':postal_code', $postalCode);
-            $stmt->bindParam(':city', $city);
-            $stmt->bindParam(':country', $country);
-           $stmt->execute(); 
+		$message .= $crudFunctions->updateUser($firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country, $message);
 
 
         }
-    
 
 
     /**
      * Fetch user
      */
-   $sql = "
-        SELECT * FROM users
-        WHERE id = :id
-    ";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':id', $_GET['userId']);
-    $stmt->execute();
-    $user = $stmt->fetch(); 
+
+    $user = $crudFunctions->fetchUserById($_GET['userId']);
+
 
     // echo 'User';
     // echo "<pre>";

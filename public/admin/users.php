@@ -2,6 +2,8 @@
 	$pageTitle = "users";
 
 	require('../../src/config.php');
+	require('../../src/app/common_functions.php');
+	require('../../src/app/CRUD_functions.php');
 
 	echo "<pre>";
     print_r($_GET);
@@ -33,10 +35,10 @@
     /**
      * READ all users
      */
-    $sql = "SELECT * FROM users;";
+  /*   $sql = "SELECT * FROM users;";
     $stmt = $pdo->query($sql);
-    $users = $stmt->fetchAll();
-
+    $users = $stmt->fetchAll(); */
+    $users = $crudFunctions->fetchAllUsers();
 ?>
 <?php include('layout/header.php'); ?>
 
