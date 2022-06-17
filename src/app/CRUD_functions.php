@@ -61,7 +61,7 @@ class CRUDFunctions {
                 exit;
             } catch (\PDOException $e) {
                 if ((int) $e->getCode() === 23000) {
-                    $message = '<div class="alert alert-danger">E-mail is already taked, please use another e-mail.</div>';
+                    $message = errorEmailtaken();
                     return $message;
                 } else {
                     throw new \PDOException($e->getMessage(), (int) $e->getCode());
@@ -86,7 +86,7 @@ class CRUDFunctions {
             $stmt->bindParam(':id', $sessionId);
             $stmt->execute();
 
-            $message = '<div class="alert alert-success">Name has been updated.</div>';
+            $message = successMessage("Name has been updated.");
             return $message;
         }
     }
@@ -106,11 +106,11 @@ class CRUDFunctions {
                 $stmt->bindParam(':id', $sessionId);
                 $stmt->execute();
 
-                $message = '<div class="alert alert-success">E-mail has been updated.</div>';
+                $message = successMessage("E-mail has been updated.");
                 return $message;
             } catch (\PDOException $e) {
                 if ((int) $e->getCode() === 23000) {
-                    $message = '<div class="alert alert-danger">E-mail is already taked, please use another e-mail.</div>';
+                    $message = errorEmailtaken();
                     return $message;
                 } else {
                     throw new \PDOException($e->getMessage(), (int) $e->getCode());
@@ -135,7 +135,7 @@ class CRUDFunctions {
             $stmt->bindParam(':id', $sessionId);
             $stmt->execute();
             
-            $message = '<div class="alert alert-success">Password has been updated.</div>';
+            $message = successMessage("Password has been updated.");
             return $message;
         }
     }
@@ -162,7 +162,7 @@ class CRUDFunctions {
             $stmt->bindParam(':id', $sessionId);
             $stmt->execute();
 
-            $message = '<div class="alert alert-success"> Information has been updated.</div>';
+            $message = successMessage("Information has been updated.");
             return $message;
         }
     }
@@ -225,117 +225,126 @@ class CRUDFunctions {
     
     function fetchAllUsers() {
 		$stmt = $this->pdo->query("
-        SELECT * FROM users;
+            SELECT * FROM users;
         ");
         return $stmt->fetchAll();
 	}
  
 
     function addNewUser($firstName, $lastName, $email,$password, $phone, $street, $postalCode, $city, $country, $message) {
-       
         if (empty($message)) {
             try {
-       
-        $sql = "
-            INSERT INTO users (first_name, last_name, email, password, phone, street, postal_code, city, country)
-            VALUES (:first_name, :last_name, :email, :password, :phone, :street, :postal_code, :city, :country)
-        ";
-        $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(':first_name', $firstName);
-        $stmt->bindParam(':last_name', $lastName);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $encryptedPassword);
-        $stmt->bindParam(':phone', $phone);
-        $stmt->bindParam(':street', $street);
-        $stmt->bindParam(':postal_code', $postalCode);
-        $stmt->bindParam(':city', $city);
-        $stmt->bindParam(':country', $country);
-        $stmt->execute();
+                $sql = "
+                    INSERT INTO users (
+                        first_name,
+                        last_name,
+                        email, password,
+                        phone, street,
+                        postal_code,
+                        city,
+                        country)
+                    VALUES (
+                        :first_name,
+                        :last_name,
+                        :email,
+                        :password,
+                        :phone,
+                        :street,
+                        :postal_code,
+                        :city,
+                        :country)
+                ";
 
-        header('Location:users.php');
-        exit;
+                $encryptedPassword = encryptPassword($password);
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':first_name', $firstName);
+                $stmt->bindParam(':last_name', $lastName);
+                $stmt->bindParam(':email', $email);
+                $stmt->bindParam(':password', $encryptedPassword);
+                $stmt->bindParam(':phone', $phone);
+                $stmt->bindParam(':street', $street);
+                $stmt->bindParam(':postal_code', $postalCode);
+                $stmt->bindParam(':city', $city);
+                $stmt->bindParam(':country', $country);
+                $stmt->execute();
 
-    } catch (\PDOException $e) {
-        if ((int) $e->getCode() === 23000) {
-            $message .= '
-                <div class="">
-                    E-mail is already taked, please use another e-mail.
-                </div>
-            ';
-            return $message;
-        } else {
-            throw new \PDOException($e->getMessage(), (int) $e->getCode());
+                header('Location:users.php');
+                exit;
+
+            } catch (\PDOException $e) {
+                if ((int) $e->getCode() === 23000) {
+                    $message = errorEmailtaken();
+                    return $message;
+                } else {
+                    throw new \PDOException($e->getMessage(), (int) $e->getCode());
+                }
+            } 
+        }    
+    }
+
+    function updateUser($firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country, $message) {
+        if (empty($message)) {
+            try {
+                $sql = "
+                    UPDATE users
+                    SET 
+                        first_name = :first_name,
+                        last_name = :last_name,
+                        email = :email,
+                        password = :password,
+                        phone = :phone,
+                        street = :street,
+                        postal_code = :postal_code,
+                        city = :city,
+                        country = :country
+                    WHERE id = :id
+                ";
+
+                $stmt = $this->pdo->prepare($sql);
+
+                if(strlen($password) == 60 && str_starts_with($password, '$2y$12$')) {
+                    $stmt->bindParam(':password', $password);
+                } else {
+                    $encryptedPassword = encryptPassword($password);
+                    $stmt->bindParam(':password', $encryptedPassword);
+                }
+
+                $stmt->bindParam(':id', $_GET['userId']);
+                $stmt->bindParam(':first_name', $firstName);
+                $stmt->bindParam(':last_name', $lastName);
+                $stmt->bindParam(':email', $email);
+                $stmt->bindParam(':phone', $phone);
+                $stmt->bindParam(':street', $street);
+                $stmt->bindParam(':postal_code', $postalCode);
+                $stmt->bindParam(':city', $city);
+                $stmt->bindParam(':country', $country);
+                $stmt->execute(); 
+
+                header('Location:users.php?updated');
+                exit;
+
+            } catch (\PDOException $e) {
+                if ((int) $e->getCode() === 23000) {
+                    $message = errorEmailtaken();
+                    return $message;
+                
+                } else {
+                    throw new \PDOException($e->getMessage(), (int) $e->getCode());
+                }
+            } 
         }
-    } 
-    
     }
-    }
-
-
-
-function updateUser($firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country, $message) {
-       
-    if (empty($message)) {
-        try {
-   
-            $sql = "
-            UPDATE users
-            SET 
-                first_name = :first_name,
-                last_name = :last_name,
-                email = :email,
-                password = :password,
-                phone = :phone,
-                street = :street,
-                postal_code = :postal_code,
-                city = :city,
-                country = :country
-            WHERE id = :id
-        ";
-    $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindParam(':id', $_GET['userId']);
-    $stmt->bindParam(':first_name', $firstName);
-    $stmt->bindParam(':last_name', $lastName);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':password', $password);
-    $stmt->bindParam(':phone', $phone);
-    $stmt->bindParam(':street', $street);
-    $stmt->bindParam(':postal_code', $postalCode);
-    $stmt->bindParam(':city', $city);
-    $stmt->bindParam(':country', $country);
-   $stmt->execute(); 
-
-    header('Location:users.php');
-    exit;
-
-} catch (\PDOException $e) {
-    if ((int) $e->getCode() === 23000) {
-        $message .= '
-            <div class="">
-                E-mail is already taked, please use another e-mail.
-            </div>
-        ';
-        return $message;
-     
-    } else {
-        throw new \PDOException($e->getMessage(), (int) $e->getCode());
-    }
-} 
-
 
     function updateProduct($message, $title, $flavour, $description, $price, $stock) {
         if (empty($message)) {
             $sql = "
-            UPDATE products
-            SET
-                title = :title,
-                flavour = :flavour,
-                description = :description,
-                price = :price,
-                stock = :stock
-
+                UPDATE products
+                SET
+                    title = :title,
+                    flavour = :flavour,
+                    description = :description,
+                    price = :price,
+                    stock = :stock
                 WHERE id = :id
             ";
             
@@ -349,21 +358,9 @@ function updateUser($firstName, $lastName, $email, $password, $phone, $street, $
             $stmt->execute();
             header('Location: index.php?updated');
             exit;
-
-
         }
     }
-
 }
-}
-}
-
-
-
-
-
-
-
 
 $crudFunctions = new CRUDFunctions($pdo);
 

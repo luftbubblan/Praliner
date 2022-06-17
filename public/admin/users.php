@@ -5,23 +5,17 @@
 	require('../../src/app/common_functions.php');
 	require('../../src/app/CRUD_functions.php');
 
-	echo "<pre>";
-    print_r($_GET);
-    echo "</pre>";
+	// echo "<pre>";
+    // print_r($_GET);
+    // echo "</pre>";
 
-  /*   $message = "";
-    if (isset($_GET['invalidUser'])) {
-        $message = '
-            <div class="error_msg">
-                Du försöker redigera en ogiltig användare
-            </div>
-        ';
-    } */
+    if (isset($_GET['updated'])) {
+        $message .= successMessage("User successfully updated.");
+    }
 
     /**
      * DELETE user
      */
-
     if (isset($_POST['deleteUserBtn'])) {
         $sql = "
             DELETE FROM users 
@@ -32,22 +26,17 @@
         $stmt->execute();
     }
 
-    /**
-     * READ all users
-     */
-  /*   $sql = "SELECT * FROM users;";
-    $stmt = $pdo->query($sql);
-    $users = $stmt->fetchAll(); */
     $users = $crudFunctions->fetchAllUsers();
+    
+    include('layout/header.php'); 
 ?>
-<?php include('layout/header.php'); ?>
 
    
 <div id="content">
     <article class="border">
         <h1>Hantera användare</h1>
 
-       <!--  <?=$message ?> -->
+        <?=$message ?>
 
     <form action="addNewUser.php">
         <input type="submit" value="Ny användare">

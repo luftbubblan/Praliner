@@ -5,16 +5,20 @@
     require('../src/app/common_functions.php');
     require('../src/app/CRUD_functions.php');
 
-    echo "<pre>";
-    print_r($_SESSION);
-    echo "</pre>";
-    
-    $message .= isSuperGlobalSet($_GET['mustLogin'], "You need to login to access this.");
-    $message .= isSuperGlobalSet($_GET['deleted'], "Your account has successfully been deleted.");
+    // echo "<pre>";
+    // print_r($_SESSION);
+    // echo "</pre>";
 
     if(isset($_SESSION['id'])) {
         header('Location: myPage.php');
         exit;
+    }
+    
+    if (isset($_GET['mustLogin'])) {
+        $message .= errorMessage("You need to login to access this.");
+    }
+    if (isset($_GET['deleted'])) {
+        $message .= warningMessage("Your account has successfully been deleted.");
     }
 
     if (isset($_POST['loginBtn'])) {
@@ -28,16 +32,8 @@
             header('Location: myPage.php');
             exit;
         } else {
-        $message .= errorMessage("Invalid login credentials. Please try again.");
+            $message .= errorMessage("Invalid login credentials. Please try again.");
         }
-    }
-
-    if (isset($_GET['deleted'])) {
-        $message = '
-            <div class="alert alert-warning">
-                Your account has successfully been deleted.
-            </div>
-        ';
     }
 
 	include('layout/header.php');

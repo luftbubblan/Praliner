@@ -1,8 +1,8 @@
-function showHidePassword(e) {
-    var x = e.previousSibling.previousSibling;
-    if (x.type === "password") {
-        x.type = "text";
+function showHidePassword(checkBox) {
+    var passwordInputField = checkBox.previousSibling.previousSibling;
+    if (passwordInputField.type === "password") {
+        passwordInputField.type = "text";
     } else {
-        x.type = "password";
+        passwordInputField.type = "password";
     }
 }

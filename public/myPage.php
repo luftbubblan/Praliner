@@ -11,7 +11,7 @@
     // echo "</pre>";
 
     if (!isset($_SESSION['id'])) {
-        header('Location: login.php?mustLogin=true');
+        header('Location: login.php?mustLogin');
     }
 
     $message = "";

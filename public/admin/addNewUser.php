@@ -5,11 +5,10 @@
 	require('../../src/app/common_functions.php');
 	require('../../src/app/CRUD_functions.php');
 
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($_POST);
+    // echo "</pre>";
 
-	//CREATE
 	$message = "";
 
 	$firstName = "";
