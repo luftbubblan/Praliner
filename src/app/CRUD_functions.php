@@ -167,25 +167,25 @@ class CRUDFunctions {
         }
     }
 
-    function fetchUserById($sessionId) {
+    function fetchUserById($id) {
         $sql = "
             SELECT * FROM users
             WHERE id = :id
         ";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(':id', $sessionId);
+        $stmt->bindParam(':id', $id);
         $stmt->execute();
         return $stmt->fetch();
     }
 
-    function fetchPasswordById($sessionId) {
+    function fetchPasswordById($id) {
         $sql = "
             SELECT password FROM users
             WHERE id = :id
         ";
 
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindParam(':id', $sessionId);
+        $stmt->bindParam(':id', $id);
         $stmt->execute();
         return $stmt->fetch();
     }
@@ -223,6 +223,14 @@ class CRUDFunctions {
         return $stmt->fetch();
     }
     
+    function fetchAllUsers() {
+		$stmt = $this->pdo->query("
+        SELECT * FROM users;
+        ");
+        return $stmt->fetchAll();
+	}
+ 
+
     function addNewUser($firstName, $lastName, $email,$password, $phone, $street, $postalCode, $city, $country, $message) {
        
         if (empty($message)) {
@@ -263,7 +271,70 @@ class CRUDFunctions {
     
     }
     }
+
+
+
+
+function updateUser($firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country, $message) {
+       
+    if (empty($message)) {
+        try {
+   
+            $sql = "
+            UPDATE users
+            SET 
+                first_name = :first_name,
+                last_name = :last_name,
+                email = :email,
+                password = :password,
+                phone = :phone,
+                street = :street,
+                postal_code = :postal_code,
+                city = :city,
+                country = :country
+            WHERE id = :id
+        ";
+    $encryptedPassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindParam(':id', $_GET['userId']);
+    $stmt->bindParam(':first_name', $firstName);
+    $stmt->bindParam(':last_name', $lastName);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':password', $password);
+    $stmt->bindParam(':phone', $phone);
+    $stmt->bindParam(':street', $street);
+    $stmt->bindParam(':postal_code', $postalCode);
+    $stmt->bindParam(':city', $city);
+    $stmt->bindParam(':country', $country);
+   $stmt->execute(); 
+
+    header('Location:users.php');
+    exit;
+
+} catch (\PDOException $e) {
+    if ((int) $e->getCode() === 23000) {
+        $message .= '
+            <div class="">
+                E-mail is already taked, please use another e-mail.
+            </div>
+        ';
+        return $message;
+     
+    } else {
+        throw new \PDOException($e->getMessage(), (int) $e->getCode());
+    }
+} 
+
 }
+}
+}
+
+
+
+
+
+
+
 
 $crudFunctions = new CRUDFunctions($pdo);
 

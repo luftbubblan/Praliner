@@ -20,7 +20,9 @@ DONE - Produktdelen - Shop
         ta sedan bort de då det inte ska finnas vid inlämmning
     DONE - Lista alla produkterna - Home page
     DONE - Kunna klicka på enskild produkt och visa den
-
+    Sidor:  Om 
+            Hitta hit
+            Bildtexter - se text nedan
 
 Användardelen - Admin (MALIN)
     Skapa meny för användardelen/produktdelen
@@ -69,7 +71,7 @@ Skriva om koden till klasser och metoder
         WAIT tills AJAX e klart - myPage.php
     ADMIN
         ANNA - addNewProduct.php
-        MALIN - addNewUser.php
+        DONE - MALIN - addNewUser.php
         ANNA - edit.php
         ANNA - index.php
         MALIN - updateUser.php
@@ -78,9 +80,6 @@ Skriva om koden till klasser och metoder
 DONE - Gör om Mypage till AJAX (OSCAR)
 
 DONE Lägger in bilder som filer i IMG (MALIN)
-
-
-
 
 
 
