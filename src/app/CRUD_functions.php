@@ -234,27 +234,57 @@ class CRUDFunctions {
         return $stmt->fetch();
     }
 
-    function addNewProduct($title, $flavour, $description, $price, $stock, $imgUrl) {
-        if (empty($message)) {
-            try {
-                $sql = "
-				INSERT INTO products (
-					title,
-					flavour,
-					description,
-					price,
-					stock,
-					img_url)
-				VALUES (
-					:title,
-					:flavour,
-					:description,
-					:price,
-					:stock,
-					:img_url)
-			";
+    function addNewProduct($message, $title, $flavour, $description, $price, $stock) {
+        if(!is_uploaded_file($_FILES['img_url']['tmp_name'])) {
+			$message .= errorMessage("Must choose an image.");
+            return $message;
+		} else {
+            $fileName 	    = $_FILES['img_url']['name'];
+            $fileType 	    = $_FILES['img_url']['type'];
+            $fileTempPath   = $_FILES['img_url']['tmp_name'];
+            $path 		    = "img/";
 
-              
+            $newFilePath = "../" . $path . $fileName;
+
+            $allowedFileTypes = [
+                'image/png',
+                'image/jpeg',
+                'image/gif',
+            ];
+            
+            $isFileTypeAllowed = array_search($fileType, $allowedFileTypes, true);
+            
+            if (!$isFileTypeAllowed) {
+                $message .= errorMessage("Image type is not allowed. Must be: JPEG, PNG or GIF.");
+                return $message;
+            } 
+            
+            if ($_FILES['img_url']['size'] > 10000000) {  // Allows files under 10 mbyte
+                $message .= errorMessage("Image is to large. Max size is 10 MB.");
+                return $message;
+            }
+
+            if (empty($message)) {
+                move_uploaded_file($fileTempPath, $newFilePath);
+                $imgUrl = $path . $fileName;
+
+                $sql = "
+                    INSERT INTO products (
+                        title,
+                        flavour,
+                        description,
+                        price,
+                        stock,
+                        img_url)
+                    VALUES (
+                        :title,
+                        :flavour,
+                        :description,
+                        :price,
+                        :stock,
+                        :img_url)
+                ";
+            
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->bindParam(':title', $title);
                 $stmt->bindParam(':flavour', $flavour);
@@ -265,16 +295,8 @@ class CRUDFunctions {
                 $stmt->execute();
                 header('Location: index.php?added');
                 exit;
-
-            } /* catch (\PDOException $e) {
-                if ((int) $e->getCode() === 23000) {
-                    $message = errorEmailtaken();
-                    return $message;
-                } else {
-                    throw new \PDOException($e->getMessage(), (int) $e->getCode());
-                }
-            }  */
-        }    
+            }
+        }
     }
 
 
