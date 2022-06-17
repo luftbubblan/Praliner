@@ -2,6 +2,8 @@
 	$pageTitle = "Admin page";
 
 	require('../../src/config.php');
+	require('../../src/app/common_functions.php');
+	require('../../src/app/CRUD_functions.php');
 
 	//CREATE
 	$message = "";
