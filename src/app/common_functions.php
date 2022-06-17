@@ -8,30 +8,30 @@
 
     function phoneNumberMustBeTenDigits($phone) {
         if (strlen((string)$phone) != 10) {
-            $message = errorMessage("Phone number must be 10 digits.");
-            return $message;
+            $output = errorMessage("Phone number must be 10 digits.");
+            return $output;
         }
     }
 
     function postalCodeMustBeFiveDigits($postalCode) {
         if (strlen((string)$postalCode) != 5) {
-            $message = errorMessage("Postal code must be 5 digits.");
-            return $message;
+            $output = errorMessage("Postal code must be 5 digits.");
+            return $output;
         }
     }
     
     function checkIfEmailIsValid($email) {
         if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-            $message = errorMessage("E-mail must be a valid e-mail.");
-            return $message;
+            $output = errorMessage("E-mail must be a valid e-mail.");
+            return $output;
         }
         return "";
     }
 
     function checkIfPasswordsMatch($password, $confirmedPassword) {
         if (!empty($confirmedPassword) && !empty($password) && $password !== $confirmedPassword) {
-            $message = errorMessage('"Password" and "Confirm password" must match.');
-            return $message;
+            $output = errorMessage('"Password" and "Confirm password" must match.');
+            return $output;
         }
     }
 
@@ -39,11 +39,14 @@
         return password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
     }
 
-    function checkIfPasswordIsCorrect($passwordToCheck, $encryptedPasswordToCheckAgainst) {
-        if(password_verify($passwordToCheck, $encryptedPasswordToCheckAgainst)) {
-            return true;
+    function checkIfPasswordIsCorrect($passwordToCheck, $userPasswordAndId) {
+        if($userPasswordAndId && password_verify($passwordToCheck, $userPasswordAndId['password'])) {
+            setLoginSession($userPasswordAndId['id']);
+            header('Location: myPage.php');
+            exit;
         }
-        return false;
+        $output .= errorMessage("Invalid login credentials. Please try again.");
+        return $output;
     }
 
     function setLoginSession($id) {
