@@ -234,7 +234,7 @@ class CRUDFunctions {
         return $stmt->fetch();
     }
 
-    function addNewProduct($title, $flavour, $description, $price, $stock, $imgUrl) {
+    function addNewProduct($message, $title, $flavour, $description, $price, $stock, $imgUrl) {
         if (empty($message)) {
             try {
                 $sql = "
@@ -266,14 +266,14 @@ class CRUDFunctions {
                 header('Location: index.php?added');
                 exit;
 
-            } /* catch (\PDOException $e) {
+            }  catch (\PDOException $e) {
                 if ((int) $e->getCode() === 23000) {
                     $message = errorEmailtaken();
                     return $message;
                 } else {
                     throw new \PDOException($e->getMessage(), (int) $e->getCode());
                 }
-            }  */
+            }  
         }    
     }
 

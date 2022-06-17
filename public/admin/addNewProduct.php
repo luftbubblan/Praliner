@@ -26,42 +26,8 @@
         $message .= ifEmptyGenerateMessage($description, "Description must not be empty.");
         $message .= ifEmptyGenerateMessage($price, "Price must not be empty.");
         
-    
-
-		$message .=$crudFunctions->addNewProduct($title, $flavour, $description, $price, $stock);
+		
  
-		/*  if (empty($title)) {
-			$message .= '
-                <div class="">
-                    Title must not be empty.
-                </div>
-            ';
-		}
-
-		if (empty($flavour)) {
-			$message .= '
-                <div class="">
-                    Flavour must not be empty.
-                </div>
-            ';
-		}
-
-		if (empty($description)) {
-			$message .= '
-                <div class="">
-                    Description must not be empty.
-                </div>
-            ';
-		}
-
-		if (empty($price)) {
-			$message .= '
-                <div class="">
-                    Price must not be empty.
-                </div>
-            ';
-		} */
-
 		if (empty($stock) && $stock != 0) {
 			$message .= errorMessage($message);
 		}
@@ -109,12 +75,14 @@
 			// 	$message .= "Image must have a 1:1 aspect ratio. (Same height and with)";
 			// }
 		}
+
 		
 		
 		if (empty($message)) {
 			move_uploaded_file($fileTempPath, $newFilePath);
 			$imgUrl = $path . $fileName;
-
+			
+			$message .=$crudFunctions->addNewProduct($message, $title, $flavour, $description, $price, $stock, $imgUrl);
 			/* $sql = "
 				INSERT INTO products (
 					title,
@@ -143,7 +111,7 @@
 			header('Location: index.php?added');
 			exit; */
 		}
-	
+	}
 
 	include('layout/header.php');
 ?>
