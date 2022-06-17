@@ -3,19 +3,12 @@
 
 	require('../../src/config.php');
 	require('../../src/app/common_functions.php');
+	require('../../src/app/CRUD_functions.php');
 
     $message = "";
-	// DELETE
+
     if (isset($_POST['deleteProductBtn'])) {
-        $sql = "
-            DELETE FROM products
-            WHERE id = :id
-        ";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(":id", $_POST['id']);
-        $stmt->execute();
-        header('Location: index.php?deleted');
-        exit;
+        $crudFunctions->deleteProduct($_POST['id']);
     }
 
 	if (isset($_GET['added'])) {
@@ -30,13 +23,7 @@
         $message .= successMessage("Product successfully updated.");
     }
 
-	// READ
-    $stmt = $pdo->query("
-        SELECT *
-        FROM products
-        ORDER BY id DESC
-    ");
-    $products = $stmt->fetchAll();
+    $products = $crudFunctions->fetchAllProductsDESC();
 
 	include('layout/header.php');
 ?>
