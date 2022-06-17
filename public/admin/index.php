@@ -2,7 +2,9 @@
 	$pageTitle = "Product admin page";
 
 	require('../../src/config.php');
+	require('../../src/app/common_functions.php');
 
+    $message = "";
 	// DELETE
     if (isset($_POST['deleteProductBtn'])) {
         $sql = "
@@ -17,27 +19,18 @@
     }
 
 	if (isset($_GET['added'])) {
-        $message = '
-            <div class="">
-                Product successfully created.
-            </div>
-        ';
+
+        $message .= successMessage("Product successfully created.");
     }
 
 	if (isset($_GET['deleted'])) {
-        $message = '
-            <div class="">
-                Product successfully deleted.
-            </div>
-        ';
+        $message .= successMessage("Product successfully deleted.");
+
     }
 
 	if (isset($_GET['updated'])) {
-        $message = '
-            <div class="">
-                Product successfully updated.
-            </div>
-        ';
+        $message .= successMessage("Product successfully updated.");
+
     }
 
 	// READ

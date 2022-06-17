@@ -17,35 +17,19 @@
     $message = "";
 
     if (isset($_GET['nameUpdated'])) {
-        $message = '
-            <div class="alert alert-success">
-                Name has been updated.
-            </div>
-        ';
+        $message = successMessage("Name was successfully updated.");
     }
 
     if (isset($_GET['emailUpdated'])) {
-        $message = '
-            <div class="alert alert-success">
-                Email has been updated.
-            </div>
-        ';
+        $message = successMessage("Email was successfully updated.");
     }
 
     if (isset($_GET['passwordUpdated'])) {
-        $message = '
-            <div class="alert alert-success">
-                Password has been updated.
-            </div>
-        ';
+        $message = successMessage("Password was successfully updated.");
     }
 
     if (isset($_GET['informationUpdated'])) {
-        $message = '
-            <div class="alert alert-success">
-                Information has been updated.
-            </div>
-        ';
+        $message = successMessage("Information was successfully updated.");
     }
 
     $user = $crudFunctions->fetchUserById($_SESSION['id']);

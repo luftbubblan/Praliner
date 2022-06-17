@@ -28,21 +28,7 @@
             header('Location: myPage.php');
             exit;
         } else {
-
-    // function errorMessage($message) {
-
-    //     $output = '<div class="">' . $message . '</div>';
-    //     return $output;
-
-    // }
-
-    // errorMessage();
-
-            $message = '
-                <div class="">
-                    Invalid login credentials. Please try again.
-                </div>
-            ';
+        $message .= errorMessage("Invalid login credentials. Please try again.");
         }
     }
 
