@@ -17,15 +17,9 @@
      * DELETE user
      */
     if (isset($_POST['deleteUserBtn'])) {
-        $sql = "
-            DELETE FROM users 
-            WHERE id = :id;
-        ";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':id', $_POST['userId']);
-        $stmt->execute();
-    }
-
+    $crudFunctions->deleteUserById($_POST['userId']);
+    } 
+  
     $users = $crudFunctions->fetchAllUsers();
     
     include('layout/header.php'); 

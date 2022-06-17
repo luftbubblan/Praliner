@@ -74,8 +74,9 @@ Skriva om koden till klasser och metoder
         DONE - MALIN - addNewUser.php
         OSCAR - edit.php samt gör så att fält fylls i med superglobal, om tom ta från DB
         ANNA - index.php
-        MALIN - updateUser.php
-        MALIN - users.php
+        DONE - MALIN - updateUser.php
+        DONE - MALIN - users.php
+        
 
 DONE - Gör om Mypage till AJAX (OSCAR)
 

@@ -178,6 +178,17 @@ class CRUDFunctions {
         return $stmt->fetch();
     }
 
+    function deleteUserById($id) {
+        $sql = "
+            DELETE FROM users 
+            WHERE id = :id;
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+       
+    }
+
     function fetchPasswordById($id) {
         $sql = "
             SELECT password FROM users
@@ -222,6 +233,8 @@ class CRUDFunctions {
         $stmt->execute();
         return $stmt->fetch();
     }
+
+
     
     function fetchAllUsers() {
 		$stmt = $this->pdo->query("
