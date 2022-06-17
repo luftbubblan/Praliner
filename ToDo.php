@@ -68,11 +68,11 @@ Ordrar (WAIT)
 Skriva om koden till klasser och metoder
     PUBLIC
         ANNA - Login.php
-        WAIT tills AJAX e klart - myPage.php
+        OSCAR - myPage.php
     ADMIN
         ANNA - addNewProduct.php
         DONE - MALIN - addNewUser.php
-        ANNA - edit.php
+        OSCAR - edit.php samt gör så att fält fylls i med superglobal, om tom ta från DB
         ANNA - index.php
         MALIN - updateUser.php
         MALIN - users.php

@@ -19,18 +19,15 @@
     }
 
 	if (isset($_GET['added'])) {
-
         $message .= successMessage("Product successfully created.");
     }
 
 	if (isset($_GET['deleted'])) {
         $message .= successMessage("Product successfully deleted.");
-
     }
 
 	if (isset($_GET['updated'])) {
         $message .= successMessage("Product successfully updated.");
-
     }
 
 	// READ

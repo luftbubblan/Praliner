@@ -4,9 +4,9 @@
 	require('../../src/config.php');
     require('../../src/app/CRUD_functions.php');
 
-	// echo "<pre>";
-    // print_r($_POST);
-    // echo "</pre>";
+	echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
     
 	// UPDATE
     $message = "";
@@ -17,11 +17,11 @@
 	$stock = "";
     
     if (isset($_POST['updateProductBtn'])) {
-        $title = trim($_POST['title']);
-        $flavour = trim($_POST['flavour']);
-		$description = trim($_POST['description']);
-		$price = trim($_POST['price']);
-		$stock = trim($_POST['stock']);
+        $title = 	   ucfirst(trim($_POST['title']));
+		$flavour = 	   ucfirst(trim($_POST['flavour']));
+		$description = ucfirst(trim($_POST['description']));
+		$price = 			   trim($_POST['price']);
+		$stock = 			   trim($_POST['stock']);
 
         if (empty($title)) {
 			$message .= '
@@ -73,7 +73,6 @@
 
 
 <h1>Edit product</h1>
-<!-- <a href="index.php">Admin</a> -->
 
 <?=$message?>
 

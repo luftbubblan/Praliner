@@ -13,11 +13,11 @@
 	$img_url = "";
 
 	if (isset($_POST['createProductBtn'])) {
-		$title = trim($_POST['title']);
-		$flavour = trim($_POST['flavour']);
-		$description = trim($_POST['description']);
-		$price = trim($_POST['price']);
-		$stock = trim($_POST['stock']);
+		$title = 	   ucfirst(trim($_POST['title']));
+		$flavour = 	   ucfirst(trim($_POST['flavour']));
+		$description = ucfirst(trim($_POST['description']));
+		$price = 			   trim($_POST['price']);
+		$stock = 			   trim($_POST['stock']);
 
 		if (empty($title)) {
 			$message .= '
