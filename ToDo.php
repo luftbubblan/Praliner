@@ -70,12 +70,12 @@ Skriva om koden till klasser och metoder
         ANNA - Login.php
         OSCAR - myPage.php
     ADMIN
-        ANNA - addNewProduct.php
-        DONE - MALIN - addNewUser.php
+        DONE - addNewProduct.php
+        DONE - addNewUser.php
         DONE - edit.php samt gör så att fält fylls i med superglobal, om tom ta från DB
         ANNA - index.php
-        DONE - MALIN - updateUser.php
-        DONE - MALIN - users.php
+        DONE - updateUser.php
+        DONE - users.php
         
 
 DONE - Gör om Mypage till AJAX (OSCAR)
