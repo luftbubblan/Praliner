@@ -299,10 +299,6 @@ class CRUDFunctions {
         }
     }
 
-
-
-
-    
     function fetchAllUsers() {
 		$stmt = $this->pdo->query("
             SELECT * FROM users;
@@ -310,7 +306,6 @@ class CRUDFunctions {
         return $stmt->fetchAll();
 	}
  
-
     function addNewUser($firstName, $lastName, $email,$password, $phone, $street, $postalCode, $city, $country, $message) {
         if (empty($message)) {
             try {
@@ -439,6 +434,18 @@ class CRUDFunctions {
             header('Location: index.php?updated');
             exit;
         }
+    }
+
+    function deleteProduct($id) {
+        $sql = "
+            DELETE FROM products
+            WHERE id = :id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        header('Location: index.php?deleted');
+        exit;
     }
 }
 

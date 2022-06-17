@@ -73,7 +73,7 @@ Skriva om koden till klasser och metoder
         DONE - addNewProduct.php
         DONE - addNewUser.php
         DONE - edit.php samt gör så att fält fylls i med superglobal, om tom ta från DB
-        ANNA - index.php
+        DONE - index.php
         DONE - updateUser.php
         DONE - users.php
         
