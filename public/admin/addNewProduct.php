@@ -21,7 +21,16 @@
 		$price = 			   trim($_POST['price']);
 		$stock = 			   trim($_POST['stock']);
 
-		if (empty($title)) {
+		$message .= ifEmptyGenerateMessage($title, "Title must not be empty.");
+        $message .= ifEmptyGenerateMessage($flavour, "Flavour must not be empty.");
+        $message .= ifEmptyGenerateMessage($description, "Description must not be empty.");
+        $message .= ifEmptyGenerateMessage($price, "Price must not be empty.");
+        
+    
+
+		$message .=$crudFunctions->addNewProduct($title, $flavour, $description, $price, $stock);
+ 
+		/*  if (empty($title)) {
 			$message .= '
                 <div class="">
                     Title must not be empty.
@@ -51,24 +60,16 @@
                     Price must not be empty.
                 </div>
             ';
-		}
+		} */
 
 		if (empty($stock) && $stock != 0) {
-			$message .= '
-                <div class="">
-                    Stock must not be empty.
-                </div>
-            ';
+			$message .= errorMessage($message);
 		}
 
 		if(!is_uploaded_file($_FILES['img_url']['tmp_name'])) {
-			$message .= '
-                <div class="">
-					Must choose an image.
-                </div>
-            ';
+			$message .= errorMessage($message); 
 			
-		} else {
+		}  else {
 			$fileName 	    = $_FILES['img_url']['name'];
 			$fileType 	    = $_FILES['img_url']['type'];
 			$fileTempPath   = $_FILES['img_url']['tmp_name'];
@@ -114,7 +115,7 @@
 			move_uploaded_file($fileTempPath, $newFilePath);
 			$imgUrl = $path . $fileName;
 
-			$sql = "
+			/* $sql = "
 				INSERT INTO products (
 					title,
 					flavour,
@@ -130,8 +131,8 @@
 					:stock,
 					:img_url)
 			";
-		
-			$stmt = $pdo->prepare($sql);
+		 */
+			/* $stmt = $pdo->prepare($sql);
 			$stmt->bindParam(':title', $title);
 			$stmt->bindParam(':flavour', $flavour);
 			$stmt->bindParam(':description', $description);
@@ -140,9 +141,9 @@
 			$stmt->bindParam(':img_url', $imgUrl);
 			$stmt->execute();
 			header('Location: index.php?added');
-			exit;
+			exit; */
 		}
-	}
+	
 
 	include('layout/header.php');
 ?>

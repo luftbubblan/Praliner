@@ -234,6 +234,51 @@ class CRUDFunctions {
         return $stmt->fetch();
     }
 
+    function addNewProduct($title, $flavour, $description, $price, $stock, $imgUrl) {
+        if (empty($message)) {
+            try {
+                $sql = "
+				INSERT INTO products (
+					title,
+					flavour,
+					description,
+					price,
+					stock,
+					img_url)
+				VALUES (
+					:title,
+					:flavour,
+					:description,
+					:price,
+					:stock,
+					:img_url)
+			";
+
+              
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindParam(':title', $title);
+                $stmt->bindParam(':flavour', $flavour);
+                $stmt->bindParam(':description', $description);
+                $stmt->bindParam(':price', $price);
+                $stmt->bindParam(':stock', $stock);
+                $stmt->bindParam(':img_url', $imgUrl);
+                $stmt->execute();
+                header('Location: index.php?added');
+                exit;
+
+            } /* catch (\PDOException $e) {
+                if ((int) $e->getCode() === 23000) {
+                    $message = errorEmailtaken();
+                    return $message;
+                } else {
+                    throw new \PDOException($e->getMessage(), (int) $e->getCode());
+                }
+            }  */
+        }    
+    }
+
+
+
 
     
     function fetchAllUsers() {
