@@ -68,7 +68,7 @@ Ordrar (WAIT)
 Skriva om koden till klasser och metoder
     PUBLIC
         ANNA - Login.php
-        OSCAR - myPage.php
+        DONE - myPage.php
     ADMIN
         DONE - addNewProduct.php
         DONE - addNewUser.php
