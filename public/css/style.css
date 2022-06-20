@@ -88,20 +88,13 @@
 
 #single {
     justify-items: center;
-
+    text-align: center;
 }
-
-button {
-    /* border: none; */
-}
-
-
 
 #product-img {
-width: 150px;
-height: 150px;
-   }
-
+    width: 150px;
+    height: 150px;
+}
 
 #title {
     padding: 0em 2em;
