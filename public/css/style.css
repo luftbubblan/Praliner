@@ -146,15 +146,22 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+#searchDiv {
+    text-align: center;
+}
+
 @media (min-width: 600px) {
     #shop-con { 
-        
         grid-template-columns: repeat(2, 1fr); 
     }
-  }
-  @media (min-width: 900px) {
+}
+
+@media (min-width: 900px) {
     #shop-con { grid-template-columns: repeat(3, 1fr); }
-  }
-  @media (min-width: 1200px) {
+}
+
+@media (min-width: 1200px) {
     #shop-con { grid-template-columns: repeat(4, 1fr); }
-  }
+}
+
+
