@@ -183,13 +183,15 @@ function showProducts(products) {
                 <div id="single">
                 
                 <a href="product.php?product=${product['id']}">
-                    <img src=" ${product['img_url']}" alt="Picture of pralin" width="100" height="100">
+                    <div id="img-div">
+                        <img id="product-img" src=" ${product['img_url']}" alt="Picture of pralin">
+                    </div>
                 </a>
                 <h3> ${product['title']} </h3>
-                <p> ${product['flavour']} </p>
+                <p><i> ${product['flavour']} </i></p>
                 
-                <p> ${product['price']} kr</p>
-                <p>stock:  ${product['stock']} </p>
+                <p>Left in stock: ${product['stock']} </p>
+                <h6>${product['price']} kr</h6>
                 <button id="buy-btn">Lägg till i varukorg</button>
                 
                 </div>
