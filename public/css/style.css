@@ -19,7 +19,8 @@
 
 #logo-con {
     display: flex;
-    background-color: white;
+    /* background-image: url(../img/kiki-siepel-BEwxLSN_bKU-unsplash.jpg); */
+    /* background-position: center; */
     height: 25vh;
     justify-content: center;
     align-items: center;
@@ -62,33 +63,44 @@
 }
 
 #shop-con {
-    flex-wrap: wrap;
-    display: flex;
+    display: grid;
+    width: auto;
+    /* margin-left: 100px;
+    margin-right: 100px; */
+    padding: 20px 0px;
     border: lightgrey solid 2px;
     height: 100%;
-    margin-left: 15%;
-    margin-right: 15%;
+    gap: 10px 15px;
+    
+    justify-items: center;
     /* align-items: center; */
-    justify-content: center;
 
 }
 #single-con {
     display: flex;
-    /* flex: 1 20%; */
-    padding: 0 1.5em;
-    background-color: beige;
-    /* margin: 0 auto; */
-    margin: 0.5em 1em;
-    width: 20em;
-    height: 20em;
+    padding: 2em 1.5em;
+    background-color: #d8e2dc65;
+    width: 18em;
+    height: 100%;
     justify-content: center;
+    /* /* align-items: center; */
+    align-items: center; 
 }
-
 
 #single {
-    align-self: center;
-    /* margin-top: auto; */
+    justify-items: center;
 }
+
+button {
+    /* border: none; */
+}
+
+
+#product-img {
+width: 150px;
+height: 150px;
+   }
+
 
 #title {
     padding: 2em 2em;
@@ -133,3 +145,16 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+@media (min-width: 600px) {
+    #shop-con { 
+        
+        grid-template-columns: repeat(2, 1fr); 
+    }
+  }
+  @media (min-width: 900px) {
+    #shop-con { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 1200px) {
+    #shop-con { grid-template-columns: repeat(4, 1fr); }
+  }

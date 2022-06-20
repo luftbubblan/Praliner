@@ -27,7 +27,7 @@
         </div>
 
         <div id="logo-con">
-            <h3>LOGO</h3>
+            <h3 id="logo-text">Marias söta i Vejbystrand</h3>
         </div>
 
         <div id="nav-2">

@@ -25,13 +25,15 @@
 				<div id="single">
 				
 				<a href="product.php?product=<?=$product['id']?>">
-					<img src="<?= $product['img_url']?>" alt="Picture of pralin" width="100" height="100">
-				</a>
+					<div id="img-div">
+						<img id="product-img" src="<?= $product['img_url']?>" alt="Picture of pralin">
+					</div>
+					</a>
 				<h3><?= htmlentities($product['title']) ?></h3>
-				<p><?= htmlentities($product['flavour']) ?></p>
+				<p><i><?= htmlentities($product['flavour']) ?></i></p>
 				
-				<p><?= htmlentities($product['price']) ?>kr</p>
-				<p>stock: <?= htmlentities($product['stock']) ?></p>
+				<p>Left in stock: <?= htmlentities($product['stock']) ?></p>
+				<h6><?= htmlentities($product['price']) ?> kr</h6>
 				<button id="buy-btn">Lägg till i varukorg</button>
 				
 				</div>
