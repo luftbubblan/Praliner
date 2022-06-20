@@ -25,11 +25,11 @@ DONE - Produktdelen - Shop
             Bildtexter - se text nedan
 
 Användardelen - Admin (MALIN)
-    Skapa meny för användardelen/produktdelen
-    DONE Lista alla användare (READ)
-    DONE Skapa nya användare (CREATE)
-    DONE Deleta användare (DELETE)
-    Uppdatera användare (UPDATE) - rad 32....vad skulle jag göra...minns inte....
+    DONE - Skapa meny för användardelen/produktdelen
+    DONE - Lista alla användare (READ)
+    DONE - Skapa nya användare (CREATE)
+    DONE - Deleta användare (DELETE)
+    DONE - Uppdatera användare (UPDATE) - rad 32....vad skulle jag göra...minns inte....
 
 
 Användare - Shop (OSCAR)
@@ -47,22 +47,9 @@ Användare - Shop (OSCAR)
 DONE - Kunna ladda upp bild till produkten man skapar (OSCAR)
 
     
-Design, CSS till en början iaf (ANNA)
 
 
-Gör köpprocessen (TSM)
-    Varukorg - Lär vi oss sen
-    Kassasidan - Lär vi oss sen
-    Hantera ordrar - Tar vi senare
 
-
-Ordrar (WAIT)
-    Skapa databas för ordrar
-    Användare ska kunna lägga en order på varor
-    Användaren ska kunna se sina ordrar
-    Admin ska kunna se alla ordrar som är lagda
-    Admin ska kunna markera ordrar som skickade
-    Admin ska kunna deleta ordrar
 
 
 Skriva om koden till klasser och metoder
@@ -76,7 +63,7 @@ Skriva om koden till klasser och metoder
         DONE - index.php
         DONE - updateUser.php
         DONE - users.php
-        
+
 
 DONE - Gör om Mypage till AJAX (OSCAR)
 
@@ -84,14 +71,41 @@ DONE - Gör om Mypage till AJAX (OSCAR)
 DONE Lägger in bilder som filer i IMG (MALIN)
 
 
+DONE - ta bort pilar upp och ner i telefon och postal code fält (OSCAR)
+DONE - admin - ny användare
+DONE - admin - uppdatera användare
+DONE - shop - registrea användare
+DONE - shop - mypage - update information, make number field
+        
+    
+
+
+
+
+
+
+Design, CSS till en början iaf (ANNA)
+
+
 skriva om hur products visas med AJAX. skapa sökfunktion alla produkterna (OSCAR)
 
 
-DONE - ta bort pilar upp och ner i telefon och postal code fält (OSCAR)
-    DONE - admin - ny användare
-    DONE - admin - uppdatera användare
-    DONE - shop - registrea användare
-    DONE - shop - mypage - update information, make number field
+Gör köpprocessen (TSM)
+    Varukorg - Lär vi oss sen
+    Kassasidan - Lär vi oss sen
+    Hantera ordrar - Tar vi senare
+
+
+Ordrar (TSM)
+    Skapa databas för ordrar
+    Användare ska kunna lägga en order på varor
+    Användaren ska kunna se sina ordrar
+    Admin ska kunna se alla ordrar som är lagda
+    Admin ska kunna markera ordrar som skickade
+    Admin ska kunna deleta ordrar
+
+
+
 
 
 

@@ -30,7 +30,6 @@
         $message .= ifEmptyGenerateMessage($stock, "Stock must not be empty. (Value taken from database)");
         
         $crudFunctions->updateProduct($message, $title, $flavour, $description, $price, $stock, $_POST['id']);
-    
     }
 
     $product =$crudFunctions->fetchProductById($_POST['id']);

@@ -186,7 +186,6 @@ class CRUDFunctions {
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
-       
     }
 
     function fetchPasswordById($id) {
@@ -343,7 +342,7 @@ class CRUDFunctions {
                 $stmt->bindParam(':country', $country);
                 $stmt->execute();
 
-                header('Location:users.php');
+                header('Location:users.php?created');
                 exit;
 
             } catch (\PDOException $e) {
