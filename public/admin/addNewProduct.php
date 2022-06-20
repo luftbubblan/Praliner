@@ -14,7 +14,7 @@
 
 	if (isset($_POST['createProductBtn'])) {
 		$title = 	   ucfirst(trim($_POST['title']));
-		$flavour = 	   ucfirst(trim($_POST['flavour']));
+		$flavour = 	   ucwords(trim($_POST['flavour']));
 		$description = ucfirst(trim($_POST['description']));
 		$price = 			   trim($_POST['price']);
 		$stock = 			   trim($_POST['stock']);
