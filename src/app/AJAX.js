@@ -3,6 +3,8 @@ $('#updateEmailForm').on('submit', updateEmail);
 $('#updatePasswordForm').on('submit', updatePassword);
 $('#updateInformationForm').on('submit', updateInformation);
 $('#deleteForm').on('submit', deleteAccount);
+$('#searchByTitleForm input').on('propertychange input',searchForProduct);
+$('#searchByFlavourForm input').on('propertychange input',searchForProduct);
 
 $('form button').on('click', close)
 
@@ -27,7 +29,7 @@ async function updateName(e) {
             $('.formMessage').html(data['message']);
         }
         
-} catch(error) {
+    } catch(error) {
         console.log(error);
     }
 }
@@ -53,7 +55,7 @@ async function updateEmail(e) {
             $('.formMessage').html(data['message']);
         }
         
-} catch(error) {
+    } catch(error) {
         console.log(error);
     }
 }
@@ -79,7 +81,7 @@ async function updatePassword(e) {
             $('.formMessage').html(data['message']);
         }
         
-} catch(error) {
+    } catch(error) {
         console.log(error);
     }
 }
@@ -105,7 +107,7 @@ async function updateInformation(e) {
             $('.formMessage').html(data['message']);
         }
         
-} catch(error) {
+    } catch(error) {
         console.log(error);
     }
 }
@@ -126,10 +128,73 @@ async function deleteAccount(e) {
         window.location.replace("login.php?deleted");
         
     } catch(error) {
-            console.log(error);
-        }
+        console.log(error);
+    }
 }
 
 function close() {
     window.location.replace("myPage.php");
+}
+
+async function searchForProductByTitle() {
+    const formData = new FormData($(e.target).parent()[0]);
+    formData.set('searchingByTitle', true);
+
+    try {
+        const response = await fetch('../src/app/API.php', {
+            method: 'POST',
+            
+            body: formData
+        });
+        const data = await response.json();
+
+        showProducts(data['products']) 
+
+    } catch(error) {
+        console.log(error);
+    }
+}
+
+async function searchForProduct(e) {
+    const formData = new FormData($(e.target).parent()[0]);
+    const otherInput = $($($(e.target).parent()[0]).siblings()).children()[0];
+    $(otherInput).val("");
+
+    try {
+        const response = await fetch('../src/app/API.php', {
+            method: 'POST',
+            
+            body: formData
+        });
+        const data = await response.json();
+
+        showProducts(data['products']);
+
+    } catch(error) {
+        console.log(error);
+    }
+}
+
+function showProducts(products) {
+    html = "";
+    for (product of products) {
+        html += `
+            <div id="single-con">
+                <div id="single">
+                
+                <a href="product.php?product=${product['id']}">
+                    <img src=" ${product['img_url']}" alt="Picture of pralin" width="100" height="100">
+                </a>
+                <h3> ${product['title']} </h3>
+                <p> ${product['flavour']} </p>
+                
+                <p> ${product['price']} kr</p>
+                <p>stock:  ${product['stock']} </p>
+                <button id="buy-btn">Lägg till i varukorg</button>
+                
+                </div>
+            </div>
+        `
+    }
+    $('#shop-con').html(html);
 }
