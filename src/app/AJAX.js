@@ -192,7 +192,11 @@ function showProducts(products) {
                 
                 <p>Left in stock: ${product['stock']} </p>
                 <h6>${product['price']} kr</h6>
-                <button id="buy-btn">Lägg till i varukorg</button>
+                <form action="addToCart.php" method="POST">
+                    <input type="hidden" name="productId" value="${product['id']}">
+                    <input type="number" name="quantity" value="1" min="1">
+                    <input type="submit" name="addToCartBtn" value="Köp">
+                </form>
                 
                 </div>
             </div>
