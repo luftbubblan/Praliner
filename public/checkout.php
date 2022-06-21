@@ -5,8 +5,9 @@
 ?>
 
 <div class="container">
-    <!-- <?php include('cart.php') ?> -->
 
+    <?php if(!empty($_SESSION['cartItems'])) { ?>
+    
     <br>
 
     <table class="table tabel-borderless">
@@ -49,9 +50,13 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td><b>Total kostnad <?=$TotalSum?> kr</b></td>
+                <td><b>Total kostnad <br><?=$TotalSum?> kr</b></td>
             </tr>
-        </tbody>             
+        </tbody>   
+        
+        <?php } else { ?>
+            You have no items to checkout
+        <?php }  ?>
 </div>
 
 <?php include('layout/footer.php') ?>

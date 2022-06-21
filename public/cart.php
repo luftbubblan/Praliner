@@ -9,8 +9,8 @@
 
 
 <div class="dropdown">
-    <button class="dropbtn">
-        <span><?=$cartItemsInCart?></span>
+    <button class="btn btn-success">
+        <span class="items-in-cart"><?=$cartItemsInCart?></span>
         Cart
     </button>
     <div class="dropdown-content">
@@ -18,7 +18,7 @@
             <div class="shopping-cart-header">
                 <span class="items-in-cart"><?=$cartItemsInCart?> Praliner</span>
                 <div class="shopping-cart-total">
-                    <span>Total kostnad: <?=$TotalSum?> kr</span>
+                    <span><b>Total kostnad: <?=$TotalSum?> kr</b></span>
                 </div>
             </div>
 
@@ -30,10 +30,11 @@
                         <span class="item-price"><?=$cartItem['price']?> kr</span>
                         <span class="item-quantity">Antal: <?=$cartItem['quantity']?></span>
                     </div>
+                    <hr>
                 <?php } ?>
             </div>
 
-            <a href="checkout.php" class="checkoutBtn">Checkout</a>
+            <button onclick="document.location='checkout.php'" class="btn btn-success btn-block">Checkout</button>
         </div>
     </div>
 </div>
