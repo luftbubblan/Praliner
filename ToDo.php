@@ -117,3 +117,7 @@ Prinsesstårta i prinsesskostym:
 Text om min syster:
 
 Köpvillkor:
+
+VARUKORG:
+
+Bootstrap - https://bbbootstrap.com/snippets/bootstrap-ecommerce-shopping-cart-item-summary-44021562#
