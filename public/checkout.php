@@ -49,7 +49,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
+                <td><b>Antal praliner<br><?=$cartItemsInCart?> st</b></td>
                 <td><b>Total kostnad <br><?=$TotalSum?> kr</b></td>
             </tr>
         </tbody>   
