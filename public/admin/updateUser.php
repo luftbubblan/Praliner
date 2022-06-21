@@ -47,7 +47,6 @@ include('layout/header.php');
             <fieldset>
                 <legend>Uppdatera användare</legend>
 
-
                 <?=$message ?>
                 
                 <p>
