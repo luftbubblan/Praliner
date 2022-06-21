@@ -30,7 +30,7 @@
     <article class="border">
         <h1>Hantera användare</h1>
 
-        <?=$message ?>
+         <?=$message ?> 
 
     <form action="addNewUser.php">
         <input type="submit" value="Ny användare">
