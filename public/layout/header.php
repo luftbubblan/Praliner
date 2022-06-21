@@ -22,6 +22,19 @@
     <div id="header-container">
         <div id="nav-1">
             <a href="index.php">Shop</a>
+            <div>
+           <!--  <a href="cart.php">Varukorg</a> -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Varukorg
+                </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+    </div>
             <a href="admin">Admin</a>
             <?= $menu ?>
         </div>
