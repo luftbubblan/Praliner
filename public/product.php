@@ -3,6 +3,7 @@
 
 	require('../src/config.php');
     require('../src/app/CRUD_functions.php');
+ 
 
     $product =$crudFunctions->fetchProductById($_GET['product']);
 
