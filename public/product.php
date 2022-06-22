@@ -28,9 +28,13 @@
             <p><?= htmlentities($product['description']) ?></p>
         <h4><?= htmlentities($product['price']) ?> kr</h4>
         <div id="buy-sec">
-            <input type="number" value="1" min="1" max="<?= htmlentities($product['stock']) ?>">
-            <button id="buy-btn">Lägg till i varukorg</button>
+            <form action="addToCart.php" method="POST">
+                <input type="hidden" name="productId" value="<?= ($product['id']) ?>">
+                <input type="number" name="quantity" value="1" min="1" max="<?= ($product['stock']) ?>">
+                <input type="submit" name="addToCartBtn" value="Köp">
+            </form>
         </div>
+        
     </div>
 </div>
 

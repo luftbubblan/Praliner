@@ -178,6 +178,7 @@ async function searchForProduct(e) {
 function showProducts(products) {
     html = "";
     for (product of products) {
+        console.log(product);
         html += `
             <div id="single-con">
                 <div id="single">
@@ -194,7 +195,7 @@ function showProducts(products) {
                 <h6>${product['price']} kr</h6>
                 <form action="addToCart.php" method="POST">
                     <input type="hidden" name="productId" value="${product['id']}">
-                    <input type="number" name="quantity" value="1" min="1">
+                    <input type="number" name="quantity" value="1" min="1" max="${product['stock']}">
                     <input type="submit" name="addToCartBtn" value="Köp">
                 </form>
                 

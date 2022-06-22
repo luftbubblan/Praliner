@@ -27,7 +27,7 @@
                     <div class="clearfix">
                         <img src="<?=$cartItem['img_url']?>" alt="item1" />
                         <span class="item-name"><?=$cartItem['title']?></span>
-                        <span class="item-price"><?=$cartItem['price']?> kr</span>
+                        <span class="item-price"><?=$cartItem['price']?> kr/st</span>
                         <span class="item-quantity">Antal: <?=$cartItem['quantity']?></span>
                     </div>
                     <hr>
