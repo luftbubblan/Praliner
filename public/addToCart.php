@@ -8,7 +8,6 @@
     }
 
     $product = $crudFunctions->fetchProductById($productId);
-
     
     if($product) {
         $product = array_merge($product, ['quantity' => $quantity]);

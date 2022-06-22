@@ -34,12 +34,14 @@
 	<div id="shop-con">
 	</div>
 </div>
- <!-- Path to jQuery -->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- CUSTOM -->
 <script src="../src/app/AJAX.js"></script>
+<script src="../src/app/js_functions.js"></script>
 <script>
 	var JSDATA = <?=json_encode($products, JSON_HEX_TAG | JSON_HEX_AMP )?>;
 	showProducts(JSDATA);
+	showValue();
 </script>
 <?php include('layout/footer.php') ?>

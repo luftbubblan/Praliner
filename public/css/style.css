@@ -327,3 +327,17 @@ h4 {
 .btn-info:hover {
 	background-color: #3E7BBD;
 }
+
+.plusMinus {
+    border: none;
+    font-size: 20px;
+    font-weight: 1000;
+}
+
+.plusMinusSingle {
+    background-color: #ffffff;
+}
+
+#buy-sec span {
+    font-size: 25px;
+}

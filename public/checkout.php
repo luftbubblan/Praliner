@@ -37,11 +37,10 @@
                     <td>
                         <form class="updateCartForm" action="updateCartItem.php" method="POST">
                             <input type="hidden" name="cartId" value="<?=$cartid?>">
-                            <input type="submit" name="minus" class="btn btn-info" value="-">
+                            <input type="submit" class="minusBtn plusMinus plusMinusSingle" name="minus" value="-">
                             <span><?=$cartItem['quantity']?></span>
                             <input type="hidden" name="quantity" value="<?=$cartItem['quantity']?>">
-                            <input type="submit" name="plus" class="btn btn-info" value="+">
-                            <span class="glyphicon glyphicon-plus-sign"></span>
+                            <input type="submit" class="plusBtn plusMinus plusMinusSingle" name="plus" value="+">
                         </form>
                     </td>
                     <td>
