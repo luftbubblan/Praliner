@@ -138,5 +138,3 @@ if(isset($_POST['searchingByFlavour'])) {
         'products' => $products
     ];
 }
-
-echo json_encode($data);

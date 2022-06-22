@@ -9,7 +9,7 @@
 
 
 <div class="dropdown">
-    <button class="btn btn-success">
+    <button class="btn btn-info">
         <span class="items-in-cart"><?=$cartItemsInCart?></span>
         Cart
     </button>
