@@ -95,7 +95,6 @@ Gör köpprocessen (OSCAR)
     DONE - Göra så man kan köpa från enskild produkt sida
     DONE - Ändra quantity till sifftra och + - knappar
     Ta bort vara i cart
-    Hantera ordrar - Tar vi senare
     fixa tom korg bug
 
 
