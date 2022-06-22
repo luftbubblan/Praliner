@@ -15,19 +15,17 @@
     
     <div id="img-desc">
         <img src="<?=$product['img_url']?>" alt="Picture of pralin" width="500" height="500">
-        <div id="desc">
-            <p><?= htmlentities($product['description']) ?></p>
-        </div>
     </div>
-
-
+    
+    
     
     <div id="about-con">
         <div id="title">
             <h3><?= htmlentities($product['title']) ?></h3>
         </div>
-        <p><?= htmlentities($product['flavour']) ?></p>
-        <p>stock: <?= htmlentities($product['stock']) ?></p>
+        <p><i><?= htmlentities($product['flavour']) ?></i></p>
+        <p id="p-stock">stock: <?= htmlentities($product['stock']) ?></p>
+            <p><?= htmlentities($product['description']) ?></p>
         <h4><?= htmlentities($product['price']) ?> kr</h4>
         <div id="buy-sec">
             <input type="number" value="1" min="1" max="<?= htmlentities($product['stock']) ?>">

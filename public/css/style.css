@@ -107,8 +107,6 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 50em;
-
 }
 
 #img-desc{
@@ -116,6 +114,7 @@
     margin-top: 2em;
 
 }
+
 
 #img-con {
     border: #004349 solid 1px;
@@ -129,11 +128,12 @@
     /* margin: auto; */
     align-items: center;
     height: 30em;
-    width: 20em;
-
+    max-width: 20em;
 }
-h4 {
-    margin-top: 5em;
+
+#p-stock {
+    margin-top: 4em;
+
 }
 
 #buy-sec {
