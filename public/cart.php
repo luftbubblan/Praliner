@@ -1,4 +1,8 @@
 <?php 
+    if(!isset($_SESSION['cartItems'])) {
+        $_SESSION['cartItems'] = [];
+    }
+
     $cartItemsInCart = 0;
     $TotalSum = 0;
     foreach($_SESSION['cartItems'] as $cartid => $cartItem) {
