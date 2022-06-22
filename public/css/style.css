@@ -64,15 +64,11 @@
 
 #shop-con {
     display: grid;
-    width: auto;
-    /* margin-left: 100px;
-    margin-right: 100px; */
-    padding: 60px 0px;
-    /* border: lightgrey solid 2px; */
+    grid-template-columns: repeat(4, minmax(100px, 300px));
+    justify-content: center;
+    /* grid-gap: 1rem; */
     height: 100%;
-    gap: 20px 15px;    
-    justify-items: center;
-    /* align-items: center; */
+    gap: 20px 15px;
 
 }
 #single-con {
@@ -161,21 +157,25 @@
     text-align: center;
 }
 
-@media (min-width: 600px) {
+@media (max-width: 1200px ) {
     #shop-con { 
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(3, minmax(100px, 250px));
+    }
+    #single-con {
+     width: 15em;
     }
 }
 
-@media (min-width: 900px) {
-    #shop-con { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 800px ) {
+   #shop-con { 
+       grid-template-columns: repeat(2, minmax(200px, 250px));
+   }
 }
-
-@media (min-width: 1200px) {
-    #shop-con { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 600px ) {
+   #shop-con { 
+       grid-template-columns: repeat(1, minmax(100px, 250px));
+   }
 }
-
-
 
 
 
