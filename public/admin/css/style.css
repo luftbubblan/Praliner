@@ -5,10 +5,10 @@
 
 #products-tbl tr,
 #products-tbl td,
-#products-tbl th {
+ #products-tbl th {
 	border: 1px solid black;
 	padding: 10px;
-}
+} 
 
 /* Chrome, Safari, Edge, Opera remove arrows in number input */
 input::-webkit-outer-spin-button,
@@ -22,7 +22,81 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-#content {
 
+/* USERS */
+#content {
+	display: flex;
+	margin: 20px 40px;
+	border: solid 3px #006d77;
+	padding: 20px;
 	
+}
+
+h2 {
+	color: #006d77;
+	/* font-family: old goodie style; */
+}
+
+
+tr:nth-child(even) {
+	background: #d8e2dc65
+}
+
+tr:nth-child(odd) {
+	background: #FFF
+}
+
+#lista {
+	background-color: #ffcad495;
+}
+
+
+/* ADD NEW USER */
+#addNewUser {
+	display: flex;
+	margin: 20px 40px;
+	border: solid 3px #006d77;
+	 padding: 20px; 
+    align-items: left;
+    flex-direction: column;
+	
+
+}
+
+#addNewUserBtn{
+	color: black;
+}
+/* UPDATE NEW USER */
+
+#content-updateUser {
+	display: flex;
+	margin: 20px 200px 20px 20px;
+	border: solid 3px #006d77;
+	padding: 20px;
+	align-items: left;
+    flex-direction: column;
+}
+
+/* PRODUCT ADMIN INDEX */
+#content-products {
+	display: flex;
+	margin: 20px 200px 20px 20px;
+	border: solid 3px #006d77;
+	padding: 20px;
+	align-items: left;
+    flex-direction: column;
+
+}
+
+tr:nth-child(even) {
+	background: #d8e2dc65
+}
+
+tr:nth-child(odd) {
+	background: #FFF
+}
+
+#product-list {
+	background-color: #ffcad495;
+
 }

@@ -21,6 +21,7 @@
     $postalCode = "";
     $city = "";
     $country = "";
+    
 	
 	if (isset($_POST['addNewUserBtn'])) {
 		$firstName =  ucfirst(trim($_POST['firstName']));
@@ -51,8 +52,8 @@
 	include('layout/header.php');
 ?>
 
-
-<h1>Add new user</h1>
+<div id="addNewUser">
+<h2>Add new user</h2>
 
 <?=$message?>
 
@@ -68,7 +69,7 @@
     <input type="text" name="country" placeholder="Country" value="<?=$_POST['country'] ?? "" ?>">
     <input type="submit" name="addNewUserBtn" value="Add new user">
 </form>
-
+</div>
 
 
 
