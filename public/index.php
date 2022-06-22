@@ -5,6 +5,10 @@
 	require('../src/app/common_functions.php');
 	require('../src/app/CRUD_functions.php');
 
+	// echo "<pre>";
+	// print_r($_SESSION['cartItems']);
+	// echo "</pre>";
+
 	$products = $crudFunctions->fetchAllProductsDESC();
 
 	include('layout/header.php');
@@ -34,12 +38,12 @@
 	<div id="shop-con">
 	</div>
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <!-- Path to jQuery -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- CUSTOM -->
 <script src="../src/app/AJAX.js"></script>
 <script>
 	var JSDATA = <?=json_encode($products, JSON_HEX_TAG | JSON_HEX_AMP )?>;
 	showProducts(JSDATA);
 </script>
-
-<?php include('layout/footer.php') ?> 
+<?php include('layout/footer.php') ?>

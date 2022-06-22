@@ -1,31 +1,62 @@
 <?php
     require('../src/config.php');
+
+    include('layout/header.php');
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-   <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">   -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="container">
 
-  <!--   Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    <link rel="stylesheet" type="text/css" href="css/checkout.css"
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <?php include('cart.php') ?>
+    <?php if(!empty($_SESSION['cartItems'])) { ?>
+    
+    <br>
 
-        <br>
+    <table class="table tabel-borderless">
+        <thead>
+            <tr>
+                <th style="width: 15%">Produkt</th>
+                <th style="width: 50%">Info</th>
+                <th style="width: 10%"></th>
+                <th style="width: 10%">Antal</th>
+                <th style="width: 15%">Pris per produkt</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php foreach($_SESSION['cartItems'] as $cartid => $cartItem) { ?>
+                <tr>
+                    <td><img src="<?=$cartItem['img_url']?>" width="100px" height="100px"></td>
+                    <td><?=$cartItem['title']?></td>
+                    <td>
+                        <form action="deleteCartItem.php" method="POST">
+                            <input type="hidden" name="cartId" value="<?=$cartid?>">
+                            <input type="submit" class="btn btn-danger" value="Delete">
+                        </form>
+                    </td>
+                    <td>
+                        <form class="updateCartForm" action="updateCartItem.php" method="POST">
+                            <input type="hidden" name="cartId" value="<?=$cartid?>">
+                            <input type="number" name="quantity" value="<?=$cartItem['quantity']?>" min="1">
+                            <input type="submit" class="btn btn-primary" value="Updatera antal">
+                        </form>
+                    </td>
+                    <td>
+                        <?=$cartItem['price']?> kr
+                    </td>
+                </tr>
+            <?php } ?>
+
+            <tr class="border-top">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>Antal praliner<br><?=$cartItemsInCart?> st</b></td>
+                <td><b>Total kostnad <br><?=$TotalSum?> kr</b></td>
+            </tr>
+        </tbody>   
         
+        <?php } else { ?>
+            You have no items to checkout
+        <?php }  ?>
+</div>
 
-</body>
-</html>
-
-
-<!-- KOD att lägga under produktsidan?
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<?php include('layout/footer.php') ?>

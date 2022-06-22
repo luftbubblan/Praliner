@@ -65,7 +65,7 @@ include('layout/header.php');
                 </p>
 
                 <p>
-                    <label for="password">New password:</label> <br>
+                    <label for="password">New password: (Leave empty to keep old password)</label> <br>
                     <input type="text" class="text" name="password">
                 </p>
 
