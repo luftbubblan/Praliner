@@ -78,31 +78,33 @@ DONE - shop - registrea användare
 DONE - shop - mypage - update information, make number field
         
     
+DONE - skriva om hur products visas med AJAX. skapa sökfunktion alla produkterna (OSCAR)
 
 
 
 
 
 
-Design, CSS till en början iaf (ANNA)
+Design Shop (ANNA)
+Design Admin (Malin)
 
 
-skriva om hur products visas med AJAX. skapa sökfunktion alla produkterna (OSCAR)
-
-
-Gör köpprocessen (TSM)
-    Varukorg - Lär vi oss sen
-    Kassasidan - Lär vi oss sen
+Gör köpprocessen (OSCAR)
+    DONE - Varukorg - Lär vi oss sen
+    DONE - Kassasidan - Lär vi oss sen
+    DONE - Göra så man kan köpa från enskild produkt sida
+    Ändra quantity till sifftra och + - knappar
     Hantera ordrar - Tar vi senare
 
 
 Ordrar (TSM)
     Skapa databas för ordrar
     Användare ska kunna lägga en order på varor
-    Användaren ska kunna se sina ordrar
-    Admin ska kunna se alla ordrar som är lagda
-    Admin ska kunna markera ordrar som skickade
-    Admin ska kunna deleta ordrar
+        -OPTIONAL-
+        Användaren ska kunna se sina ordrar
+        Admin ska kunna se alla ordrar som är lagda
+        Admin ska kunna markera ordrar som skickade
+        Admin ska kunna deleta ordrar
 
 
 
