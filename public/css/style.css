@@ -1,5 +1,5 @@
 #header-container {
-    height: 40vh;
+    height: 60vh;
 }
 #nav-1 {
     display: flex;
@@ -21,15 +21,20 @@
     display: flex;
     /* background-image: url(../img/kiki-siepel-BEwxLSN_bKU-unsplash.jpg); */
     /* background-position: center; */
-    height: 25vh;
+    height: 45vh;
     justify-content: center;
     align-items: center;
-}
+    font-family: 'Potta One', cursive;
+    background-color: #ffcad495;
+    color: white;
+    text-shadow: 2px 0 3px #6F4E37;
 
+
+}
 
 #nav-2 {
     display: flex;
-    background-color: #d8e2dc;
+    background-color: #d8e2dc65;
     height: 10vh;
     align-items: center;
 }
@@ -50,7 +55,7 @@
 
 #front-info {
     display: flex;
-    background-color: #d8e2dc65;
+    background-color: white;
     height: 40vh;
     padding: 0 3%;
     justify-content: center;
