@@ -5,10 +5,6 @@
 	require('../src/app/common_functions.php');
 	require('../src/app/CRUD_functions.php');
 
-	// echo "<pre>";
-	// print_r($_SESSION['cartItems']);
-	// echo "</pre>";
-
 	$products = $crudFunctions->fetchAllProductsDESC();
 
 	include('layout/header.php');

@@ -1,4 +1,6 @@
 <?php
+    $pageTitle = "Kassa";
+
     require('../src/config.php');
 
     include('layout/header.php');
@@ -14,9 +16,9 @@
         <thead>
             <tr>
                 <th style="width: 15%">Produkt</th>
-                <th style="width: 50%">Info</th>
+                <th style="width: 45%">Info</th>
                 <th style="width: 10%"></th>
-                <th style="width: 10%">Antal</th>
+                <th style="width: 15%">Antal</th>
                 <th style="width: 15%">Pris per produkt</th>
             </tr>
         </thead>
@@ -35,8 +37,11 @@
                     <td>
                         <form class="updateCartForm" action="updateCartItem.php" method="POST">
                             <input type="hidden" name="cartId" value="<?=$cartid?>">
-                            <input type="number" name="quantity" value="<?=$cartItem['quantity']?>" min="1">
-                            <input type="submit" class="btn btn-primary" value="Updatera antal">
+                            <input type="submit" name="minus" class="btn btn-info" value="-">
+                            <span><?=$cartItem['quantity']?></span>
+                            <input type="hidden" name="quantity" value="<?=$cartItem['quantity']?>">
+                            <input type="submit" name="plus" class="btn btn-info" value="+">
+                            <span class="glyphicon glyphicon-plus-sign"></span>
                         </form>
                     </td>
                     <td>
