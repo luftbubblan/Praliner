@@ -9,12 +9,12 @@ $('#searchByFlavourForm input').on('propertychange input',searchForProduct);
 $('form button').on('click', close)
 
 async function updateName(e) {
-    e.preventDefault();
-    console.log(e.target)
+    // e.preventDefault();
+    // console.log(e.target)
 
     const formData = new FormData(e.target);
     formData.set('updateNameBtn', true);
-    console.log(formData)
+    // console.log(formData)
     
     try {
         const response = await fetch('../src/app/API.php', {
@@ -22,9 +22,13 @@ async function updateName(e) {
             
             body: formData
         });
-        console.log(response)
+        console.log(response.json())
+        // for (var pair of formData.entries()) {
+        //     console.log(pair[0]+ ', ' + pair[1]); 
+        // }
 
-        const data = await response.json();
+
+        // const data = await response.json();
 
         // if(data['message'].includes("success")) {
         //     window.location.replace("myPage.php?nameUpdated");

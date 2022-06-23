@@ -3,9 +3,9 @@ require('../config.php');
 require('common_functions.php');
 require('CRUD_functions.php');
 
-// echo "<pre>";
-// print_r($_POST);
-// echo "</pre>";
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
 
 $message = "";
 
@@ -19,11 +19,15 @@ if(isset($_POST['updateNameBtn'])) {
     $message .= $crudFunctions->updateName($message, $firstName, $lastName, $_SESSION['id']);
 
     $user = $crudFunctions->fetchUserById($_SESSION['id']);
+
     
     $data = [
         'message' => $message,
         'user'    => $user
     ];
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
 }
 
 if(isset($_POST['updateEmailBtn'])) {
