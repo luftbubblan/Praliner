@@ -304,6 +304,11 @@
 	background-color: #A64441;
 }
 
+.btn-danger:focus {
+	background-color: #A64441;
+    color: white;
+}
+
 .btn-warning {
 	background-color: #fff3cd;
 	border: 1px solid #fff0c3;
@@ -311,6 +316,11 @@
 }
 
 .btn-warning:hover {
+	background-color: #BF9B47;
+	color: white;
+}
+
+.btn-warning:focus {
 	background-color: #BF9B47;
 	color: white;
 }
@@ -325,6 +335,11 @@
 	background-color: #4D8F42;
 }
 
+.btn-success:focus {
+	background-color: #4D8F42;
+    color: white;
+}
+
 .btn-info {
 	background-color: #A0CEFF;
 	border: 1px solid #81A5CC;
@@ -334,6 +349,18 @@
 .btn-info:hover {
 	background-color: #3E7BBD;
 }
+
+.btn-info:focus {
+	background-color: #3E7BBD;
+}
+
+
+/* removes outline on Bootstrap 5 buttons */
+.btn:focus, .btn:active {
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+  }
 
 .plusMinus {
     border: none;
@@ -347,4 +374,15 @@
 
 #buy-sec span {
     font-size: 25px;
+}
+
+.shopping-cart button {
+    width: 100%;
+}
+
+#cartDeleteForm {
+    display: inline-block;
+    position: relative;
+    left: 70px;
+    bottom: 20px;
 }

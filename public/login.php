@@ -5,6 +5,8 @@
     require('../src/app/common_functions.php');
     require('../src/app/CRUD_functions.php');
 
+    $message = "";
+
     if(isset($_SESSION['id'])) {
         header('Location: myPage.php');
         exit;
@@ -21,9 +23,20 @@
         $email    = trim($_POST['email']);
         $password = trim($_POST['password']);
 
-        $userPasswordAndId = $crudFunctions->fetchPasswordAndIdByEmail($email);
+        $message .= checkIfEmailIsValid($email);
+        if(!empty($message)) {
+            $message = errorMessage("Invalid login credentials. Please try again.");
+        } else {
+            $userPasswordAndId = $crudFunctions->fetchPasswordAndIdByEmail($email);
+    
+            if(checkIfPasswordIsCorrect($password, $userPasswordAndId['password'])) {
+                setLoginSession($userPasswordAndId['id']);
+                header('Location: myPage.php');
+                exit;
+            }
+            $message .= errorMessage("Invalid login credentials. Please try again.");
+        }
 
-        $message = checkIfPasswordIsCorrect($password, $userPasswordAndId);
     }
 
 	include('layout/header.php');

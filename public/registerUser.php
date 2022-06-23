@@ -5,7 +5,6 @@
     require('../src/app/common_functions.php');
     require('../src/app/CRUD_functions.php');
 
-    //CREATE
     $message = "";
     $firstName = "";
     $lastName = "";
@@ -50,7 +49,6 @@
 
         $message .= $crudFunctions->registerUser($message, $firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country);
     }
-
 
 	include('layout/header.php');
 ?>

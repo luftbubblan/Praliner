@@ -81,12 +81,10 @@ DONE - shop - mypage - update information, make number field
 DONE - skriva om hur products visas med AJAX. skapa sökfunktion alla produkterna (OSCAR)
 
 
+DONE - Fixa modals på mypage (OSCAR)
 
 
-
-
-Design Shop (ANNA)
-Design Admin (Malin)
+DONE - Fixa active knappar färg (OSCAR)
 
 
 Gör köpprocessen (OSCAR)
@@ -94,9 +92,19 @@ Gör köpprocessen (OSCAR)
     DONE - Kassasidan - Lär vi oss sen
     DONE - Göra så man kan köpa från enskild produkt sida
     DONE - Ändra quantity till sifftra och + - knappar
-    Ta bort vara i cart
-    fixa tom korg bug
+    DONE - Ta bort vara i cart
+    DONE - fixa tom korg bug
+    DONE - fixa warnings
 
+
+
+
+
+
+
+
+Design Shop (ANNA)
+Design Admin (Malin)
 
 
 Ordrar (TSM)
@@ -107,6 +115,8 @@ Ordrar (TSM)
         Admin ska kunna se alla ordrar som är lagda
         Admin ska kunna markera ordrar som skickade
         Admin ska kunna deleta ordrar
+
+
 
 
 

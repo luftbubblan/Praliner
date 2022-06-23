@@ -5,10 +5,6 @@
 	require('../../src/app/common_functions.php');
 	require('../../src/app/CRUD_functions.php');
 
-    // echo "<pre>";
-    // print_r($_POST);
-    // echo "</pre>";
-
 	$message = "";
 
 	$firstName = "";
@@ -21,6 +17,7 @@
     $postalCode = "";
     $city = "";
     $country = "";
+    
 	
 	if (isset($_POST['addNewUserBtn'])) {
 		$firstName =  ucfirst(trim($_POST['firstName']));
@@ -51,24 +48,24 @@
 	include('layout/header.php');
 ?>
 
-
-<h1>Add new user</h1>
+<div id="addNewUser">
+<h2>Add new user</h2>
 
 <?=$message?>
 
 <form action="" method="POST">
-    <input type="text" name="firstName" placeholder="First Name" value="<?=$_POST['first_name'] ?? "" ?>">
-    <input type="text" name="lastName" placeholder="Last Name" value="<?=$_POST['last_name'] ?? "" ?>">
+    <input type="text" name="firstName" placeholder="First Name" value="<?=$_POST['firstName'] ?? "" ?>">
+    <input type="text" name="lastName" placeholder="Last Name" value="<?=$_POST['lastName'] ?? "" ?>">
     <input type="text" name="email" placeholder="E-mail" value="<?=$_POST['email'] ?? "" ?>">
     <input type="text" name="password" placeholder="Password" value="<?=$_POST['password'] ?? "" ?>">
     <input type="number" name="phone" placeholder="Phone" value="<?=$_POST['phone'] ?? "" ?>">
     <input type="text" name="street" placeholder="Street" value="<?=$_POST['street'] ?? "" ?>">
-    <input type="number" name="postalCode" placeholder="Postal code" value="<?=$_POST['postal_code']?>">
+    <input type="number" name="postalCode" placeholder="Postal code" value="<?=$_POST['postalCode'] ?? "" ?>">
     <input type="text" name="city" placeholder="City" value="<?=$_POST['city'] ?? "" ?>">
     <input type="text" name="country" placeholder="Country" value="<?=$_POST['country'] ?? "" ?>">
     <input type="submit" name="addNewUserBtn" value="Add new user">
 </form>
-
+</div>
 
 
 
