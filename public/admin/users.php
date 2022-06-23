@@ -34,19 +34,21 @@
    
 <div id="content">
     <article class="border">
-        <h1>Hantera användare</h1>
+        <div id="headline">
+        <h2>Hantera användare</h2>
+        </div>
 
          <?=$message ?> 
 
         <form action="addNewUser.php">
-            <input type="submit" value="Ny användare">
+            <input class="btn btn-info" id="addNewUserBtn" type="submit" value="Ny användare">
         </form>
         <br>
 
         <?php if($users) { ?>
         <table id="users-tbl">
             <thead>
-                <tr>
+                <tr id="lista">
                     <th>id</th>
                     <th>First_name</th>
                     <th>Last_name</th>
@@ -60,7 +62,9 @@
 
                 </tr>
             </thead>
+   
             <tbody>
+            
                 <?php foreach($users as $user) { ?>
                 <tr>
                     <td><?=htmlentities($user['id']) ?></td>
@@ -77,14 +81,14 @@
                     <td>           
                         <form action="updateUser.php" method="GET">
                             <input type="hidden" name="userId" value="<?=htmlentities($user['id']) ?>">
-                            <input type="submit" value="Uppdatera">
+                            <input class="btn btn-success" type="submit" value="Uppdatera">
                         </form>
 
                         <form action="" method="POST">
                             <input type="hidden" name="userId" value="<?=htmlentities($user['id']) ?>">
-                            <input type="submit" name="deleteUserBtn" value="Radera">
+                            <input class="btn btn-danger" type="submit" name="deleteUserBtn" value="Radera">
                         </form>
-                    </td>                  
+                    </td>                 
                 </tr>
                 <?php } ?>
             </tbody>

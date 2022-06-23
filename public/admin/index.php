@@ -28,8 +28,8 @@
 	include('layout/header.php');
 ?>
 
-
-<h1>Product admin page</h1>
+<div id="content-products">
+<h2>Product admin page</h2>
 
 <form action="addNewProduct.php">
 	<input type="submit" value="Create new product">
@@ -39,7 +39,7 @@
 
 <table id="products-tbl">
 	<thead>
-		<tr>
+		<tr id="product-list">
 			<th>Id</th>
 			<th>Title</th>
 			<th>Flavour</th>
@@ -84,6 +84,7 @@
         <?php } ?>
 	</tbody>
 </table>
+</div>
 
 
 
