@@ -95,8 +95,11 @@ Gör köpprocessen (OSCAR)
     DONE - Göra så man kan köpa från enskild produkt sida
     DONE - Ändra quantity till sifftra och + - knappar
     Ta bort vara i cart
-    fixa tom korg bug
+    DONE - fixa tom korg bug
+    fixa warnings
 
+
+Fixa modals på mypage (OSCAR)
 
 
 Ordrar (TSM)

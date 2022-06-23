@@ -167,7 +167,7 @@ class CRUDFunctions {
         }
     }
 
-    function fetchUserById($id) {
+    function fetchUserById($id) {        
         $sql = "
             SELECT * FROM users
             WHERE id = :id
