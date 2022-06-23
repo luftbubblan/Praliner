@@ -5,9 +5,7 @@
 	require('../../src/app/common_functions.php');
 	require('../../src/app/CRUD_functions.php');
 
-	// echo "<pre>";
-    // print_r($_GET);
-    // echo "</pre>";
+	$message = "";
 
     if (isset($_GET['updated'])) {
         $message .= successMessage("User successfully updated.");

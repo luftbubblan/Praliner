@@ -5,6 +5,8 @@
     require('../src/app/common_functions.php');
     require('../src/app/CRUD_functions.php');
 
+    $message = "";
+
     if(isset($_SESSION['id'])) {
         header('Location: myPage.php');
         exit;
