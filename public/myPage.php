@@ -34,9 +34,9 @@
 
     $user = $crudFunctions->fetchUserById($_SESSION['id']);
 
-    echo "<pre>";
-    print_r($user);
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($user);
+    // echo "</pre>";
 
 	include('layout/header.php');
 ?>

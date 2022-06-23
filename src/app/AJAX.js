@@ -10,24 +10,27 @@ $('form button').on('click', close)
 
 async function updateName(e) {
     e.preventDefault();
+    console.log(e.target)
 
     const formData = new FormData(e.target);
     formData.set('updateNameBtn', true);
-
+    console.log(formData)
+    
     try {
         const response = await fetch('../src/app/API.php', {
             method: 'POST',
             
             body: formData
         });
+        console.log(response)
 
         const data = await response.json();
 
-        if(data['message'].includes("success")) {
-            window.location.replace("myPage.php?nameUpdated");
-        } else {
-            $('.formMessage').html(data['message']);
-        }
+        // if(data['message'].includes("success")) {
+        //     window.location.replace("myPage.php?nameUpdated");
+        // } else {
+        //     $('.formMessage').html(data['message']);
+        // }
         
     } catch(error) {
         console.log(error);
