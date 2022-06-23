@@ -96,10 +96,10 @@ Gör köpprocessen (OSCAR)
     DONE - Ändra quantity till sifftra och + - knappar
     Ta bort vara i cart
     DONE - fixa tom korg bug
-    fixa warnings
+    DONE - fixa warnings
 
 
-Fixa modals på mypage (OSCAR)
+DONE - Fixa modals på mypage (OSCAR)
 
 Fixa active knappar färg (OSCAR)
 

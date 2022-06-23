@@ -38,7 +38,7 @@
                 <?php } ?>
             </div>
 
-            <button onclick="document.location='checkout.php'" class="btn btn-success btn-block">Checkout</button>
+            <button onclick="document.location='checkout.php'" class="btn btn-success">Checkout</button>
         </div>
     </div>
 </div>
