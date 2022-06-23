@@ -87,26 +87,24 @@ DONE - Fixa modals på mypage (OSCAR)
 DONE - Fixa active knappar färg (OSCAR)
 
 
-
-Design Shop (ANNA)
-Design Admin (Malin)
-
-
-
-
-
-
-
-
-
 Gör köpprocessen (OSCAR)
     DONE - Varukorg - Lär vi oss sen
     DONE - Kassasidan - Lär vi oss sen
     DONE - Göra så man kan köpa från enskild produkt sida
     DONE - Ändra quantity till sifftra och + - knappar
-    Ta bort vara i cart
+    DONE - Ta bort vara i cart
     DONE - fixa tom korg bug
     DONE - fixa warnings
+
+
+
+
+
+
+
+
+Design Shop (ANNA)
+Design Admin (Malin)
 
 
 Ordrar (TSM)
@@ -117,6 +115,8 @@ Ordrar (TSM)
         Admin ska kunna se alla ordrar som är lagda
         Admin ska kunna markera ordrar som skickade
         Admin ska kunna deleta ordrar
+
+
 
 
 
