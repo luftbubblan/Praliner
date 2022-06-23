@@ -93,8 +93,10 @@ Gör köpprocessen (OSCAR)
     DONE - Varukorg - Lär vi oss sen
     DONE - Kassasidan - Lär vi oss sen
     DONE - Göra så man kan köpa från enskild produkt sida
-    Ändra quantity till sifftra och + - knappar
-    Hantera ordrar - Tar vi senare
+    DONE - Ändra quantity till sifftra och + - knappar
+    Ta bort vara i cart
+    fixa tom korg bug
+
 
 
 Ordrar (TSM)

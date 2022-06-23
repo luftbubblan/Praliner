@@ -42,6 +42,6 @@
     <input type="submit" name="loginBtn" value="Login">
 </form>
 
-<script src="../src/app/showHidePass.js"></script>
+<script src="../src/app/js_functions.js"></script>
 
 <?php include('layout/footer.php') ?>

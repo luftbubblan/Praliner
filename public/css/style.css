@@ -182,15 +182,6 @@
    }
 }
 
-
-
-
-
-
-
-
-
-
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
@@ -301,4 +292,59 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+.btn-danger {
+	background-color: #f8d7da;
+	border: 1px solid #f6cdd1;
+	color: #76222a;
+}
+
+.btn-danger:hover {
+	background-color: #A64441;
+}
+
+.btn-warning {
+	background-color: #fff3cd;
+	border: 1px solid #fff0c3;
+	color: #886709;
+}
+
+.btn-warning:hover {
+	background-color: #BF9B47;
+	color: white;
+}
+
+.btn-success {
+	background-color: #d4edda;
+	border: 1px solid #cae9d1;
+	color: #1f5f2e;
+}
+
+.btn-success:hover {
+	background-color: #4D8F42;
+}
+
+.btn-info {
+	background-color: #A0CEFF;
+	border: 1px solid #81A5CC;
+	color: #2A5380;
+}
+
+.btn-info:hover {
+	background-color: #3E7BBD;
+}
+
+.plusMinus {
+    border: none;
+    font-size: 20px;
+    font-weight: 1000;
+}
+
+.plusMinusSingle {
+    background-color: #ffffff;
+}
+
+#buy-sec span {
+    font-size: 25px;
 }
