@@ -41,11 +41,11 @@ include('layout/header.php');
 
 ?>
 
-<div id="content">
+<div id="content-updateUser">
     <article class="border">
         <form method="POST" action="#">
             <fieldset>
-                <legend>Uppdatera användare</legend>
+                <h2>Uppdatera användare</h2>
 
                 <?=$message ?>
                 
@@ -95,8 +95,9 @@ include('layout/header.php');
                 </p>
 
                 <p>
-                    <input type="submit" name="updateUserBtn" value="Uppdatera"> | 
-                    <a href="users.php">To users</a>
+                    <input class="btn btn-success" type="submit" name="updateUserBtn" value="Uppdatera"> | 
+                    <input class="btn btn-outline-info" type="submit" name="Back to Users" value="Back to Users">
+                 <!--  <a href="users.php">To users</a> -->
                 </p>
             </fieldset>
         </form>
