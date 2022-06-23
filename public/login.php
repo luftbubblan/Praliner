@@ -23,8 +23,9 @@
         $email    = trim($_POST['email']);
         $password = trim($_POST['password']);
 
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $message .= errorMessage("Invalid login credentials. Please try again.");
+        $message .= checkIfEmailIsValid($email);
+        if(!empty($message)) {
+            $message = errorMessage("Invalid login credentials. Please try again.");
         } else {
             $userPasswordAndId = $crudFunctions->fetchPasswordAndIdByEmail($email);
     
