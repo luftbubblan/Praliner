@@ -200,7 +200,7 @@ function showProducts(products) {
                         <form action="addToCart.php" method="POST">
                             <input type="hidden" name="productId" value="${product['id']}">
                             <input type="hidden" name="quantity" value="1">
-                            <input type="submit" class="btn btn-success" name="addToCartBtn" value="Köp">
+                            <button type="submit" class="btn btn-success" name="addToCartBtn"><i class="fa-solid fa-cart-plus"></i></button>
                         </form>
                     </div>                
                 </div>

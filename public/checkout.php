@@ -31,7 +31,7 @@
                     <td>
                         <form action="deleteCartItem.php" method="POST">
                             <input type="hidden" name="cartId" value="<?=$cartid?>">
-                            <input type="submit" class="btn btn-danger" value="Delete">
+                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                     <td>

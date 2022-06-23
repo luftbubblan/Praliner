@@ -81,12 +81,22 @@ DONE - shop - mypage - update information, make number field
 DONE - skriva om hur products visas med AJAX. skapa sökfunktion alla produkterna (OSCAR)
 
 
+DONE - Fixa modals på mypage (OSCAR)
 
+
+DONE - Fixa active knappar färg (OSCAR)
 
 
 
 Design Shop (ANNA)
 Design Admin (Malin)
+
+
+
+
+
+
+
 
 
 Gör köpprocessen (OSCAR)
@@ -97,11 +107,6 @@ Gör köpprocessen (OSCAR)
     Ta bort vara i cart
     DONE - fixa tom korg bug
     DONE - fixa warnings
-
-
-DONE - Fixa modals på mypage (OSCAR)
-
-Fixa active knappar färg (OSCAR)
 
 
 Ordrar (TSM)

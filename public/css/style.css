@@ -372,3 +372,10 @@
 .shopping-cart button {
     width: 100%;
 }
+
+#cartDeleteForm {
+    display: inline-block;
+    position: relative;
+    left: 70px;
+    bottom: 20px;
+}
