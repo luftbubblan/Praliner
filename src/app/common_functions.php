@@ -44,15 +44,12 @@
         return password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
     }
 
-    function checkIfPasswordIsCorrect($passwordToCheck, $userPasswordAndId) {
+    function checkIfPasswordIsCorrect($passwordToCheck, $correctEncryptedPassword) {
         $output = "";
-        if($userPasswordAndId && password_verify($passwordToCheck, $userPasswordAndId['password'])) {
-            setLoginSession($userPasswordAndId['id']);
-            header('Location: myPage.php');
-            exit;
+        if($correctEncryptedPassword && password_verify($passwordToCheck, $correctEncryptedPassword)) {
+            return true;
         }
-        $output .= errorMessage("Invalid login credentials. Please try again.");
-        return $output;
+        return false;
     }
 
     function setLoginSession($id) {

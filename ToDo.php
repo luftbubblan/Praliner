@@ -101,6 +101,8 @@ Gör köpprocessen (OSCAR)
 
 Fixa modals på mypage (OSCAR)
 
+Fixa active knappar färg (OSCAR)
+
 
 Ordrar (TSM)
     Skapa databas för ordrar

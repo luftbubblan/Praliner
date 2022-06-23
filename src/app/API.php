@@ -3,10 +3,6 @@ require('../config.php');
 require('common_functions.php');
 require('CRUD_functions.php');
 
-// echo "<pre>";
-// print_r($_POST);
-// echo "</pre>";
-
 $message = "";
 
 if(isset($_POST['updateNameBtn'])) {
@@ -19,6 +15,7 @@ if(isset($_POST['updateNameBtn'])) {
     $message .= $crudFunctions->updateName($message, $firstName, $lastName, $_SESSION['id']);
 
     $user = $crudFunctions->fetchUserById($_SESSION['id']);
+
     
     $data = [
         'message' => $message,
@@ -45,7 +42,7 @@ if(isset($_POST['updatePasswordBtn'])) {
     $oldpassword =        trim($_POST['oldpassword']);
     $newpassword =        trim($_POST['newpassword']);
     $confirmnewpassword = trim($_POST['confirmnewpassword']);
-
+    
     $userspassword = $crudFunctions->fetchPasswordById($_SESSION['id']);
 
     if(checkIfPasswordIsCorrect($oldpassword, $userspassword['password'])) {
@@ -138,3 +135,5 @@ if(isset($_POST['searchingByFlavour'])) {
         'products' => $products
     ];
 }
+
+echo json_encode($data);

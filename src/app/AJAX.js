@@ -13,7 +13,7 @@ async function updateName(e) {
 
     const formData = new FormData(e.target);
     formData.set('updateNameBtn', true);
-
+    
     try {
         const response = await fetch('../src/app/API.php', {
             method: 'POST',

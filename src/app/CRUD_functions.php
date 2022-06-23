@@ -55,7 +55,7 @@ class CRUDFunctions {
                 $stmt->execute();
                 $user = $stmt->fetch();
 
-                $_SESSION['id'] = $user['id'];
+                setLoginSession($user['id']);
 
                 header('Location: myPage.php');
                 exit;
