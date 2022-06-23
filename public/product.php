@@ -6,12 +6,6 @@
  
     $product =$crudFunctions->fetchProductById($_GET['product']);
 
-    // echo "<pre>";
-    // print_r($product);
-    // echo "</pre>";
-
-    // $quantity = 1;
-
 	include('layout/header.php');
 ?>
 
@@ -39,7 +33,7 @@
             <form action="addToCart.php" method="POST">
                 <input type="hidden" name="productId" value="<?= ($product['id']) ?>">
                 <input type="hidden" name="quantity" value="1">
-                <input type="submit" class="btn btn-success" name="addToCartBtn" value="Köp">
+                <button type="submit" class="btn btn-success" name="addToCartBtn"><i class="fa-solid fa-cart-plus"></i></button>
             </form>
         </div>
         

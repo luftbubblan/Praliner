@@ -11,11 +11,10 @@
     }
 ?>
 
-
 <div class="dropdown">
     <button class="btn btn-info">
         <span class="items-in-cart"><?=$cartItemsInCart?></span>
-        Cart
+        <i class="fa-solid fa-cart-shopping"></i>
     </button>
     <div class="dropdown-content">
         <div class="shopping-cart">
@@ -33,6 +32,10 @@
                         <span class="item-name"><?=$cartItem['title']?></span>
                         <span class="item-price"><?=$cartItem['price']?> kr/st</span>
                         <span class="item-quantity">Antal: <?=$cartItem['quantity']?></span>
+                        <form id="cartDeleteForm" action="deleteCartItem.php" method="POST">
+                            <input type="hidden" name="cartId" value="<?=$cartid?>">
+                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                        </form>
                     </div>
                     <hr>
                 <?php } ?>
