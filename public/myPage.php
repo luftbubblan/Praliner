@@ -6,7 +6,7 @@
     require('../src/app/CRUD_functions.php');
 
     // echo "<pre>";
-    // print_r($_SESSION);
+    // print_r($_SESSION['id']);
     // print_r($_POST);
     // echo "</pre>";
 
@@ -33,6 +33,10 @@
     }
 
     $user = $crudFunctions->fetchUserById($_SESSION['id']);
+
+    // echo "<pre>";
+    // print_r($user);
+    // echo "</pre>";
 
 	include('layout/header.php');
 ?>
@@ -79,16 +83,16 @@
                     <div class="formMessage"></div>
                     <div class="form-group">
                         <label for="firstName" class="col-form-label">First name:</label>
-                        <input type="text" class="form-control" name ="firstName">
+                        <input type="text" class="form-control" name="firstName">
                     </div>
                     <div class="form-group">
                         <label for="lastName" class="col-form-label">Last name:</label>
-                        <input type="text" class="form-control" name ="lastName">
+                        <input type="text" class="form-control" name="lastName">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-                    <input type="submit" name ="updateNameBtn" class="btn btn-success" value="Update">
+                    <input type="submit" name="updateNameBtn" class="btn btn-success" value="Update">
                 </div>
             </form>
         </div>
@@ -107,12 +111,12 @@
                     <div class="formMessage"></div>
                     <div class="form-group">
                         <label for="email" class="col-form-label">Email:</label>
-                        <input type="text" class="form-control" name ="email">
+                        <input type="text" class="form-control" name="email">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-                    <input type="submit" name ="updateEmailBtn" class="btn btn-success" value="Update">
+                    <input type="submit" name="updateEmailBtn" class="btn btn-success" value="Update">
                 </div>
             </form>
         </div>
@@ -217,6 +221,14 @@
     </div>
 </div>
 
+<!-- JQUERY AND BOOTSTRAP -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- CUSTOM -->
+<script src="../src/app/AJAX.js"></script>
+<script src="../src/app/js_functions.js"></script>
+
 <!-- MODALS -->
 <script>
     $('#nameModal').on('show.bs.modal', function (event) {
@@ -260,9 +272,5 @@
         modal.find('.modal-body input[name="country"]').val(country);
     })
 </script>
-
-<!-- CUSTOM JavaScript -->
-<script src="../src/app/AJAX.js"></script>
-<script src="../src/app/showHidePass.js"></script>
 
 <?php include('layout/footer.php') ?>

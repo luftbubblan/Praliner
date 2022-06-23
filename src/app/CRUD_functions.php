@@ -55,7 +55,7 @@ class CRUDFunctions {
                 $stmt->execute();
                 $user = $stmt->fetch();
 
-                $_SESSION['id'] = $user['id'];
+                setLoginSession($user['id']);
 
                 header('Location: myPage.php');
                 exit;
@@ -167,7 +167,7 @@ class CRUDFunctions {
         }
     }
 
-    function fetchUserById($id) {
+    function fetchUserById($id) {        
         $sql = "
             SELECT * FROM users
             WHERE id = :id

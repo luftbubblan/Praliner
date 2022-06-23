@@ -1,4 +1,8 @@
 <?php 
+    if(!isset($_SESSION['cartItems'])) {
+        $_SESSION['cartItems'] = [];
+    }
+
     $cartItemsInCart = 0;
     $TotalSum = 0;
     foreach($_SESSION['cartItems'] as $cartid => $cartItem) {
@@ -9,7 +13,7 @@
 
 
 <div class="dropdown">
-    <button class="btn btn-success">
+    <button class="btn btn-info">
         <span class="items-in-cart"><?=$cartItemsInCart?></span>
         Cart
     </button>

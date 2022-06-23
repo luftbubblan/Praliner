@@ -5,7 +5,6 @@
     require('../src/app/common_functions.php');
     require('../src/app/CRUD_functions.php');
 
-    //CREATE
     $message = "";
     $firstName = "";
     $lastName = "";
@@ -51,7 +50,6 @@
         $message .= $crudFunctions->registerUser($message, $firstName, $lastName, $email, $password, $phone, $street, $postalCode, $city, $country);
     }
 
-
 	include('layout/header.php');
 ?>
 
@@ -80,6 +78,6 @@
 </div>
 
 
-<script src="../src/app/showHidePass.js"></script>
+<script src="../src/app/js_functions.js"></script>
 
 <?php include('layout/footer.php') ?>

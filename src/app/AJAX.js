@@ -13,7 +13,7 @@ async function updateName(e) {
 
     const formData = new FormData(e.target);
     formData.set('updateNameBtn', true);
-
+    
     try {
         const response = await fetch('../src/app/API.php', {
             method: 'POST',
@@ -178,27 +178,31 @@ async function searchForProduct(e) {
 function showProducts(products) {
     html = "";
     for (product of products) {
-        console.log(product);
         html += `
             <div id="single-con">
                 <div id="single">
                 
-                <a href="product.php?product=${product['id']}">
-                    <div id="img-div">
-                        <img id="product-img" src=" ${product['img_url']}" alt="Picture of pralin">
-                    </div>
-                </a>
-                <h3> ${product['title']} </h3>
-                <p><i> ${product['flavour']} </i></p>
-                
-                <p>Left in stock: ${product['stock']} </p>
-                <h6>${product['price']} kr</h6>
-                <form action="addToCart.php" method="POST">
-                    <input type="hidden" name="productId" value="${product['id']}">
-                    <input type="number" name="quantity" value="1" min="1" max="${product['stock']}">
-                    <input type="submit" name="addToCartBtn" value="Köp">
-                </form>
-                
+                    <a href="product.php?product=${product['id']}">
+                        <div id="img-div">
+                            <img id="product-img" src=" ${product['img_url']}" alt="Picture of pralin">
+                        </div>
+                    </a>
+                    <h3> ${product['title']} </h3>
+                    <p><i> ${product['flavour']} </i></p>
+                    
+                    <p>Left in stock: ${product['stock']} </p>
+                    <h6>${product['price']} kr</h6>
+                    <div id="buy-sec">
+                        <button class="minusBtn plusMinus plusMinusFront">-</button>
+                        <span>1</span>
+                        <button class="plusBtn plusMinus plusMinusFront">+</button>
+
+                        <form action="addToCart.php" method="POST">
+                            <input type="hidden" name="productId" value="${product['id']}">
+                            <input type="hidden" name="quantity" value="1">
+                            <input type="submit" class="btn btn-success" name="addToCartBtn" value="Köp">
+                        </form>
+                    </div>                
                 </div>
             </div>
         `
