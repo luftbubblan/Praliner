@@ -57,7 +57,7 @@
 				<td><?=htmlentities($product['id'])?></td>
 				<td><?=htmlentities($product['title'])?></td>
 				<td><?=htmlentities($product['flavour'])?></td>
-				<td><?=htmlentities($product['description'])?></td>
+				<td><?=substr(htmlentities($product['description']), 0, 170)?></td>
 				<td><?=htmlentities($product['price'])?></td>      
 				<td><?=htmlentities($product['stock'])?></td>
 				<td><?=htmlentities($product['img_url'])?></td>
