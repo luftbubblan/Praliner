@@ -1,3 +1,7 @@
+h1, h2, h3, h4, h5, h6, p {
+    color: #004349;
+}
+
 #header-container {
     height: 60vh;
 }
@@ -98,8 +102,7 @@
 }
 
 #title {
-    padding: 0em 2em;
-    margin: 0;
+    padding-bottom: 1em;
     /* background-color: #004349; */
     color: #004349;
 }
@@ -108,12 +111,12 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin: 50px 0px;
 }
 
-#img-desc{
+#img-desc img{
     flex-direction: column;
-    margin-top: 2em;
-
+    width: 35vw;
 }
 
 
@@ -125,11 +128,19 @@
 #about-con {
     display: flex;
     flex-direction: column;
-    border: #004349 solid 1px;
-    /* margin: auto; */
+    justify-content: center;
     align-items: center;
-    height: 30em;
-    max-width: 20em;
+    background-color: #d8e2dc65;
+    height: 35vw;
+    width: 25vw;
+}
+
+#p-desc {
+max-width: 20vw;
+}
+
+#p-flavour {
+    color: #006d77;
 }
 
 #p-stock {
@@ -141,6 +152,7 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 2em;
+    color: #004349;
 }
 
 /* Chrome, Safari, Edge, Opera remove arrows in number input */
@@ -366,14 +378,23 @@
     border: none;
     font-size: 20px;
     font-weight: 1000;
+    color: #004349;
+}
+
+.plusMinus:hover {
+        color: #006d77;
 }
 
 .plusMinusSingle {
-    background-color: #ffffff;
+    background-color: #d8e2dc65;
+}
+
+.plusBtn {
+    padding-right: 15px;
 }
 
 #buy-sec span {
-    font-size: 25px;
+    font-size: 24px;
 }
 
 .shopping-cart button {

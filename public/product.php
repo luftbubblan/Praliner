@@ -12,7 +12,7 @@
 <div id="product-con">
     
     <div id="img-desc">
-        <img src="<?=$product['img_url']?>" alt="Picture of pralin" width="500" height="500">
+        <img src="<?=$product['img_url']?>" alt="Picture of pralin">
     </div>
     
     
@@ -21,9 +21,9 @@
         <div id="title">
             <h3><?= htmlentities($product['title']) ?></h3>
         </div>
-        <p><i><?= htmlentities($product['flavour']) ?></i></p>
-        <p id="p-stock">stock: <?= htmlentities($product['stock']) ?></p>
-            <p><?= htmlentities($product['description']) ?></p>
+        <p id="p-flavour"><i><?= htmlentities($product['flavour']) ?></i></p>
+        <p id="p-desc"><?= htmlentities($product['description']) ?></p>
+        <p id="p-stock"><?= htmlentities($product['stock']) ?> stk i lager</p>
         <h4><?= htmlentities($product['price']) ?> kr</h4>
         <div id="buy-sec">
             <button class="minusBtn plusMinus plusMinusSingle">-</button>
