@@ -1,8 +1,8 @@
 <?php
     require('../src/config.php');
 
-    $_SESSION = [];
-    session_destroy();
+    $_SESSION['id'] = [];
+    unset($_SESSION['id']);
 
-    header('Location: index.php');
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
     exit;

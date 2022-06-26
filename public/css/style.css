@@ -386,3 +386,15 @@
     left: 70px;
     bottom: 20px;
 }
+
+.col-mdx {
+    margin-top: 10px;
+}
+
+#footer-container {
+    margin-top: 100px;
+    height: 20vh;
+    background-color: #ffcad495;
+    line-height: 20vh;
+    text-align: center;
+}
