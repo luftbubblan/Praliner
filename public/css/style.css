@@ -16,7 +16,9 @@ h1, h2, h3, h4, h5, h6, p {
     text-decoration: none;
     color: #4f4b54;
     margin: 0px 0.2em;
+    margin-right: 1em;
 }
+
 #nav-1 a:hover {
     color: #6d6875;
 }
@@ -47,8 +49,9 @@ h1, h2, h3, h4, h5, h6, p {
 #nav-2 a, #backto-a {
     text-decoration: none;
     color: #004349;
-    margin: 0px 0.5em;
+    margin-left: 2em;
 }
+
 #nav-2 a:hover, #backto-a:hover {
     color: #006d77;
 }

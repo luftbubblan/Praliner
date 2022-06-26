@@ -17,9 +17,9 @@
         
     <?php
         if (isset($_SESSION['id'])) {
-            $menu = '<a href="myPage.php">My page</a> | <a href="logout.php">Logout</a>';
+            $menu = '<a href="myPage.php">My page</a><a href="logout.php">Logout</a>';
         } else {
-            $menu = '<a href="registerUser.php">Register</a> | <a href="login.php">Log in</a>';
+            $menu = '<a href="registerUser.php">Register</a><a href="login.php">Log in</a>';
         }
     ?>
 
