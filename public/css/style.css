@@ -101,8 +101,9 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 #product-img {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
+    padding-bottom: 1em;
 }
 
 #title {

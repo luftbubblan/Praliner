@@ -190,7 +190,7 @@ function showProducts(products) {
                     <h3> ${product['title']} </h3>
                     <p><i> ${product['flavour']} </i></p>
                     
-                    <p>Left in stock: ${product['stock']} </p>
+                    <p>${product['stock']} stk i lager</p>
                     <h6>${product['price']} kr</h6>
                     <div id="buy-sec">
                         <button class="minusBtn plusMinus plusMinusFront">-</button>
