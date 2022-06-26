@@ -71,25 +71,26 @@
             </tbody>
         </table>
 
-        <form class="row">
+        <?php if(!isset($_SESSION['id'])) { ?>
+            <div class="notLoggedinMessage">You are not logged in. Please register an accaount <a href="registerUser.php">HERE</a> or continue as a guest by filling in your information below</div>
+        <?php } ?>
+
+        <form action="create-order.php" method="POST">
+            <input type="hidden" name="totalSum" value="<?=$TotalSum?>">
             <div class="row">
                 <div class="col-mdx col-md-3">
-                    <label for="checkoutFirstName">Firstname</label>
-                    <input type="email" class="form-control" id="checkoutFirstName" placeholder="Firstname" value="<?=$user['first_name'] ?? "" ?>">
+                    <input type="text" class="form-control" id="checkoutFirstName" name="firstname" placeholder="Firstname" value="<?=$user['first_name'] ?? "" ?>">
                 </div>
                 <div class="col-mdx col-md-3">
-                    <label for="checkoutLastName">Lastname</label>
-                    <input type="email" class="form-control" id="checkoutLastName" placeholder="lastname" value="<?=$user['last_name'] ?? "" ?>">
+                    <input type="text" class="form-control" id="checkoutLastName" name="lastname" placeholder="Lastname" value="<?=$user['last_name'] ?? "" ?>">
                 </div>
             </div>
             <div class="row">
                 <div class="col-mdx col-md-3">
-                    <label for="checkoutEmail">Email</label>
-                    <input type="email" class="form-control" id="checkoutEmail" placeholder="E-mail" value="<?=$user['email'] ?? "" ?>">
+                    <input type="email" class="form-control" id="checkoutEmail" name="email" placeholder="E-mail" value="<?=$user['email'] ?? "" ?>">
                 </div>
                 <div class="col-mdx col-md-3">
-                    <label for="checkoutPhone">Phone</label>
-                    <input type="text" class="form-control" id="checkoutPhone" placeholder="Phone 10 digits" value="<?=$user['phone'] ?? "" ?>">
+                    <input type="text" class="form-control" id="checkoutPhone" name="phone" placeholder="Phone" value="<?=$user['phone'] ?? "" ?>">
                     <small id="checkoutPhoneHelpline" class="text-muted">
                         Must be 10 digits long.
                     </small>
@@ -97,35 +98,31 @@
             </div>
             <div class="row">
                 <div class="col-mdx col-md-6">
-                    <label for="checkoutStreet">Street</label>
-                    <input type="text" class="form-control" id="checkoutStreet" placeholder="Street" value="<?=$user['street'] ?? "" ?>">
+                    <input type="text" class="form-control" id="checkoutStreet" name="street" placeholder="Street" value="<?=$user['street'] ?? "" ?>">
                 </div>
             </div>
             <div class="row">
                 <div class="col-mdx col-md-2">
-                    <label for="checkoutPostalcode">Postal code</label>
-                    <input type="text" class="form-control" id="checkoutPostalcode" placeholder="Postal code" value="<?=$user['postal_code'] ?? "" ?>">
+                    <input type="text" class="form-control" id="checkoutPostalcode" name="postalCode" placeholder="Postal code" value="<?=$user['postal_code'] ?? "" ?>">
                     <small id="checkoutPostalcodeHelpline" class="text-muted">
                         Must be 5 characters long.
                     </small>
                 </div>
                 <div class="col-mdx col-md-2">
-                    <label for="checkoutCity">City</label>
-                    <input type="text" class="form-control" id="checkoutCity" palceholder="City" value="<?=$user['city'] ?? "" ?>">
+                    <input type="text" class="form-control" id="checkoutCity" name="city" placeholder="City" value="<?=$user['city'] ?? "" ?>">
                 </div>
                 <div class="col-mdx col-md-2">
-                    <label for="checkoutCountry">Country</label>
-                    <input type="text" class="form-control" id="checkoutCountry" palceholder="Country" value="<?=$user['country'] ?? "" ?>">
+                    <input type="text" class="form-control" id="checkoutCountry" name="country" placeholder="Country" value="<?=$user['country'] ?? "" ?>">
                 </div>
                 <div class="col-mdx col-md-12">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="checkoutTerms">
-                        <label class="form-check-label" for="checkoutTerms">I agree to the terms and conditions</label>
+                        <input class="form-check-input" type="checkbox" id="checkoutTerms" name="termsAgreed">
+                        <label class="form-check-label" for="checkoutTerms" >I agree to the terms and conditions</label>
                     </div>
                 </div>
             </div>
             <div class="col-mdx col-md-12">
-                <button type="submit" class="btn btn-primary">Pay now</button>
+                <input type="submit" class="btn btn-primary" name="PayNowBtn" value="Pay now">
             </div>
         </form>
 
