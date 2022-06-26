@@ -95,6 +95,7 @@
             $stmt->execute();
         }
 
+        $_SESSION['orderId'] = $orderId;
         header('Location: order-confirmation.php');
         exit;
     }

@@ -126,9 +126,9 @@
             </div>
         </form>
 
-        <?php } else { ?>
-            You have no items to checkout. Please go back to <a href="index.php">the shop</a> and put some items in your cart
-        <?php }  ?>
+    <?php } else { ?>
+        You have no items to checkout. Please go back to <a href="index.php">the shop</a> and put some items in your cart
+    <?php }  ?>
 </div>
 
 <?php include('layout/footer.php') ?>
