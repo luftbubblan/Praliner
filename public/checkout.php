@@ -65,6 +65,12 @@
             <div class="notLoggedinMessage leadTextColor">Du är inte inloggad. Vänligen registrera en användare. <a class="linkTextColor" href="registerUser.php">HÄR</a> eller fortsätt med köpet som gäst genom att fylla i din information nedan</div>
         <?php } ?>
 
+        <div class="col-mdx col-md-4">
+            <?php foreach($_GET as $message) { 
+                echo $message;
+            } ?>
+        </div>
+
         <form action="create-order.php" method="POST">
             <input type="hidden" name="totalSum" value="<?=$totalSum?>">
             <div class="row">
@@ -80,7 +86,7 @@
                     <input type="email" class="form-control" id="checkoutEmail" name="email" placeholder="E-mail" value="<?=$user['email'] ?? "" ?>">
                 </div>
                 <div class="col-mdx col-md-3">
-                    <input type="text" class="form-control" id="checkoutPhone" name="phone" placeholder="Telefonnummer" value="<?=$user['phone'] ?? "" ?>">
+                    <input type="number" class="form-control" id="checkoutPhone" name="phone" placeholder="Telefonnummer" value="<?=$user['phone'] ?? "" ?>">
                     <small id="checkoutPhoneHelpline" class="text-muted">
                         Måste vara 10 siffror.
                     </small>
@@ -93,7 +99,7 @@
             </div>
             <div class="row">
                 <div class="col-mdx col-md-2">
-                    <input type="text" class="form-control" id="checkoutPostalcode" name="postalCode" placeholder="Postnummer" value="<?=$user['postal_code'] ?? "" ?>">
+                    <input type="number" class="form-control" id="checkoutPostalcode" name="postalCode" placeholder="Postnummer" value="<?=$user['postal_code'] ?? "" ?>">
                     <small id="checkoutPostalcodeHelpline" class="text-muted">
                         Måste vara 5 siffror.
                     </small>

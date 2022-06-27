@@ -5,11 +5,6 @@
     require('../src/app/common_functions.php');
     require('../src/app/CRUD_functions.php');
 
-    // echo "<pre>";
-    // print_r($_SESSION['id']);
-    // print_r($_POST);
-    // echo "</pre>";
-
     if (!isset($_SESSION['id'])) {
         header('Location: login.php?mustLogin');
     }
@@ -33,10 +28,6 @@
     }
 
     $user = $crudFunctions->fetchUserById($_SESSION['id']);
-
-    // echo "<pre>";
-    // print_r($user);
-    // echo "</pre>";
 
 	include('layout/header.php');
 ?>

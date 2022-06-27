@@ -169,17 +169,17 @@ max-width: 20vw;
 }
 
 /* Chrome, Safari, Edge, Opera remove arrows in number input */
-.form-group input::-webkit-outer-spin-button,
-.form-group input::-webkit-inner-spin-button,
-.cssClassOne input::-webkit-outer-spin-button,
-.cssClassOne input::-webkit-inner-spin-button {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
 /* Firefox remove arrows in number input */
-.form-group input[type=number],
-.cssClassOne input[type=number] {
+input[type=number],
+input[type=number] {
     -moz-appearance: textfield;
 }
 
