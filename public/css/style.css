@@ -428,3 +428,17 @@ max-width: 20vw;
     line-height: 20vh;
     text-align: center;
 }
+
+/* registerUser page */
+
+.cssClassOne {
+    display: flex;
+   /*  justify-content: space-between; */
+    margin: 30px 50px;
+    
+
+}
+
+#registerBtn {
+    margin-top: 20px;
+}
