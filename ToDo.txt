@@ -110,9 +110,9 @@ Design Admin (Malin)
 Ordrar (OSCAR)
     DONE - Skapa databas för ordrar
     DONE - Användare ska kunna lägga en order på varor
-    Refakturera create-order.php till funktioner och metoder
+    DONE - Refakturera create-order.php till funktioner och metoder
     DONE - lägg till ucfirst på trims
-    Validera checkout form
+    DONE - Validera checkout form
     DONE - Gör Order confirmation sidan och visa vad som är beställt
     DONE - email och phone ska sparas i databasen, adlrig NULL
 
