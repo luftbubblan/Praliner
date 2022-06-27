@@ -108,12 +108,12 @@ Design Admin (Malin)
 
 
 Ordrar ()
-    Skapa databas för ordrar
-    Användare ska kunna lägga en order på varor
+    DONE - Skapa databas för ordrar
+    DONE - Användare ska kunna lägga en order på varor
     Refakturera create-order.php till funktioner och metoder
     lägg till ucfirst på trims
     Validera checkout form
-    Gör Order confirmation sidan och visa vad som är beställt
+    DONE - Gör Order confirmation sidan och visa vad som är beställt
         -OPTIONAL-
         Användaren ska kunna se sina ordrar
         Admin ska kunna se alla ordrar som är lagda
