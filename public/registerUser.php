@@ -32,16 +32,16 @@
         $country =    ucfirst(trim($_POST['country']));
 
         
-        $message .= ifEmptyGenerateMessage($firstName, "Firstname must not be empty.");
-        $message .= ifEmptyGenerateMessage($lastName, "Lastname must not be empty.");
-        $message .= ifEmptyGenerateMessage($email, "E-mail must not be empty.");
-        $message .= ifEmptyGenerateMessage($password, "Password must not be empty.");
-        $message .= ifEmptyGenerateMessage($confirmedPassword, "Confirm password must not be empty.");
+        $message .= ifEmptyGenerateMessage($firstName, "Vänligen fyll i ditt förnamn.");
+        $message .= ifEmptyGenerateMessage($lastName, "Vänligen fyll i ditt efternamn.");
+        $message .= ifEmptyGenerateMessage($email, "Vänligen fyll i din e-post.");
+        $message .= ifEmptyGenerateMessage($password, "Vänligen fyll i ditt lösenord.");
+        $message .= ifEmptyGenerateMessage($confirmedPassword, "Vänligen konfirmera ditt lösenord.");
         $message .= phoneNumberMustBeTenDigits($phone);
-        $message .= ifEmptyGenerateMessage($street, "Street must not be empty.");
+        $message .= ifEmptyGenerateMessage($street, "Vänligen fyll i gatunamn.");
         $message .= postalCodeMustBeFiveDigits($postalCode);
-        $message .= ifEmptyGenerateMessage($city, "City must not be empty.");
-        $message .= ifEmptyGenerateMessage($country, "Country must not be empty.");
+        $message .= ifEmptyGenerateMessage($city, "Vänligen fyll i stad.");
+        $message .= ifEmptyGenerateMessage($country, "Vänligen fyll i land.");
 
         $message .= checkIfEmailIsValid($email);
 
@@ -58,11 +58,11 @@
 </div>
 
 
-<div id="";>
+<div id="registerMessage";>
     <?=$message?>
 </div>
 
-<div class="cssClassOne">
+<div class="registerContainer">
     <form action="" method="POST">
     <p>
         <input type="text" name="firstName" placeholder="Förnamn" value="<?=isset($_POST['firstName']) ? $_POST['firstName'] : "";?>"><br>
