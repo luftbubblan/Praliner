@@ -21,16 +21,15 @@ h2, h4 {
 #nav-1 a:hover {
     color: #006d77;
 }
-#products-tbl { 
+/* .admin-tbl { 
 	border-collapse: collapse; 
 	margin-bottom: 40px;
 	width: 90vw;
-}
+} */
 
-#products-tbl tr,
-#products-tbl td,
- #products-tbl th {
-	/* border: 1px solid black; */
+#admin-tbl tr,
+#admin-tbl td,
+ #admin-tbl th {
 	padding: 10px;
 } 
 
@@ -96,10 +95,8 @@ tr:nth-child(odd) {
 }
 
 /* PRODUCT ADMIN INDEX */
-#content-products {
+.content-products {
 	display: flex;
-	/* margin: 20px 200px 20px 20px; */
-	/* border: solid 3px #006d77; */
 	padding: 20px;
 	align-items: left;
     flex-direction: column;
@@ -139,7 +136,7 @@ tr:nth-child(odd) {
 margin: 2em 0;
 }
 
-.edit-btn{
+.edit-btn, #update-btn{
 	margin-right: 1em;
 }
 

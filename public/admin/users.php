@@ -30,33 +30,31 @@
 ?>
 
    
-<div id="content">
-    <article class="border">
-        <div id="headline">
-        <h2>Hantera användare</h2>
-        </div>
+<div class="content-products">
+    <h2>Admin</h2>
+    <h4>Hantera användare</h4>
 
          <?=$message ?> 
 
         <form action="addNewUser.php">
-            <input class="btn btn-info" id="addNewUserBtn" type="submit" value="Ny användare">
+            <input class="add-new-btn btn btn-success" id="addNewUserBtn" type="submit" value="Lägg till ny användare">
         </form>
         <br>
 
         <?php if($users) { ?>
-        <table id="users-tbl">
+        <table id="admin-tbl">
             <thead>
                 <tr id="lista">
-                    <th>id</th>
-                    <th>First_name</th>
-                    <th>Last_name</th>
-                    <th>email</th>
-                    <th>Phone</th>
-                    <th>Street</th>
-                    <th>Postal_code</th>
-                    <th>City</th>
-                    <th>Country</th>
-                    <th>Date</th>
+                    <th>Förnamn</th>
+                    <th>Efternamn</th>
+                    <th>Email</th>
+                    <th>Telefon</th>
+                    <th>Adress</th>
+                    <th>Postnummer</th>
+                    <th>Ort</th>
+                    <th>Land</th>
+                    <th>Datum</th>
+                    <th></th>
 
                 </tr>
             </thead>
@@ -65,7 +63,6 @@
             
                 <?php foreach($users as $user) { ?>
                 <tr>
-                    <td><?=htmlentities($user['id']) ?></td>
                     <td><?=htmlentities($user['first_name']) ?></td>
                     <td><?=htmlentities($user['last_name']) ?></td>
                     <td><?=htmlentities($user['email']) ?></td>
@@ -76,10 +73,10 @@
                     <td><?=htmlentities($user['country']) ?></td>
                     <td><?=htmlentities($user['create_date']) ?></td>
 
-                    <td>           
+                    <td class="table-btns">           
                         <form action="updateUser.php" method="GET">
                             <input type="hidden" name="userId" value="<?=htmlentities($user['id']) ?>">
-                            <input class="btn btn-success" type="submit" value="Uppdatera">
+                            <input class="btn btn-success" id="update-btn" type="submit" value="Uppdatera">
                         </form>
 
                         <form action="" method="POST">
@@ -92,7 +89,6 @@
             </tbody>
         </table>
         <?php } ?>
-    </article>
 </div>
 
 <?php include('layout/footer.php') ?>

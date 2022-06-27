@@ -28,9 +28,9 @@
 	include('layout/header.php');
 ?>
 
-<div id="content-products">
+<div class="content-products">
 <h2>Admin</h2>
-<h4>Product overview</h4>
+<h4>Hantera produkter</h4>
 
 <form action="addNewProduct.php">
 	<input type="submit" class="add-new-btn btn btn-success" value="Add new product">
@@ -38,7 +38,7 @@
 
 <?=$message?>
 
-<table id="products-tbl">
+<table id="admin-tbl">
 	<thead>
 		<tr id="product-list">
 			<th>Title</th>
