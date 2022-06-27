@@ -13,10 +13,10 @@
     }
     
     if (isset($_GET['mustLogin'])) {
-        $message .= errorMessage("You need to login to access this.");
+        $message .= errorMessage("Du måste logga in för att få tillgång.");
     }
     if (isset($_GET['deleted'])) {
-        $message .= warningMessage("Ditt konto är nu borttaget. Välkommen åter.");
+        $message .= warningMessage("Ditt konto är nu raderat. Välkommen åter.");
     }
 
     if (isset($_POST['loginBtn'])) {
@@ -25,7 +25,7 @@
 
         $message .= checkIfEmailIsValid($email);
         if(!empty($message)) {
-            $message = errorMessage("Ogiltiga inloggningsuppgifter. Var god försök igen.");
+            $message = errorMessage("Ogiltiga inloggningsuppgifter. Vänligen försök igen.");
         } else {
             $userPasswordAndId = $crudFunctions->fetchPasswordAndIdByEmail($email);
     
@@ -35,7 +35,7 @@
                 header('Location: myPage.php');
                 exit;
             }
-            $message .= errorMessage("Ogiltiga inloggningsuppgifter. Var god försök igen.");
+            $message .= errorMessage("Felaktiga inloggningsuppgifter. Vänligen försök igen.");
         }
 
     }
@@ -53,7 +53,7 @@
 
 <div id="loginForm">
     <form action="" method="POST">
-        <input type="text" name="email" placeholder="E-post">
+        <input type="text" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Lösenord">
         <input id="loginCheckbox" type="checkbox" onclick="showHidePassword(this)">Visa lösenord<br>
         <input id="loginBtn" class="btn btn-success" type="submit" name="loginBtn" value="Logga in">

@@ -1,5 +1,5 @@
 <?php
-	$pageTitle = "Edit product";
+	$pageTitle = "Redigera produkt";
 
 	require('../../src/config.php');
     require('../../src/app/common_functions.php');
@@ -40,53 +40,37 @@
 
 <?=$message?>
 
-<div id="content-updateUser">
+<div class="form-style">
     <form action="" method="POST">
         <h2>Admin</h2>
         <h4>Redigera produkt</h4>
     <div class="form-gap">
         <label for="first_name">Namn:</label><br>
-        <input type="text" name="title" placeholder="Title" value="<?=$_POST['title'] ? $_POST['title'] : $product['title'] ?>">
+        <input type="text" name="title" placeholder="Namn" value="<?=$_POST['title'] ? $_POST['title'] : $product['title'] ?>">
     </div>
     <div class="form-gap">
         <label for="first_name">Smak:</label><br>
-        <input type="text" name="flavour" placeholder="Flavour" value="<?=$_POST['flavour'] ? $_POST['flavour'] : $product['flavour'] ?>">
+        <input type="text" name="flavour" placeholder="Smak" value="<?=$_POST['flavour'] ? $_POST['flavour'] : $product['flavour'] ?>">
     </div>
     <div class="form-gap">
         <label for="first_name">Beskrivning:</label><br>
-        <textarea name="description" placeholder="Description"><?=$_POST['description'] ? $_POST['description'] : $product['description'] ?></textarea>
+        <textarea name="description" placeholder="Beskrivning"><?=$_POST['description'] ? $_POST['description'] : $product['description'] ?></textarea>
     </div>
     <div class="form-gap">
         <label for="first_name">Pris:</label><br>
-        <input type="number" name="price" placeholder="Price" value="<?=$_POST['price'] ? $_POST['price'] : $product['price'] ?>">
+        <input type="number" name="price" placeholder="Pris" value="<?=$_POST['price'] ? $_POST['price'] : $product['price'] ?>">
     </div>
     <div class="form-gap">
         <label for="first_name">Lagerstatus:</label><br>
-        <input type="number" name="stock" placeholder="Stock" value="<?=$_POST['stock'] ? $_POST['stock'] : $product['stock'] ?>">
+        <input type="number" name="stock" placeholder="Lagerstatus" value="<?=$_POST['stock'] ? $_POST['stock'] : $product['stock'] ?>">
     </div>
     <div class="form-gap">
         <input type="hidden" name="id" value="<?=$_POST['id'] ?>">
     </div> 
         <div class="form-gap">
-        <input type="submit" class=" btn btn-success" name="updateProductBtn" value="Update Product">
+        <input type="submit" class=" btn btn-success" name="updateProductBtn" value="Uppdatera">
     </div>
     </form>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?php include('layout/footer.php') ?>

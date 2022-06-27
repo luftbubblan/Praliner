@@ -1,5 +1,5 @@
 <?php
-	$pageTitle = "Shop page";
+	$pageTitle = "Shop";
 
 	require('../src/config.php');
     require('../src/app/CRUD_functions.php');

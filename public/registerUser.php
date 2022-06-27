@@ -1,5 +1,5 @@
 <?php
-	$pageTitle = "Register User";
+	$pageTitle = "Registrera användare";
 
 	require('../src/config.php');
     require('../src/app/common_functions.php');
@@ -34,13 +34,13 @@
         
         $message .= ifEmptyGenerateMessage($firstName, "Vänligen fyll i ditt förnamn.");
         $message .= ifEmptyGenerateMessage($lastName, "Vänligen fyll i ditt efternamn.");
-        $message .= ifEmptyGenerateMessage($email, "Vänligen fyll i din e-post.");
+        $message .= ifEmptyGenerateMessage($email, "Vänligen fyll i din email.");
         $message .= ifEmptyGenerateMessage($password, "Vänligen fyll i ditt lösenord.");
         $message .= ifEmptyGenerateMessage($confirmedPassword, "Vänligen konfirmera ditt lösenord.");
         $message .= phoneNumberMustBeTenDigits($phone);
-        $message .= ifEmptyGenerateMessage($street, "Vänligen fyll i gatunamn.");
+        $message .= ifEmptyGenerateMessage($street, "Vänligen fyll i adress.");
         $message .= postalCodeMustBeFiveDigits($postalCode);
-        $message .= ifEmptyGenerateMessage($city, "Vänligen fyll i stad.");
+        $message .= ifEmptyGenerateMessage($city, "Vänligen fyll i ort.");
         $message .= ifEmptyGenerateMessage($country, "Vänligen fyll i land.");
 
         $message .= checkIfEmailIsValid($email);
@@ -73,7 +73,7 @@
     </p>
 
     <p>
-        <input type="text" name="email" placeholder="E-post" value="<?=$_POST['email'] ?? ""?>"><br>
+        <input type="text" name="email" placeholder="Email" value="<?=$_POST['email'] ?? ""?>"><br>
     </p>
     <p>
         <input type="password" name="password" placeholder="Lösenord" value="<?=$_POST['password'] ?? ""?>">
@@ -89,13 +89,13 @@
         <input type="number" name="phone" placeholder="Telefon 10 siffror" value="<?=$_POST['phone'] ?? ""?>"><br>
     </p>
     <p>
-        <input type="text" name="street" placeholder="Gata" value="<?=$_POST['street'] ?? "" ?>"><br>
+        <input type="text" name="street" placeholder="Adress" value="<?=$_POST['street'] ?? "" ?>"><br>
     </p>
     <p>
         <input type="number" name="postalCode" placeholder="Postnummer" value="<?=$_POST['postalCode'] ?? ""?>"><br>
     </p>
     <p>
-        <input type="text" name="city" placeholder="Stad" value="<?=$_POST['city'] ?? ""?>"><br>
+        <input type="text" name="city" placeholder="Ort" value="<?=$_POST['city'] ?? ""?>"><br>
     </p>
     <p>
         <input type="text" name="country" placeholder="Land" value="<?=$_POST['country'] ?? ""?>"><br>

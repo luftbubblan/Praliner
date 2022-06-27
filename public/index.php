@@ -1,5 +1,5 @@
 <?php
-	$pageTitle = "Shop page";
+	$pageTitle = "Shop";
 
 	require('../src/config.php');
 	require('../src/app/common_functions.php');
@@ -13,7 +13,7 @@
 <div id="homepage-con">
 
 	<div id="front-info">
-	<h2>Pralinerpralinerpraliner</h2>
+	<h2>Tårtor och praliner</h2>
 		<p>
 			Välkommen till Marias Söta i Vejbystrand. 
 			Jag bakar med smakrikedom och blomsterpilleri, där ögat får sitt innan smaken tar vid.
@@ -22,11 +22,11 @@
 
 	<div id="searchDiv">
 		<form id="searchByTitleForm" action="../src/app/API.php" method="POST">
-			<input type="text" name="searchByTitle" placeholder="Search by Title">
+			<input type="text" name="searchByTitle" placeholder="Sök via namn">
 			<input type="hidden" name="searchingByTitle">
 		</form>
 		<form id="searchByFlavourForm" action="../src/app/API.php" method="POST">
-			<input type="text" name="searchByFlavour" placeholder="Search by Flavour">
+			<input type="text" name="searchByFlavour" placeholder="Sök via smak">
 			<input type="hidden" name="searchingByFlavour">
 		</form>
 	</div>

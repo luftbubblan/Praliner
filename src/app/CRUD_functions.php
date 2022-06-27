@@ -86,7 +86,7 @@ class CRUDFunctions {
             $stmt->bindParam(':id', $id);
             $stmt->execute();
 
-            $message = successMessage("Name has been updated.");
+            $message = successMessage("Namnet har uppdaterats.");
             return $message;
         }
     }
@@ -106,7 +106,7 @@ class CRUDFunctions {
                 $stmt->bindParam(':id', $id);
                 $stmt->execute();
 
-                $message = successMessage("E-mail has been updated.");
+                $message = successMessage("Emailadressen har uppdaterats.");
                 return $message;
             } catch (\PDOException $e) {
                 if ((int) $e->getCode() === 23000) {
@@ -135,7 +135,7 @@ class CRUDFunctions {
             $stmt->bindParam(':id', $id);
             $stmt->execute();
             
-            $message = successMessage("Password has been updated.");
+            $message = successMessage("Lösenordet har uppdaterats.");
             return $message;
         }
     }
@@ -162,7 +162,7 @@ class CRUDFunctions {
             $stmt->bindParam(':id', $id);
             $stmt->execute();
 
-            $message = successMessage("Information has been updated.");
+            $message = successMessage("Informationen har uppdaterats.");
             return $message;
         }
     }
@@ -254,12 +254,12 @@ class CRUDFunctions {
             $isFileTypeAllowed = array_search($fileType, $allowedFileTypes, true);
             
             if (!$isFileTypeAllowed) {
-                $message .= errorMessage("Image type is not allowed. Must be: JPEG, PNG or GIF.");
+                $message .= errorMessage("Filtyp ej tillåten. Välj JPEG, PNG eller GIF.");
                 return $message;
             } 
             
             if ($_FILES['img_url']['size'] > 10000000) {  // Allows files under 10 mbyte
-                $message .= errorMessage("Image is to large. Max size is 10 MB.");
+                $message .= errorMessage("Bilden är för stor. Högst 10 MB.");
                 return $message;
             }
 

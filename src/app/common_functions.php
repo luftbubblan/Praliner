@@ -26,7 +26,7 @@
     function checkIfEmailIsValid($email) {
         $output = "";
         if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-            $output = errorMessage("Måste ange en riktigt e-mail.");
+            $output = errorMessage("Måste ange en giltig email.");
             return $output;
         }
         return "";
@@ -71,7 +71,7 @@
     }
 
     function errorEmailtaken() {
-        $output = '<div class="alert alert-danger">Denna e-mail är redan tagen, var snäl och ange en annan e-mail.</div>';
+        $output = '<div class="alert alert-danger">Denna emailadress är redan tagen, vänligen ange en annan.</div>';
         return $output;
     }
 ?>
