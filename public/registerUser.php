@@ -53,27 +53,53 @@
 	include('layout/header.php');
 ?>
 
-
+<div id="head-line-reg-user">
 <h2>Registera användare</h2>
-<hr>
+</div>
 
-<?=$message?>
+
+<div id="";>
+    <?=$message?>
+</div>
 
 <div class="cssClassOne">
     <form action="" method="POST">
+    <p>
         <input type="text" name="firstName" placeholder="Förnamn" value="<?=isset($_POST['firstName']) ? $_POST['firstName'] : "";?>"><br>
+    </p>
+
+    <p>
         <input type="text" name="lastName" placeholder="Efternamn" value="<?=$_POST['lastName'] ?? "" ?>"><br>
+    </p>
+
+    <p>
         <input type="text" name="email" placeholder="E-post" value="<?=$_POST['email'] ?? ""?>"><br>
+    </p>
+    <p>
         <input type="password" name="password" placeholder="Lösenord" value="<?=$_POST['password'] ?? ""?>">
+       
         <input type="checkbox" onclick="showHidePassword(this)">Visa lösenord<br>
+    </p>
+    <p>
         <input type="password" name="confirmedPassword" placeholder="Bekräfta lösenord" value="<?=$_POST['confirmedPassword'] ?? ""?>">
         <input type="checkbox" onclick="showHidePassword(this)">Visa lösenord<br>
+    </p>
+      
+    <p>
         <input type="number" name="phone" placeholder="Telefon 10 siffror" value="<?=$_POST['phone'] ?? ""?>"><br>
+    </p>
+    <p>
         <input type="text" name="street" placeholder="Gata" value="<?=$_POST['street'] ?? "" ?>"><br>
+    </p>
+    <p>
         <input type="number" name="postalCode" placeholder="Postnummer" value="<?=$_POST['postalCode'] ?? ""?>"><br>
+    </p>
+    <p>
         <input type="text" name="city" placeholder="Stad" value="<?=$_POST['city'] ?? ""?>"><br>
+    </p>
+    <p>
         <input type="text" name="country" placeholder="Land" value="<?=$_POST['country'] ?? ""?>"><br>
-       
+    </p>
     <input id="registerBtn" class="btn btn-success" type="submit" name="registerUserBtn" value="Registera användare"> 
     </form>
 </div>

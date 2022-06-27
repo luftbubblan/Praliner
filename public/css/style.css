@@ -442,3 +442,11 @@ max-width: 20vw;
 #registerBtn {
     margin-top: 20px;
 }
+
+#head-line-reg-user {
+    margin-left: 50px;
+}
+
+#messageRegUser {
+    margin-left: 60px;
+}
