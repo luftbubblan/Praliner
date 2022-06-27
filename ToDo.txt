@@ -111,10 +111,10 @@ Ordrar (OSCAR)
     DONE - Skapa databas för ordrar
     DONE - Användare ska kunna lägga en order på varor
     Refakturera create-order.php till funktioner och metoder
-    lägg till ucfirst på trims
+    DONE - lägg till ucfirst på trims
     Validera checkout form
     DONE - Gör Order confirmation sidan och visa vad som är beställt
-    email och phone ska sparas i databasen, adlrig NULL
+    DONE - email och phone ska sparas i databasen, adlrig NULL
         -OPTIONAL-
         Användaren ska kunna se sina ordrar
         Admin ska kunna se alla ordrar som är lagda
