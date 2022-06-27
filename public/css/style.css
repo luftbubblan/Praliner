@@ -467,11 +467,48 @@ input[type=number] {
 }
 
 #head-line-reg-user {
-
     margin: 20px 50px;
+}
+
+#regCheckbox1 {
+    margin: 0px 5px;
+}
+
+#regCheckbox2 {
+    margin: 0px 5px;
 }
 
 #registerMessage {
     width: 400px;
     margin-left: 50px;
 }
+
+/* logIn page */
+
+#logInContainer {
+    height: 300px;
+  
+}
+
+#head-line-login {
+    display: flex;
+    margin: 30px 50px;
+}
+
+#loginForm {
+    display: flex;
+    margin: 30px 50px;
+}
+
+#loginBtn {
+    margin-top: 10px;
+}
+
+#loginMessage {
+    width: 400px;
+    margin-left: 50px;
+}
+
+ #loginCheckbox {
+    margin: 0px 5px;
+} 
