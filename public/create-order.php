@@ -1,35 +1,22 @@
 <?php
     require('../src/config.php');
-    // require('../src/app/CRUD_functions.php');
-
-    echo "<pre>";
-    echo "SESSION---SESSION---SESSION---SESSION---SESSION---SESSION---SESSION---SESSION---SESSION---SESSION---SESSION <br>";
-    print_r($_SESSION);
-    echo "</pre>";
-    
-    echo "<pre>";
-    echo "POST---POST---POST---POST---POST---POST---POST---POST---POST---POST---POST---POST---POST---POST---POST---POST <br>";
-    print_r($_POST);
-    echo "</pre>";
 
     if(isset($_POST['PayNowBtn']) && !empty($_SESSION['cartItems'])) {
         $userId =      null;
         $guest =       null;
-        $firstname =   trim($_POST['firstname']);
-        $lastname =    trim($_POST['lastname']);
+        $firstname =   ucfirst(trim($_POST['firstname']));
+        $lastname =    ucfirst(trim($_POST['lastname']));
         $fullName =    $firstname . " " . $lastname;
-        $email =       null;
-        $phone =       null;
-        $street =      trim($_POST['street']);
+        $email =       trim($_POST['email']);
+        $phone =       trim($_POST['phone']);
+        $street =      ucfirst(trim($_POST['street']));
         $postalCode =  trim($_POST['postalCode']);
-        $city =        trim($_POST['city']);
-        $country =     trim($_POST['country']);
+        $city =        ucfirst(trim($_POST['city']));
+        $country =     ucfirst(trim($_POST['country']));
         if(!isset($_SESSION['id'])) {
-            $guest =       "yes";
-            $email =       trim($_POST['email']);
-            $phone =       trim($_POST['phone']);
+            $guest = "yes";
         } else {
-            $userId =      $_SESSION['id'];
+            $userId = $_SESSION['id'];
         }
 
         $sql = "

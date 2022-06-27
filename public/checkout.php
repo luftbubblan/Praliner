@@ -3,18 +3,10 @@
 
     require('../src/config.php');
     require('../src/app/CRUD_functions.php');
-
-    // echo "<pre>";
-    // print_r($_SESSION);
-    // echo "</pre>";
     
     if(isset($_SESSION['id'])) {
         $user = $crudFunctions->fetchUserById($_SESSION['id']);
     }
-
-    // echo "<pre>";
-    // print_r($user);
-    // echo "</pre>";
 
     include('layout/header.php');
 ?>
@@ -72,7 +64,7 @@
         </table>
 
         <?php if(!isset($_SESSION['id'])) { ?>
-            <div class="notLoggedinMessage">You are not logged in. Please register an accaount <a href="registerUser.php">HERE</a> or continue as a guest by filling in your information below</div>
+            <div class="notLoggedinMessage">Du är inte inloggad. Vänligen registrera en användare. <a href="registerUser.php">HÄR</a> eller fortsätt med köpet som gäst genom att fylla i din information nedan</div>
         <?php } ?>
 
         <form action="create-order.php" method="POST">
@@ -92,7 +84,7 @@
                 <div class="col-mdx col-md-3">
                     <input type="text" class="form-control" id="checkoutPhone" name="phone" placeholder="Phone" value="<?=$user['phone'] ?? "" ?>">
                     <small id="checkoutPhoneHelpline" class="text-muted">
-                        Must be 10 digits long.
+                        Måste vara 10 siffror.
                     </small>
                 </div>
             </div>
@@ -105,7 +97,7 @@
                 <div class="col-mdx col-md-2">
                     <input type="text" class="form-control" id="checkoutPostalcode" name="postalCode" placeholder="Postal code" value="<?=$user['postal_code'] ?? "" ?>">
                     <small id="checkoutPostalcodeHelpline" class="text-muted">
-                        Must be 5 characters long.
+                        Måste vara 5 siffror.
                     </small>
                 </div>
                 <div class="col-mdx col-md-2">
@@ -117,17 +109,17 @@
                 <div class="col-mdx col-md-12">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="checkoutTerms" name="termsAgreed">
-                        <label class="form-check-label" for="checkoutTerms" >I agree to the terms and conditions</label>
+                        <label class="form-check-label" for="checkoutTerms" >Jag godkänner de allmänna villkoren</label>
                     </div>
                 </div>
             </div>
             <div class="col-mdx col-md-12">
-                <input type="submit" class="btn btn-primary" name="PayNowBtn" value="Pay now">
+                <input type="submit" class="btn btn-primary" name="PayNowBtn" value="Betala">
             </div>
         </form>
 
     <?php } else { ?>
-        You have no items to checkout. Please go back to <a href="index.php">the shop</a> and put some items in your cart
+        Du har inga varor i din kundkorg. Gå tillbaka till <a href="index.php">butiken</a> för att börja handla.
     <?php }  ?>
 </div>
 

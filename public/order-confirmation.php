@@ -22,9 +22,9 @@
     include('layout/header.php');
 ?>
 <div class="container">
-    <h1>Thank you for your order!</h1>
-    <p><b>You have ordered <?=$itemsOrdered?> products with a total cost of <?=$orderCost?> kr.</b></p>
-    <p>We have sent you a confirmation via email. If you have any questions please contact us.</p>
+    <h1>Tack för din beställning!</h1>
+    <p><b>Du har beställt <?=$itemsOrdered?> produkter med en totalsumma på <?=$orderCost?> kr.</b></p>
+    <p>Vi har skickat ett bekräftelsemail till dig. Om du har några frågor eller funderingar, tveka inte på att höra av dig till oss.</p>
     <table class="table tabel-borderless">
         <thead>
             <tr>
@@ -48,7 +48,7 @@
     <?php } ?>
         </tbody>
     </table>
-    <a href="index.php">Back to shop</a>
+    <a href="index.php">Tillbaka till butiken.</a>
 </div>
 
 <?php include('layout/footer.php') ?>
