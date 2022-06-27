@@ -1,10 +1,14 @@
-#header-container {
+h1, h2, h3, h4, h5, h6, p {
+    color: #004349;
+}
+
+.header-container {
     height: 60vh;
 }
 #nav-1 {
     display: flex;
     background-color: #ffcad495;
-    height: 5vh;
+	padding: 1em 0em;
     justify-content: flex-end;
     align-items: center;
 }
@@ -12,7 +16,9 @@
     text-decoration: none;
     color: #4f4b54;
     margin: 0px 0.2em;
+    margin-right: 1em;
 }
+
 #nav-1 a:hover {
     color: #6d6875;
 }
@@ -26,10 +32,11 @@
     align-items: center;
     font-family: 'Potta One', cursive;
     background-color: #ffcad495;
-    color: white;
     text-shadow: 2px 0 3px #6F4E37;
+}
 
-
+#logo-con h3 {
+    color: white;
 }
 
 #nav-2 {
@@ -42,8 +49,9 @@
 #nav-2 a, #backto-a {
     text-decoration: none;
     color: #004349;
-    margin: 0px 0.5em;
+    margin-left: 2em;
 }
+
 #nav-2 a:hover, #backto-a:hover {
     color: #006d77;
 }
@@ -93,13 +101,13 @@
 }
 
 #product-img {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
+    padding-bottom: 1em;
 }
 
 #title {
-    padding: 0em 2em;
-    margin: 0;
+    padding-bottom: 1em;
     /* background-color: #004349; */
     color: #004349;
 }
@@ -108,12 +116,12 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin: 50px 0px;
 }
 
-#img-desc{
+#img-desc img{
     flex-direction: column;
-    margin-top: 2em;
-
+    width: 35vw;
 }
 
 
@@ -125,11 +133,19 @@
 #about-con {
     display: flex;
     flex-direction: column;
-    border: #004349 solid 1px;
-    /* margin: auto; */
+    justify-content: center;
     align-items: center;
-    height: 30em;
-    max-width: 20em;
+    background-color: #d8e2dc65;
+    height: 35vw;
+    width: 25vw;
+}
+
+#p-desc {
+max-width: 20vw;
+}
+
+#p-flavour {
+    color: #006d77;
 }
 
 #p-stock {
@@ -141,6 +157,7 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 2em;
+    color: #004349;
 }
 
 /* Chrome, Safari, Edge, Opera remove arrows in number input */
@@ -366,14 +383,23 @@
     border: none;
     font-size: 20px;
     font-weight: 1000;
+    color: #004349;
+}
+
+.plusMinus:hover {
+        color: #006d77;
 }
 
 .plusMinusSingle {
-    background-color: #ffffff;
+    background-color: #d8e2dc65;
+}
+
+.plusBtn {
+    padding-right: 15px;
 }
 
 #buy-sec span {
-    font-size: 25px;
+    font-size: 24px;
 }
 
 .shopping-cart button {
@@ -386,3 +412,4 @@
     left: 70px;
     bottom: 20px;
 }
+

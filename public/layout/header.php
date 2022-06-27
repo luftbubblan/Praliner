@@ -17,21 +17,21 @@
         
     <?php
         if (isset($_SESSION['id'])) {
-            $menu = '<a href="myPage.php">My page</a> | <a href="logout.php">Logout</a>';
+            $menu = '<a href="myPage.php">My page</a><a href="logout.php">Logout</a>';
         } else {
-            $menu = '<a href="registerUser.php">Register</a> | <a href="login.php">Log in</a>';
+            $menu = '<a href="registerUser.php">Register</a><a href="login.php">Log in</a>';
         }
     ?>
 
 
-    <div id="header-container">
-        <div id="nav-1">
-            <?php require('cart.php'); ?>
-            <a href="index.php">Shop</a>
-            <a href="admin">Admin</a>
-            <?= $menu ?>
-        </div>
+<div id="nav-1">
+    <?php require('cart.php'); ?>
+    <a href="index.php">Shop</a>
+    <a href="admin">Admin</a>
+    <?= $menu ?>
+</div>
 
+<div class="header-container">
         <div id="logo-con">
             <h3>Marias söta i Vejbystrand</h3>
         </div>
@@ -41,4 +41,4 @@
         <a href="about">Om</a>
         <a href="about">Hitta hit</a>
         </div>
-    </div>
+</div>

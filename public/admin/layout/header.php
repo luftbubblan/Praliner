@@ -11,9 +11,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <div>
-        <a href="../index.php">Shop</a> |
-        <a href="index.php">Produkter Admin</a> |
-        <a href="users.php">Användare Admin</a>
-    </div>
+        <div id="nav-1">
+            <a href="../index.php">Shop</a>
+            <a href="index.php">Produkter</a>
+            <a href="users.php">Användare</a>
+        </div>
