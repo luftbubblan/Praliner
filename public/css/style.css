@@ -88,7 +88,7 @@ h1, h2, h3, h4, h5, h6, p {
     display: flex;
     flex-direction: column;
     padding: 2em 1.5em;
-    background-color: #d8e2dc65;
+    background-color: #f0f4f1;
     width: 18em;
     height: 100%;
     justify-content: center;
@@ -135,7 +135,7 @@ h1, h2, h3, h4, h5, h6, p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #d8e2dc65;
+    background-color: #f0f4f1;
     height: 35vw;
     width: 25vw;
 }
@@ -387,11 +387,15 @@ max-width: 20vw;
 }
 
 .plusMinus:hover {
-        color: #006d77;
+    color: #006d77;
 }
 
-.plusMinusSingle {
-    background-color: #d8e2dc65;
+.plusMinusGray {
+    background-color: #f0f4f1;
+}
+
+.plusMinusWhite {
+    background-color: white;
 }
 
 .plusBtn {
