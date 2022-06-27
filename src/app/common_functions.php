@@ -10,7 +10,7 @@
     function phoneNumberMustBeTenDigits($phone) {
         $output = "";
         if (strlen((string)$phone) != 10) {
-            $output = errorMessage("Phone number must be 10 digits.");
+            $output = errorMessage("Telefonnummer måste vara 10 siffror.");
             return $output;
         }
     }
@@ -18,7 +18,7 @@
     function postalCodeMustBeFiveDigits($postalCode) {
         $output = "";
         if (strlen((string)$postalCode) != 5) {
-            $output = errorMessage("Postal code must be 5 digits.");
+            $output = errorMessage("Postnummer måste vara 5 siffror.");
             return $output;
         }
     }
@@ -26,7 +26,7 @@
     function checkIfEmailIsValid($email) {
         $output = "";
         if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-            $output = errorMessage("E-mail must be a valid e-mail.");
+            $output = errorMessage("Måste ange en riktigt e-mail.");
             return $output;
         }
         return "";
@@ -35,7 +35,7 @@
     function checkIfPasswordsMatch($password, $confirmedPassword) {
         $output = "";
         if (!empty($confirmedPassword) && !empty($password) && $password !== $confirmedPassword) {
-            $output = errorMessage('"Password" and "Confirm password" must match.');
+            $output = errorMessage('"Lösenord" och "Bekräfta lösenord" måste vara samma.');
             return $output;
         }
     }
@@ -71,7 +71,7 @@
     }
 
     function errorEmailtaken() {
-        $output = '<div class="alert alert-danger">E-mail is already taked, please use another e-mail.</div>';
+        $output = '<div class="alert alert-danger">Denna e-mail är redan tagen, var snäl och ange en annan e-mail.</div>';
         return $output;
     }
 ?>
