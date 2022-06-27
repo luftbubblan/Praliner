@@ -16,7 +16,7 @@
         $message .= errorMessage("You need to login to access this.");
     }
     if (isset($_GET['deleted'])) {
-        $message .= warningMessage("Your account has successfully been deleted.");
+        $message .= warningMessage("Ditt konto är nu borttaget. Välkommen åter.");
     }
 
     if (isset($_POST['loginBtn'])) {
