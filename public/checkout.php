@@ -1,5 +1,5 @@
 <?php
-    $pageTitle = "Checkout";
+    $pageTitle = "Varukorg";
 
     require('../src/config.php');
     require('../src/app/CRUD_functions.php');
@@ -20,7 +20,7 @@
             <thead>
                 <tr>
                     <th class="leadTextColor" style="width: 15%">Produkt</th>
-                    <th class="leadTextColor" style="width: 45%">Info</th>
+                    <th class="leadTextColor" style="width: 45%">Beskrivning</th>
                     <th class="leadTextColor" style="width: 10%"></th>
                     <th class="leadTextColor" style="width: 15%">Antal</th>
                     <th class="leadTextColor" style="width: 15%">Pris per produkt</th>
@@ -55,8 +55,8 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td class="leadTextColor"><b>Antal praliner<br><?=$cartItemsInCart?> st</b></td>
-                    <td class="leadTextColor"><b>Total kostnad <br><?=$totalSum?> kr</b></td>
+                    <td class="leadTextColor"><b>Antal produkter<br><?=$cartItemsInCart?> stk</b></td>
+                    <td class="leadTextColor"><b>Total summa <br><?=$totalSum?> kr</b></td>
                 </tr>
             </tbody>
         </table>
@@ -83,10 +83,10 @@
             </div>
             <div class="row">
                 <div class="col-mdx col-md-3">
-                    <input type="email" class="form-control" id="checkoutEmail" name="email" placeholder="E-mail" value="<?=$user['email'] ?? "" ?>">
+                    <input type="email" class="form-control" id="checkoutEmail" name="email" placeholder="Email" value="<?=$user['email'] ?? "" ?>">
                 </div>
                 <div class="col-mdx col-md-3">
-                    <input type="number" class="form-control" id="checkoutPhone" name="phone" placeholder="Telefonnummer" value="<?=$user['phone'] ?? "" ?>">
+                    <input type="number" class="form-control" id="checkoutPhone" name="phone" placeholder="Telefon" value="<?=$user['phone'] ?? "" ?>">
                     <small id="checkoutPhoneHelpline" class="text-muted">
                         Måste vara 10 siffror.
                     </small>
@@ -94,7 +94,7 @@
             </div>
             <div class="row">
                 <div class="col-mdx col-md-6">
-                    <input type="text" class="form-control" id="checkoutStreet" name="street" placeholder="Gatuadress" value="<?=$user['street'] ?? "" ?>">
+                    <input type="text" class="form-control" id="checkoutStreet" name="street" placeholder="Adress" value="<?=$user['street'] ?? "" ?>">
                 </div>
             </div>
             <div class="row">
@@ -105,7 +105,7 @@
                     </small>
                 </div>
                 <div class="col-mdx col-md-2">
-                    <input type="text" class="form-control" id="checkoutCity" name="city" placeholder="Stad" value="<?=$user['city'] ?? "" ?>">
+                    <input type="text" class="form-control" id="checkoutCity" name="city" placeholder="Ort" value="<?=$user['city'] ?? "" ?>">
                 </div>
                 <div class="col-mdx col-md-2">
                     <input type="text" class="form-control" id="checkoutCountry" name="country" placeholder="Land" value="<?=$user['country'] ?? "" ?>">

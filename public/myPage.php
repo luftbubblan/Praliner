@@ -1,5 +1,5 @@
 <?php
-    $pageTitle = "My Page";
+    $pageTitle = "Mina sidor";
 
     require('../src/config.php');
     require('../src/app/common_functions.php');
@@ -12,19 +12,19 @@
     $message = "";
 
     if (isset($_GET['nameUpdated'])) {
-        $message = successMessage("Name was successfully updated.");
+        $message = successMessage("Namnet har uppdaterats.");
     }
 
     if (isset($_GET['emailUpdated'])) {
-        $message = successMessage("Email was successfully updated.");
+        $message = successMessage("Email adressen har uppdaterats.");
     }
 
     if (isset($_GET['passwordUpdated'])) {
-        $message = successMessage("Password was successfully updated.");
+        $message = successMessage("Lösenordet har uppdaterats.");
     }
 
     if (isset($_GET['informationUpdated'])) {
-        $message = successMessage("Information was successfully updated.");
+        $message = successMessage("Informationen har uppdaterats.");
     }
 
     $user = $crudFunctions->fetchUserById($_SESSION['id']);
@@ -40,26 +40,26 @@
 <div>
     <b>Firstname:</b> <?=$user['first_name']?> |
     <b>Lastname:</b> <?=$user['last_name']?><br>
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#nameModal" data-firstname="<?=$user['first_name']?>" data-lastname="<?=$user['last_name']?>">Update Name</button>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#nameModal" data-firstname="<?=$user['first_name']?>" data-lastname="<?=$user['last_name']?>">Uppdatera namn</button>
 </div>
 
 <div>
     <b>Email:</b> <?=$user['email']?><br>
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#emailModal" data-email="<?=$user['email']?>">Update Email</button>
-    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#passwordModal">Update Password</button>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#emailModal" data-email="<?=$user['email']?>">Uppdatera email</button>
+    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#passwordModal">Uppdatera lösenord</button>
 </div>
 
 <div>
-    <b>Phone:</b> <?=$user['phone']?> |
-    <b>Street:</b> <?=$user['street']?> |
-    <b>Postal code:</b> <?=$user['postal_code']?> |
-    <b>City:</b> <?=$user['city']?> |
-    <b>Country:</b> <?=$user['country']?> <br>
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#informationModal" data-phone="<?=$user['phone']?>" data-street="<?=$user['street']?>" data-postalcode="<?=$user['postal_code']?>" data-city="<?=$user['city']?>" data-country="<?=$user['country']?>">Update information </button>
+    <b>Telefon:</b> <?=$user['phone']?> |
+    <b>Adress:</b> <?=$user['street']?> |
+    <b>Postnummer code:</b> <?=$user['postal_code']?> |
+    <b>Ort:</b> <?=$user['city']?> |
+    <b>Land:</b> <?=$user['country']?> <br>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#informationModal" data-phone="<?=$user['phone']?>" data-street="<?=$user['street']?>" data-postalcode="<?=$user['postal_code']?>" data-city="<?=$user['city']?>" data-country="<?=$user['country']?>">Uppdatera information </button>
 </div>
 
 <div>
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete your account</button>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Radera konto</button>
 </div>
 
 <!-- NAMEMODAL -->
@@ -67,23 +67,23 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update name</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Uppdatera namn</h5>
             </div>
             <form id="updateNameForm" action="../src/app/API.php" method="POST">
                 <div class="modal-body">
                     <div class="formMessage"></div>
                     <div class="form-group">
-                        <label for="firstName" class="col-form-label">First name:</label>
+                        <label for="firstName" class="col-form-label">Förnamn:</label>
                         <input type="text" class="form-control" name="firstName">
                     </div>
                     <div class="form-group">
-                        <label for="lastName" class="col-form-label">Last name:</label>
+                        <label for="lastName" class="col-form-label">Efternamn:</label>
                         <input type="text" class="form-control" name="lastName">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-                    <input type="submit" name="updateNameBtn" class="btn btn-success" value="Update">
+                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Stäng</button>
+                    <input type="submit" name="updateNameBtn" class="btn btn-success" value="Uppdatera">
                 </div>
             </form>
         </div>
@@ -95,7 +95,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update email</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Uppdatera email</h5>
             </div>
             <form id="updateEmailForm" action="../src/app/API.php" method="POST">
                 <div class="modal-body">
@@ -106,8 +106,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-                    <input type="submit" name="updateEmailBtn" class="btn btn-success" value="Update">
+                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Stäng</button>
+                    <input type="submit" name="updateEmailBtn" class="btn btn-success" value="Uppdatera">
                 </div>
             </form>
         </div>
@@ -119,30 +119,30 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update password</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Uppdatera lösenord</h5>
             </div>
             <form id="updatePasswordForm" action="../src/app/API.php" method="POST">
                 <div class="modal-body">
                     <div class="formMessage"></div>
                     <div class="form-group">
-                        <label for="oldpassword" class="col-form-label">Old password:</label>
+                        <label for="oldpassword" class="col-form-label">Gammalt lösenord:</label>
                         <input type="password" class="form-control" name="oldpassword">
-                        <input type="checkbox" onclick="showHidePassword(this)">Show Password
+                        <input type="checkbox" onclick="showHidePassword(this)">Visa lösenord
                     </div>
                     <div class="form-group">
-                        <label for="newpassword" class="col-form-label">New password:</label>
+                        <label for="newpassword" class="col-form-label">Nytt lösenord:</label>
                         <input type="password" class="form-control" name="newpassword">
-                        <input type="checkbox" onclick="showHidePassword(this)">Show Password
+                        <input type="checkbox" onclick="showHidePassword(this)">Visa lösenord
                     </div>
                     <div class="form-group">
-                        <label for="confirmnewpassword" class="col-form-label">Confirm new password:</label>
+                        <label for="confirmnewpassword" class="col-form-label">Bekräfta nytt lösenord:</label>
                         <input type="password" class="form-control" name="confirmnewpassword">
-                        <input type="checkbox" onclick="showHidePassword(this)">Show Password
+                        <input type="checkbox" onclick="showHidePassword(this)">Visa lösenord
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-success" name="updatePasswordBtn" value="Update">
+                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Stäng</button>
+                    <input type="submit" class="btn btn-success" name="updatePasswordBtn" value="Uppdatera">
                 </div>
             </form>
         </div>
@@ -154,35 +154,35 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update password</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Uppdatera lösenord</h5>
             </div>
             <form id="updateInformationForm" action="../src/app/API.php" method="POST">
                 <div class="modal-body">
                     <div class="formMessage"></div>
                     <div class="form-group">
-                        <label for="phone" class="col-form-label">Phone:</label>
+                        <label for="phone" class="col-form-label">Telefon:</label>
                         <input type="number" class="form-control" name ="phone">
                     </div>
                     <div class="form-group">
-                        <label for="street" class="col-form-label">Street:</label>
+                        <label for="street" class="col-form-label">Adress:</label>
                         <input type="text" class="form-control" name ="street">
                     </div>
                     <div class="form-group">
-                        <label for="postalcode" class="col-form-label">Postal code:</label>
+                        <label for="postalcode" class="col-form-label">Postnummer:</label>
                         <input type="number" class="form-control" name ="postalcode">
                     </div>
                     <div class="form-group">
-                        <label for="city" class="col-form-label">City:</label>
+                        <label for="city" class="col-form-label">Ort:</label>
                         <input type="text" class="form-control" name ="city">
                     </div>
                     <div class="form-group">
-                        <label for="country" class="col-form-label">Country:</label>
+                        <label for="country" class="col-form-label">Land:</label>
                         <input type="text" class="form-control" name ="country">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-success" name="updateInformationBtn" value="Update">
+                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Stäng</button>
+                    <input type="submit" class="btn btn-success" name="updateInformationBtn" value="Uppdatera">
                 </div>
             </form>
         </div>
@@ -194,18 +194,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete account</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Radera konto</h5>
             </div>
             <form id="deleteForm" action="../src/app/API.php" method="POST">
                 <div class="modal-body">
                     <div class="formMessage"></div>
                     <div class="alert alert-danger" role="alert">
-                        Are you sure you want to delete your account. After accepting it can not be reverted
+                        Är du säker på att du vill radera ditt konto, detta går inte att ändra.
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-danger" name="deleteBtn" value="Delete">
+                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Stäng</button>
+                    <input type="submit" class="btn btn-danger" name="deleteBtn" value="Radera">
                 </div>
             </form>
         </div>

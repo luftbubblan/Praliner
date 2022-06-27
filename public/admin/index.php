@@ -1,5 +1,5 @@
 <?php
-	$pageTitle = "Product admin page";
+	$pageTitle = "Produkt översikt admin";
 
 	require('../../src/config.php');
 	require('../../src/app/common_functions.php');
@@ -33,7 +33,7 @@
 <h4>Hantera produkter</h4>
 
 <form action="addNewProduct.php">
-	<input type="submit" class="add-new-btn btn btn-success" value="Add new product">
+	<input type="submit" class="add-new-btn btn btn-success" value="Lägg till ny produkt">
 </form>
 
 <?=$message?>
@@ -41,13 +41,13 @@
 <table id="admin-tbl">
 	<thead>
 		<tr id="product-list">
-			<th>Title</th>
-			<th>Flavour</th>
-			<th>Description</th>
-			<th>Price</th>
-			<th>Stock</th>
-			<th>Img</th>
-			<th>Action</th>
+			<th>Namn</th>
+			<th>Smak</th>
+			<th>Beskrivning</th>
+			<th>Pris</th>
+			<th>Lagerstatus</th>
+			<th>Bild</th>
+			<th></th>
 		</tr>
 	</thead>
 
@@ -70,13 +70,13 @@
                         <input type="hidden" name="price" value="<?=$product['price'] ?>">
                         <input type="hidden" name="stock" value="<?=$product['stock'] ?>">
                         <input type="hidden" name="img_url" value="<?=$product['img_url'] ?>">
-                        <input type="submit" id="edit-btn" class="edit-btn btn btn-success" value="Edit">
+                        <input type="submit" id="edit-btn" class="edit-btn btn btn-success" value="Redigera">
                     </form>
 
                     <!-- Delete -->
                     <form action="" method="POST">
                         <input type="hidden" name="id" value="<?=$product['id'] ?>">
-                        <input type="submit" class="btn btn-danger" name="deleteProductBtn" value="Delete">
+                        <input type="submit" class="btn btn-danger" name="deleteProductBtn" value="Radera">
                     </form>
                 </td>
 			</tr>
@@ -84,22 +84,6 @@
 	</tbody>
 </table>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <?php include('layout/footer.php') ?>

@@ -9,8 +9,8 @@ if(isset($_POST['updateNameBtn'])) {
     $firstName = ucfirst(trim($_POST['firstName']));
     $lastName =  ucfirst(trim($_POST['lastName']));
 
-    $message .= ifEmptyGenerateMessage($firstName, "First name must not be empty.");
-    $message .= ifEmptyGenerateMessage($lastName, "Last name must not be empty.");
+    $message .= ifEmptyGenerateMessage($firstName, "Förnamn måste vara ifyllt.");
+    $message .= ifEmptyGenerateMessage($lastName, "Efternamn måste vara ifyllt.");
 
     $message .= $crudFunctions->updateName($message, $firstName, $lastName, $_SESSION['id']);
 
@@ -26,7 +26,7 @@ if(isset($_POST['updateNameBtn'])) {
 if(isset($_POST['updateEmailBtn'])) {
     $email = trim($_POST['email']);
 
-    $message .= ifEmptyGenerateMessage($email, "E-mail must not be empty.");
+    $message .= ifEmptyGenerateMessage($email, "Email måste vara ifyllt.");
 
     $message .= checkIfEmailIsValid($email);
 
@@ -46,8 +46,8 @@ if(isset($_POST['updatePasswordBtn'])) {
     $userspassword = $crudFunctions->fetchPasswordById($_SESSION['id']);
 
     if(checkIfPasswordIsCorrect($oldpassword, $userspassword['password'])) {
-        $message .= ifEmptyGenerateMessage($newpassword, "New password must not be empty.");
-        $message .= ifEmptyGenerateMessage($confirmnewpassword, "Confirm new password must not be empty.");
+        $message .= ifEmptyGenerateMessage($newpassword, "Nytt lösenord måste vara ifyllt.");
+        $message .= ifEmptyGenerateMessage($confirmnewpassword, "Bekräfta nytt lösenord måste vara ifyllt.");
 
         $message .= checkIfPasswordsMatch($newpassword, $confirmnewpassword);
             
@@ -55,7 +55,7 @@ if(isset($_POST['updatePasswordBtn'])) {
 
     } 
     else {
-        $message .= '<div class="alert alert-danger">The old password is incorrect.</div>';
+        $message .= '<div class="alert alert-danger">Det gamla lösenordet stämmer inte, vänligen försök igen.</div>';
     }
 
     $data = [
@@ -72,10 +72,10 @@ if(isset($_POST['updateInformationBtn'])) {
     $country = ucfirst(trim($_POST['country']));
 
     $message .= phoneNumberMustBeTenDigits($phone);
-    $message .= ifEmptyGenerateMessage($street, "Street must not be empty.");
+    $message .= ifEmptyGenerateMessage($street, "Adress måste vara ifyllt.");
     $message .= postalCodeMustBeFiveDigits($postalCode);
-    $message .= ifEmptyGenerateMessage($city, "City must not be empty.");
-    $message .= ifEmptyGenerateMessage($country, "Country must not be empty.");
+    $message .= ifEmptyGenerateMessage($city, "Ort måste vara ifyllt.");
+    $message .= ifEmptyGenerateMessage($country, "Land måste vara ifyllt.");
 
     $message .= $crudFunctions->updateInformation($message, $phone, $street, $postalCode, $city, $country, $_SESSION['id']);
 

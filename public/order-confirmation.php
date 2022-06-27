@@ -1,5 +1,5 @@
 <?php
-    $pageTitle = "Order-Confirmation";
+    $pageTitle = "Orderbekräftelse";
 
     require('../src/config.php');
 
@@ -29,7 +29,7 @@
         <thead>
             <tr>
                 <th style="width: 15%">Produkt</th>
-                <th style="width: 45%">Info</th>
+                <th style="width: 45%">Beskrivning</th>
                 <th style="width: 10%"></th>
                 <th style="width: 15%">Antal</th>
                 <th style="width: 15%">Pris per produkt</th>
