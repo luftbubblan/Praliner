@@ -454,3 +454,25 @@ input[type=number] {
 .cart-btn:hover {
     border: 1px solid #dacbcf;
 }
+
+/* registerUser page */
+
+.cssClassOne {
+    display: flex;
+   /*  justify-content: space-between; */
+    margin: 30px 50px;
+    
+
+}
+
+#registerBtn {
+    margin-top: 20px;
+}
+
+#head-line-reg-user {
+    margin-left: 50px;
+}
+
+#messageRegUser {
+    margin-left: 60px;
+}
