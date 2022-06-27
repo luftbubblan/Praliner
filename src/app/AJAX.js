@@ -193,9 +193,9 @@ function showProducts(products) {
                     <p>${product['stock']} stk i lager</p>
                     <h6>${product['price']} kr</h6>
                     <div id="buy-sec">
-                        <button class="minusBtn plusMinus plusMinusFront">-</button>
+                        <button class="minusBtn plusMinus plusMinusGray">-</button>
                         <span>1</span>
-                        <button class="plusBtn plusMinus plusMinusFront">+</button>
+                        <button class="plusBtn plusMinus plusMinusGray">+</button>
 
                         <form action="addToCart.php" method="POST">
                             <input type="hidden" name="productId" value="${product['id']}">

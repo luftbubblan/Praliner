@@ -26,9 +26,9 @@
         <p id="p-stock"><?= htmlentities($product['stock']) ?> stk i lager</p>
         <h4><?= htmlentities($product['price']) ?> kr</h4>
         <div id="buy-sec">
-            <button class="minusBtn plusMinus plusMinusSingle">-</button>
+            <button class="minusBtn plusMinus plusMinusGray">-</button>
             <span>1</span>
-            <button class="plusBtn plusMinus plusMinusSingle">+</button>
+            <button class="plusBtn plusMinus plusMinusGray">+</button>
 
             <form action="addToCart.php" method="POST">
                 <input type="hidden" name="productId" value="<?= ($product['id']) ?>">
