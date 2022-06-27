@@ -25,7 +25,7 @@
 
         $message .= checkIfEmailIsValid($email);
         if(!empty($message)) {
-            $message = errorMessage("Invalid login credentials. Please try again.");
+            $message = errorMessage("Ogiltiga inloggningsuppgifter. Var god försök igen.");
         } else {
             $userPasswordAndId = $crudFunctions->fetchPasswordAndIdByEmail($email);
     
@@ -35,27 +35,30 @@
                 header('Location: myPage.php');
                 exit;
             }
-            $message .= errorMessage("Invalid login credentials. Please try again.");
+            $message .= errorMessage("Ogiltiga inloggningsuppgifter. Var god försök igen.");
         }
 
     }
 
 	include('layout/header.php');
 ?>
+<div id="logInContainer">
+<div id="head-line-login">
+    <h2>Logga in på din sida</h2>
+</div>
 
+<div id="loginMessage";>
+    <?=$message?>
+</div>
 
-<h1>Login</h1>
-<hr>
-
-<?=$message?>
-
-<form action="" method="POST">
-    <input type="text" name="email" placeholder="E-mail">
-    <input type="password" name="password" placeholder="Password">
-    <input type="checkbox" onclick="showHidePassword(this)">Show Password<br>
-    <input type="submit" name="loginBtn" value="Login">
-</form>
-
+<div id="loginForm">
+    <form action="" method="POST">
+        <input type="text" name="email" placeholder="E-post">
+        <input type="password" name="password" placeholder="Lösenord">
+        <input id="loginCheckbox" type="checkbox" onclick="showHidePassword(this)">Visa lösenord<br>
+        <input id="loginBtn" class="btn btn-success" type="submit" name="loginBtn" value="Logga in">
+    </form>
+</div>
 <script src="../src/app/js_functions.js"></script>
-
+</div>
 <?php include('layout/footer.php') ?>

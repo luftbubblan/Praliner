@@ -78,11 +78,11 @@
     <p>
         <input type="password" name="password" placeholder="Lösenord" value="<?=$_POST['password'] ?? ""?>">
        
-        <input type="checkbox" onclick="showHidePassword(this)">Visa lösenord<br>
+        <input id="regCheckbox1" type="checkbox" onclick="showHidePassword(this)">Visa lösenord<br>
     </p>
     <p>
         <input type="password" name="confirmedPassword" placeholder="Bekräfta lösenord" value="<?=$_POST['confirmedPassword'] ?? ""?>">
-        <input type="checkbox" onclick="showHidePassword(this)">Visa lösenord<br>
+        <input id="regCheckbox2" type="checkbox" onclick="showHidePassword(this)">Visa lösenord<br>
     </p>
       
     <p>
