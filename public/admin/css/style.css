@@ -1,3 +1,9 @@
+
+h2, h4 {
+	color: #006d77;
+	/* font-family: old goodie style; */
+}
+
 #nav-1 {
     display: flex;
     background-color: #d8e2dc65;
@@ -50,12 +56,6 @@ input[type=number] {
 	
 }
 
-h2 {
-	color: #006d77;
-	/* font-family: old goodie style; */
-}
-
-
 tr:nth-child(even) {
 	background: #d8e2dc65
 }
@@ -98,7 +98,7 @@ tr:nth-child(odd) {
 /* PRODUCT ADMIN INDEX */
 #content-products {
 	display: flex;
-	margin: 20px 200px 20px 20px;
+	/* margin: 20px 200px 20px 20px; */
 	/* border: solid 3px #006d77; */
 	padding: 20px;
 	align-items: left;
@@ -117,4 +117,32 @@ tr:nth-child(odd) {
 #product-list {
 	background-color: #ffcad495;
 
+}
+
+.btn-success {
+    background-color: #d4edda;
+    border: 1px solid #cae9d1;
+    color: #1f5f2e;
+}
+
+.btn-danger {
+    background-color: #f8d7da;
+    border: 1px solid #f6cdd1;
+    color: #76222a;
+}
+
+.btn-danger:hover {
+    background-color: #A64441;
+}
+
+.add-new-btn{
+margin: 2em 0;
+}
+
+.edit-btn{
+	margin-right: 1em;
+}
+
+.table-btns{
+	display: flex;
 }

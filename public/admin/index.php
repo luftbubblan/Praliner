@@ -29,10 +29,11 @@
 ?>
 
 <div id="content-products">
-<h2>Product admin page</h2>
+<h2>Admin</h2>
+<h4>Product overview</h4>
 
 <form action="addNewProduct.php">
-	<input type="submit" value="Create new product">
+	<input type="submit" class="add-new-btn btn btn-success" value="Add new product">
 </form>
 
 <?=$message?>
@@ -40,7 +41,6 @@
 <table id="products-tbl">
 	<thead>
 		<tr id="product-list">
-			<th>Id</th>
 			<th>Title</th>
 			<th>Flavour</th>
 			<th>Description</th>
@@ -54,14 +54,13 @@
     <tbody>
 	    <?php foreach($products as $product) { ?>
 			<tr>
-				<td><?=htmlentities($product['id'])?></td>
 				<td><?=htmlentities($product['title'])?></td>
 				<td><?=htmlentities($product['flavour'])?></td>
 				<td><?=substr(htmlentities($product['description']), 0, 170)?></td>
 				<td><?=htmlentities($product['price'])?></td>      
 				<td><?=htmlentities($product['stock'])?></td>
 				<td><?=htmlentities($product['img_url'])?></td>
-				<td>
+				<td class="table-btns" >
                     <!-- Edit -->
                     <form action="edit.php" method="POST">
                         <input type="hidden" name="id" value="<?=$product['id'] ?>">
@@ -71,13 +70,13 @@
                         <input type="hidden" name="price" value="<?=$product['price'] ?>">
                         <input type="hidden" name="stock" value="<?=$product['stock'] ?>">
                         <input type="hidden" name="img_url" value="<?=$product['img_url'] ?>">
-                        <input type="submit" value="Edit">
+                        <input type="submit" id="edit-btn" class="edit-btn btn btn-success" value="Edit">
                     </form>
 
                     <!-- Delete -->
                     <form action="" method="POST">
                         <input type="hidden" name="id" value="<?=$product['id'] ?>">
-                        <input type="submit" name="deleteProductBtn" value="Delete">
+                        <input type="submit" class="btn btn-danger" name="deleteProductBtn" value="Delete">
                     </form>
                 </td>
 			</tr>
