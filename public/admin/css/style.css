@@ -88,7 +88,6 @@ tr:nth-child(odd) {
 #content-updateUser {
 	display: flex;
 	margin: 20px 200px 20px 20px;
-	border: solid 3px #006d77;
 	padding: 20px;
 	align-items: left;
     flex-direction: column;
@@ -142,4 +141,8 @@ margin: 2em 0;
 
 .table-btns{
 	display: flex;
+}
+
+.form-gap {
+	margin: 2em 0;
 }

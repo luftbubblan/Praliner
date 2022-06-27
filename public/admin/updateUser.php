@@ -42,68 +42,53 @@ include('layout/header.php');
 ?>
 
 <div id="content-updateUser">
-    <article class="border">
         <form method="POST" action="#">
-            <fieldset>
-                <h2>Uppdatera användare</h2>
-
+                <h2>Admin</h2>
+                <h4>Redigera användare</h4>
                 <?=$message ?>
-                
-                <p>
+            <div class="form-con">
+                <div class="form-gap">
                     <label for="first_name">First name:</label> <br>
                     <input type="text" class="text" name="first_name" value="<?=htmlentities($user['first_name']) ?>">
-                </p>
-
-                <p>
+                </div>
+                <div class="form-gap">
                     <label for="last_name">Last Name:</label> <br>
                     <input type="text" class="text" name="last_name" value="<?=htmlentities($user['last_name']) ?>">
-                </p>
-
-                <p>
+                </div>
                     <label for="email">Email:</label> <br>
                     <input type="text" class="text" name="email" value="<?=htmlentities($user['email']) ?>">
-                </p>
-
-                <p>
+                <div class="form-gap">
                     <label for="password">New password: (Leave empty to keep old password)</label> <br>
                     <input type="text" class="text" name="password">
-                </p>
-
-                <p>
+                </div>
+                <div class="form-gap">
                     <label for="phone">Phone:</label> <br>
                     <input type="number" class="phone" name="phone" value="<?=htmlentities($user['phone']) ?>">
-                </p>
-
-                <p>
+                </div>
+                <div class="form-gap">
                     <label for="street">Street:</label> <br>
                     <input type="text" class="street" name="street" value="<?=htmlentities($user['street']) ?>">
-                </p>
-
-                <p>
+                </div>
+                <div class="form-gap">
                     <label for="postal_code">Postal code:</label> <br>
                     <input type="number" class="postal_code" name="postal_code" value="<?=htmlentities($user['postal_code']) ?>">
-                </p>
-
-                <p>
+                </div>
+                <div class="form-gap">
                     <label for="city">City:</label> <br>
                     <input type="text" class="city" name="city" value="<?=htmlentities($user['city']) ?>">
-                </p>
-
-                <p>
+                 </div>
+                 <div class="form-gap">
                     <label for="country">Country:</label> <br>
                     <input type="text" class="country" name="country" value="<?=htmlentities($user['country']) ?>">
-                </p>
-
-                <p>
-                    <input class="btn btn-success" type="submit" name="updateUserBtn" value="Uppdatera"> | 
-                    <input class="btn btn-outline-info" type="submit" name="Back to Users" value="Back to Users">
-                 <!--  <a href="users.php">To users</a> -->
-                </p>
-            </fieldset>
-        </form>
+                </div>
+                <div>
+                    <input class="edit-btn btn btn-success" type="submit" name="updateUserBtn" value="Uppdatera">
+                    <input class="btn btn-outline-info" type="submit" name="Back to Users" value="Tillbaka">
+                </div>
+                    <!--  <a href="users.php">To users</a> -->
+                </div>
+            </form>
     
-        <hr>
-    </article>
-</div>
+    </div>
 
 <?php include('layout/footer.php'); ?>
