@@ -100,16 +100,21 @@ Gör köpprocessen (OSCAR)
 
 
 
-
+GÖR OM ALLT TILL SVENSKA
 
 
 Design Shop (ANNA)
 Design Admin (Malin)
 
 
-Ordrar (TSM)
-    Skapa databas för ordrar
-    Användare ska kunna lägga en order på varor
+Ordrar (OSCAR)
+    DONE - Skapa databas för ordrar
+    DONE - Användare ska kunna lägga en order på varor
+    Refakturera create-order.php till funktioner och metoder
+    DONE - lägg till ucfirst på trims
+    Validera checkout form
+    DONE - Gör Order confirmation sidan och visa vad som är beställt
+    DONE - email och phone ska sparas i databasen, adlrig NULL
         -OPTIONAL-
         Användaren ska kunna se sina ordrar
         Admin ska kunna se alla ordrar som är lagda

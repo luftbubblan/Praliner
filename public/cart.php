@@ -4,9 +4,9 @@
     }
 
     $cartItemsInCart = 0;
-    $TotalSum = 0;
+    $totalSum = 0;
     foreach($_SESSION['cartItems'] as $cartid => $cartItem) {
-        $TotalSum += $cartItem['price'] * $cartItem['quantity'];
+        $totalSum += $cartItem['price'] * $cartItem['quantity'];
         $cartItemsInCart += $cartItem['quantity'];
     }
 ?>
@@ -21,7 +21,7 @@
             <div class="shopping-cart-header">
                 <span class="items-in-cart"><?=$cartItemsInCart?> Praliner</span>
                 <div class="shopping-cart-total">
-                    <span><b>Total kostnad: <?=$TotalSum?> kr</b></span>
+                    <span><b>Total kostnad: <?=$totalSum?> kr</b></span>
                 </div>
             </div>
 
@@ -45,10 +45,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-

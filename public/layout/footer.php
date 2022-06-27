@@ -5,5 +5,9 @@
 <!-- FontAwesome -->
 <script src="https://kit.fontawesome.com/4f3ba440a9.js" crossorigin="anonymous"></script>
 
+<div id="footer-container">
+    © 2022-<?=date("Y")?> Marias söta i Vejbystrand
+</div>
+
 </body>
 </html>
