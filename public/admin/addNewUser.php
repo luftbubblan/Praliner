@@ -1,5 +1,5 @@
 <?php
-	$pageTitle = "Add new user";
+	$pageTitle = "Skapa ny användare";
 
 	require('../../src/config.php');
 	require('../../src/app/common_functions.php');
@@ -48,29 +48,53 @@
 	include('layout/header.php');
 ?>
 
-<div id="addNewUser">
-<h2>Add new user</h2>
-
 <?=$message?>
 
-<form action="" method="POST">
-    <input type="text" name="firstName" placeholder="First Name" value="<?=$_POST['firstName'] ?? "" ?>">
-    <input type="text" name="lastName" placeholder="Last Name" value="<?=$_POST['lastName'] ?? "" ?>">
-    <input type="text" name="email" placeholder="E-mail" value="<?=$_POST['email'] ?? "" ?>">
-    <input type="text" name="password" placeholder="Password" value="<?=$_POST['password'] ?? "" ?>">
-    <input type="number" name="phone" placeholder="Phone" value="<?=$_POST['phone'] ?? "" ?>">
-    <input type="text" name="street" placeholder="Street" value="<?=$_POST['street'] ?? "" ?>">
-    <input type="number" name="postalCode" placeholder="Postal code" value="<?=$_POST['postalCode'] ?? "" ?>">
-    <input type="text" name="city" placeholder="City" value="<?=$_POST['city'] ?? "" ?>">
-    <input type="text" name="country" placeholder="Country" value="<?=$_POST['country'] ?? "" ?>">
-    <input type="submit" name="addNewUserBtn" value="Add new user">
-</form>
+    <div class="form-style">
+    <form action="" method="POST" enctype="multipart/form-data">
+        <h2>Admin</h2>
+        <h4>Skapa ny användare</h4>
+        <div class="form-gap">
+            <label for="first_name">Förnamn:</label><br>
+            <input type="text" name="firstName" placeholder="First Name" value="<?=$_POST['firstName'] ?? "" ?>">
+        </div>
+        <div class="form-gap">
+            <label for="first_name">Efternamn:</label><br>
+            <input type="text" name="lastName" placeholder="Last Name" value="<?=$_POST['lastName'] ?? "" ?>">
+        </div>
+        <div class="form-gap">
+            <label for="first_name">Email:</label><br>
+            <input type="text" name="email" placeholder="E-mail" value="<?=$_POST['email'] ?? "" ?>">
+        </div>
+        <div class="form-gap">
+            <label for="first_name">Lösenord:</label><br>
+            <input type="text" name="password" placeholder="Password" value="<?=$_POST['password'] ?? "" ?>">
+        </div>
+        <div class="form-gap">
+            <label for="first_name">Telefon:</label><br>
+            <input type="number" name="phone" placeholder="Phone" value="<?=$_POST['phone'] ?? "" ?>">
+        </div>
+        <div class="form-gap">
+            <label for="first_name">Adress:</label><br>
+            <input type="text" name="street" placeholder="Street" value="<?=$_POST['street'] ?? "" ?>">
+        </div>
+        <div class="form-gap">
+            <label for="first_name">Postnummer:</label><br>
+            <input type="number" name="postalCode" placeholder="Postal code" value="<?=$_POST['postalCode'] ?? "" ?>">
+        </div>
+        <div class="form-gap">
+            <label for="first_name">Ort:</label><br>
+            <input type="text" name="city" placeholder="City" value="<?=$_POST['city'] ?? "" ?>">
+        </div>
+        <div class="form-gap">
+            <label for="first_name">Land:</label><br>
+            <input type="text" name="country" placeholder="Country" value="<?=$_POST['country'] ?? "" ?>">
+        </div>
+            <div class="form-gap">
+            <input type="submit" class="btn btn-success" name="addNewUserBtn" value="Lägg till">
+        </div>
+    </form>
 </div>
-
-
-
-
-
 
 
 
