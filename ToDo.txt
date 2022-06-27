@@ -115,11 +115,6 @@ Ordrar (OSCAR)
     Validera checkout form
     DONE - Gör Order confirmation sidan och visa vad som är beställt
     DONE - email och phone ska sparas i databasen, adlrig NULL
-        -OPTIONAL-
-        Användaren ska kunna se sina ordrar
-        Admin ska kunna se alla ordrar som är lagda
-        Admin ska kunna markera ordrar som skickade
-        Admin ska kunna deleta ordrar
 
 
 

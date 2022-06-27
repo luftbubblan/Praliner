@@ -29,7 +29,8 @@
         } else {
             $userPasswordAndId = $crudFunctions->fetchPasswordAndIdByEmail($email);
     
-            if(checkIfPasswordIsCorrect($password, $userPasswordAndId['password'])) {
+
+            if(!empty($userPasswordAndId) && checkIfPasswordIsCorrect($password, $userPasswordAndId['password'])) {
                 setLoginSession($userPasswordAndId['id']);
                 header('Location: myPage.php');
                 exit;

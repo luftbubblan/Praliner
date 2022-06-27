@@ -12,7 +12,7 @@
 ?>
 
 <div class="dropdown">
-    <button class="btn btn-info">
+    <button class="btn cart-btn">
         <span class="items-in-cart"><?=$cartItemsInCart?></span>
         <i class="fa-solid fa-cart-shopping"></i>
     </button>
@@ -20,7 +20,7 @@
         <div class="shopping-cart">
             <div class="shopping-cart-header">
                 <span class="items-in-cart"><?=$cartItemsInCart?> Praliner</span>
-                <div class="shopping-cart-total">
+                <div class="shopping-cart-total leadTextColor">
                     <span><b>Total kostnad: <?=$totalSum?> kr</b></span>
                 </div>
             </div>
@@ -29,8 +29,8 @@
                 <?php foreach($_SESSION['cartItems'] as $cartid => $cartItem) { ?>
                     <div class="clearfix">
                         <img src="<?=$cartItem['img_url']?>" alt="item1" />
-                        <span class="item-name"><?=$cartItem['title']?></span>
-                        <span class="item-price"><?=$cartItem['price']?> kr/st</span>
+                        <span class="item-name leadTextColor"><?=$cartItem['title']?></span>
+                        <span class="item-price leadTextColor"><?=$cartItem['price']?> kr/st</span>
                         <span class="item-quantity">Antal: <?=$cartItem['quantity']?></span>
                         <form id="cartDeleteForm" action="deleteCartItem.php" method="POST">
                             <input type="hidden" name="cartId" value="<?=$cartid?>">

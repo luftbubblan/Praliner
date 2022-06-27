@@ -18,17 +18,17 @@
         
     <?php
         if (isset($_SESSION['id'])) {
-            $menu = '<a href="myPage.php">My page</a><a href="logout.php">Logout</a>';
+            $menu = '<a href="myPage.php">Min sida</a><a href="logout.php">Logga ut</a>';
         } else {
-            $menu = '<a href="registerUser.php">Register</a><a href="login.php">Log in</a>';
+            $menu = '<a href="registerUser.php">Registrera</a><a href="login.php">Logga in</a>';
         }
     ?>
 
 
 <div id="nav-1">
     <?php require('cart.php'); ?>
-    <a href="index.php">Shop</a>
-    <a href="admin">Admin</a>
+    <!-- <a href="index.php">Butik</a> -->
+    <!-- <a href="admin">Admin</a> -->
     <?= $menu ?>
 </div>
 
@@ -38,7 +38,7 @@
         </div>
 
         <div id="nav-2">
-        <a href="index.php">Shop</a> 
+        <a href="index.php">Butik</a> 
         <a href="about">Om</a>
         <a href="about">Hitta hit</a>
         </div>
