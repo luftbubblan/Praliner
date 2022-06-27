@@ -85,7 +85,7 @@ tr:nth-child(odd) {
 }
 /* UPDATE NEW USER */
 
-#content-updateUser {
+.form-style {
 	display: flex;
 	margin: 20px 200px 20px 20px;
 	padding: 20px;

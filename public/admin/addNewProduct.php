@@ -1,5 +1,5 @@
 <?php
-	$pageTitle = "Admin page";
+	$pageTitle = "Skapa ny produkt";
 
 	require('../../src/config.php');
 	require('../../src/app/common_functions.php');
@@ -32,22 +32,39 @@
 
 	include('layout/header.php');
 ?>
-
-<h1>Add new product</h1>
-
 <?=$message?>
 
+<div class="form-style">
 <form action="" method="POST" enctype="multipart/form-data">
-    <input type="text" name="title" placeholder="Title" value="<?=$_POST['title'] ?? "" ?>">
-    <input type="text" name="flavour" placeholder="Flavour" value="<?=$_POST['flavour'] ?? "" ?>">
-    <textarea name="description" placeholder="Description"><?=$_POST['description'] ?? "" ?></textarea>
-    <input type="number" name="price" placeholder="Price" value="<?=$_POST['price'] ?? "" ?>">
-    <input type="number" name="stock" placeholder="Stock" value="<?=$_POST['stock'] ?? "" ?>" min="0">
-    <lable>Picture:</lable>
+    <h2>Admin</h2>
+    <h4>Lägg till ny produkt</h4>
+    <div class="form-gap">
+        <label for="first_name">Namn:</label><br>
+		<input type="text" name="title" placeholder="Namn" value="<?=$_POST['title'] ?? "" ?>">
+	</div>
+    <div class="form-gap">
+        <label for="first_name">Smak:</label><br>
+		<input type="text" name="flavour" placeholder="Smak" value="<?=$_POST['flavour'] ?? "" ?>">
+	</div>
+    <div class="form-gap">
+        <label for="first_name">Beskrivning:</label><br>
+		<textarea name="description" placeholder="Beskrivning"><?=$_POST['description'] ?? "" ?></textarea>
+	</div>
+    <div class="form-gap">
+        <label for="first_name">Pris:</label><br>
+		<input type="number" name="price" placeholder="Pris" value="<?=$_POST['price'] ?? "" ?>">
+	</div>
+    <div class="form-gap">
+        <label for="first_name">Lagerstatus:</label><br>
+		<input type="number" name="stock" placeholder="Lagerstatus" value="<?=$_POST['stock'] ?? "" ?>" min="0">
+	</div>
+	<lable>Bild:</lable>
 	<input type="file" name="img_url">
-    <input type="submit" name="createProductBtn" value="List Product">
+        <div class="form-gap">
+		<input type="submit" class="btn btn-success" name="createProductBtn" value="Lägg till">
+    </div>
 </form>
-
+</div>
 
 
 <?php include('layout/footer.php') ?>
