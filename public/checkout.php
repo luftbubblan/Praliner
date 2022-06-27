@@ -66,7 +66,7 @@
                     <td></td>
                     <td></td>
                     <td><b>Antal praliner<br><?=$cartItemsInCart?> st</b></td>
-                    <td><b>Total kostnad <br><?=$TotalSum?> kr</b></td>
+                    <td><b>Total kostnad <br><?=$totalSum?> kr</b></td>
                 </tr>
             </tbody>
         </table>
@@ -76,7 +76,7 @@
         <?php } ?>
 
         <form action="create-order.php" method="POST">
-            <input type="hidden" name="totalSum" value="<?=$TotalSum?>">
+            <input type="hidden" name="totalSum" value="<?=$totalSum?>">
             <div class="row">
                 <div class="col-mdx col-md-3">
                     <input type="text" class="form-control" id="checkoutFirstName" name="firstname" placeholder="Firstname" value="<?=$user['first_name'] ?? "" ?>">
