@@ -99,7 +99,6 @@ tr:nth-child(odd) {
 	padding: 20px;
 	align-items: left;
     flex-direction: column;
-
 }
 
 tr:nth-child(even) {
