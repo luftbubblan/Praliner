@@ -7,8 +7,3 @@ ini_set('display_errors', 1);
 session_start();
 
 require('dbconnect.php');
-
-// define('ROOT_PATH', '..' . __DIR__ . '/'); // path to 'my-page-3/'
-// define('SRC_PATH',  __DIR__ . '/'); // path to 'my-page-3/src/'
-
-// Include functions and classes

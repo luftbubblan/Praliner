@@ -94,7 +94,6 @@ tr:nth-child(odd) {
 	width: 80vw;
 	align-items: left;
     flex-direction: column;
-
 }
 
 tr:nth-child(even) {
