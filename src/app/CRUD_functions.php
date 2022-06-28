@@ -235,7 +235,7 @@ class CRUDFunctions {
 
     function addNewProduct($message, $title, $flavour, $description, $price, $stock) {
         if(!is_uploaded_file($_FILES['img_url']['tmp_name'])) {
-			$message .= errorMessage("Must choose an image.");
+			$message .= errorMessage("Måstevälja en bild.");
             return $message;
 		} else {
             $fileName 	    = $_FILES['img_url']['name'];
