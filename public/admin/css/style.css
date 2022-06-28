@@ -146,3 +146,8 @@ margin: 2em 0;
 .form-gap {
 	margin: 2em 0;
 }
+
+textarea {
+	height: 150px;
+	resize: none;
+}
