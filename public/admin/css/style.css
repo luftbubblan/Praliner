@@ -101,14 +101,6 @@ tr:nth-child(odd) {
     flex-direction: column;
 }
 
-tr:nth-child(even) {
-	background: #d8e2dc65
-}
-
-tr:nth-child(odd) {
-	background: #FFF
-}
-
 #product-list {
 	background-color: #ffcad495;
 
