@@ -510,3 +510,18 @@ input[type=number] {
  #loginCheckbox {
     margin: 0px 5px;
 } 
+
+.form-style {
+	display: flex;
+	margin: 20px 200px 20px 20px;
+	padding: 20px;
+	align-items: left;
+    flex-direction: column;
+}
+
+.form-gap {
+	margin: 1em 0;
+}
+ .my-page-btn{
+    margin-top: 0.5em;
+ }

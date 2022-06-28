@@ -32,33 +32,56 @@
 	include('layout/header.php');
 ?>
 
-<h1>Mina sidor</h1>
-
 <?=$message?>
-<hr>
 
-<div>
-    <b>Förnamn:</b> <?=$user['first_name']?> |
-    <b>Efternamn:</b> <?=$user['last_name']?><br>
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#nameModal" data-firstname="<?=$user['first_name']?>" data-lastname="<?=$user['last_name']?>">Uppdatera namn</button>
-</div>
+<div class="form-style">
+    <h2>Min sida</h2>
+    <h4>Hantera uppgifter</h4>
 
-<div>
-    <b>Email:</b> <?=$user['email']?><br>
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#emailModal" data-email="<?=$user['email']?>">Uppdatera email</button>
-    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#passwordModal">Uppdatera lösenord</button>
-</div>
+    <div class="form-gap">
+        <label for="first_name">Förnamn:</label><br>
+        <b><?=$user['first_name']?></b><br>
+        <label for="last_name">Efternamn:</label><br>
+        <b><?=$user['last_name']?></b><br>
+        <button type="button" class="my-page-btn btn btn-success" data-toggle="modal" data-target="#nameModal" data-firstname="<?=$user['first_name']?>" data-lastname="<?=$user['last_name']?>">Uppdatera namn</button>
+    </div>
+    <div class="form-gap">
+        <label for="first_name">Email:</label><br>
+        <b><?=$user['email']?></b><br>
+        <button type="button" class="my-page-btn btn btn-success" data-toggle="modal" data-target="#emailModal" data-email="<?=$user['email']?>">Uppdatera email</button>
+    </div>
+    <div class="form-gap">
+        <label for="first_name">Telefon:</label><br>
+        <b><?=$user['phone']?></b><br>
+        <button type="button" class="my-page-btn btn btn-success" data-toggle="modal" data-target="#phoneModal" data-phone="<?=$user['phone']?>">Uppdatera telefon</button>
+    </div>
+    <div class="form-gap">
+        <label for="first_name">Lösenord:</label><br>
+        <b><i>**skyddat**</i></b><br>
+        <button type="button" class="my-page-btn btn btn-warning" data-toggle="modal" data-target="#passwordModal">Uppdatera lösenord</button>
+    </div>
+    <div class="form-gap">
+        <label for="first_name">Adress:</label><br>
+        <b><?=$user['street']?></b><br>
+        <label for="first_name">Postnummer:</label><br>
+        <b><?=$user['postal_code']?></b><br>
+        <label for="first_name">Ort:</label><br>
+        <b><?=$user['city']?></b><br>
+        <label for="first_name">Land:</label><br>
+        <b><?=$user['country']?></b><br>
+        <button type="button" class="my-page-btn btn btn-success" data-toggle="modal" data-target="#informationModal" data-street="<?=$user['street']?>" data-postalcode="<?=$user['postal_code']?>" data-city="<?=$user['city']?>" data-country="<?=$user['country']?>">Uppdatera adress </button>
+    </div>
 
-<div>
-    <b>Telefon:</b> <?=$user['phone']?> |
-    <b>Adress:</b> <?=$user['street']?> |
-    <b>Postnummer:</b> <?=$user['postal_code']?> |
-    <b>Ort:</b> <?=$user['city']?> |
+<!-- <div class="form-gap">
+    <b>Telefon:</b> <?=$user['phone']?>
+    <b>Adress:</b> <?=$user['street']?> 
+    <b>Postnummer:</b> <?=$user['postal_code']?>
+    <b>Ort:</b> <?=$user['city']?>
     <b>Land:</b> <?=$user['country']?> <br>
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#informationModal" data-phone="<?=$user['phone']?>" data-street="<?=$user['street']?>" data-postalcode="<?=$user['postal_code']?>" data-city="<?=$user['city']?>" data-country="<?=$user['country']?>">Uppdatera information </button>
-</div>
+</div> -->
 
-<div>
+<div class="form-gap">
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Radera konto</button>
 </div>
 
@@ -114,6 +137,31 @@
     </div>
 </div>
 
+<!-- PHONEMODAL -->
+
+<div class="modal fade" id="phoneModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Uppdatera telefonnummer</h5>
+            </div>
+            <form id="updatePhoneForm" action="../src/app/API.php" method="POST">
+                <div class="modal-body">
+                    <div class="formMessage"></div>
+                    <div class="form-group">
+                        <label for="email" class="col-form-label">Telefon:</label>
+                        <input type="text" class="form-control" name="phone">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Stäng</button>
+                    <input type="submit" name="updatePhoneBtn" class="btn btn-success" value="Uppdatera">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!-- PASSWORDMODAL -->
 <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -159,10 +207,6 @@
             <form id="updateInformationForm" action="../src/app/API.php" method="POST">
                 <div class="modal-body">
                     <div class="formMessage"></div>
-                    <div class="form-group">
-                        <label for="phone" class="col-form-label">Telefon:</label>
-                        <input type="number" class="form-control" name ="phone">
-                    </div>
                     <div class="form-group">
                         <label for="street" class="col-form-label">Adress:</label>
                         <input type="text" class="form-control" name ="street">
@@ -211,6 +255,8 @@
         </div>
     </div>
 </div>
+</div>
+
 
 <!-- JQUERY AND BOOTSTRAP -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
