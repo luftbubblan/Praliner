@@ -19,7 +19,7 @@
     <div class="dropdown-content">
         <div class="shopping-cart">
             <div class="shopping-cart-header">
-                <span class="items-in-cart"><?=$cartItemsInCart?>Produkter</span>
+                <span class="items-in-cart"><?=$cartItemsInCart?> Produkter</span>
                 <div class="shopping-cart-total leadTextColor">
                     <span><b>Totalsumma: <?=$totalSum?> kr</b></span>
                 </div>

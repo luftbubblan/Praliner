@@ -18,7 +18,7 @@
         
     <?php
         if (isset($_SESSION['id'])) {
-            $menu = '<a href="myPage.php">Min sida</a><a href="logout.php">Logga ut</a>';
+            $menu = '<a href="myPage.php">Mina sidor</a><a href="logout.php">Logga ut</a>';
         } else {
             $menu = '<a href="registerUser.php">Registrera</a><a href="login.php">Logga in</a>';
         }
@@ -27,8 +27,6 @@
 
 <div id="nav-1">
     <?php require('cart.php'); ?>
-    <!-- <a href="index.php">Butik</a> -->
-    <!-- <a href="admin">Admin</a> -->
     <?= $menu ?>
 </div>
 

@@ -62,7 +62,7 @@
         </table>
 
         <?php if(!isset($_SESSION['id'])) { ?>
-            <div class="notLoggedinMessage leadTextColor">Du är inte inloggad. Vänligen registrera en användare. <a class="linkTextColor" href="registerUser.php">HÄR</a> eller fortsätt med köpet som gäst genom att fylla i din information nedan</div>
+            <div class="notLoggedinMessage leadTextColor">Du är inte inloggad. Vänligen registrera en användare <a class="linkTextColor" href="registerUser.php">HÄR</a> eller fortsätt med köpet som gäst genom att fylla i din information nedan.</div>
         <?php } ?>
 
         <div class="col-mdx col-md-4">
