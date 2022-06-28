@@ -97,6 +97,16 @@ Gör köpprocessen (OSCAR)
     DONE - fixa warnings
 
 
+Ordrar (OSCAR)
+    DONE - Skapa databas för ordrar
+    DONE - Användare ska kunna lägga en order på varor
+    DONE - Refakturera create-order.php till funktioner och metoder
+    DONE - lägg till ucfirst på trims
+    DONE - Validera checkout form
+    DONE - Gör Order confirmation sidan och visa vad som är beställt
+    DONE - email och phone ska sparas i databasen, adlrig NULL
+
+
 
 
 
@@ -107,14 +117,7 @@ Design Shop (ANNA)
 Design Admin (Malin)
 
 
-Ordrar (OSCAR)
-    DONE - Skapa databas för ordrar
-    DONE - Användare ska kunna lägga en order på varor
-    DONE - Refakturera create-order.php till funktioner och metoder
-    DONE - lägg till ucfirst på trims
-    DONE - Validera checkout form
-    DONE - Gör Order confirmation sidan och visa vad som är beställt
-    DONE - email och phone ska sparas i databasen, adlrig NULL
+
 
 
 

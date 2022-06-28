@@ -42,13 +42,13 @@
                 <td><img src="<?=$item['img_url']?>" width="100px" height="100px"></td>
                 <td><?=$item['title']?></td>
                 <td></td>
-                <td><?=$item['quantity']?> st</td>
+                <td><?=$item['quantity']?> stk</td>
                 <td><?=$item['price']?> kr</td>
             </tr>
     <?php } ?>
         </tbody>
     </table>
-    <a href="index.php">Tillbaka till butiken.</a>
+    <a href="index.php">Tillbaka till butiken</a>
 </div>
 
 <?php include('layout/footer.php') ?>

@@ -10,9 +10,7 @@ h1, h2, h3, h4, h5, h6, p, .leadTextColor, .fa-cart-shopping {
     color: #006d77;
 }
 
-.header-container {
-    /* height: 60vh; */
-}
+
 #nav-1 {
     display: flex;
     background-color: #ffcad495;
@@ -486,7 +484,7 @@ input[type=number] {
 /* logIn page */
 
 #logInContainer {
-    height: 300px;
+    height: 50vh;
   
 }
 

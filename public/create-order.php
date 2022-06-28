@@ -17,19 +17,20 @@
         $country =     ucfirst(trim($_POST['country']));
         $message =     "";
 
-        $message .= ifEmptyGenerateMessage($firstname, "Förnamn måste fyllas i.");
-        $message .= ifEmptyGenerateMessage($lastname, "Efternamn måste fyllas i.");
-        $message .= ifEmptyGenerateMessage($email, "Email måste fyllas i.");
+
+        $message .= ifEmptyGenerateMessage($firstname, "Förnamn måste vara ifyllt.");
+        $message .= ifEmptyGenerateMessage($lastname, "Efternamn måste vara ifyllt.");
+        $message .= ifEmptyGenerateMessage($email, "Email måste vara ifyllt.");
         $message .= phoneNumberMustBeTenDigits($phone);
-        $message .= ifEmptyGenerateMessage($street, "Gatuadress måste fyllas i.");
+        $message .= ifEmptyGenerateMessage($street, "Adress måste vara ifyllt.");
         $message .= postalCodeMustBeFiveDigits($postalCode);
-        $message .= ifEmptyGenerateMessage($city, "Stad måste fyllas i.");
-        $message .= ifEmptyGenerateMessage($country, "Land måste fyllas i.");
+        $message .= ifEmptyGenerateMessage($city, "Ort måste vara ifyllt.");
+        $message .= ifEmptyGenerateMessage($country, "Land måste vara ifyllt.");
         
         $message .= checkIfEmailIsValid($email);
 
         if(!isset($_POST['termsAgreed'])) {
-            $message .= errorMessage("Måste godkänna de allmänna villkoren");
+            $message .= errorMessage("Måste godkänna de allmänna villkoren.");
         }
 
         if(!isset($_SESSION['id'])) {
