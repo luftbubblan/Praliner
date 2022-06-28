@@ -107,17 +107,18 @@ Ordrar (OSCAR)
     DONE - email och phone ska sparas i databasen, adlrig NULL
 
 
+DONE - GÖR OM ALLT TILL SVENSKA
 
 
 
-GÖR OM ALLT TILL SVENSKA
 
 
-Design Shop (ANNA)
-Design Admin (Malin)
+Designa Mina Sidor (MALIN)
+Skapa praliner och användare i DB (ANNA)
+Testa så allt funkar (ANNA)
 
 
-
+Planera redovisning
 
 
 

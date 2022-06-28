@@ -184,7 +184,7 @@ function showProducts(products) {
                 
                     <a href="product.php?product=${product['id']}">
                         <div id="img-div">
-                            <img id="product-img" src=" ${product['img_url']}" alt="Picture of pralin">
+                            <img id="product-img" src=" ${product['img_url']}" alt="Bild på pralin/tårta">
                         </div>
                     </a>
                     <h3> ${product['title']} </h3>
