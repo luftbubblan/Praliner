@@ -13,7 +13,7 @@
     }
     
     if (isset($_GET['mustLogin'])) {
-        $message .= errorMessage("Du måste logga in för att få tillgång.");
+        $message .= errorMessage("Du måste vara inloggad för att få tillgång till denna sida.");
     }
     if (isset($_GET['deleted'])) {
         $message .= warningMessage("Ditt konto är nu raderat. Välkommen åter.");

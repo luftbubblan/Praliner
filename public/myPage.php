@@ -32,14 +32,14 @@
 	include('layout/header.php');
 ?>
 
-<h1>My Page</h1>
+<h1>Mina sidor</h1>
 
 <?=$message?>
 <hr>
 
 <div>
-    <b>Firstname:</b> <?=$user['first_name']?> |
-    <b>Lastname:</b> <?=$user['last_name']?><br>
+    <b>Förnamn:</b> <?=$user['first_name']?> |
+    <b>Efternamn:</b> <?=$user['last_name']?><br>
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#nameModal" data-firstname="<?=$user['first_name']?>" data-lastname="<?=$user['last_name']?>">Uppdatera namn</button>
 </div>
 
@@ -52,7 +52,7 @@
 <div>
     <b>Telefon:</b> <?=$user['phone']?> |
     <b>Adress:</b> <?=$user['street']?> |
-    <b>Postnummer code:</b> <?=$user['postal_code']?> |
+    <b>Postnummer:</b> <?=$user['postal_code']?> |
     <b>Ort:</b> <?=$user['city']?> |
     <b>Land:</b> <?=$user['country']?> <br>
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#informationModal" data-phone="<?=$user['phone']?>" data-street="<?=$user['street']?>" data-postalcode="<?=$user['postal_code']?>" data-city="<?=$user['city']?>" data-country="<?=$user['country']?>">Uppdatera information </button>

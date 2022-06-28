@@ -12,7 +12,7 @@
 </head>
 <body>
         <div id="nav-1">
-            <a href="../index.php">Shop</a>
+            <a href="../index.php">Butik</a>
             <a href="index.php">Produkter</a>
             <a href="users.php">Användare</a>
         </div>
