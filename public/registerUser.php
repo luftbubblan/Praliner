@@ -100,7 +100,7 @@
     <p>
         <input type="text" name="country" placeholder="Land" value="<?=$_POST['country'] ?? ""?>"><br>
     </p>
-    <input id="registerBtn" class="btn btn-success" type="submit" name="registerUserBtn" value="Registera användare"> 
+    <input id="registerBtn" class="btn btn-success" type="submit" name="registerUserBtn" value="Registrera användare"> 
     </form>
 </div>
 

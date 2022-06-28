@@ -44,7 +44,7 @@
 ?>
 <div id="logInContainer">
 <div id="head-line-login">
-    <h2>Logga in på din sida</h2>
+    <h2>Logga in</h2>
 </div>
 
 <div id="loginMessage";>
