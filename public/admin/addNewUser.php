@@ -30,15 +30,15 @@
         $city =       ucfirst(trim($_POST['city']));
         $country =    ucfirst(trim($_POST['country']));
 
-		$message .= ifEmptyGenerateMessage($firstName, "Firstname must not be empty.");
-        $message .= ifEmptyGenerateMessage($lastName, "Lastname must not be empty.");
-        $message .= ifEmptyGenerateMessage($email, "E-mail must not be empty.");
-        $message .= ifEmptyGenerateMessage($password, "Password must not be empty.");
+		$message .= ifEmptyGenerateMessage($firstName, "Förnamn måste vara ifyllt.");
+        $message .= ifEmptyGenerateMessage($lastName, "Efternamn måste vara ifyllt.");
+        $message .= ifEmptyGenerateMessage($email, "Email måste vara ifyllt.");
+        $message .= ifEmptyGenerateMessage($password, "Lösenord måste vara ifyllt.");
         $message .= phoneNumberMustBeTenDigits($phone);
-        $message .= ifEmptyGenerateMessage($street, "Street must not be empty.");
+        $message .= ifEmptyGenerateMessage($street, "Adress måste vara ifyllt.");
         $message .= postalCodeMustBeFiveDigits($postalCode);
-        $message .= ifEmptyGenerateMessage($city, "City must not be empty.");
-        $message .= ifEmptyGenerateMessage($country, "Country must not be empty.");
+        $message .= ifEmptyGenerateMessage($city, "Ort måste vara ifyllt.");
+        $message .= ifEmptyGenerateMessage($country, "Land måste vara ifyllt.");
 
         $message .= checkIfEmailIsValid($email);
 

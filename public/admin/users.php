@@ -8,15 +8,15 @@
 	$message = "";
 
     if (isset($_GET['updated'])) {
-        $message .= successMessage("User successfully updated.");
+        $message .= successMessage("Användaren har nu uppdaterats.");
     }
 
     if (isset($_GET['created'])) {
-        $message .= successMessage("User successfully created.");
+        $message .= successMessage("Användaren har nu skapats.");
     }
 
     if (isset($_GET['deleted'])) {
-        $message .= successMessage("User successfully deleted.");
+        $message .= successMessage("Användaren har nu raderats.");
     }
 
     if (isset($_POST['deleteUserBtn'])) {

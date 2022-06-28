@@ -12,15 +12,15 @@
     }
 
 	if (isset($_GET['added'])) {
-        $message .= successMessage("Product successfully created.");
+        $message .= successMessage("Produkten har nu skapats.");
     }
 
 	if (isset($_GET['deleted'])) {
-        $message .= successMessage("Product successfully deleted.");
+        $message .= successMessage("Produkten har nu raderats.");
     }
 
 	if (isset($_GET['updated'])) {
-        $message .= successMessage("Product successfully updated.");
+        $message .= successMessage("Produkten har nu uppdaterats.");
     }
 
     $products = $crudFunctions->fetchAllProductsDESC();

@@ -23,11 +23,11 @@
 		$price = 			   trim($_POST['price']);
 		$stock = 			   trim($_POST['stock']);
 
-        $message .= ifEmptyGenerateMessage($title, "Title must not be empty. (Value taken from database)");
-        $message .= ifEmptyGenerateMessage($flavour, "Flavour must not be empty. (Value taken from database)");
-        $message .= ifEmptyGenerateMessage($description, "Description must not be empty. (Value taken from database)");
-        $message .= ifEmptyGenerateMessage($price, "Price must not be empty. (Value taken from database)");
-        $message .= ifEmptyGenerateMessage($stock, "Stock must not be empty. (Value taken from database)");
+        $message .= ifEmptyGenerateMessage($title, "Namn måste vara ifyllt. (Observera att namnet nu är hämtat från databasen)");
+        $message .= ifEmptyGenerateMessage($flavour, "Smak måste vara ifyllt. (Observera att namnet nu är hämtat från databasen)");
+        $message .= ifEmptyGenerateMessage($description, "Beskrivning måste vara ifyllt. (Observera att namnet nu är hämtat från databasen)");
+        $message .= ifEmptyGenerateMessage($price, "Pris måste vara ifyllt. (Observera att namnet nu är hämtat från databasen)");
+        $message .= ifEmptyGenerateMessage($stock, "Lagerstatus måste vara ifyllt. (Observera att namnet nu är hämtat från databasen)");
         
         $crudFunctions->updateProduct($message, $title, $flavour, $description, $price, $stock, $_POST['id']);
     }

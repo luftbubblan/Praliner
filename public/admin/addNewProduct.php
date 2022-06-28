@@ -19,12 +19,12 @@
 		$price = 			   trim($_POST['price']);
 		$stock = 			   trim($_POST['stock']);
 
-		$message .= ifEmptyGenerateMessage($title, "Title must not be empty.");
-        $message .= ifEmptyGenerateMessage($flavour, "Flavour must not be empty.");
-        $message .= ifEmptyGenerateMessage($description, "Description must not be empty.");
-        $message .= ifEmptyGenerateMessage($price, "Price must not be empty.");
+		$message .= ifEmptyGenerateMessage($title, "Namn måste vara ifyllt.");
+        $message .= ifEmptyGenerateMessage($flavour, "Smak måste vara ifyllt.");
+        $message .= ifEmptyGenerateMessage($description, "Beskrivning måste vara ifyllt.");
+        $message .= ifEmptyGenerateMessage($price, "Pris måste vara ifyllt.");
 		if (empty($stock) && $stock != 0) {
-			$message .= errorMessage("Stock must not be empty.");
+			$message .= errorMessage("Lagerstatus måste vara ifyllt.");
 		}
 
 		$message = $crudFunctions->addNewProduct($message, $title, $flavour, $description, $price, $stock);

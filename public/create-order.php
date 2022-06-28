@@ -19,7 +19,7 @@
 
         $message .= ifEmptyGenerateMessage($firstname, "Förnamn måste fyllas i.");
         $message .= ifEmptyGenerateMessage($lastname, "Efternamn måste fyllas i.");
-        $message .= ifEmptyGenerateMessage($email, "E-mail måste fyllas i.");
+        $message .= ifEmptyGenerateMessage($email, "Email måste fyllas i.");
         $message .= phoneNumberMustBeTenDigits($phone);
         $message .= ifEmptyGenerateMessage($street, "Gatuadress måste fyllas i.");
         $message .= postalCodeMustBeFiveDigits($postalCode);
