@@ -1,7 +1,6 @@
 
 h2, h4 {
 	color: #006d77;
-	/* font-family: old goodie style; */
 }
 
 #nav-1 {
@@ -21,11 +20,6 @@ h2, h4 {
 #nav-1 a:hover {
     color: #006d77;
 }
-/* .admin-tbl { 
-	border-collapse: collapse; 
-	margin-bottom: 40px;
-	width: 90vw;
-} */
 
 #admin-tbl tr,
 #admin-tbl td,
@@ -97,6 +91,7 @@ tr:nth-child(odd) {
 .content-products {
 	display: flex;
 	padding: 20px;
+	width: 80vw;
 	align-items: left;
     flex-direction: column;
 
