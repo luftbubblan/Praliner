@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, h6, p, .leadTextColor, .fa-cart-shopping {
+h1, h2, h3, h4, h5, h6, p, input, label, .leadTextColor, .fa-cart-shopping {
     color: #004349;
 }
 
@@ -31,8 +31,7 @@ h1, h2, h3, h4, h5, h6, p, .leadTextColor, .fa-cart-shopping {
 
 #logo-con {
     display: flex;
-    /* background-image: url(../img/kiki-siepel-BEwxLSN_bKU-unsplash.jpg); */
-    /* background-position: center; */
+    padding-bottom: 2.5em;
     height: 30vh;
     justify-content: center;
     align-items: center;
@@ -73,7 +72,7 @@ h1, h2, h3, h4, h5, h6, p, .leadTextColor, .fa-cart-shopping {
     height: 50vh;
     padding: 0 3%;
     justify-content: center;
-    align-items: center;
+    text-align: center;
     flex-direction: column;
 }
 
@@ -105,6 +104,10 @@ h1, h2, h3, h4, h5, h6, p, .leadTextColor, .fa-cart-shopping {
     justify-items: center;
     text-align: center;
 }
+#single p i {
+    color: #006d77;
+}
+
 
 #product-img {
     width: 180px;
@@ -142,8 +145,10 @@ h1, h2, h3, h4, h5, h6, p, .leadTextColor, .fa-cart-shopping {
     justify-content: center;
     align-items: center;
     background-color: #f0f4f1;
-    height: 35vw;
-    width: 25vw;
+    padding: 3em 3em;
+    text-align: center;
+    /* height: 35vw; */
+    /* width: 25vw; */
 }
 
 #p-desc {
@@ -208,6 +213,7 @@ input[type=number] {
        grid-template-columns: repeat(2, minmax(200px, 250px));
    }
 }
+
 @media (max-width: 600px ) {
    #shop-con { 
        grid-template-columns: repeat(1, minmax(100px, 250px));
@@ -542,5 +548,6 @@ input[type=number] {
  }
 
 .container {
+    margin-top: 2em;
     min-height: 50vh;
 }
