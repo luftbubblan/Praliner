@@ -5,6 +5,10 @@
     require('../src/app/common_functions.php');
     require('../src/app/CRUD_functions.php');
 
+    echo "<pre>";
+    print_r($_POST);
+    echo "</pre>";
+
     $message = "";
 
     if(isset($_SESSION['id'])) {
@@ -20,12 +24,13 @@
     }
 
     if (isset($_POST['loginBtn'])) {
+        $message = "";
         $email    = trim($_POST['email']);
         $password = trim($_POST['password']);
 
         $message .= checkIfEmailIsValid($email);
         if(!empty($message)) {
-            $message = errorMessage("Ogiltiga inloggningsuppgifter. Vänligen försök igen.");
+            $message = errorMessage("Måste ange en giltig email.");
         } else {
             $userPasswordAndId = $crudFunctions->fetchPasswordAndIdByEmail($email);
     

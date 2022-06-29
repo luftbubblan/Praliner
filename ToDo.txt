@@ -116,7 +116,7 @@ DONE - Designa Mina Sidor (ANNA)
 
 
 
-
+Skapa tillbakaknapp till butiken på enskild produkt
 
 Skapa praliner och användare i DB (ANNA)
 Testa så allt funkar (ANNA)
@@ -153,8 +153,34 @@ Ljus choklad fylld med mjölkchokladkräm med krispkex och på toppen en ganache
 REDOVISNINGSSCHEMA
 
 Börja på Admin(Produkter)
-    skapa ny produkt
-    redigera produkten
+    skapa ny produkt (visa felmeddelanden)
+    redigera produkten (visa felmeddelanden)
     delete produkten
 Sen till Admin(Användare)
-    skapa ny användare
+    skapa ny användare (visa felmeddelanden)
+    redigera användaren (visa felmeddelanden)
+    deleta användaren
+
+Sen till Butiken
+    Visa förstasidan uppifrån och ner (Malin berättar KORT om sin syster och praliner)
+        Visa sökfunktionen
+    Gå in på en produkt och lägg x antal i varukorgen
+        Tillbaka till butiken
+    Ändra lite antal och lägg 3 andra varor i varukorgen(korgen ska ha 4 olika produkter)
+    Visa varukorgen
+        Ta bort nånting
+    Gå till kassan
+        Ändra antal på någonting
+        Ta bort nånting
+        Gör köpet som gäst(VISA INTE FELMEDDELANDEN)
+    Visa confirm page
+    Tillbaka till butiken
+        Gå till checkout
+    Tillbaka till butiken
+        Registrera ny användare(visa lösenordsknappar)
+    Visa min sida
+        Uppdatera namn
+        Uppdatera lösenord(submita fel först en gång)
+        Ta bort kontot
+    Logga in
+        Gör ett köp

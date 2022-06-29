@@ -3,5 +3,5 @@
 
     unset($_SESSION['id']);
 
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: index.php');
     exit;
