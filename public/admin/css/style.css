@@ -2,6 +2,10 @@
 h2, h4 {
 	color: #006d77;
 }
+p, th, td, label, input {
+	color: #004349;
+
+}
 
 #nav-1 {
     display: flex;
