@@ -522,6 +522,11 @@ input[type=number] {
 .form-gap {
 	margin: 1em 0;
 }
- .my-page-btn{
+
+.my-page-btn{
     margin-top: 0.5em;
- }
+}
+
+.container {
+    min-height: 50vh;
+}

@@ -118,6 +118,9 @@ Skapa praliner och användare i DB (ANNA)
 Testa så allt funkar (ANNA)
 
 
+Tom varukorg checkout meddelande
+
+
 Planera redovisning
 
 
