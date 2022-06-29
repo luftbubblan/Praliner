@@ -117,7 +117,6 @@ DONE - Designa Mina Sidor (ANNA)
 
 
 Skapa praliner och användare i DB (ANNA)
-Testa så allt funkar (ANNA)
 
 Planera redovisning
 
