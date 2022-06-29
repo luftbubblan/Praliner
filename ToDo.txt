@@ -116,8 +116,6 @@ DONE - Designa Mina Sidor (ANNA)
 
 
 
-Skapa tillbakaknapp till butiken på enskild produkt
-
 Skapa praliner och användare i DB (ANNA)
 Testa så allt funkar (ANNA)
 
@@ -150,37 +148,81 @@ Ljus choklad fylld med mjölkchokladkräm med krispkex och på toppen en ganache
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 REDOVISNINGSSCHEMA
 
-Börja på Admin(Produkter)
-    skapa ny produkt (visa felmeddelanden)
-    redigera produkten (visa felmeddelanden)
-    delete produkten
-Sen till Admin(Användare)
-    skapa ny användare (visa felmeddelanden)
-    redigera användaren (visa felmeddelanden)
-    deleta användaren
+Börja som ej inloggad. konto med oscarblomberg@hotmail.com ska finnas i DB. ett inloggat köp ska finnas i DB
+---MALIN----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-Malin berättar att vi valde praliner för att hennes syster har startat företag(real case)
+-    OSCAR DELAR SKÄRM
+-    Börja på Admin(Produkter)
+-        skapa ny produkt (visa felmeddelanden)
+-        redigera produkten (visa felmeddelanden)
+-        delete produkten
+-    Sen till Admin(Användare)
+-        skapa ny användare (visa felmeddelanden)
+-        redigera användaren (visa felmeddelanden)
+-        deleta användaren
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Sen till Butiken
-    Visa förstasidan uppifrån och ner (Malin berättar KORT om sin syster och praliner)
-        Visa sökfunktionen
-    Gå in på en produkt och lägg x antal i varukorgen
-        Tillbaka till butiken
-    Ändra lite antal och lägg 3 andra varor i varukorgen(korgen ska ha 4 olika produkter)
-    Visa varukorgen
-        Ta bort nånting
-    Gå till kassan
-        Ändra antal på någonting
-        Ta bort nånting
-        Gör köpet som gäst(VISA INTE FELMEDDELANDEN)
-    Visa confirm page
-    Tillbaka till butiken
-        Gå till checkout
-    Tillbaka till butiken
-        Registrera ny användare(visa lösenordsknappar)
-    Visa min sida
-        Uppdatera namn
-        Uppdatera lösenord(submita fel först en gång)
-        Ta bort kontot
-    Logga in
-        Gör ett köp
+---ANNA-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-GÅ TILL BUTIKEN
+-
+-Anna berättar om färgval och design(FRONTEND) den rosa färgen har kunden valt, Maria. Logotypen gick inte att använda dåden var fottat med mobilkamera och hade dålig kvalite
+-
+-Visa förstasidan uppifrån och ner
+-   Visa sökfunktionen
+-
+-Gå in på en produkt
+-
+-Gå till checkout
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---OSCAR-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-Tillbaka till butiken
+-    Ändra lite antal och lägg minst 4 varor i varukorgen
+-
+-Visa varukorgen
+-    Ta bort nånting
+-
+-Gå till kassan
+-    Ändra antal på någonting
+-    Ta bort nånting
+-    Gör köpet som gäst(nämn hur det ser ut om man redan är inloggad)(VISA INTE FELMEDDELANDEN)
+-
+-Visa confirm page 
+-
+-Visa DB skillnad mellan inloggad och gäst köp
+-
+-Registrera ny användare med LUFTBUBBLANBLOMBERG@GMAIL.COM
+-    Uppdatera lösenord(submita fel först en gång)
+-    Ta bort kontot
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+MALIN --- Uppdelning av arbetet och sammarbetet fungerade jättebra, vi är vana att jobba med varandra sen tidigare
+
+ANNA --- Versionshanteringen funkade inte så bra i början. Vi versionshanterade men vi jobbade bara i mastern. Men efter 1 vecka började vi brancha
+
+ALLA TAR NÅN SAK VAR KORT --- Vad var svårt/enkelt
+
+OSCAR --- Extra stolta över??????? Nånting klassen vill se?

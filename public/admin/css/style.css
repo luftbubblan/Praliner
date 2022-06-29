@@ -91,7 +91,6 @@ tr:nth-child(odd) {
 .content-products {
 	display: flex;
 	padding: 20px;
-	width: 80vw;
 	align-items: left;
     flex-direction: column;
 }
