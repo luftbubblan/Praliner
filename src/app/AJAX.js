@@ -1,7 +1,8 @@
 $('#updateNameForm').on('submit', updateName);
 $('#updateEmailForm').on('submit', updateEmail);
+$('#updatePhoneForm').on('submit', updatePhone);
 $('#updatePasswordForm').on('submit', updatePassword);
-$('#updateInformationForm').on('submit', updateInformation);
+$('#updateAdressForm').on('submit', updateAdress);
 $('#deleteForm').on('submit', deleteAccount);
 $('#searchByTitleForm input').on('propertychange input',searchForProduct);
 $('#searchByFlavourForm input').on('propertychange input',searchForProduct);
@@ -60,6 +61,32 @@ async function updateEmail(e) {
     }
 }
 
+async function updatePhone(e) {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    formData.set('updatePhoneBtn', true);
+
+    try {
+        const response = await fetch('../src/app/API.php', {
+            method: 'POST',
+            
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if(data['message'].includes("success")) {
+            window.location.replace("myPage.php?phoneUpdated");
+        } else {
+            $('.formMessage').html(data['message']);
+        }
+        
+    } catch(error) {
+        console.log(error);
+    }
+}
+
 async function updatePassword(e) {
     e.preventDefault();
 
@@ -86,11 +113,11 @@ async function updatePassword(e) {
     }
 }
 
-async function updateInformation(e) {
+async function updateAdress(e) {
     e.preventDefault();
 
     const formData = new FormData(e.target);
-    formData.set('updateInformationBtn', true);
+    formData.set('updateAdressBtn', true);
 
     try {
         const response = await fetch('../src/app/API.php', {
@@ -102,7 +129,7 @@ async function updateInformation(e) {
         const data = await response.json();
 
         if(data['message'].includes("success")) {
-            window.location.replace("myPage.php?informationUpdated");
+            window.location.replace("myPage.php?adressUpdated");
         } else {
             $('.formMessage').html(data['message']);
         }

@@ -91,7 +91,8 @@
             <input type="text" name="country" placeholder="Country" value="<?=$_POST['country'] ?? "" ?>">
         </div>
             <div class="form-gap">
-            <input type="submit" class="btn btn-success" name="addNewUserBtn" value="Lägg till">
+            <input type="submit" class="edit-btn btn btn-success" name="addNewUserBtn" value="Lägg till">
+            <button type="button" class="btn btn-secondary" onclick="window.location.href='users.php'">Tillbaka</button>
         </div>
     </form>
 </div>

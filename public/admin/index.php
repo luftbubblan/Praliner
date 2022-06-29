@@ -36,7 +36,7 @@
 		<input type="submit" class="add-new-btn btn btn-success" value="Lägg till ny produkt">
 	</form>
 
-	<?=$message?>
+	<div class="adminMessage"><?=$message?></div>
 
 	<table id="admin-tbl">
 		<thead>

@@ -507,7 +507,13 @@ input[type=number] {
     margin-left: 50px;
 }
 
- #loginCheckbox {
+.myPageMessage {
+    width: 400px;
+    margin-top: 30px;
+}
+
+
+#loginCheckbox {
     margin: 0px 5px;
 } 
 
