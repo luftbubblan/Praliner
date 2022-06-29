@@ -170,18 +170,22 @@ Ljus choklad fylld med mjölkchokladkräm med krispkex och på toppen en ganache
 
 REDOVISNINGSSCHEMA
 
-Börja som ej inloggad. konto med oscarblomberg@hotmail.com ska finnas i DB. ett inloggat köp ska finnas i DB
+Börja som ej inloggad. konto med oscarblomberg@hotmail.com ska finnas i DB. ett köp med inloggat konto ska finnas i DB
+
 ---MALIN----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -Malin berättar att vi valde praliner för att hennes syster har startat företag(real case)
--    OSCAR DELAR SKÄRM
--    Börja på Admin(Produkter)
--        skapa ny produkt (visa felmeddelanden)
--        redigera produkten (visa felmeddelanden)
--        delete produkten
--    Sen till Admin(Användare)
--        skapa ny användare (visa felmeddelanden)
--        redigera användaren (visa felmeddelanden)
--        deleta användaren
+-
+-OSCAR DELAR SKÄRM
+-
+-Börja på Admin(Produkter)
+-    skapa ny produkt (visa felmeddelanden)
+-    redigera produkten (visa felmeddelanden)
+-    delete produkte
+-
+-Sen till Admin(Användare)
+-    skapa ny användare (visa felmeddelanden)
+-    redigera användaren (visa felmeddelanden)
+-    deleta användaren
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ---ANNA-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
