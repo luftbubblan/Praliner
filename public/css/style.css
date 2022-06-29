@@ -105,6 +105,10 @@ h1, h2, h3, h4, h5, h6, p, .leadTextColor, .fa-cart-shopping {
     justify-items: center;
     text-align: center;
 }
+#single p i {
+    color: #006d77;
+}
+
 
 #product-img {
     width: 180px;
