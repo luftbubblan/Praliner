@@ -525,3 +525,11 @@ input[type=number] {
  .my-page-btn{
     margin-top: 0.5em;
  }
+
+ #empty-check-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4em;
+    height: 20vh;
+ }

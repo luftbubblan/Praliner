@@ -123,7 +123,12 @@
         </form>
 
     <?php } else { ?>
-        Du har inga varor i din kundkorg. Gå tillbaka till <a href="index.php">butiken</a> för att börja handla.
+        <div id="empty-check-div"> 
+            <h3>
+                Du har inga varor i din kundkorg. Gå tillbaka till <a class="linkTextColor" href="index.php">butiken</a> för att börja handla.
+            </h3>
+    </div>
+            
     <?php }  ?>
 </div>
 
