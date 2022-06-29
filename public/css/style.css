@@ -31,8 +31,7 @@ h1, h2, h3, h4, h5, h6, p, .leadTextColor, .fa-cart-shopping {
 
 #logo-con {
     display: flex;
-    /* background-image: url(../img/kiki-siepel-BEwxLSN_bKU-unsplash.jpg); */
-    /* background-position: center; */
+    padding-bottom: 2.5em;
     height: 30vh;
     justify-content: center;
     align-items: center;
@@ -73,7 +72,7 @@ h1, h2, h3, h4, h5, h6, p, .leadTextColor, .fa-cart-shopping {
     height: 50vh;
     padding: 0 3%;
     justify-content: center;
-    align-items: center;
+    text-align: center;
     flex-direction: column;
 }
 
