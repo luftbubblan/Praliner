@@ -48,7 +48,7 @@
     <?php } ?>
         </tbody>
     </table>
-    <a href="index.php">Tillbaka till butiken</a>
+    <a class="linkTextColor" href="index.php">Tillbaka till butiken</a>
 </div>
 
 <?php include('layout/footer.php') ?>

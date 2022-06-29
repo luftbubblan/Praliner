@@ -542,5 +542,6 @@ input[type=number] {
  }
 
 .container {
+    margin-top: 2em;
     min-height: 50vh;
 }
