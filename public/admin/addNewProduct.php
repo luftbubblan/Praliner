@@ -32,12 +32,14 @@
 
 	include('layout/header.php');
 ?>
-<?=$message?>
 
 <div class="form-style">
 <form action="" method="POST" enctype="multipart/form-data">
     <h2>Admin</h2>
     <h4>Lägg till ny produkt</h4>
+
+	<div class="adminMessage"><?=$message?></div>
+	
     <div class="form-gap">
         <label for="first_name">Namn:</label><br>
 		<input type="text" name="title" placeholder="Namn" value="<?=$_POST['title'] ?? "" ?>">

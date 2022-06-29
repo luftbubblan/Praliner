@@ -40,49 +40,53 @@
 include('layout/header.php');
 
 ?>
-    <?=$message ?>
-        <div class="form-style">
-            <form method="POST" action="#">
-                    <h2>Admin</h2>
-                    <h4>Redigera användare</h4>
-                    <div class="form-gap">
-                        <label for="first_name">Förnamn:</label> <br>
-                        <input type="text" class="text" name="first_name" value="<?=htmlentities($user['first_name']) ?>">
-                    </div>
-                    <div class="form-gap">
-                        <label for="last_name">Efternamn:</label> <br>
-                        <input type="text" class="text" name="last_name" value="<?=htmlentities($user['last_name']) ?>">
-                    </div>
-                        <label for="email">Email:</label> <br>
-                        <input type="text" class="text" name="email" value="<?=htmlentities($user['email']) ?>">
-                    <div class="form-gap">
-                        <label for="password">Nytt lösenord: (Lämna tom för att behålla gammalt lösenord)</label> <br>
-                        <input type="text" class="text" name="password">
-                    </div>
-                    <div class="form-gap">
-                        <label for="phone">Telefon:</label> <br>
-                        <input type="number" class="phone" name="phone" value="<?=htmlentities($user['phone']) ?>">
-                    </div>
-                    <div class="form-gap">
-                        <label for="street">Adress:</label> <br>
-                        <input type="text" class="street" name="street" value="<?=htmlentities($user['street']) ?>">
-                    </div>
-                    <div class="form-gap">
-                        <label for="postal_code">Postnummer:</label> <br>
-                        <input type="number" class="postal_code" name="postal_code" value="<?=htmlentities($user['postal_code']) ?>">
-                    </div>
-                    <div class="form-gap">
-                        <label for="city">Ort:</label> <br>
-                        <input type="text" class="city" name="city" value="<?=htmlentities($user['city']) ?>">
-                    </div>
-                    <div class="form-gap">
-                        <label for="country">Land:</label> <br>
-                        <input type="text" class="country" name="country" value="<?=htmlentities($user['country']) ?>">
-                    </div>
-                    <div>
-                        <input class="edit-btn btn btn-success" type="submit" name="updateUserBtn" value="Uppdatera">
-                        <button type="button" class="btn btn-secondary mr-auto" onclick="window.location.href='users.php'">Tillbaka</button>
-                    </div>
-            </form>
+
+<div class="form-style">
+    <form method="POST" action="#">
+            <h2>Admin</h2>
+            <h4>Redigera användare</h4>
+
+            <div class="adminMessage"><?=$message?></div>
+
+            <div class="form-gap">
+                <label for="first_name">Förnamn:</label> <br>
+                <input type="text" class="text" name="first_name" value="<?=htmlentities($user['first_name']) ?>">
+            </div>
+            <div class="form-gap">
+                <label for="last_name">Efternamn:</label> <br>
+                <input type="text" class="text" name="last_name" value="<?=htmlentities($user['last_name']) ?>">
+            </div>
+                <label for="email">Email:</label> <br>
+                <input type="text" class="text" name="email" value="<?=htmlentities($user['email']) ?>">
+            <div class="form-gap">
+                <label for="password">Nytt lösenord: (Lämna tom för att behålla gammalt lösenord)</label> <br>
+                <input type="text" class="text" name="password">
+            </div>
+            <div class="form-gap">
+                <label for="phone">Telefon:</label> <br>
+                <input type="number" class="phone" name="phone" value="<?=htmlentities($user['phone']) ?>">
+            </div>
+            <div class="form-gap">
+                <label for="street">Adress:</label> <br>
+                <input type="text" class="street" name="street" value="<?=htmlentities($user['street']) ?>">
+            </div>
+            <div class="form-gap">
+                <label for="postal_code">Postnummer:</label> <br>
+                <input type="number" class="postal_code" name="postal_code" value="<?=htmlentities($user['postal_code']) ?>">
+            </div>
+            <div class="form-gap">
+                <label for="city">Ort:</label> <br>
+                <input type="text" class="city" name="city" value="<?=htmlentities($user['city']) ?>">
+            </div>
+            <div class="form-gap">
+                <label for="country">Land:</label> <br>
+                <input type="text" class="country" name="country" value="<?=htmlentities($user['country']) ?>">
+            </div>
+            <div>
+                <input class="edit-btn btn btn-success" type="submit" name="updateUserBtn" value="Uppdatera">
+                <button type="button" class="btn btn-secondary mr-auto" onclick="window.location.href='users.php'">Tillbaka</button>
+            </div>
+    </form>
+</div>
     
 <?php include('layout/footer.php'); ?>

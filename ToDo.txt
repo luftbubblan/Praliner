@@ -110,16 +110,16 @@ Ordrar (OSCAR)
 DONE - GÖR OM ALLT TILL SVENSKA
 
 
+DONE - Designa Mina Sidor (ANNA)
 
 
 
-Designa Mina Sidor (MALIN)
+
+
+
+
 Skapa praliner och användare i DB (ANNA)
 Testa så allt funkar (ANNA)
-
-
-Tom varukorg checkout meddelande
-
 
 Planera redovisning
 
@@ -145,3 +145,16 @@ Kaffe och baileys:
 Bjud på en kopp kaffe med baileys efter maten. Vacker liten kopp men en mjuk baileys fyllning. Kan bara älskas. 
 
 Ljus choklad fylld med mjölkchokladkräm med krispkex och på toppen en ganache av Callebauts golden choklad med smak av len härlig kola. Vinnare av Callbauts golden choklad månliga tävling!
+
+
+
+
+
+REDOVISNINGSSCHEMA
+
+Börja på Admin(Produkter)
+    skapa ny produkt
+    redigera produkten
+    delete produkten
+Sen till Admin(Användare)
+    skapa ny användare

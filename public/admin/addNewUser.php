@@ -48,12 +48,13 @@
 	include('layout/header.php');
 ?>
 
-<?=$message?>
-
-    <div class="form-style">
+<div class="form-style">
     <form action="" method="POST" enctype="multipart/form-data">
         <h2>Admin</h2>
         <h4>Skapa ny användare</h4>
+
+        <div class="adminMessage"><?=$message?></div>
+
         <div class="form-gap">
             <label for="first_name">Förnamn:</label><br>
             <input type="text" name="firstName" placeholder="First Name" value="<?=$_POST['firstName'] ?? "" ?>">
