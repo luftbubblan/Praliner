@@ -43,22 +43,22 @@
 	include('layout/header.php');
 ?>
 <div id="logInContainer">
-<div id="head-line-login">
-    <h2>Logga in</h2>
-</div>
+    <div id="head-line-login">
+        <h2>Logga in</h2>
+    </div>
 
-<div id="loginMessage";>
-    <?=$message?>
-</div>
+    <div id="loginMessage";>
+        <?=$message?>
+    </div>
 
-<div id="loginForm">
-    <form action="" method="POST">
-        <input type="text" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Lösenord">
-        <input id="loginCheckbox" type="checkbox" onclick="showHidePassword(this)">Visa lösenord<br>
-        <input id="loginBtn" class="btn btn-success" type="submit" name="loginBtn" value="Logga in">
-    </form>
-</div>
-<script src="../src/app/js_functions.js"></script>
+    <div id="loginForm">
+        <form action="" method="POST">
+            <input type="text" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Lösenord">
+            <input id="loginCheckbox" type="checkbox" onclick="showHidePassword(this)">Visa lösenord<br>
+            <input id="loginBtn" class="btn btn-success" type="submit" name="loginBtn" value="Logga in">
+        </form>
+    </div>
+    <script src="../src/app/js_functions.js"></script>
 </div>
 <?php include('layout/footer.php') ?>
