@@ -137,3 +137,7 @@ textarea {
 	height: 150px;
 	resize: none;
 }
+
+.adminMessage {
+    width: 400px;
+}

@@ -4,10 +4,6 @@
 	require('../../src/config.php');
     require('../../src/app/common_functions.php');
     require('../../src/app/CRUD_functions.php');
-
-	// echo "<pre>";
-    // print_r($_POST);
-    // echo "</pre>";
     
     $message = "";
 	$title = "";
@@ -68,7 +64,8 @@
         <input type="hidden" name="id" value="<?=$_POST['id'] ?>">
     </div> 
         <div class="form-gap">
-        <input type="submit" class=" btn btn-success" name="updateProductBtn" value="Uppdatera">
+        <input type="submit" class="edit-btn btn btn-success" name="updateProductBtn" value="Uppdatera">
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='index.php'">Tillbaka</button>
     </div>
     </form>
 </div>

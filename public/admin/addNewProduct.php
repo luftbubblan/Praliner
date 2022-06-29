@@ -61,7 +61,8 @@
 	<lable>Bild:</lable>
 	<input type="file" name="img_url">
         <div class="form-gap">
-		<input type="submit" class="btn btn-success" name="createProductBtn" value="Lägg till">
+		<input type="submit" class="edit-btn btn btn-success" name="createProductBtn" value="Lägg till">
+		<button type="button" class="btn btn-secondary" onclick="window.location.href='index.php'">Tillbaka</button>
     </div>
 </form>
 </div>

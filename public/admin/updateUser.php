@@ -81,9 +81,7 @@ include('layout/header.php');
                     </div>
                     <div>
                         <input class="edit-btn btn btn-success" type="submit" name="updateUserBtn" value="Uppdatera">
-                        <input class="btn btn-outline-info" type="submit" name="Back to Users" value="Tillbaka">
-                    </div>
-                        <!--  <a href="users.php">To users</a> -->
+                        <button type="button" class="btn btn-secondary mr-auto" onclick="window.location.href='users.php'">Tillbaka</button>
                     </div>
             </form>
     

@@ -19,12 +19,16 @@
         $message = successMessage("Email adressen har uppdaterats.");
     }
 
+    if (isset($_GET['phoneUpdated'])) {
+        $message = successMessage("Telefonnummret har uppdaterats.");
+    }
+
     if (isset($_GET['passwordUpdated'])) {
         $message = successMessage("Lösenordet har uppdaterats.");
     }
 
-    if (isset($_GET['informationUpdated'])) {
-        $message = successMessage("Informationen har uppdaterats.");
+    if (isset($_GET['adressUpdated'])) {
+        $message = successMessage("Adressen har uppdaterats.");
     }
 
     $user = $crudFunctions->fetchUserById($_SESSION['id']);
@@ -32,11 +36,11 @@
 	include('layout/header.php');
 ?>
 
-<?=$message?>
-
 <div class="form-style">
     <h2>Min sida</h2>
     <h4>Hantera uppgifter</h4>
+
+    <div class="myPageMessage"><?=$message?></div>
 
     <div class="form-gap">
         <label for="first_name">Förnamn:</label><br>
@@ -69,17 +73,8 @@
         <b><?=$user['city']?></b><br>
         <label for="first_name">Land:</label><br>
         <b><?=$user['country']?></b><br>
-        <button type="button" class="my-page-btn btn btn-success" data-toggle="modal" data-target="#informationModal" data-street="<?=$user['street']?>" data-postalcode="<?=$user['postal_code']?>" data-city="<?=$user['city']?>" data-country="<?=$user['country']?>">Uppdatera adress </button>
+        <button type="button" class="my-page-btn btn btn-success" data-toggle="modal" data-target="#adressModal" data-street="<?=$user['street']?>" data-postalcode="<?=$user['postal_code']?>" data-city="<?=$user['city']?>" data-country="<?=$user['country']?>">Uppdatera adress </button>
     </div>
-
-<!-- <div class="form-gap">
-    <b>Telefon:</b> <?=$user['phone']?>
-    <b>Adress:</b> <?=$user['street']?> 
-    <b>Postnummer:</b> <?=$user['postal_code']?>
-    <b>Ort:</b> <?=$user['city']?>
-    <b>Land:</b> <?=$user['country']?> <br>
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#informationModal" data-phone="<?=$user['phone']?>" data-street="<?=$user['street']?>" data-postalcode="<?=$user['postal_code']?>" data-city="<?=$user['city']?>" data-country="<?=$user['country']?>">Uppdatera information </button>
-</div> -->
 
 <div class="form-gap">
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Radera konto</button>
@@ -138,7 +133,6 @@
 </div>
 
 <!-- PHONEMODAL -->
-
 <div class="modal fade" id="phoneModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -149,8 +143,8 @@
                 <div class="modal-body">
                     <div class="formMessage"></div>
                     <div class="form-group">
-                        <label for="email" class="col-form-label">Telefon:</label>
-                        <input type="text" class="form-control" name="phone">
+                        <label for="phone" class="col-form-label">Telefon:</label>
+                        <input type="number" class="form-control" name="phone">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -197,14 +191,14 @@
     </div>
 </div>
 
-<!-- INFORMATIONMODAL -->
-<div class="modal fade" id="informationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- ADRESSMODAL -->
+<div class="modal fade" id="adressModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Uppdatera lösenord</h5>
             </div>
-            <form id="updateInformationForm" action="../src/app/API.php" method="POST">
+            <form id="updateAdressForm" action="../src/app/API.php" method="POST">
                 <div class="modal-body">
                     <div class="formMessage"></div>
                     <div class="form-group">
@@ -226,7 +220,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Stäng</button>
-                    <input type="submit" class="btn btn-success" name="updateInformationBtn" value="Uppdatera">
+                    <input type="submit" class="btn btn-success" name="updateAdressBtn" value="Uppdatera">
                 </div>
             </form>
         </div>
@@ -288,21 +282,28 @@
         modal.find('.modal-body input[name="email"]').val(email);
     })
 
+    $('#phoneModal').on('show.bs.modal', function (event) {
+        $('.formMessage').html("");
+        var button = $(event.relatedTarget);
+        var phone = button.data('phone');
+        
+        var modal = $(this);
+        modal.find('.modal-body input[name="phone"]').val(phone);
+    })
+
     $('#passwordModal').on('show.bs.modal', function (event) {
         $('.formMessage').html("");
     })
 
-    $('#informationModal').on('show.bs.modal', function (event) {
+    $('#adressModal').on('show.bs.modal', function (event) {
         $('.formMessage').html("");
         var button = $(event.relatedTarget);
-        var phone = button.data('phone');
         var street = button.data('street');
         var postalcode = button.data('postalcode');
         var city = button.data('city');
         var country = button.data('country');
 
         var modal = $(this);
-        modal.find('.modal-body input[name="phone"]').val(phone);
         modal.find('.modal-body input[name="street"]').val(street);
         modal.find('.modal-body input[name="postalcode"]').val(postalcode);
         modal.find('.modal-body input[name="city"]').val(city);

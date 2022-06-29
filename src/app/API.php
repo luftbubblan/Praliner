@@ -38,6 +38,19 @@ if(isset($_POST['updateEmailBtn'])) {
     ];
 }
 
+if(isset($_POST['updatePhoneBtn'])) {
+    $phone = trim($_POST['phone']);
+
+    $message .= phoneNumberMustBeTenDigits($phone);
+
+    $message .= $crudFunctions->updatePhone($message, $phone, $_SESSION['id']);
+    
+    $data = [
+        'message' => $message,
+        'user'    => $user
+    ];
+}
+
 if(isset($_POST['updatePasswordBtn'])) {
     $oldpassword =        trim($_POST['oldpassword']);
     $newpassword =        trim($_POST['newpassword']);
@@ -64,20 +77,18 @@ if(isset($_POST['updatePasswordBtn'])) {
     ];
 }
 
-if(isset($_POST['updateInformationBtn'])) {
-    $phone =           trim($_POST['phone']);
+if(isset($_POST['updateAdressBtn'])) {
     $street =  ucfirst(trim($_POST['street']));
     $postalCode =      trim($_POST['postalcode']);
     $city =    ucfirst(trim($_POST['city']));
     $country = ucfirst(trim($_POST['country']));
 
-    $message .= phoneNumberMustBeTenDigits($phone);
     $message .= ifEmptyGenerateMessage($street, "Adress måste vara ifyllt.");
     $message .= postalCodeMustBeFiveDigits($postalCode);
     $message .= ifEmptyGenerateMessage($city, "Ort måste vara ifyllt.");
     $message .= ifEmptyGenerateMessage($country, "Land måste vara ifyllt.");
 
-    $message .= $crudFunctions->updateInformation($message, $phone, $street, $postalCode, $city, $country, $_SESSION['id']);
+    $message .= $crudFunctions->updateAdress($message, $street, $postalCode, $city, $country, $_SESSION['id']);
 
     $data = [
         'message' => $message,

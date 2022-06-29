@@ -119,6 +119,25 @@ class CRUDFunctions {
         }
     }
 
+    function updatePhone($message, $phone, $id) {
+        if (empty($message)) {
+            $sql = "
+                UPDATE users
+                SET
+                    phone = :phone
+                WHERE id = :id
+            ";
+            
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':phone', $phone);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+
+            $message = successMessage("Telefonnummret har uppdaterats.");
+            return $message;
+        }
+    }
+
     function updatePassword($message, $newpassword, $id) {
         if (empty($message)) {
             $encryptedPassword = encryptPassword($newpassword);
@@ -140,12 +159,11 @@ class CRUDFunctions {
         }
     }
 
-    function updateInformation($message, $phone, $street, $postalCode, $city, $country, $id) {
+    function updateAdress($message, $street, $postalCode, $city, $country, $id) {
         if (empty($message)) {
             $sql = "
                 UPDATE users
                 SET
-                    phone = :phone,
                     street = :street,
                     postal_code = :postal_code,
                     city = :city,
@@ -154,7 +172,6 @@ class CRUDFunctions {
             ";
             
             $stmt = $this->pdo->prepare($sql);
-            $stmt->bindParam(':phone', $phone);
             $stmt->bindParam(':street', $street);
             $stmt->bindParam(':postal_code', $postalCode);
             $stmt->bindParam(':city', $city);
@@ -162,7 +179,7 @@ class CRUDFunctions {
             $stmt->bindParam(':id', $id);
             $stmt->execute();
 
-            $message = successMessage("Informationen har uppdaterats.");
+            $message = successMessage("Adress har uppdaterats.");
             return $message;
         }
     }
