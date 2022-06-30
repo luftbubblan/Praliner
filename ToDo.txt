@@ -113,12 +113,9 @@ DONE - GÖR OM ALLT TILL SVENSKA
 DONE - Designa Mina Sidor (ANNA)
 
 
+DONE - Skapa praliner och användare i DB (ANNA)
 
-
-
-Skapa praliner och användare i DB (ANNA)
-
-Planera redovisning
+DONE - Planera redovisning
 
 
 
