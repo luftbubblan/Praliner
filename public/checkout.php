@@ -1,5 +1,5 @@
 <?php
-    $pageTitle = "Varukorg";
+    $pageTitle = "Kassa";
 
     require('../src/config.php');
     require('../src/app/CRUD_functions.php');

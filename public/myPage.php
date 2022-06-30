@@ -37,7 +37,7 @@
 ?>
 
 <div class="form-style">
-    <h2>Min sida</h2>
+    <h2>Mina sidor</h2>
     <h4>Hantera uppgifter</h4>
 
     <div class="myPageMessage"><?=$message?></div>

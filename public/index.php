@@ -1,5 +1,5 @@
 <?php
-	$pageTitle = "Shop";
+	$pageTitle = "Butik";
 
 	require('../src/config.php');
 	require('../src/app/common_functions.php');

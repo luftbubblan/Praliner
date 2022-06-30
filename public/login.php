@@ -1,5 +1,5 @@
 <?php
-	$pageTitle = "Login";
+	$pageTitle = "Logga in";
 
 	require('../src/config.php');
     require('../src/app/common_functions.php');
